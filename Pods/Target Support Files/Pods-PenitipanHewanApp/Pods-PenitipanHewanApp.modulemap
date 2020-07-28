@@ -1,0 +1,6 @@
+framework module Pods_PenitipanHewanApp {
+  umbrella header "Pods-PenitipanHewanApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
