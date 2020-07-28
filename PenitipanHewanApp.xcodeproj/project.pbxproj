@@ -15,6 +15,9 @@
 		3FF6AA5024D00BD80008AD79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4E24D00BD80008AD79 /* LaunchScreen.storyboard */; };
 		3FF6AA5B24D00BD80008AD79 /* PenitipanHewanAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA5A24D00BD80008AD79 /* PenitipanHewanAppTests.swift */; };
 		3FF6AA6B24D011670008AD79 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA6A24D011670008AD79 /* Login.swift */; };
+		3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA7D24D079670008AD79 /* customTabbar.swift */; };
+		3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA8124D080850008AD79 /* UserTabBarController.swift */; };
+		3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		3FF6AA5A24D00BD80008AD79 /* PenitipanHewanAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenitipanHewanAppTests.swift; sourceTree = "<group>"; };
 		3FF6AA5C24D00BD80008AD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF6AA6A24D011670008AD79 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		3FF6AA7D24D079670008AD79 /* customTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabbar.swift; sourceTree = "<group>"; };
+		3FF6AA8124D080850008AD79 /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBarController.swift; sourceTree = "<group>"; };
+		3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 			children = (
 				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
+				3FF6AA6D24D072C90008AD79 /* User */,
+				3FF6AA6C24D072C20008AD79 /* Petshop */,
 				3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */,
 				3FF6AA4C24D00BD80008AD79 /* Assets.xcassets */,
 				3FF6AA4E24D00BD80008AD79 /* LaunchScreen.storyboard */,
@@ -138,8 +146,89 @@
 		3FF6AA6924D00F540008AD79 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3FF6AA7D24D079670008AD79 /* customTabbar.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		3FF6AA6C24D072C20008AD79 /* Petshop */ = {
+			isa = PBXGroup;
+			children = (
+				3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */,
+				3FF6AA7824D074860008AD79 /* Shop */,
+				3FF6AA7724D074830008AD79 /* Monitoring */,
+				3FF6AA7624D074800008AD79 /* Chat */,
+				3FF6AA7524D0747E0008AD79 /* Profile */,
+			);
+			path = Petshop;
+			sourceTree = "<group>";
+		};
+		3FF6AA6D24D072C90008AD79 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3FF6AA8124D080850008AD79 /* UserTabBarController.swift */,
+				3FF6AA7424D074500008AD79 /* Home */,
+				3FF6AA7324D0744D0008AD79 /* Pet */,
+				3FF6AA7224D0744A0008AD79 /* Chat */,
+				3FF6AA7124D074460008AD79 /* Profile */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		3FF6AA7124D074460008AD79 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3FF6AA7224D0744A0008AD79 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		3FF6AA7324D0744D0008AD79 /* Pet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pet;
+			sourceTree = "<group>";
+		};
+		3FF6AA7424D074500008AD79 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3FF6AA7524D0747E0008AD79 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3FF6AA7624D074800008AD79 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		3FF6AA7724D074830008AD79 /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Monitoring;
+			sourceTree = "<group>";
+		};
+		3FF6AA7824D074860008AD79 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,10 +332,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
 				3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */,
 				3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */,
 				3FF6AA4B24D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld in Sources */,
+				3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */,
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
+				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
