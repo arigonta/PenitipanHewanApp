@@ -84,7 +84,6 @@
 				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
 				3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */,
-				3FF6AA4624D00BD70008AD79 /* Main.storyboard */,
 				3FF6AA4C24D00BD80008AD79 /* Assets.xcassets */,
 				3FF6AA4E24D00BD80008AD79 /* LaunchScreen.storyboard */,
 				3FF6AA5124D00BD80008AD79 /* Info.plist */,
@@ -123,6 +122,7 @@
 		3FF6AA6724D00CFD0008AD79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3FF6AA4624D00BD70008AD79 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
