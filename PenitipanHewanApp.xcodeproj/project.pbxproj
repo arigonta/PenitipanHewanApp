@@ -18,6 +18,9 @@
 		3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA7D24D079670008AD79 /* customTabbar.swift */; };
 		3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA8124D080850008AD79 /* UserTabBarController.swift */; };
 		3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */; };
+		4E91D30C189F5FA10C4E9751 /* Pods_PenitipanHewanAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */; };
+		84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84851D9224D0936200D131DD /* GoogleService-Info.plist */; };
+		872651A1A79AB18F75B91FA4 /* Pods_PenitipanHewanApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E36106D1EF9621DEB34EDF /* Pods_PenitipanHewanApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E4F22F8592693A5CEA12A6D /* Pods-PenitipanHewanAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.release.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenitipanHewanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +50,12 @@
 		3FF6AA7D24D079670008AD79 /* customTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabbar.swift; sourceTree = "<group>"; };
 		3FF6AA8124D080850008AD79 /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBarController.swift; sourceTree = "<group>"; };
 		3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopTabBarController.swift; sourceTree = "<group>"; };
+		6ED2B8B5BF8E05730523FD38 /* Pods-PenitipanHewanAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		84851D9224D0936200D131DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenitipanHewanAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E36106D1EF9621DEB34EDF /* Pods_PenitipanHewanApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenitipanHewanApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F33CCF16D3F490CA76197D /* Pods-PenitipanHewanApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanApp.release.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanApp/Pods-PenitipanHewanApp.release.xcconfig"; sourceTree = "<group>"; };
+		F82894CE63D6C4091B8E5958 /* Pods-PenitipanHewanApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanApp.debug.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanApp/Pods-PenitipanHewanApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872651A1A79AB18F75B91FA4 /* Pods_PenitipanHewanApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,18 +71,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E91D30C189F5FA10C4E9751 /* Pods_PenitipanHewanAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DAE9E688E844CB8D292F510 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F82894CE63D6C4091B8E5958 /* Pods-PenitipanHewanApp.debug.xcconfig */,
+				F5F33CCF16D3F490CA76197D /* Pods-PenitipanHewanApp.release.xcconfig */,
+				6ED2B8B5BF8E05730523FD38 /* Pods-PenitipanHewanAppTests.debug.xcconfig */,
+				1E4F22F8592693A5CEA12A6D /* Pods-PenitipanHewanAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3FF6AA3424D00BD70008AD79 = {
 			isa = PBXGroup;
 			children = (
 				3FF6AA3F24D00BD70008AD79 /* PenitipanHewanApp */,
 				3FF6AA5924D00BD80008AD79 /* PenitipanHewanAppTests */,
 				3FF6AA3E24D00BD70008AD79 /* Products */,
+				0DAE9E688E844CB8D292F510 /* Pods */,
+				415F083997E1E18810C5D587 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +121,7 @@
 				3FF6AA4C24D00BD80008AD79 /* Assets.xcassets */,
 				3FF6AA4E24D00BD80008AD79 /* LaunchScreen.storyboard */,
 				3FF6AA5124D00BD80008AD79 /* Info.plist */,
+				84851D9224D0936200D131DD /* GoogleService-Info.plist */,
 				3FF6AA4924D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld */,
 			);
 			path = PenitipanHewanApp;
@@ -231,6 +258,15 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
+		415F083997E1E18810C5D587 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9E36106D1EF9621DEB34EDF /* Pods_PenitipanHewanApp.framework */,
+				ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FF6AA5F24D00BD80008AD79 /* Build configuration list for PBXNativeTarget "PenitipanHewanApp" */;
 			buildPhases = (
+				C115E4A2C5A9E5D7B5D7C70A /* [CP] Check Pods Manifest.lock */,
 				3FF6AA3924D00BD70008AD79 /* Sources */,
 				3FF6AA3A24D00BD70008AD79 /* Frameworks */,
 				3FF6AA3B24D00BD70008AD79 /* Resources */,
+				19C3A90719E2EA9EFD7D2651 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +293,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FF6AA6224D00BD80008AD79 /* Build configuration list for PBXNativeTarget "PenitipanHewanAppTests" */;
 			buildPhases = (
+				911940C3C913C3E79342BD59 /* [CP] Check Pods Manifest.lock */,
 				3FF6AA5224D00BD80008AD79 /* Sources */,
 				3FF6AA5324D00BD80008AD79 /* Frameworks */,
 				3FF6AA5424D00BD80008AD79 /* Resources */,
@@ -315,6 +354,7 @@
 				3FF6AA5024D00BD80008AD79 /* LaunchScreen.storyboard in Resources */,
 				3FF6AA4D24D00BD80008AD79 /* Assets.xcassets in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
+				84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +366,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19C3A90719E2EA9EFD7D2651 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenitipanHewanApp/Pods-PenitipanHewanApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenitipanHewanApp/Pods-PenitipanHewanApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PenitipanHewanApp/Pods-PenitipanHewanApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911940C3C913C3E79342BD59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenitipanHewanAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C115E4A2C5A9E5D7B5D7C70A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenitipanHewanApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FF6AA3924D00BD70008AD79 /* Sources */ = {
@@ -496,6 +600,7 @@
 		};
 		3FF6AA6024D00BD80008AD79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82894CE63D6C4091B8E5958 /* Pods-PenitipanHewanApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,6 +620,7 @@
 		};
 		3FF6AA6124D00BD80008AD79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5F33CCF16D3F490CA76197D /* Pods-PenitipanHewanApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +640,7 @@
 		};
 		3FF6AA6324D00BD80008AD79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ED2B8B5BF8E05730523FD38 /* Pods-PenitipanHewanAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -556,6 +663,7 @@
 		};
 		3FF6AA6424D00BD80008AD79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4F22F8592693A5CEA12A6D /* Pods-PenitipanHewanAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
