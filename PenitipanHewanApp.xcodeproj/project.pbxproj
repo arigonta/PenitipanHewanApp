@@ -23,6 +23,14 @@
 		843043AC24D1B30D00DCC642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 843043AB24D1B30D00DCC642 /* SnapKit */; };
 		843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */; };
 		843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */; };
+		847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037C524D1E9ED0012269E /* ShopViewController.swift */; };
+		847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */; };
+		847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */; };
+		847037CF24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */; };
+		847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037D124D1EB260012269E /* PetshopChatStoryboard.storyboard */; };
+		847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D324D1EB330012269E /* PetshopChatViewController.swift */; };
+		847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */; };
+		847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */; };
 		84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84851D9224D0936200D131DD /* GoogleService-Info.plist */; };
 		84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89F4924D1C164006FE47F /* UserPetshopCell.swift */; };
 		84D89F4C24D1C164006FE47F /* UserPetshopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */; };
@@ -67,6 +75,14 @@
 		8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopViewController.swift; sourceTree = "<group>"; };
 		843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopViewController.xib; sourceTree = "<group>"; };
+		847037C524D1E9ED0012269E /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopStoryboard.storyboard; sourceTree = "<group>"; };
+		847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopMonitoringViewController.swift; sourceTree = "<group>"; };
+		847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopMonitoringStoryboard.storyboard; sourceTree = "<group>"; };
+		847037D124D1EB260012269E /* PetshopChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopChatStoryboard.storyboard; sourceTree = "<group>"; };
+		847037D324D1EB330012269E /* PetshopChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopChatViewController.swift; sourceTree = "<group>"; };
+		847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopProfileViewController.swift; sourceTree = "<group>"; };
 		84851D9224D0936200D131DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84D89F4924D1C164006FE47F /* UserPetshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopCell.swift; sourceTree = "<group>"; };
 		84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopCell.xib; sourceTree = "<group>"; };
@@ -208,10 +224,10 @@
 			isa = PBXGroup;
 			children = (
 				3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */,
-				3FF6AA7824D074860008AD79 /* Shop */,
-				3FF6AA7724D074830008AD79 /* Monitoring */,
-				3FF6AA7624D074800008AD79 /* Chat */,
-				3FF6AA7524D0747E0008AD79 /* Profile */,
+				847037C424D1E9CB0012269E /* Shop */,
+				847037C924D1EA670012269E /* Monitoring */,
+				847037D024D1EB100012269E /* Chat */,
+				847037D524D1EBA00012269E /* Profile */,
 			);
 			path = Petshop;
 			sourceTree = "<group>";
@@ -226,34 +242,6 @@
 				84EBC41824D1131400A87111 /* Profile */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		3FF6AA7524D0747E0008AD79 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		3FF6AA7624D074800008AD79 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
-		3FF6AA7724D074830008AD79 /* Monitoring */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Monitoring;
-			sourceTree = "<group>";
-		};
-		3FF6AA7824D074860008AD79 /* Shop */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shop;
 			sourceTree = "<group>";
 		};
 		415F083997E1E18810C5D587 /* Frameworks */ = {
@@ -292,6 +280,42 @@
 				84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */,
 			);
 			path = PetshopListCell;
+			sourceTree = "<group>";
+		};
+		847037C424D1E9CB0012269E /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				847037C524D1E9ED0012269E /* ShopViewController.swift */,
+				847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		847037C924D1EA670012269E /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */,
+				847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */,
+			);
+			path = Monitoring;
+			sourceTree = "<group>";
+		};
+		847037D024D1EB100012269E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				847037D124D1EB260012269E /* PetshopChatStoryboard.storyboard */,
+				847037D324D1EB330012269E /* PetshopChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		847037D524D1EBA00012269E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */,
+				847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		84EBC41824D1131400A87111 /* Profile */ = {
@@ -414,11 +438,15 @@
 				84EBC42524D1190800A87111 /* UserHomeStoryboard.storyboard in Resources */,
 				3FF6AA5024D00BD80008AD79 /* LaunchScreen.storyboard in Resources */,
 				84EBC42724D11A3300A87111 /* UserProfileStoryboard.storyboard in Resources */,
+				847037CF24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard in Resources */,
 				84D89F4C24D1C164006FE47F /* UserPetshopCell.xib in Resources */,
 				3FF6AA4D24D00BD80008AD79 /* Assets.xcassets in Resources */,
+				847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */,
 				84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
 				84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */,
+				847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */,
+				847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */,
 				843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,18 +531,22 @@
 			files = (
 				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
 				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
+				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
 				84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */,
 				84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */,
 				3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */,
 				3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */,
+				847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */,
 				3FF6AA4B24D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld in Sources */,
 				84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */,
 				3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */,
 				843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */,
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
+				847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
+				847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

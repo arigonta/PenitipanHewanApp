@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Monitoring-->
+        <scene sceneID="dOX-sC-9IQ">
+            <objects>
+                <viewController id="FGw-i4-5V8" customClass="PetshopMonitoringViewController" customModule="PenitipanHewanApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HOc-fe-Pi3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DBi-r0-0PP">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DBi-r0-0PP" firstAttribute="top" secondItem="Ii6-PC-dsU" secondAttribute="top" id="Uaq-ee-Nfh"/>
+                            <constraint firstItem="Ii6-PC-dsU" firstAttribute="trailing" secondItem="DBi-r0-0PP" secondAttribute="trailing" id="Vje-mT-u4D"/>
+                            <constraint firstItem="DBi-r0-0PP" firstAttribute="leading" secondItem="Ii6-PC-dsU" secondAttribute="leading" id="o1k-CU-3if"/>
+                            <constraint firstItem="Ii6-PC-dsU" firstAttribute="bottom" secondItem="DBi-r0-0PP" secondAttribute="bottom" id="y36-X2-8HN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ii6-PC-dsU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Monitoring" id="E6W-qm-l6S">
+                        <barButtonItem key="backBarButtonItem" title=" " id="aeg-mo-cdd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="DBi-r0-0PP" id="CyX-XF-Znz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Bo-Y6-Ue8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="66.964285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tmp-dZ-sRE">
+            <objects>
+                <navigationController storyboardIdentifier="PetshopMonitoringNav" automaticallyAdjustsScrollViewInsets="NO" id="4iD-eE-KsW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I4y-7p-imJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FGw-i4-5V8" kind="relationship" relationship="rootViewController" id="dji-Ga-Bb7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLD-zK-QIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="66.964285714285708"/>
+        </scene>
+    </scenes>
+</document>

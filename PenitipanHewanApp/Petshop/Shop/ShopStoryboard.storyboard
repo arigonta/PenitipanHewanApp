@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shop-->
+        <scene sceneID="ive-kc-gbA">
+            <objects>
+                <viewController id="NRv-ZU-BDk" customClass="ShopViewController" customModule="PenitipanHewanApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SLu-9M-8vW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-ok-mcN">
+                                <rect key="frame" x="8" y="52" width="359" height="32"/>
+                                <segments>
+                                    <segment title="Reservation"/>
+                                    <segment title="Paket"/>
+                                </segments>
+                                <color key="tintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedTapped:" destination="NRv-ZU-BDk" eventType="valueChanged" id="Wmm-6m-z6W"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0F-s6-YA4">
+                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
+                                <connections>
+                                    <segue destination="g3m-I7-lcn" kind="embed" id="VRx-bc-ria"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3g7-AE-lHs">
+                                <rect key="frame" x="0.0" y="91" width="375" height="576"/>
+                                <connections>
+                                    <segue destination="KZz-OY-abS" kind="embed" id="W6m-uh-ziW"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3g7-AE-lHs" firstAttribute="top" secondItem="kcR-ok-mcN" secondAttribute="bottom" constant="8" id="2Jm-Je-9vN"/>
+                            <constraint firstItem="x7x-xk-cuq" firstAttribute="bottom" secondItem="3g7-AE-lHs" secondAttribute="bottom" id="6tD-cC-vxV"/>
+                            <constraint firstItem="x7x-xk-cuq" firstAttribute="trailing" secondItem="U0F-s6-YA4" secondAttribute="trailing" id="Bwv-wT-p9O"/>
+                            <constraint firstItem="kcR-ok-mcN" firstAttribute="leading" secondItem="x7x-xk-cuq" secondAttribute="leading" constant="8" id="HT1-aJ-huS"/>
+                            <constraint firstItem="kcR-ok-mcN" firstAttribute="top" secondItem="x7x-xk-cuq" secondAttribute="top" constant="8" id="T18-Ws-BhB"/>
+                            <constraint firstItem="x7x-xk-cuq" firstAttribute="trailing" secondItem="3g7-AE-lHs" secondAttribute="trailing" id="Vie-lQ-vIq"/>
+                            <constraint firstItem="U0F-s6-YA4" firstAttribute="leading" secondItem="x7x-xk-cuq" secondAttribute="leading" id="ZFG-O9-iqZ"/>
+                            <constraint firstItem="U0F-s6-YA4" firstAttribute="top" secondItem="kcR-ok-mcN" secondAttribute="bottom" constant="8" id="aqv-ER-cNB"/>
+                            <constraint firstItem="x7x-xk-cuq" firstAttribute="bottom" secondItem="U0F-s6-YA4" secondAttribute="bottom" id="b64-6p-nU7"/>
+                            <constraint firstItem="3g7-AE-lHs" firstAttribute="leading" secondItem="x7x-xk-cuq" secondAttribute="leading" id="frB-ze-Hgx"/>
+                            <constraint firstItem="x7x-xk-cuq" firstAttribute="trailing" secondItem="kcR-ok-mcN" secondAttribute="trailing" constant="8" id="nYH-MS-y5c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x7x-xk-cuq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Shop" id="JSn-oO-EAd">
+                        <barButtonItem key="backBarButtonItem" title=" " id="SWw-9v-PPc"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="paketView" destination="3g7-AE-lHs" id="nOi-73-msD"/>
+                        <outlet property="reservationView" destination="U0F-s6-YA4" id="edF-cd-XMq"/>
+                        <outlet property="segmentedControl" destination="kcR-ok-mcN" id="ytY-o1-Wsg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcd-Kb-36c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="108.39580209895054"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ERL-Hq-a8d">
+            <objects>
+                <navigationController storyboardIdentifier="ShopNav" automaticallyAdjustsScrollViewInsets="NO" id="lYd-We-UsC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zM0-ZW-IiY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NRv-ZU-BDk" kind="relationship" relationship="rootViewController" id="zSd-YP-CfE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sdh-XP-ASq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88.799999999999997" y="108.39580209895054"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fiQ-3a-QGQ">
+            <objects>
+                <viewController id="g3m-I7-lcn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ft-gt-E7s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-8U-HgD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qBg-8U-HgD" secondAttribute="trailing" id="AbH-0x-NZd"/>
+                            <constraint firstItem="qBg-8U-HgD" firstAttribute="top" secondItem="9ft-gt-E7s" secondAttribute="topMargin" id="Hti-XA-GyZ"/>
+                            <constraint firstItem="qBg-8U-HgD" firstAttribute="leading" secondItem="9ft-gt-E7s" secondAttribute="leading" id="ePG-aC-xwr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qBg-8U-HgD" secondAttribute="bottom" id="xsD-BU-uvj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE0-Zk-3Ri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613.60000000000002" y="805.99700149925047"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TG9-0H-Cga">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="KZz-OY-abS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3ID-KQ-3pO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7w-5g-6Hd">
+                                <rect key="frame" x="8" y="520" width="359" height="48"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="9nS-0U-yLI"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Paket" image="plus" catalog="system"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LUO-xF-lme">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="520"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LUO-xF-lme" secondAttribute="trailing" id="Egh-7y-dtD"/>
+                            <constraint firstAttribute="trailing" secondItem="B7w-5g-6Hd" secondAttribute="trailing" constant="8" id="JzC-5r-ngD"/>
+                            <constraint firstItem="LUO-xF-lme" firstAttribute="top" secondItem="3ID-KQ-3pO" secondAttribute="topMargin" id="UME-7v-AN7"/>
+                            <constraint firstItem="B7w-5g-6Hd" firstAttribute="leading" secondItem="3ID-KQ-3pO" secondAttribute="leading" constant="8" id="VAo-bc-nRU"/>
+                            <constraint firstItem="B7w-5g-6Hd" firstAttribute="top" secondItem="LUO-xF-lme" secondAttribute="bottom" id="d3j-dH-uhS"/>
+                            <constraint firstItem="LUO-xF-lme" firstAttribute="leading" secondItem="3ID-KQ-3pO" secondAttribute="leading" id="rn2-kO-k1g"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="B7w-5g-6Hd" secondAttribute="bottom" constant="8" id="u3l-DV-heM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6Q-jR-GQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="806"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
