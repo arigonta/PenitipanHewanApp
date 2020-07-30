@@ -25,16 +25,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let window = window else { return }
         if usernameTextField.text == "user" {
-            if let view = storyboard.instantiateViewController(withIdentifier: "UserTabBarController") as? UserTabBarController {
-                self.window?.rootViewController = view
-                self.window?.makeKeyAndVisible()
+            dismissView(weakVar: self) {
+                $0.goToUserTabbar(window: window)
             }
+            
         } else if usernameTextField.text == "pet" {
-            if let view = storyboard.instantiateViewController(withIdentifier: "PetShopTabBarController") as? PetShopTabBarController {
-                self.window?.rootViewController = view
-                self.window?.makeKeyAndVisible()
+            dismissView(weakVar: self) {
+                $0.goToPetshopTabbar(window: window)
             }
         }
         
@@ -52,4 +51,3 @@ class LoginViewController: UIViewController {
         
     }
 }
-

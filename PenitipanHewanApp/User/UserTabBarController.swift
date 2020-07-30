@@ -37,8 +37,8 @@ class UserTabBarController: UITabBarController {
         
         let icon1 = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
         let icon4 = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
-        let icon2 = UITabBarItem(title: "Chat", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chat"))
-        let icon3 = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
+        let icon2 = UITabBarItem(title: "Pet", image: UIImage(named: "pet"), selectedImage: UIImage(named: "pet"))
+        let icon3 = UITabBarItem(title: "Chat", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chat"))
         
         view1?.tabBarItem = icon1
         view2?.tabBarItem = icon2
