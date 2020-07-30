@@ -20,6 +20,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="CVP-kP-WJS">
                         <barButtonItem key="backBarButtonItem" title=" " id="ac1-Gj-nuG"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Wpl-P2-ClH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7v-P0-D1P">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="Ks9-BS-Ap0" eventType="touchUpInside" id="NnB-xK-IIQ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sg9-d9-Rfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

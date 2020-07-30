@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User Pet View Controller-->
+        <!--Pet-->
         <scene sceneID="Qyy-Jm-osw">
             <objects>
                 <viewController id="dG1-St-mhC" customClass="UserPetViewController" customModule="PenitipanHewanApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,7 +27,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="neA-P5-fte"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Aa-u9-3PT"/>
+                    <navigationItem key="navigationItem" title="Pet" id="1Aa-u9-3PT">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fYs-Dh-DCR"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tA-81-le3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,6 +43,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bWY-CG-yTO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
