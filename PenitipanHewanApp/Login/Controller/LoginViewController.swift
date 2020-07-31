@@ -28,7 +28,6 @@ class LoginViewController: UIViewController {
         loginModel.removeAll()
         window = appDelegate.window
         fetchCoreData()
-        isLogin()
         
         //MARK: For Checking User Colmek
         loginModel.forEach { (i) in
@@ -47,23 +46,6 @@ class LoginViewController: UIViewController {
         usernameTextField.setMainUnderLine()
         passwordTextField.setMainUnderLine()
         titleLabel.textColor = ColorHelper.instance.mainGreen
-    }
-    
-    private func isLogin() {
-        let isLoggedIn = userDefault.bool(forKey: "isLoggedIn")
-        let lastRole = userDefault.string(forKey: "lastRole")
-        if isLoggedIn {
-            guard let window = window else { return }
-            if lastRole?.contains("User") ?? false {
-                dismissView(weakVar: self) {
-                    $0.goToUserTabbar(window: window)
-                }
-            } else {
-                dismissView(weakVar: self) {
-                    $0.goToPetshopTabbar(window: window)
-                }
-            }
-        }
     }
     
     func fetchCoreData() {
@@ -88,9 +70,9 @@ class LoginViewController: UIViewController {
         let isLoggedIn = true
         //for temporary login using coredata aka colmek
         loginModel.forEach { (i) in
-            if usernameTextField.text == i.username && usernameTextField.text == i.password {
-                userDefault.set(isLoggedIn, forKey: "isLoggedIn")
-                userDefault.set(i.role, forKey: "lastRole")
+            if usernameTextField.text == i.username && passwordTextField.text == i.password {
+                userDefault.set(isLoggedIn, forKey: CommonHelper.shared.isLogin)
+                userDefault.set(i.role, forKey: CommonHelper.shared.lastRole)
                 if i.role?.contains("Petshop") ?? false {
                     dismissView(weakVar: self) {
                         $0.goToPetshopTabbar(window: window)

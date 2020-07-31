@@ -9,14 +9,19 @@
 import UIKit
 
 class FirstStateViewController: UIViewController {
-
+    
+    var userDefault = UserDefaults.standard
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var window: UIWindow?
+    var isLoggedIn = false
+    var lastRole = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // FIXME: fix!
-        // please check user login first
-        delay(weakVar: self, deadline: .now() + 1.2) {
-            $0.presentLogin()
-        }
+        isLoggedIn = userDefault.bool(forKey: CommonHelper.shared.isLogin)
+        lastRole = userDefault.string(forKey: CommonHelper.shared.lastRole) ?? ""
+        window = appDelegate.window
+        isLogin()
     }
     
     private func presentLogin() {
@@ -24,9 +29,24 @@ class FirstStateViewController: UIViewController {
         guard
             let nav = storyboard.instantiateViewController(withIdentifier: "LoginNav") as? UINavigationController,
             let view = nav.viewControllers.first as? LoginViewController
-        else { return }
+            else { return }
         view.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
     }
-
+    
+    private func isLogin() {
+        if isLoggedIn {
+            guard let window = window else { return }
+            if lastRole.contains("User") {
+                goToUserTabbar(window: window)
+            } else {
+                goToPetshopTabbar(window: window)
+            }
+        } else {
+            delay(weakVar: self, deadline: .now()) {
+                $0.presentLogin()
+            }
+        }
+    }
+    
 }
