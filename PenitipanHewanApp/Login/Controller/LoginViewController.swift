@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         window = appDelegate.window
         fetchCoreData()
         
-        //MARK: For Checking User Colmek
+        //MARK: For Checking User
         loginModel.forEach { (i) in
             print("username: ", i.username ?? "")
             print("pass: ", i.password ?? "")
@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(_ sender: Any) {
         guard let window = window else { return }
         let isLoggedIn = true
-        //for temporary login using coredata aka colmek
+        //MARK: For Temporary Checking User
         loginModel.forEach { (i) in
             if usernameTextField.text == i.username && passwordTextField.text == i.password {
                 userDefault.set(isLoggedIn, forKey: CommonHelper.shared.isLogin)
