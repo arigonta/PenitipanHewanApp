@@ -12,7 +12,6 @@ class FirstStateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // FIXME: fix!
         // please check user login first
         delay(weakVar: self, deadline: .now() + 1.2) {

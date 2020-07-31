@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F32793E24D3A36200399D3B /* SignUp.storyboard */; };
+		3F32794124D3A37A00399D3B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794024D3A37A00399D3B /* SignUpViewController.swift */; };
+		3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794424D3A92200399D3B /* UIButton+Extension.swift */; };
+		3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794624D3AB0900399D3B /* UITextField+Extension.swift */; };
+		3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794C24D3C1FB00399D3B /* String+Extension.swift */; };
 		3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */; };
 		3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */; };
 		3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4624D00BD70008AD79 /* Main.storyboard */; };
@@ -59,6 +64,11 @@
 
 /* Begin PBXFileReference section */
 		1E4F22F8592693A5CEA12A6D /* Pods-PenitipanHewanAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.release.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F32793E24D3A36200399D3B /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		3F32794024D3A37A00399D3B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3F32794424D3A92200399D3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		3F32794624D3AB0900399D3B /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		3F32794C24D3C1FB00399D3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenitipanHewanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +147,39 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3F32793A24D3A33000399D3B /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				3F32793D24D3A34B00399D3B /* Controller */,
+				3F32793C24D3A34800399D3B /* View */,
+				3F32793B24D3A33E00399D3B /* Model */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		3F32793B24D3A33E00399D3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F32793C24D3A34800399D3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F32793E24D3A36200399D3B /* SignUp.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F32793D24D3A34B00399D3B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F32794024D3A37A00399D3B /* SignUpViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3FF6AA3424D00BD70008AD79 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +203,7 @@
 		3FF6AA3F24D00BD70008AD79 /* PenitipanHewanApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F32793A24D3A33000399D3B /* SignUp */,
 				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
 				3FF6AA6D24D072C90008AD79 /* User */,
@@ -225,6 +269,9 @@
 				84EBC41424D110FD00A87111 /* ColorHelper.swift */,
 				845DCD4324D339D100214768 /* ThreadHelper.swift */,
 				845DCD4724D3423000214768 /* UIViewController+Extension.swift */,
+				3F32794424D3A92200399D3B /* UIButton+Extension.swift */,
+				3F32794624D3AB0900399D3B /* UITextField+Extension.swift */,
+				3F32794C24D3C1FB00399D3B /* String+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -454,6 +501,7 @@
 				84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
 				84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */,
+				3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */,
 				847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */,
 				847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */,
 				843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */,
@@ -538,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F32794124D3A37A00399D3B /* SignUpViewController.swift in Sources */,
 				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
 				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
 				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
@@ -548,6 +597,7 @@
 				3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */,
 				845DCD4224D333F700214768 /* FirstStateViewController.swift in Sources */,
 				3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */,
+				3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */,
 				847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */,
 				3FF6AA4B24D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld in Sources */,
 				84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */,
@@ -558,6 +608,8 @@
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
 				845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */,
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
+				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,
+				3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */,
 				847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

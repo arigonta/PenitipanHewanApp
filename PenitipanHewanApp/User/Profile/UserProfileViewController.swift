@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UserProfileViewController: UIViewController {
     
@@ -20,7 +21,22 @@ class UserProfileViewController: UIViewController {
     }
 
     @IBAction func logoutAction(_ sender: Any) {
+//        deleteAllData()
+        UserDefaults.standard.removeObject(forKey: "isLoggedIn")
+        UserDefaults.standard.removeObject(forKey: "lastRole")
         guard let window = window else { return }
         self.goToLogin(window: window)
+    }
+    
+    private func deleteAllData() {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
+        // Create Batch Delete Request
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(batchDeleteRequest)
+        } catch {
+            // Error Handling
+        }
     }
 }
