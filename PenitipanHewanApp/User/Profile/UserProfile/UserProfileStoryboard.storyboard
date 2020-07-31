@@ -15,7 +15,19 @@
                     <view key="view" contentMode="scaleToFill" id="2p0-Uv-WuX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fXm-tG-Nnd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fXm-tG-Nnd" firstAttribute="leading" secondItem="4Xr-Uw-OAC" secondAttribute="leading" id="9V7-Of-byb"/>
+                            <constraint firstItem="4Xr-Uw-OAC" firstAttribute="bottom" secondItem="fXm-tG-Nnd" secondAttribute="bottom" id="REH-GX-vRA"/>
+                            <constraint firstItem="4Xr-Uw-OAC" firstAttribute="trailing" secondItem="fXm-tG-Nnd" secondAttribute="trailing" id="a9U-Tw-eSG"/>
+                            <constraint firstItem="fXm-tG-Nnd" firstAttribute="top" secondItem="4Xr-Uw-OAC" secondAttribute="top" id="qfK-oX-fic"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4Xr-Uw-OAC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="tnW-Fj-4eH">
@@ -31,10 +43,13 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="fXm-tG-Nnd" id="ipy-qR-bbQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4E-lj-FZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634.78260869565224" y="1131.6964285714284"/>
+            <point key="canvasLocation" x="634.78260869565224" y="1130.3571428571429"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="X8B-gZ-FN4">

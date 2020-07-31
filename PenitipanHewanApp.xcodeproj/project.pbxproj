@@ -41,6 +41,20 @@
 		847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */; };
 		847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */; };
 		84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84851D9224D0936200D131DD /* GoogleService-Info.plist */; };
+		8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */; };
+		8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */; };
+		849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */; };
+		849B4C3424D43B2A00E3560E /* UserProfileAddSaldoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B4C3224D43B2A00E3560E /* UserProfileAddSaldoViewController.xib */; };
+		849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B4C3524D44F2300E3560E /* UserProfilePasswordViewController.swift */; };
+		849B4C3824D44F2300E3560E /* UserProfilePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B4C3624D44F2300E3560E /* UserProfilePasswordViewController.xib */; };
+		84D4043324D426BB00EF5682 /* UserProfileEditDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4043124D426BB00EF5682 /* UserProfileEditDataCell.swift */; };
+		84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4043224D426BB00EF5682 /* UserProfileEditDataCell.xib */; };
+		84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4043524D42C2900EF5682 /* UserProfileSaldoCell.swift */; };
+		84D4043824D42C2900EF5682 /* UserProfileSaldoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4043624D42C2900EF5682 /* UserProfileSaldoCell.xib */; };
+		84D4043C24D42E6900EF5682 /* UserProfilePasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4043A24D42E6900EF5682 /* UserProfilePasswordCell.swift */; };
+		84D4043D24D42E6900EF5682 /* UserProfilePasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4043B24D42E6900EF5682 /* UserProfilePasswordCell.xib */; };
+		84D4044224D434AB00EF5682 /* UserEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4044024D434AB00EF5682 /* UserEditProfileViewController.swift */; };
+		84D4044324D434AB00EF5682 /* UserEditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */; };
 		84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89F4924D1C164006FE47F /* UserPetshopCell.swift */; };
 		84D89F4C24D1C164006FE47F /* UserPetshopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */; };
 		84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41424D110FD00A87111 /* ColorHelper.swift */; };
@@ -102,6 +116,20 @@
 		847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopProfileViewController.swift; sourceTree = "<group>"; };
 		84851D9224D0936200D131DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderCell.swift; sourceTree = "<group>"; };
+		8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderCell.xib; sourceTree = "<group>"; };
+		849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAddSaldoViewController.swift; sourceTree = "<group>"; };
+		849B4C3224D43B2A00E3560E /* UserProfileAddSaldoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileAddSaldoViewController.xib; sourceTree = "<group>"; };
+		849B4C3524D44F2300E3560E /* UserProfilePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePasswordViewController.swift; sourceTree = "<group>"; };
+		849B4C3624D44F2300E3560E /* UserProfilePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfilePasswordViewController.xib; sourceTree = "<group>"; };
+		84D4043124D426BB00EF5682 /* UserProfileEditDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEditDataCell.swift; sourceTree = "<group>"; };
+		84D4043224D426BB00EF5682 /* UserProfileEditDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileEditDataCell.xib; sourceTree = "<group>"; };
+		84D4043524D42C2900EF5682 /* UserProfileSaldoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSaldoCell.swift; sourceTree = "<group>"; };
+		84D4043624D42C2900EF5682 /* UserProfileSaldoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileSaldoCell.xib; sourceTree = "<group>"; };
+		84D4043A24D42E6900EF5682 /* UserProfilePasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePasswordCell.swift; sourceTree = "<group>"; };
+		84D4043B24D42E6900EF5682 /* UserProfilePasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfilePasswordCell.xib; sourceTree = "<group>"; };
+		84D4044024D434AB00EF5682 /* UserEditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditProfileViewController.swift; sourceTree = "<group>"; };
+		84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserEditProfileViewController.xib; sourceTree = "<group>"; };
 		84D89F4924D1C164006FE47F /* UserPetshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopCell.swift; sourceTree = "<group>"; };
 		84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopCell.xib; sourceTree = "<group>"; };
 		84EBC41424D110FD00A87111 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
@@ -377,11 +405,97 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		8496112324D41F6900AAD56A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84D4042E24D4264800EF5682 /* header */,
+				84D4042F24D4265600EF5682 /* data */,
+				84D4043024D4267C00EF5682 /* saldo */,
+				84D4043924D42E5300EF5682 /* password */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		849B4C3024D43B0F00E3560E /* UserAddSaldo */ = {
+			isa = PBXGroup;
+			children = (
+				849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */,
+				849B4C3224D43B2A00E3560E /* UserProfileAddSaldoViewController.xib */,
+			);
+			path = UserAddSaldo;
+			sourceTree = "<group>";
+		};
+		849B4C3924D44F2800E3560E /* UserEditPassword */ = {
+			isa = PBXGroup;
+			children = (
+				849B4C3524D44F2300E3560E /* UserProfilePasswordViewController.swift */,
+				849B4C3624D44F2300E3560E /* UserProfilePasswordViewController.xib */,
+			);
+			path = UserEditPassword;
+			sourceTree = "<group>";
+		};
+		84D4042E24D4264800EF5682 /* header */ = {
+			isa = PBXGroup;
+			children = (
+				8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */,
+				8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		84D4042F24D4265600EF5682 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				84D4043124D426BB00EF5682 /* UserProfileEditDataCell.swift */,
+				84D4043224D426BB00EF5682 /* UserProfileEditDataCell.xib */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		84D4043024D4267C00EF5682 /* saldo */ = {
+			isa = PBXGroup;
+			children = (
+				84D4043524D42C2900EF5682 /* UserProfileSaldoCell.swift */,
+				84D4043624D42C2900EF5682 /* UserProfileSaldoCell.xib */,
+			);
+			path = saldo;
+			sourceTree = "<group>";
+		};
+		84D4043924D42E5300EF5682 /* password */ = {
+			isa = PBXGroup;
+			children = (
+				84D4043A24D42E6900EF5682 /* UserProfilePasswordCell.swift */,
+				84D4043B24D42E6900EF5682 /* UserProfilePasswordCell.xib */,
+			);
+			path = password;
+			sourceTree = "<group>";
+		};
+		84D4043E24D4344D00EF5682 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				8496112324D41F6900AAD56A /* Cell */,
+				84EBC42624D11A3300A87111 /* UserProfileStoryboard.storyboard */,
+				84EBC41924D1131400A87111 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		84D4043F24D4347A00EF5682 /* UserEditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				84D4044024D434AB00EF5682 /* UserEditProfileViewController.swift */,
+				84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */,
+			);
+			path = UserEditProfile;
+			sourceTree = "<group>";
+		};
 		84EBC41824D1131400A87111 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				84EBC42624D11A3300A87111 /* UserProfileStoryboard.storyboard */,
-				84EBC41924D1131400A87111 /* UserProfileViewController.swift */,
+				84D4043E24D4344D00EF5682 /* UserProfile */,
+				84D4043F24D4347A00EF5682 /* UserEditProfile */,
+				849B4C3024D43B0F00E3560E /* UserAddSaldo */,
+				849B4C3924D44F2800E3560E /* UserEditPassword */,
 			);
 			name = Profile;
 			path = PenitipanHewanApp/User/Profile;
@@ -500,12 +614,19 @@
 				847037CF24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard in Resources */,
 				84D89F4C24D1C164006FE47F /* UserPetshopCell.xib in Resources */,
 				3FF6AA4D24D00BD80008AD79 /* Assets.xcassets in Resources */,
+				84D4044324D434AB00EF5682 /* UserEditProfileViewController.xib in Resources */,
 				847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */,
+				849B4C3824D44F2300E3560E /* UserProfilePasswordViewController.xib in Resources */,
 				84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
+				84D4043824D42C2900EF5682 /* UserProfileSaldoCell.xib in Resources */,
 				84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */,
+				84D4043D24D42E6900EF5682 /* UserProfilePasswordCell.xib in Resources */,
 				3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */,
 				847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */,
+				84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */,
+				8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */,
+				849B4C3424D43B2A00E3560E /* UserProfileAddSaldoViewController.xib in Resources */,
 				847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */,
 				843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */,
 			);
@@ -592,14 +713,18 @@
 				3F32794124D3A37A00399D3B /* SignUpViewController.swift in Sources */,
 				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
 				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
+				84D4044224D434AB00EF5682 /* UserEditProfileViewController.swift in Sources */,
 				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
+				849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */,
 				84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */,
 				845DCD4424D339D100214768 /* ThreadHelper.swift in Sources */,
 				84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */,
 				3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */,
 				845DCD4224D333F700214768 /* FirstStateViewController.swift in Sources */,
 				3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */,
+				8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */,
+				849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */,
 				3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */,
 				847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */,
 				3FF6AA4B24D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld in Sources */,
@@ -612,9 +737,12 @@
 				3FF69E3324D412740037395A /* CommonHelper.swift in Sources */,
 				845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */,
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
+				84D4043324D426BB00EF5682 /* UserProfileEditDataCell.swift in Sources */,
+				84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */,
 				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,
 				3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */,
 				847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */,
+				84D4043C24D42E6900EF5682 /* UserProfilePasswordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
