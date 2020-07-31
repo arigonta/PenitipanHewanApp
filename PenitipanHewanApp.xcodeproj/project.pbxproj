@@ -12,6 +12,9 @@
 		3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794424D3A92200399D3B /* UIButton+Extension.swift */; };
 		3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794624D3AB0900399D3B /* UITextField+Extension.swift */; };
 		3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794C24D3C1FB00399D3B /* String+Extension.swift */; };
+		3F8358E824D49E9400DFEDD6 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */; };
+		3F8358EB24D49FA400DFEDD6 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */; };
+		3F8358ED24D4A01E00DFEDD6 /* ExtReservation+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */; };
 		3FF69E3324D412740037395A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF69E3224D412740037395A /* CommonHelper.swift */; };
 		3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */; };
 		3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */; };
@@ -84,6 +87,10 @@
 		3F32794424D3A92200399D3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		3F32794624D3AB0900399D3B /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		3F32794C24D3C1FB00399D3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
+		3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtReservation+TableView.swift"; sourceTree = "<group>"; };
+		3F8358EE24D4A12F00DFEDD6 /* PenitipanHewanApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PenitipanHewanApp.entitlements; sourceTree = "<group>"; };
 		3FF69E3224D412740037395A /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenitipanHewanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +217,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		3F8358E624D49E7200DFEDD6 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358E924D49F9100DFEDD6 /* Cell */,
+				3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */,
+				3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		3F8358E924D49F9100DFEDD6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3FF6AA3424D00BD70008AD79 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +258,7 @@
 		3FF6AA3F24D00BD70008AD79 /* PenitipanHewanApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F8358EE24D4A12F00DFEDD6 /* PenitipanHewanApp.entitlements */,
 				3F32793A24D3A33000399D3B /* SignUp */,
 				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
@@ -372,6 +398,7 @@
 		847037C424D1E9CB0012269E /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				3F8358E624D49E7200DFEDD6 /* Reservation */,
 				847037C524D1E9ED0012269E /* ShopViewController.swift */,
 				847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */,
 			);
@@ -720,6 +747,7 @@
 				84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */,
 				845DCD4424D339D100214768 /* ThreadHelper.swift in Sources */,
 				84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */,
+				3F8358ED24D4A01E00DFEDD6 /* ExtReservation+TableView.swift in Sources */,
 				3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */,
 				845DCD4224D333F700214768 /* FirstStateViewController.swift in Sources */,
 				3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */,
@@ -738,11 +766,13 @@
 				845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */,
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
 				84D4043324D426BB00EF5682 /* UserProfileEditDataCell.swift in Sources */,
+				3F8358EB24D49FA400DFEDD6 /* ReservationTableViewCell.swift in Sources */,
 				84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */,
 				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,
 				3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */,
 				847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */,
 				84D4043C24D42E6900EF5682 /* UserProfilePasswordCell.swift in Sources */,
+				3F8358E824D49E9400DFEDD6 /* ReservationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +933,7 @@
 			baseConfigurationReference = F82894CE63D6C4091B8E5958 /* Pods-PenitipanHewanApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PenitipanHewanApp/PenitipanHewanApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NU4W6FYSJZ;
 				INFOPLIST_FILE = PenitipanHewanApp/Info.plist;
@@ -923,6 +954,7 @@
 			baseConfigurationReference = F5F33CCF16D3F490CA76197D /* Pods-PenitipanHewanApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PenitipanHewanApp/PenitipanHewanApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NU4W6FYSJZ;
 				INFOPLIST_FILE = PenitipanHewanApp/Info.plist;
