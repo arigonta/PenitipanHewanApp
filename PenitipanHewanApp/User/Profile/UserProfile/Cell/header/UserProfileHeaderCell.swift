@@ -10,15 +10,18 @@ import UIKit
 
 class UserProfileHeaderCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var imageProfile: UIImageView!
+    
+    public var onclickImage: (() -> Void)?
+    
+    func setCell() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped))
+        imageProfile.isUserInteractionEnabled = true
+        
+        imageProfile.addGestureRecognizer(tap)
     }
     
+    @objc private func imgTapped() {
+        self.onclickImage?()
+    }
 }

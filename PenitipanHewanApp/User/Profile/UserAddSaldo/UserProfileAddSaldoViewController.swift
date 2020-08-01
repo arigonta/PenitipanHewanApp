@@ -15,6 +15,8 @@ class UserProfileAddSaldoViewController: UIViewController {
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var saldoLbl: UILabel!
     
+    // MARK: - helper
+    var pickerHelper: PickerHelper?
     // MARK: - var
     var selectedPicker: String?
     var dataPicker: [String: Double] = ["Pilih Nominal": 0,
@@ -32,7 +34,7 @@ class UserProfileAddSaldoViewController: UIViewController {
     
     private func setFirstView() {
         initializeHidKeyboard()
-        createPickerView()
+        
         self.title = "Tambah Saldo"
         submitBtn.setTitle("Top Up Sekarang", for: .normal)
         saldoLbl.text = "Rp\(saldoPrefilled)"
@@ -41,59 +43,28 @@ class UserProfileAddSaldoViewController: UIViewController {
         saldoTF.text = "Pilih Nominal"
         saldoTF.setMainUnderLine()
         submitBtn.setButtonMainStyle()
+        
+        createPickerView()
     }
 }
 
 // MARK: - picker
 extension UserProfileAddSaldoViewController {
     func createPickerView() {
-        dismissPickerView()
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        saldoTF.inputView = pickerView
-    }
-    
-    func dismissPickerView() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissPicker))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        saldoTF.inputAccessoryView = toolBar
-    }
-    
-    @objc func dismissPicker() {
-        view.endEditing(true)
-    }
-}
-
-extension UserProfileAddSaldoViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let listValue = dataPicker.sorted { $0.value < $1.value }.compactMap { $0.value }
-        let listKey = dataPicker.sorted { $0.value < $1.value }.compactMap { $0.key }
-        
-        let value = listValue[row]
-        saldoTF.text = "Rp\(listValue[row])"
-        if value == 0 {
-            saldoTF.text = listKey[0]
-        }
-    }
-}
-
-extension UserProfileAddSaldoViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataPicker.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let listKey = dataPicker.sorted {
             $0.value < $1.value
         }.compactMap { $0.key }
-        return listKey[row]
+        
+        pickerHelper = PickerHelper(self, self)
+        pickerHelper?.setPicker(textField: saldoTF, data: listKey)
+    }
+}
+
+extension UserProfileAddSaldoViewController: PickerHelperDelegate {
+    func pickerResult(textField: UITextField, value: String) {
+        if textField == saldoTF {
+            textField.text = value
+        }
     }
 }
 

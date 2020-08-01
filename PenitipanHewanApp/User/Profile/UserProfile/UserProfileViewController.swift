@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+protocol UserProfileViewProtocol: class {
+    func reloadData()
+    func updateImage(image: UIImage)
+}
+
 class UserProfileViewController: UIViewController {
     
     // MARK: - IBOutlet
@@ -17,11 +22,16 @@ class UserProfileViewController: UIViewController {
     // MARK: - var
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
+    var presenter: UserProfilePresenterProtocol?
+    var imgProfile: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         window = appDelegate.window
+        
+        presenter = UserProfilePresenter(self)
+        
         setTable()
     }
 
@@ -63,29 +73,6 @@ extension UserProfileViewController {
         
         let passNib = UINib(nibName: "UserProfilePasswordCell", bundle: nil)
         tableView.register(passNib, forCellReuseIdentifier: "UserProfilePasswordCell")
-        
-        
-    }
-}
-
-// MARK: - Direction
-extension UserProfileViewController {
-    private func directToEditProfile() {
-        let nextVC = UserEditProfileViewController(nibName: "UserEditProfileViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    private func directToAddSaldo() {
-        let nextVC = UserProfileAddSaldoViewController(nibName: "UserProfileAddSaldoViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    private func directToChangePassword() {
-        let nextVC = UserProfilePasswordViewController(nibName: "UserProfilePasswordViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
@@ -96,11 +83,11 @@ extension UserProfileViewController: UITableViewDelegate {
         
         switch section {
         case 1:
-            directToAddSaldo()
+            presenter?.directToTopUp(self)
         case 2:
-            directToEditProfile()
+            presenter?.directToEditData(self)
         case 3:
-            directToChangePassword()
+            presenter?.directToChangePassword(self)
         default:
             break
         }
@@ -145,6 +132,14 @@ extension UserProfileViewController: UITableViewDataSource {
             guard
                 let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileHeaderCell", for: indexPath) as? UserProfileHeaderCell
             else { return UITableViewCell() }
+            cell.setCell()
+            if imgProfile != nil {
+                cell.imageProfile.image = imgProfile
+            }
+            cell.onclickImage = { [weak self] in
+                guard let self = self else { return }
+                self.presenter?.openAlert(self)
+            }
             
             return cell
             
@@ -175,5 +170,18 @@ extension UserProfileViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+}
+
+extension UserProfileViewController: UserProfileViewProtocol {
+    func reloadData() {
+        
+    }
+    
+    func updateImage(image: UIImage) {
+        self.imgProfile = image
+        tableView.reloadData()
+    }
+    
     
 }
