@@ -66,7 +66,10 @@ extension UIViewController {
     @objc private func hideKeyboard() {
         self.view.endEditing(true)
     }
-    
+}
+
+// MARK: - ALERT
+extension UIViewController {
     func openAlert(title: String,
                           message: String,
                           alertStyle:UIAlertController.Style,
@@ -94,5 +97,4 @@ extension UIViewController {
         }
         self.present(alertVC, animated: true, completion: nil)
     }
-    
 }
