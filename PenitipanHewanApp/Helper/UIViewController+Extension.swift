@@ -67,7 +67,7 @@ extension UIViewController {
         self.view.endEditing(true)
     }
     
-    public func openAlert(title: String,
+    func openAlert(title: String,
                           message: String,
                           alertStyle:UIAlertController.Style,
                           actionTitles:[String],
@@ -80,6 +80,19 @@ extension UIViewController {
             alertController.addAction(action)
         }
         self.present(alertController, animated: true)
+    }
+    
+    func setAlert(data: AlertModel) {
+        let alertVC = UIAlertController(title: data.title, message: data.subtitle, preferredStyle: data.style)
+        guard let actions = data.actions else { return }
+        actions.forEach {
+            let title = $0.title
+            let style = $0.style
+            let handler = $0.onclick
+            let action = UIAlertAction(title: title, style: style, handler: handler)
+            alertVC.addAction(action)
+        }
+        self.present(alertVC, animated: true, completion: nil)
     }
     
 }

@@ -15,13 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="CTB-38-ueY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lYv-kl-ptL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4Q8-mh-ZiH" firstAttribute="bottom" secondItem="lYv-kl-ptL" secondAttribute="bottom" id="DD7-LP-HLU"/>
+                            <constraint firstItem="4Q8-mh-ZiH" firstAttribute="trailing" secondItem="lYv-kl-ptL" secondAttribute="trailing" id="Oan-yX-tIV"/>
+                            <constraint firstItem="lYv-kl-ptL" firstAttribute="leading" secondItem="4Q8-mh-ZiH" secondAttribute="leading" id="geg-k0-VwG"/>
+                            <constraint firstItem="lYv-kl-ptL" firstAttribute="top" secondItem="4Q8-mh-ZiH" secondAttribute="top" id="sBA-Kv-5MX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4Q8-mh-ZiH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="CVP-kP-WJS">
                         <barButtonItem key="backBarButtonItem" title=" " id="ac1-Gj-nuG"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Wpl-P2-ClH">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7v-P0-D1P">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7v-P0-D1P">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
@@ -31,6 +43,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="lYv-kl-ptL" id="7GG-ds-M5K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sg9-d9-Rfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
