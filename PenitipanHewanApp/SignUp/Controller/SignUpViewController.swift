@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate  {
+class SignUpViewController: UIViewController  {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
@@ -32,11 +32,16 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var selectedCountry: String?
     var role = ["User", "Petshop"]
     
+    // MARK: - helper
+    var pickerHelper: PickerHelper?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createPickerView()
-        dismissPickerView()
+        window = appDelegate.window
+        
+        initializeHidKeyboard()
+        
         selectRole.delegate = self
         
         // MARK: Configure
@@ -55,26 +60,9 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         confirmPassword.setMainUnderLine()
         selectRole.setMainUnderLine()
         
-        window = appDelegate.window
-    }
-    
-    func createPickerView() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        selectRole.inputView = pickerView
-    }
-    
-    func dismissPickerView() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissButton))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        selectRole.inputAccessoryView = toolBar
-    }
-    
-    @objc func dismissButton() {
-        view.endEditing(true)
+        
+        
+        createPickerView()
     }
     
     func saveToCoreData(_ login: LoginModel? = nil) {
@@ -164,29 +152,32 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return role.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return role[row]
-        
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedCountry = role[row]
-        selectRole.text = selectedCountry
-    }
-    
+}
+
+// MARK: - textfield delegate
+extension SignUpViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == selectRole {
             return false
         } else {
             return true
+        }
+    }
+}
+
+// MARK: - picker
+
+extension SignUpViewController {
+    func createPickerView() {
+        pickerHelper = PickerHelper(self, self)
+        pickerHelper?.setPicker(textField: selectRole, data: role)
+    }
+}
+
+extension SignUpViewController: PickerHelperDelegate {
+    func pickerResult(textField: UITextField, value: String) {
+        if textField == selectRole {
+            textField.text = value
         }
     }
 }

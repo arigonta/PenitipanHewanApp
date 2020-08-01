@@ -30,7 +30,7 @@ class FirstStateViewController: UIViewController {
             let nav = storyboard.instantiateViewController(withIdentifier: "LoginNav") as? UINavigationController,
             let view = nav.viewControllers.first as? LoginViewController
             else { return }
-        view.modalPresentationStyle = .fullScreen
+        nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
     }
     

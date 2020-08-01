@@ -44,6 +44,8 @@
 		844D524A24D48FA6003B91B4 /* PetshopProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D524924D48FA6003B91B4 /* PetshopProfilePresenter.swift */; };
 		844D524C24D491D8003B91B4 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D524B24D491D8003B91B4 /* CommonModel.swift */; };
 		844D525024D49571003B91B4 /* CameraLibraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D524F24D49571003B91B4 /* CameraLibraryHelper.swift */; };
+		845952DA24D5B1F800840146 /* PickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845952D924D5B1F800840146 /* PickerHelper.swift */; };
+		845952DC24D5CB9300840146 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845952DB24D5CB9300840146 /* UserProfilePresenter.swift */; };
 		845DCD4224D333F700214768 /* FirstStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4124D333F700214768 /* FirstStateViewController.swift */; };
 		845DCD4424D339D100214768 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4324D339D100214768 /* ThreadHelper.swift */; };
 		845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4724D3423000214768 /* UIViewController+Extension.swift */; };
@@ -134,6 +136,8 @@
 		844D524924D48FA6003B91B4 /* PetshopProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopProfilePresenter.swift; sourceTree = "<group>"; };
 		844D524B24D491D8003B91B4 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		844D524F24D49571003B91B4 /* CameraLibraryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLibraryHelper.swift; sourceTree = "<group>"; };
+		845952D924D5B1F800840146 /* PickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerHelper.swift; sourceTree = "<group>"; };
+		845952DB24D5CB9300840146 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		845DCD4124D333F700214768 /* FirstStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstStateViewController.swift; path = PenitipanHewanApp/Login/Controller/FirstStateViewController.swift; sourceTree = SOURCE_ROOT; };
 		845DCD4324D339D100214768 /* ThreadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadHelper.swift; sourceTree = "<group>"; };
 		845DCD4724D3423000214768 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -282,10 +286,10 @@
 			children = (
 				3F8358EE24D4A12F00DFEDD6 /* PenitipanHewanApp.entitlements */,
 				3F32793A24D3A33000399D3B /* SignUp */,
-				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
 				3FF6AA6D24D072C90008AD79 /* User */,
 				3FF6AA6C24D072C20008AD79 /* Petshop */,
+				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */,
 				3FF6AA4C24D00BD80008AD79 /* Assets.xcassets */,
 				3FF6AA4E24D00BD80008AD79 /* LaunchScreen.storyboard */,
@@ -353,6 +357,7 @@
 				3FF69E3224D412740037395A /* CommonHelper.swift */,
 				844D524B24D491D8003B91B4 /* CommonModel.swift */,
 				844D524F24D49571003B91B4 /* CameraLibraryHelper.swift */,
+				845952D924D5B1F800840146 /* PickerHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				8496112324D41F6900AAD56A /* Cell */,
 				84EBC42624D11A3300A87111 /* UserProfileStoryboard.storyboard */,
 				84EBC41924D1131400A87111 /* UserProfileViewController.swift */,
+				845952DB24D5CB9300840146 /* UserProfilePresenter.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -861,6 +867,8 @@
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
 				847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
+				845952DC24D5CB9300840146 /* UserProfilePresenter.swift in Sources */,
+				845952DA24D5B1F800840146 /* PickerHelper.swift in Sources */,
 				3FF69E3324D412740037395A /* CommonHelper.swift in Sources */,
 				845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */,
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
