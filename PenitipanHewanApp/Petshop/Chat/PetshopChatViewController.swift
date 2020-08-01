@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class PetshopChatViewController: UIViewController {
+    
+    private let firestore = Firestore.firestore()
+    private var channelRef: CollectionReference {
+        return firestore.collection("channels")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        channelRef.addDocument(data: ["name": "test"]) { error in
+            if let error = error {
+                print("error saving chat: \(error.localizedDescription)")
+            }
+        }
     }
     
 
