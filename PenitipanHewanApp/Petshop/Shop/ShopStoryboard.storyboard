@@ -20,7 +20,7 @@
                                 <rect key="frame" x="8" y="52" width="359" height="32"/>
                                 <segments>
                                     <segment title="Reservation"/>
-                                    <segment title="Paket"/>
+                                    <segment title="Package"/>
                                 </segments>
                                 <color key="tintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -100,7 +100,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-8U-HgD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-8U-HgD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -225,8 +225,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="9nS-0U-yLI"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Paket" image="plus" catalog="system"/>
+                                <state key="normal" title="Add Package"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LUO-xF-lme">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="520"/>
@@ -255,6 +256,5 @@
         <image name="Kucing" width="128" height="128"/>
         <image name="accept" width="512" height="512"/>
         <image name="decline" width="512" height="512"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

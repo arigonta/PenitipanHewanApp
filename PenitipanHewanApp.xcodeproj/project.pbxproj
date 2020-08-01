@@ -29,6 +29,7 @@
 		3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */; };
 		4E91D30C189F5FA10C4E9751 /* Pods_PenitipanHewanAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */; };
 		8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */; };
+		841129EC24D531D5008D151B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841129EB24D531D5008D151B /* GoogleService-Info.plist */; };
 		843043AC24D1B30D00DCC642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 843043AB24D1B30D00DCC642 /* SnapKit */; };
 		843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */; };
 		843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */; };
@@ -43,7 +44,6 @@
 		847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D324D1EB330012269E /* PetshopChatViewController.swift */; };
 		847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */; };
 		847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */; };
-		84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84851D9224D0936200D131DD /* GoogleService-Info.plist */; };
 		8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */; };
 		8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */; };
 		849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */; };
@@ -90,7 +90,6 @@
 		3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtReservation+TableView.swift"; sourceTree = "<group>"; };
-		3F8358EE24D4A12F00DFEDD6 /* PenitipanHewanApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PenitipanHewanApp.entitlements; sourceTree = "<group>"; };
 		3FF69E3224D412740037395A /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenitipanHewanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopTabBarController.swift; sourceTree = "<group>"; };
 		6ED2B8B5BF8E05730523FD38 /* Pods-PenitipanHewanAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
+		841129EB24D531D5008D151B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopViewController.swift; sourceTree = "<group>"; };
 		843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopViewController.xib; sourceTree = "<group>"; };
 		845DCD4124D333F700214768 /* FirstStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstStateViewController.swift; path = PenitipanHewanApp/Login/Controller/FirstStateViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -122,7 +122,6 @@
 		847037D324D1EB330012269E /* PetshopChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopChatViewController.swift; sourceTree = "<group>"; };
 		847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopProfileViewController.swift; sourceTree = "<group>"; };
-		84851D9224D0936200D131DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderCell.swift; sourceTree = "<group>"; };
 		8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderCell.xib; sourceTree = "<group>"; };
 		849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAddSaldoViewController.swift; sourceTree = "<group>"; };
@@ -268,7 +267,7 @@
 				3FF6AA4C24D00BD80008AD79 /* Assets.xcassets */,
 				3FF6AA4E24D00BD80008AD79 /* LaunchScreen.storyboard */,
 				3FF6AA5124D00BD80008AD79 /* Info.plist */,
-				84851D9224D0936200D131DD /* GoogleService-Info.plist */,
+				841129EB24D531D5008D151B /* GoogleService-Info.plist */,
 				3FF6AA4924D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld */,
 			);
 			path = PenitipanHewanApp;
@@ -636,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EBC42524D1190800A87111 /* UserHomeStoryboard.storyboard in Resources */,
+				841129EC24D531D5008D151B /* GoogleService-Info.plist in Resources */,
 				3FF6AA5024D00BD80008AD79 /* LaunchScreen.storyboard in Resources */,
 				84EBC42724D11A3300A87111 /* UserProfileStoryboard.storyboard in Resources */,
 				847037CF24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard in Resources */,
@@ -647,7 +647,6 @@
 				84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
 				84D4043824D42C2900EF5682 /* UserProfileSaldoCell.xib in Resources */,
-				84851D9324D0936200D131DD /* GoogleService-Info.plist in Resources */,
 				84D4043D24D42E6900EF5682 /* UserProfilePasswordCell.xib in Resources */,
 				3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */,
 				847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */,
@@ -942,7 +941,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JOJA.PenitipanHewanApp.rynetta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PenitipanHewanApp.rynetta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -963,7 +962,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JOJA.PenitipanHewanApp.rynetta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PenitipanHewanApp.rynetta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

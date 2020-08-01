@@ -11,8 +11,10 @@ import UIKit
 class ReservationViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var dummyData = ["A","B","C","D"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
     }
 }
