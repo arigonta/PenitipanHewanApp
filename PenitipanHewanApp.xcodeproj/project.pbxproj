@@ -15,6 +15,9 @@
 		3F8358E824D49E9400DFEDD6 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */; };
 		3F8358EB24D49FA400DFEDD6 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */; };
 		3F8358ED24D4A01E00DFEDD6 /* ExtReservation+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */; };
+		3F8358F124D5D15500DFEDD6 /* PackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */; };
+		3F8358F424D5D17100DFEDD6 /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */; };
+		3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */; };
 		3FF69E3324D412740037395A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF69E3224D412740037395A /* CommonHelper.swift */; };
 		3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */; };
 		3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */; };
@@ -101,6 +104,9 @@
 		3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtReservation+TableView.swift"; sourceTree = "<group>"; };
+		3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageViewController.swift; sourceTree = "<group>"; };
+		3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
+		3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package+TableView.swift"; sourceTree = "<group>"; };
 		3FF69E3224D412740037395A /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenitipanHewanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +262,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3F8358EF24D5D13800DFEDD6 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358F224D5D15D00DFEDD6 /* Cell */,
+				3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */,
+				3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		3F8358F224D5D15D00DFEDD6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3FF6AA3424D00BD70008AD79 = {
 			isa = PBXGroup;
 			children = (
@@ -279,7 +303,6 @@
 		3FF6AA3F24D00BD70008AD79 /* PenitipanHewanApp */ = {
 			isa = PBXGroup;
 			children = (
-				3F8358EE24D4A12F00DFEDD6 /* PenitipanHewanApp.entitlements */,
 				3F32793A24D3A33000399D3B /* SignUp */,
 				3FF6AA6924D00F540008AD79 /* Helper */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
@@ -486,6 +509,7 @@
 		847037C424D1E9CB0012269E /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				3F8358EF24D5D13800DFEDD6 /* Package */,
 				3F8358E624D49E7200DFEDD6 /* Reservation */,
 				847037C524D1E9ED0012269E /* ShopViewController.swift */,
 				847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */,
@@ -846,7 +870,9 @@
 				8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */,
 				844D524C24D491D8003B91B4 /* CommonModel.swift in Sources */,
 				844D524724D47920003B91B4 /* PetshopEditPasswordProfileCell.swift in Sources */,
+				3F8358F124D5D15500DFEDD6 /* PackageViewController.swift in Sources */,
 				849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */,
+				3F8358F424D5D17100DFEDD6 /* PackageTableViewCell.swift in Sources */,
 				3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */,
 				847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */,
 				844D524324D477EC003B91B4 /* PetshopEditProfileCell.swift in Sources */,
@@ -865,6 +891,7 @@
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
 				84D4043324D426BB00EF5682 /* UserProfileEditDataCell.swift in Sources */,
 				3F8358EB24D49FA400DFEDD6 /* ReservationTableViewCell.swift in Sources */,
+				3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */,
 				84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */,
 				844D523F24D476AE003B91B4 /* PetshopSaldoProfileCell.swift in Sources */,
 				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,
