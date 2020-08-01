@@ -67,12 +67,20 @@ extension UIViewController {
         self.view.endEditing(true)
     }
     
-    
-    
-}
+    func openAlert(title: String,
+                          message: String,
+                          alertStyle:UIAlertController.Style,
+                          actionTitles:[String],
+                          actionStyles:[UIAlertAction.Style],
+                          actions: [((UIAlertAction) -> Void)]){
 
-// MARK: - Alert
-extension UIViewController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: alertStyle)
+        for(index, indexTitle) in actionTitles.enumerated(){
+            let action = UIAlertAction(title: indexTitle, style: actionStyles[index], handler: actions[index])
+            alertController.addAction(action)
+        }
+        self.present(alertController, animated: true)
+    }
     
     func setAlert(data: AlertModel) {
         let alertVC = UIAlertController(title: data.title, message: data.subtitle, preferredStyle: data.style)
@@ -86,4 +94,5 @@ extension UIViewController {
         }
         self.present(alertVC, animated: true, completion: nil)
     }
+    
 }

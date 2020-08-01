@@ -1,5 +1,5 @@
 //
-//  ReservationViewController.swift
+//  PackageViewController.swift
 //  PenitipanHewanApp
 //
 //  Created by Ari Gonta on 01/08/20.
@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ReservationViewController: UIViewController {
+class PackageViewController: UIViewController {
 
+    @IBOutlet weak var addPackage: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    var dummyData = ["A","B","C","D"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: To Style
+        addPackage.setButtonMainStyle()
         tableView.tableFooterView = UIView()
     }
+    
+    @IBAction func addPackage(_ sender: Any) {
+        
+    }
+    
 }
