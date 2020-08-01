@@ -10,15 +10,23 @@ import UIKit
 
 class ReservationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageUser: UIImageView!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelEmail: UILabel!
+    @IBOutlet weak var labelDesc: UILabel!
+    @IBOutlet weak var buttonAccept: UIButton!
+    @IBOutlet weak var buttonDecline: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func buttonAccept(_ sender: Any) {
+        
     }
-
+    
+    @IBAction func buttonDecline(_ sender: Any) {
+        
+    }
 }

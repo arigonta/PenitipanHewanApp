@@ -104,25 +104,88 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationTableViewCell" id="upO-RK-XoD" customClass="ReservationTableViewCell" customModule="PenitipanHewanApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationTableViewCell" rowHeight="140" id="upO-RK-XoD" customClass="ReservationTableViewCell" customModule="PenitipanHewanApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="upO-RK-XoD" id="y4x-wX-DmU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cy-mu-ckY">
-                                                    <rect key="frame" x="25" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rynetta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cy-mu-ckY">
+                                                    <rect key="frame" x="75" y="11" width="51.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rynetta@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CA-1c-J0I">
+                                                    <rect key="frame" x="75" y="32" width="112.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIk-67-HQB">
+                                                    <rect key="frame" x="15" y="66" width="285" height="58"/>
+                                                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kucing" translatesAutoresizingMaskIntoConstraints="NO" id="qKm-jJ-d71">
+                                                    <rect key="frame" x="15" y="11" width="55" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="5rY-Bz-LRw"/>
+                                                        <constraint firstAttribute="height" constant="50" id="QwR-aK-9TH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-ZA-5ee">
+                                                    <rect key="frame" x="310" y="76" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="5E0-LJ-fu3"/>
+                                                        <constraint firstAttribute="width" constant="35" id="uuw-hn-j6e"/>
+                                                    </constraints>
+                                                    <state key="normal" image="decline"/>
+                                                    <connections>
+                                                        <action selector="buttonDecline:" destination="upO-RK-XoD" eventType="touchUpInside" id="kek-uh-fl3"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acq-pa-7kf">
+                                                    <rect key="frame" x="310" y="21" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="C0h-11-oXC"/>
+                                                        <constraint firstAttribute="width" constant="35" id="krQ-Tf-hw4"/>
+                                                    </constraints>
+                                                    <state key="normal" image="accept"/>
+                                                    <connections>
+                                                        <action selector="buttonAccept:" destination="upO-RK-XoD" eventType="touchUpInside" id="GU6-PG-tjl"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="3Cy-mu-ckY" firstAttribute="leading" secondItem="y4x-wX-DmU" secondAttribute="leadingMargin" constant="10" id="1AL-k3-YvR"/>
-                                                <constraint firstItem="3Cy-mu-ckY" firstAttribute="centerY" secondItem="y4x-wX-DmU" secondAttribute="centerY" id="87X-4e-YV6"/>
+                                                <constraint firstItem="vX6-ZA-5ee" firstAttribute="leading" secondItem="eIk-67-HQB" secondAttribute="trailing" constant="10" id="9B9-LW-1Cc"/>
+                                                <constraint firstItem="3Cy-mu-ckY" firstAttribute="top" secondItem="qKm-jJ-d71" secondAttribute="top" id="9sW-PJ-Kii"/>
+                                                <constraint firstItem="qKm-jJ-d71" firstAttribute="leading" secondItem="y4x-wX-DmU" secondAttribute="leadingMargin" id="LDJ-UV-tSp"/>
+                                                <constraint firstItem="qKm-jJ-d71" firstAttribute="top" secondItem="y4x-wX-DmU" secondAttribute="topMargin" id="N0S-Fe-vns"/>
+                                                <constraint firstItem="vX6-ZA-5ee" firstAttribute="top" secondItem="acq-pa-7kf" secondAttribute="bottom" constant="20" id="bd3-6c-b9R"/>
+                                                <constraint firstItem="eIk-67-HQB" firstAttribute="top" secondItem="qKm-jJ-d71" secondAttribute="bottom" constant="5" id="hGN-AA-c8x"/>
+                                                <constraint firstItem="8CA-1c-J0I" firstAttribute="top" secondItem="3Cy-mu-ckY" secondAttribute="bottom" constant="4" id="jfd-9R-G37"/>
+                                                <constraint firstItem="acq-pa-7kf" firstAttribute="top" secondItem="y4x-wX-DmU" secondAttribute="topMargin" constant="10" id="jwj-C0-Nip"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vX6-ZA-5ee" secondAttribute="trailing" constant="15" id="oYp-1G-Dbh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="acq-pa-7kf" secondAttribute="trailing" constant="15" id="tM5-ne-dod"/>
+                                                <constraint firstItem="3Cy-mu-ckY" firstAttribute="leading" secondItem="qKm-jJ-d71" secondAttribute="trailing" constant="5" id="tQr-eu-4aJ"/>
+                                                <constraint firstItem="8CA-1c-J0I" firstAttribute="leading" secondItem="qKm-jJ-d71" secondAttribute="trailing" constant="5" id="ugI-lk-bgF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eIk-67-HQB" secondAttribute="bottom" constant="5" id="xef-lP-xF9"/>
+                                                <constraint firstItem="eIk-67-HQB" firstAttribute="leading" secondItem="y4x-wX-DmU" secondAttribute="leadingMargin" id="zPQ-kc-FTe"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonAccept" destination="acq-pa-7kf" id="sbp-S9-4Ma"/>
+                                            <outlet property="buttonDecline" destination="vX6-ZA-5ee" id="pZR-Yu-gov"/>
+                                            <outlet property="imageUser" destination="qKm-jJ-d71" id="Nmp-jE-TuP"/>
+                                            <outlet property="labelDesc" destination="eIk-67-HQB" id="NSh-E7-ijC"/>
+                                            <outlet property="labelEmail" destination="8CA-1c-J0I" id="M0F-xZ-DIx"/>
+                                            <outlet property="labelName" destination="3Cy-mu-ckY" id="I8h-TR-HkA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -189,6 +252,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Kucing" width="128" height="128"/>
+        <image name="accept" width="512" height="512"/>
+        <image name="decline" width="512" height="512"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

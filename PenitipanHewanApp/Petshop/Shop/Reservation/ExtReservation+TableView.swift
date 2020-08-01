@@ -20,4 +20,8 @@ extension ReservationViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell.init()
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
 }
