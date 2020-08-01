@@ -11,6 +11,7 @@ import Firebase
 
 class PetshopChatViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     private let firestore = Firestore.firestore()
     private var channelRef: CollectionReference {
         return firestore.collection("channels")
