@@ -34,3 +34,10 @@ open class AlertActionModel {
         self.onclick = handler
     }
 }
+
+class MainResponse: Codable {
+    var code: Int?
+    var status: String?
+    
+    
+}
