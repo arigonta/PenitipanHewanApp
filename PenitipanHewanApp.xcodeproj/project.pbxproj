@@ -37,6 +37,8 @@
 		4E91D30C189F5FA10C4E9751 /* Pods_PenitipanHewanAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */; };
 		8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */; };
 		841129EC24D531D5008D151B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841129EB24D531D5008D151B /* GoogleService-Info.plist */; };
+		842B22A624E085AD0016BBFA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B22A524E085AD0016BBFA /* SignUpPresenter.swift */; };
+		842B22A824E089190016BBFA /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B22A724E089190016BBFA /* SignUpModel.swift */; };
 		843043AC24D1B30D00DCC642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 843043AB24D1B30D00DCC642 /* SnapKit */; };
 		843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */; };
 		843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */; };
@@ -144,6 +146,8 @@
 		6ED2B8B5BF8E05730523FD38 /* Pods-PenitipanHewanAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		841129EB24D531D5008D151B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		842B22A524E085AD0016BBFA /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		842B22A724E089190016BBFA /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpModel.swift; path = PenitipanHewanApp/SignUp/Controller/SignUpModel.swift; sourceTree = SOURCE_ROOT; };
 		843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopViewController.swift; sourceTree = "<group>"; };
 		843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopViewController.xib; sourceTree = "<group>"; };
 		84491B0D24D47264009454AE /* PetshopHeaderProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopHeaderProfileCell.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 		3F32793B24D3A33E00399D3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				842B22A724E089190016BBFA /* SignUpModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				3F32794024D3A37A00399D3B /* SignUpViewController.swift */,
+				842B22A524E085AD0016BBFA /* SignUpPresenter.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1010,6 +1016,8 @@
 				848B035124DFCFBE002AEC20 /* userPetListCell.swift in Sources */,
 				84D4043C24D42E6900EF5682 /* UserProfilePasswordCell.swift in Sources */,
 				8467238A24DF058700DA97A7 /* UserReservationFormViewController.swift in Sources */,
+				842B22A824E089190016BBFA /* SignUpModel.swift in Sources */,
+				842B22A624E085AD0016BBFA /* SignUpPresenter.swift in Sources */,
 				3F8358E824D49E9400DFEDD6 /* ReservationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

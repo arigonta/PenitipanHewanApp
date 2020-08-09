@@ -14,5 +14,5 @@ class CommonHelper {
     let lastRole = "lastRole"
     let BASE_URL = "http://api.rynetta.web.id/public/"
     let LOGIN_PATH = "user/login"
-    let REGISTER_PATH = "user/login"
+    let REGISTER_PATH = "user/register"
 }

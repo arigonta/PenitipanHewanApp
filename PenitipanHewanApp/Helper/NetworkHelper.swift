@@ -44,7 +44,7 @@ class NetworkHelper: NSObject {
         
         if let param = params {
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: params, options:[])
+                request.httpBody = try JSONSerialization.data(withJSONObject: param, options:[])
             } catch let e {
 //                print(e.localizedDescription)
                 completion(.failure(e))
@@ -61,7 +61,7 @@ class NetworkHelper: NSObject {
                     if responses.statusCode < 200 || responses.statusCode >= 300 {
                         let errorCode = NSError(domain: "Status Code", code: responses.statusCode, userInfo: nil)
                         completion(.failure(errorCode))
-                        return
+//                        return
                     }
                 }
                 if let datas = data, let stringResponse = String(data: datas, encoding: .utf8) {
