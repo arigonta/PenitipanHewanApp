@@ -54,6 +54,12 @@
 		845DCD4224D333F700214768 /* FirstStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4124D333F700214768 /* FirstStateViewController.swift */; };
 		845DCD4424D339D100214768 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4324D339D100214768 /* ThreadHelper.swift */; };
 		845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4724D3423000214768 /* UIViewController+Extension.swift */; };
+		8467237C24DE210000DA97A7 /* UserPetshopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467237A24DE210000DA97A7 /* UserPetshopDetailViewController.swift */; };
+		8467237D24DE210000DA97A7 /* UserPetshopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8467237B24DE210000DA97A7 /* UserPetshopDetailViewController.xib */; };
+		8467238A24DF058700DA97A7 /* UserReservationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467238824DF058700DA97A7 /* UserReservationFormViewController.swift */; };
+		8467238B24DF058700DA97A7 /* UserReservationFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8467238924DF058700DA97A7 /* UserReservationFormViewController.xib */; };
+		8467238F24DFB2D500DA97A7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467238E24DFB2D500DA97A7 /* UIView+Extension.swift */; };
+		8467239124DFB7CE00DA97A7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467239024DFB7CE00DA97A7 /* UIColor+Extension.swift */; };
 		847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037C524D1E9ED0012269E /* ShopViewController.swift */; };
 		847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */; };
 		847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */; };
@@ -62,6 +68,8 @@
 		847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D324D1EB330012269E /* PetshopChatViewController.swift */; };
 		847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */; };
 		847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */; };
+		848B035124DFCFBE002AEC20 /* userPetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B034F24DFCFBE002AEC20 /* userPetListCell.swift */; };
+		848B035224DFCFBE002AEC20 /* userPetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848B035024DFCFBE002AEC20 /* userPetListCell.xib */; };
 		8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */; };
 		8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */; };
 		849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */; };
@@ -150,6 +158,12 @@
 		845DCD4124D333F700214768 /* FirstStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstStateViewController.swift; path = PenitipanHewanApp/Login/Controller/FirstStateViewController.swift; sourceTree = SOURCE_ROOT; };
 		845DCD4324D339D100214768 /* ThreadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadHelper.swift; sourceTree = "<group>"; };
 		845DCD4724D3423000214768 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		8467237A24DE210000DA97A7 /* UserPetshopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopDetailViewController.swift; sourceTree = "<group>"; };
+		8467237B24DE210000DA97A7 /* UserPetshopDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopDetailViewController.xib; sourceTree = "<group>"; };
+		8467238824DF058700DA97A7 /* UserReservationFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReservationFormViewController.swift; sourceTree = "<group>"; };
+		8467238924DF058700DA97A7 /* UserReservationFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserReservationFormViewController.xib; sourceTree = "<group>"; };
+		8467238E24DFB2D500DA97A7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		8467239024DFB7CE00DA97A7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		847037C524D1E9ED0012269E /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopStoryboard.storyboard; sourceTree = "<group>"; };
 		847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopMonitoringViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +172,8 @@
 		847037D324D1EB330012269E /* PetshopChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopChatViewController.swift; sourceTree = "<group>"; };
 		847037D624D1EBD30012269E /* PetshopProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		847037D824D1EBDF0012269E /* PetshopProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopProfileViewController.swift; sourceTree = "<group>"; };
+		848B034F24DFCFBE002AEC20 /* userPetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPetListCell.swift; sourceTree = "<group>"; };
+		848B035024DFCFBE002AEC20 /* userPetListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = userPetListCell.xib; sourceTree = "<group>"; };
 		8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderCell.swift; sourceTree = "<group>"; };
 		8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderCell.xib; sourceTree = "<group>"; };
 		849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAddSaldoViewController.swift; sourceTree = "<group>"; };
@@ -381,13 +397,10 @@
 		3FF6AA6924D00F540008AD79 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8467239224DFB88600DA97A7 /* Extensions */,
 				3FF6AA7D24D079670008AD79 /* customTabbar.swift */,
 				84EBC41424D110FD00A87111 /* ColorHelper.swift */,
 				845DCD4324D339D100214768 /* ThreadHelper.swift */,
-				845DCD4724D3423000214768 /* UIViewController+Extension.swift */,
-				3F32794424D3A92200399D3B /* UIButton+Extension.swift */,
-				3F32794624D3AB0900399D3B /* UITextField+Extension.swift */,
-				3F32794C24D3C1FB00399D3B /* String+Extension.swift */,
 				3FF69E3224D412740037395A /* CommonHelper.swift */,
 				844D524B24D491D8003B91B4 /* CommonModel.swift */,
 				844D524F24D49571003B91B4 /* CameraLibraryHelper.swift */,
@@ -432,9 +445,10 @@
 		8410A87A24D1098D0010EA19 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				84EBC42424D1190800A87111 /* UserHomeStoryboard.storyboard */,
-				8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */,
+				8467237924DE20C400DA97A7 /* PetshopHome */,
 				843043AD24D1B94100DCC642 /* PetshopList */,
+				8467237824DE20AF00DA97A7 /* PetshopDetail */,
+				8467238324DF02BA00DA97A7 /* Reservation */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -523,6 +537,46 @@
 			path = password;
 			sourceTree = "<group>";
 		};
+		8467237824DE20AF00DA97A7 /* PetshopDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8467237A24DE210000DA97A7 /* UserPetshopDetailViewController.swift */,
+				8467237B24DE210000DA97A7 /* UserPetshopDetailViewController.xib */,
+			);
+			path = PetshopDetail;
+			sourceTree = "<group>";
+		};
+		8467237924DE20C400DA97A7 /* PetshopHome */ = {
+			isa = PBXGroup;
+			children = (
+				84EBC42424D1190800A87111 /* UserHomeStoryboard.storyboard */,
+				8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */,
+			);
+			path = PetshopHome;
+			sourceTree = "<group>";
+		};
+		8467238324DF02BA00DA97A7 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				8467238824DF058700DA97A7 /* UserReservationFormViewController.swift */,
+				8467238924DF058700DA97A7 /* UserReservationFormViewController.xib */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		8467239224DFB88600DA97A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				845DCD4724D3423000214768 /* UIViewController+Extension.swift */,
+				3F32794424D3A92200399D3B /* UIButton+Extension.swift */,
+				3F32794624D3AB0900399D3B /* UITextField+Extension.swift */,
+				3F32794C24D3C1FB00399D3B /* String+Extension.swift */,
+				8467238E24DFB2D500DA97A7 /* UIView+Extension.swift */,
+				8467239024DFB7CE00DA97A7 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		847037C424D1E9CB0012269E /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +615,15 @@
 				84491B0724D471B9009454AE /* PetShopEditProfile */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		848B034E24DFCF3E002AEC20 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				848B034F24DFCFBE002AEC20 /* userPetListCell.swift */,
+				848B035024DFCFBE002AEC20 /* userPetListCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		8496112324D41F6900AAD56A /* Cell */ = {
@@ -671,6 +734,7 @@
 		84EBC41E24D1157B00A87111 /* Pet */ = {
 			isa = PBXGroup;
 			children = (
+				848B034E24DFCF3E002AEC20 /* cell */,
 				84EBC41F24D1159600A87111 /* UserPetViewController.swift */,
 				84EBC42824D11B1500A87111 /* UserPetStoryboard.storyboard */,
 			);
@@ -779,18 +843,21 @@
 				847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */,
 				849B4C3824D44F2300E3560E /* UserProfilePasswordViewController.xib in Resources */,
 				84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */,
+				848B035224DFCFBE002AEC20 /* userPetListCell.xib in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
 				84D4043824D42C2900EF5682 /* UserProfileSaldoCell.xib in Resources */,
 				844D524424D477EC003B91B4 /* PetshopEditProfileCell.xib in Resources */,
 				84D4043D24D42E6900EF5682 /* UserProfilePasswordCell.xib in Resources */,
 				3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */,
 				844D524824D47920003B91B4 /* PetshopEditPasswordProfileCell.xib in Resources */,
+				8467237D24DE210000DA97A7 /* UserPetshopDetailViewController.xib in Resources */,
 				847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */,
 				84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */,
 				8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */,
 				84491B1024D47264009454AE /* PetshopHeaderProfileCell.xib in Resources */,
 				849B4C3424D43B2A00E3560E /* UserProfileAddSaldoViewController.xib in Resources */,
 				847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */,
+				8467238B24DF058700DA97A7 /* UserReservationFormViewController.xib in Resources */,
 				843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +943,7 @@
 				3F32794124D3A37A00399D3B /* SignUpViewController.swift in Sources */,
 				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
 				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
+				8467239124DFB7CE00DA97A7 /* UIColor+Extension.swift in Sources */,
 				84D4044224D434AB00EF5682 /* UserEditProfileViewController.swift in Sources */,
 				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
@@ -904,6 +972,8 @@
 				84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */,
 				3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */,
 				843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */,
+				8467238F24DFB2D500DA97A7 /* UIView+Extension.swift in Sources */,
+				8467237C24DE210000DA97A7 /* UserPetshopDetailViewController.swift in Sources */,
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
 				847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
@@ -921,7 +991,9 @@
 				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,
 				3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */,
 				847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */,
+				848B035124DFCFBE002AEC20 /* userPetListCell.swift in Sources */,
 				84D4043C24D42E6900EF5682 /* UserProfilePasswordCell.swift in Sources */,
+				8467238A24DF058700DA97A7 /* UserReservationFormViewController.swift in Sources */,
 				3F8358E824D49E9400DFEDD6 /* ReservationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
