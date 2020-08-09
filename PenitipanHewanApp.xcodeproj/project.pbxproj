@@ -20,6 +20,8 @@
 		3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */; };
 		3F8358F924D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */; };
 		3F8358FB24D5D51400DFEDD6 /* PetshopChat+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */; };
+		3FDD0CF924E05F0900DC67F1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */; };
+		3FDD0CFE24E064CF00DC67F1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */; };
 		3FF69E3324D412740037395A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF69E3224D412740037395A /* CommonHelper.swift */; };
 		3FF6AA4124D00BD70008AD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */; };
 		3FF6AA4524D00BD70008AD79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */; };
@@ -121,6 +123,8 @@
 		3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package+TableView.swift"; sourceTree = "<group>"; };
 		3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopChatTableViewCell.swift; sourceTree = "<group>"; };
 		3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetshopChat+TableView.swift"; sourceTree = "<group>"; };
+		3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3FF69E3224D412740037395A /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
 		3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenitipanHewanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF6AA4024D00BD70008AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +316,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		3FDD0CFC24E0641400DC67F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3FF6AA3424D00BD70008AD79 = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +374,7 @@
 		3FF6AA6524D00CF20008AD79 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3FDD0CFC24E0641400DC67F1 /* Services */,
 				3FF6AA6824D00D010008AD79 /* Controller */,
 				3FF6AA6724D00CFD0008AD79 /* View */,
 				3FF6AA6624D00CF80008AD79 /* Model */,
@@ -405,6 +418,7 @@
 				844D524B24D491D8003B91B4 /* CommonModel.swift */,
 				844D524F24D49571003B91B4 /* CameraLibraryHelper.swift */,
 				845952D924D5B1F800840146 /* PickerHelper.swift */,
+				3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -945,6 +959,7 @@
 				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
 				8467239124DFB7CE00DA97A7 /* UIColor+Extension.swift in Sources */,
 				84D4044224D434AB00EF5682 /* UserEditProfileViewController.swift in Sources */,
+				3FDD0CFE24E064CF00DC67F1 /* LoginService.swift in Sources */,
 				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
 				849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */,
@@ -977,6 +992,7 @@
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
 				847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
+				3FDD0CF924E05F0900DC67F1 /* NetworkHelper.swift in Sources */,
 				845952DC24D5CB9300840146 /* UserProfilePresenter.swift in Sources */,
 				845952DA24D5B1F800840146 /* PickerHelper.swift in Sources */,
 				3FF69E3324D412740037395A /* CommonHelper.swift in Sources */,

@@ -11,7 +11,6 @@ import CoreData
 
 class LoginViewController: UIViewController {
     
-    var loginModel = [LoginModel]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var userDefault = UserDefaults.standard
@@ -25,16 +24,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginModel.removeAll()
         window = appDelegate.window
-        fetchCoreData()
         
         //MARK: For Checking User
-        loginModel.forEach { (i) in
-            print("username: ", i.username ?? "")
-            print("pass: ", i.password ?? "")
-            print("role: ", i.role ?? "")
-        }
+        //        loginModel.forEach { (i) in
+        //            print("username: ", i.username ?? "")
+        //            print("pass: ", i.password ?? "")
+        //            print("role: ", i.role ?? "")
+        //        }
         
         // MARK: Configure
         usernameTextField.placeholder = "Username"
@@ -48,41 +45,92 @@ class LoginViewController: UIViewController {
         titleLabel.textColor = ColorHelper.instance.mainGreen
     }
     
-    func fetchCoreData() {
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchLoginModel = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
-        do {
-            let results = try context.fetch(fetchLoginModel) as! [NSManagedObject]
-            results.forEach { (i) in
-                loginModel.append(LoginModel(
-                    username: i.value(forKey: "username") as? String,
-                    password: i.value(forKey: "password") as? String,
-                    role: i.value(forKey: "role") as? String)
-                )
+    //    func fetchCoreData() {
+    //        let context = appDelegate.persistentContainer.viewContext
+    //        let fetchLoginModel = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
+    //        do {
+    //            let results = try context.fetch(fetchLoginModel) as! [NSManagedObject]
+    //            results.forEach { (i) in
+    //                loginModel.append(LoginModel(
+    //                    username: i.value(forKey: "username") as? String,
+    //                    password: i.value(forKey: "password") as? String,
+    //                    role: i.value(forKey: "role") as? String)
+    //                )
+    //            }
+    //        } catch {
+    //            print("failed")
+    //        }
+    //    }
+    
+    func sendLoginRequest(username: String, password: String, completion: ((LoginModel?, Error?) -> Void)? = nil) {
+        let loginRequest = LoginService(endpoint: CommonHelper.shared.LOGIN_PATH, username: username, password: password)
+        loginRequest.sendRequest(completion: { result in
+            switch result {
+            case .failure(let err):
+                completion?(nil, err)
+                break
+            case .success(let value):
+                completion?(value.data, nil)
             }
-        } catch {
-            print("failed")
-        }
+        })
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        guard let window = window else { return }
-        let isLoggedIn = true
         //MARK: For Temporary Checking User
-        loginModel.forEach { (i) in
-            if usernameTextField.text == i.username && passwordTextField.text == i.password {
-                userDefault.set(isLoggedIn, forKey: CommonHelper.shared.isLogin)
-                userDefault.set(i.role, forKey: CommonHelper.shared.lastRole)
-                if i.role?.contains("Petshop") ?? false {
-                    dismissView(weakVar: self) {
-                        $0.goToPetshopTabbar(window: window)
-                    }
+        //        loginModel.forEach { (i) in
+        //            if usernameTextField.text == i.username && passwordTextField.text == i.password {
+        //                userDefault.set(isLoggedIn, forKey: CommonHelper.shared.isLogin)
+        //                userDefault.set(i.role, forKey: CommonHelper.shared.lastRole)
+        //                if i.role?.contains("Petshop") ?? false {
+        //                    dismissView(weakVar: self) {
+        //                        $0.goToPetshopTabbar(window: window)
+        //                    }
+        //                } else {
+        //                    dismissView(weakVar: self) {
+        //                        $0.goToUserTabbar(window: window)
+        //                    }
+        //                }
+        //            }
+        //        }
+        
+        guard let window = window else { return }
+        if usernameTextField.text != "" && passwordTextField.text != "" {
+            
+            usernameTextField.setMainUnderLine()
+            passwordTextField.setMainUnderLine()
+            
+            sendLoginRequest(username: usernameTextField.text!, password: passwordTextField.text!) {
+                data, err in
+                if let error = err {
+                    self.openAlert(title: "Warning",
+                                   message: "Incorrect Username & Password!",
+                                   alertStyle: .alert,
+                                   actionTitles: ["Ok"],
+                                   actionStyles: [.default],
+                                   actions: [
+                                    {_ in
+                                        print("Ok click")
+                                    }
+                    ])
+                    print(error)
                 } else {
-                    dismissView(weakVar: self) {
-                        $0.goToUserTabbar(window: window)
+                    self.userDefault.set(true, forKey: CommonHelper.shared.isLogin)
+                    self.userDefault.set(data?.role, forKey: CommonHelper.shared.lastRole)
+                    
+                    if data?.role?.contains("Petshop") ?? false {
+                        self.dismissView(weakVar: self) {
+                            $0.goToPetshopTabbar(window: window)
+                        }
+                    } else {
+                        self.dismissView(weakVar: self) {
+                            $0.goToUserTabbar(window: window)
+                        }
                     }
                 }
             }
+        } else {
+            usernameTextField.setRedUnderLine()
+            passwordTextField.setRedUnderLine()
         }
     }
     

@@ -9,7 +9,10 @@
 import Foundation
 
 class CommonHelper {
+    static let shared = CommonHelper()
     let isLogin = "isLoggedIn"
     let lastRole = "lastRole"
-    static let shared = CommonHelper()
+    let BASE_URL = "http://api.rynetta.web.id/public/"
+    let LOGIN_PATH = "user/login"
+    let REGISTER_PATH = "user/login"
 }

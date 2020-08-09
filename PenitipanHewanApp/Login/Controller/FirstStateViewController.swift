@@ -37,7 +37,7 @@ class FirstStateViewController: UIViewController {
     private func isLogin() {
         if isLoggedIn {
             guard let window = window else { return }
-            if lastRole.contains("User") {
+            if lastRole.contains("customer") {
                 goToUserTabbar(window: window)
             } else {
                 goToPetshopTabbar(window: window)

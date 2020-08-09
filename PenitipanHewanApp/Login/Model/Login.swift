@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct loginAPIModel: Codable {
+    let data: LoginModel
+}
+
 struct LoginModel: Codable {
     let username    : String?
     let password    : String?
