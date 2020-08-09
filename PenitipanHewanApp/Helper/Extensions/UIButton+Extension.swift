@@ -16,4 +16,16 @@ extension UIButton {
         self.backgroundColor = ColorHelper.instance.mainGreen
         self.setTitleColor(.white, for: .normal)
     }
+    
+    func setCorner(radius: CGFloat) {
+        self.layer.cornerRadius = radius
+    }
+    
+    func setCornerWithBorder(radius: CGFloat, borderColor: UIColor, titleColor: UIColor, backgroundColor: UIColor) {
+        self.layer.cornerRadius = radius
+        self.setTitleColor(titleColor, for: .normal)
+        self.backgroundColor = backgroundColor
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = 1
+    }
 }
