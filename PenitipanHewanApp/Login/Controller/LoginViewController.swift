@@ -117,7 +117,7 @@ class LoginViewController: UIViewController {
                     self.userDefault.set(true, forKey: CommonHelper.shared.isLogin)
                     self.userDefault.set(data?.role, forKey: CommonHelper.shared.lastRole)
                     
-                    if data?.role?.contains("Petshop") ?? false {
+                    if data?.role?.contains("petshop") ?? false {
                         self.dismissView(weakVar: self) {
                             $0.goToPetshopTabbar(window: window)
                         }
