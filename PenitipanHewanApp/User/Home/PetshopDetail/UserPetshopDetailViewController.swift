@@ -72,6 +72,7 @@ extension UserPetshopDetailViewController {
     
     @objc private func chatTap() {
         // select tabbar
+        UserDefaultsUtils.shared.setPetshopId(value: CommonHelper.dummyPetshopId)
         navigationController?.tabBarController?.selectedIndex = 2
         self.navigationController?.popToRootViewController(animated: true)
         
