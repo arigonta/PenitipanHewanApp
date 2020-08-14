@@ -127,7 +127,6 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             let model = SignUpModel(username.text, password.text, selectRole.text, email.text, fullnameTft.text, phoneTft.text, nil)
             sendDataRegister(screen, model)
             
-            
         }
     }
 }
@@ -166,28 +165,31 @@ extension SignUpPresenter {
 extension SignUpPresenter {
     
     private func sendDataRegister(_ screen: SignUpViewController, _ data: SignUpModel) {
-        sendRequest(data: data) { [weak self] (data, error) in
+        screen.showSpinner { [weak self] spinner in
             guard let self = self else { return }
-            if let error = error {
-                self.openAlertFail(screen)
-            } else {
-                self.openAlertSuccess(screen)
+            
+            self.sendRequest(data: data) { [weak self] (data, error) in
+                guard let self = self else { return }
+                
+                screen.removeSpinner(spinner)
+                if error != nil {
+                    screen.showToast(message: "Mohon cek kembali data yang anda masukkan!")
+                } else {
+                    self.openAlertSuccess(screen)
+                }
             }
         }
+        
     }
     
     private func sendRequest(data: SignUpModel, completion: ((SignUpModel?, Error?) -> Void)? = nil) {
-        guard let urlFromString = URL(string: CommonHelper.shared.BASE_URL + CommonHelper.shared.REGISTER_PATH) else { return }
-        let urlComponent = URLComponents(string: urlFromString.absoluteString)
-        let url = urlComponent?.url?.absoluteString ?? ""
-        
-        
+        let url = "\(CommonHelper.shared.BASE_URL)\(CommonHelper.shared.REGISTER_PATH)"
         let param = ["username": data.username ?? "",
-                                    "password": data.password ?? "",
-                                    "role": data.role ?? "",
-                                    "name": data.name ?? "",
-                                    "phone": data.phone ?? "",
-                                    "email": data.email ?? ""]
+                     "password": data.password ?? "",
+                     "role": data.role ?? "",
+                     "name": data.name ?? "",
+                     "phone": data.phone ?? "",
+                     "email": data.email ?? ""]
         
         NetworkHelper.shared.connect(url: url, params: param, model: SignUpAPIModel.self) { (result) in
             switch result {

@@ -9,11 +9,16 @@
 import UIKit
 import CoreData
 
+protocol LoginViewProtocol: class {
+    func handleValidationForm()
+}
+
 class LoginViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var userDefault = UserDefaults.standard
+    var presenter: LoginPresenterProtocol?
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
@@ -25,6 +30,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         window = appDelegate.window
+        presenter = LoginPresenter(self, window)
         
         //MARK: For Checking User
         //        loginModel.forEach { (i) in
@@ -62,83 +68,15 @@ class LoginViewController: UIViewController {
     //        }
     //    }
     
-    func sendLoginRequest(username: String, password: String, completion: ((LoginModel?, Error?) -> Void)? = nil) {
-        let loginRequest = LoginService(endpoint: CommonHelper.shared.LOGIN_PATH, username: username, password: password)
-        loginRequest.sendRequest(completion: { result in
-            switch result {
-            case .failure(let err):
-                completion?(nil, err)
-                break
-            case .success(let value):
-                completion?(value.data, nil)
-            }
-        })
-    }
-    
     @IBAction func loginButton(_ sender: Any) {
-        //MARK: For Temporary Checking User
-        //        loginModel.forEach { (i) in
-        //            if usernameTextField.text == i.username && passwordTextField.text == i.password {
-        //                userDefault.set(isLoggedIn, forKey: CommonHelper.shared.isLogin)
-        //                userDefault.set(i.role, forKey: CommonHelper.shared.lastRole)
-        //                if i.role?.contains("Petshop") ?? false {
-        //                    dismissView(weakVar: self) {
-        //                        $0.goToPetshopTabbar(window: window)
-        //                    }
-        //                } else {
-        //                    dismissView(weakVar: self) {
-        //                        $0.goToUserTabbar(window: window)
-        //                    }
-        //                }
-        //            }
-        //        }
-        
-        guard let window = window else { return }
-        if usernameTextField.text != "" && passwordTextField.text != "" {
-            
-            usernameTextField.setMainUnderLine()
-            passwordTextField.setMainUnderLine()
-            
-            sendLoginRequest(username: usernameTextField.text!, password: passwordTextField.text!) {
-                data, err in
-                if let error = err {
-                    self.openAlert(title: "Warning",
-                                   message: "Incorrect Username & Password!",
-                                   alertStyle: .alert,
-                                   actionTitles: ["Ok"],
-                                   actionStyles: [.default],
-                                   actions: [
-                                    {_ in
-                                        print("Ok click")
-                                    }
-                    ])
-                    print(error)
-                } else {
-                    self.userDefault.set(true, forKey: CommonHelper.shared.isLogin)
-                    self.userDefault.set(data?.role, forKey: CommonHelper.shared.lastRole)
-                    
-                    if data?.role?.contains("petshop") ?? false {
-                        self.dismissView(weakVar: self) {
-                            $0.goToPetshopTabbar(window: window)
-                        }
-                    } else {
-                        self.dismissView(weakVar: self) {
-                            $0.goToUserTabbar(window: window)
-                        }
-                    }
-                }
-            }
-        } else {
-            usernameTextField.setRedUnderLine()
-            passwordTextField.setRedUnderLine()
-        }
+        view.endEditing(true)
+        usernameTextField.setMainUnderLine()
+        passwordTextField.setMainUnderLine()
+        presenter?.validateForm(self)
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
-        if let detailMovieVC = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
-            self.navigationController?.pushViewController(detailMovieVC, animated: true)
-        }
+        presenter?.directToSignUpScreen(self)
     }
     
     @IBAction func usernameTextField(_ sender: Any) {
@@ -147,5 +85,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func passwordTextField(_ sender: Any) {
         
+    }
+}
+
+extension LoginViewController: LoginViewProtocol {
+    func handleValidationForm() {
+        usernameTextField.setRedUnderLine()
+        passwordTextField.setRedUnderLine()
+        self.showToast(message: "Mohon cek kembali data yang anda masukkan!")
     }
 }
