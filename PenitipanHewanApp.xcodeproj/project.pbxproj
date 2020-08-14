@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2A056924E6DC3A00E99C38 /* DetailPackage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2A056824E6DC3A00E99C38 /* DetailPackage.storyboard */; };
+		3F2A056B24E6DC4600E99C38 /* DetailPackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2A056A24E6DC4600E99C38 /* DetailPackageViewController.swift */; };
 		3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F32793E24D3A36200399D3B /* SignUp.storyboard */; };
 		3F32794124D3A37A00399D3B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794024D3A37A00399D3B /* SignUpViewController.swift */; };
 		3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794424D3A92200399D3B /* UIButton+Extension.swift */; };
@@ -113,6 +115,8 @@
 
 /* Begin PBXFileReference section */
 		1E4F22F8592693A5CEA12A6D /* Pods-PenitipanHewanAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.release.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F2A056824E6DC3A00E99C38 /* DetailPackage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPackage.storyboard; sourceTree = "<group>"; };
+		3F2A056A24E6DC4600E99C38 /* DetailPackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPackageViewController.swift; sourceTree = "<group>"; };
 		3F32793E24D3A36200399D3B /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		3F32794024D3A37A00399D3B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3F32794424D3A92200399D3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -245,6 +249,110 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3F2A055424E6D9C000E99C38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F2A055524E6D9C400E99C38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F2A055624E6D9CE00E99C38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */,
+				3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F2A055724E6DA2B00E99C38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F2A055824E6DA3000E99C38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F2A055924E6DA3400E99C38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */,
+				3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F2A055A24E6DA5E00E99C38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F2A055B24E6DA6400E99C38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F2A055C24E6DA6A00E99C38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F2A056424E6DBFD00E99C38 /* Detail Package */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A056724E6DC1300E99C38 /* Controller */,
+				3F2A056624E6DC0E00E99C38 /* View */,
+				3F2A056524E6DC0B00E99C38 /* Model */,
+			);
+			path = "Detail Package";
+			sourceTree = "<group>";
+		};
+		3F2A056524E6DC0B00E99C38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F2A056624E6DC0E00E99C38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A056824E6DC3A00E99C38 /* DetailPackage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F2A056724E6DC1300E99C38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A056A24E6DC4600E99C38 /* DetailPackageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3F32793A24D3A33000399D3B /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,37 +391,22 @@
 		3F8358E624D49E7200DFEDD6 /* Reservation */ = {
 			isa = PBXGroup;
 			children = (
-				3F8358E924D49F9100DFEDD6 /* Cell */,
-				3F8358E724D49E9400DFEDD6 /* ReservationViewController.swift */,
-				3F8358EC24D4A01E00DFEDD6 /* ExtReservation+TableView.swift */,
+				3F2A055624E6D9CE00E99C38 /* Controller */,
+				3F2A055524E6D9C400E99C38 /* View */,
+				3F2A055424E6D9C000E99C38 /* Model */,
 			);
 			path = Reservation;
-			sourceTree = "<group>";
-		};
-		3F8358E924D49F9100DFEDD6 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				3F8358EA24D49FA400DFEDD6 /* ReservationTableViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		3F8358EF24D5D13800DFEDD6 /* Package */ = {
 			isa = PBXGroup;
 			children = (
-				3F8358F224D5D15D00DFEDD6 /* Cell */,
-				3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */,
-				3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */,
+				3F2A056424E6DBFD00E99C38 /* Detail Package */,
+				3F2A055924E6DA3400E99C38 /* Controller */,
+				3F2A055824E6DA3000E99C38 /* View */,
+				3F2A055724E6DA2B00E99C38 /* Model */,
 			);
 			path = Package;
-			sourceTree = "<group>";
-		};
-		3F8358F224D5D15D00DFEDD6 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		3F8358F724D5D4B200DFEDD6 /* Cell */ = {
@@ -614,8 +707,9 @@
 		847037C924D1EA670012269E /* Monitoring */ = {
 			isa = PBXGroup;
 			children = (
-				847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */,
-				847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */,
+				3F2A055C24E6DA6A00E99C38 /* Controller */,
+				3F2A055B24E6DA6400E99C38 /* View */,
+				3F2A055A24E6DA5E00E99C38 /* Model */,
 			);
 			path = Monitoring;
 			sourceTree = "<group>";
@@ -875,6 +969,7 @@
 				844D524824D47920003B91B4 /* PetshopEditPasswordProfileCell.xib in Resources */,
 				8467237D24DE210000DA97A7 /* UserPetshopDetailViewController.xib in Resources */,
 				847037D724D1EBD30012269E /* PetshopProfileStoryboard.storyboard in Resources */,
+				3F2A056924E6DC3A00E99C38 /* DetailPackage.storyboard in Resources */,
 				84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */,
 				8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */,
 				84491B1024D47264009454AE /* PetshopHeaderProfileCell.xib in Resources */,
@@ -1001,6 +1096,7 @@
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
 				847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
+				3F2A056B24E6DC4600E99C38 /* DetailPackageViewController.swift in Sources */,
 				3FDD0CF924E05F0900DC67F1 /* NetworkHelper.swift in Sources */,
 				845952DC24D5CB9300840146 /* UserProfilePresenter.swift in Sources */,
 				845952DA24D5B1F800840146 /* PickerHelper.swift in Sources */,

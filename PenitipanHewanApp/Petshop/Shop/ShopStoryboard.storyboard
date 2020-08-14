@@ -19,8 +19,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-ok-mcN">
                                 <rect key="frame" x="8" y="52" width="359" height="32"/>
                                 <segments>
-                                    <segment title="Reservation"/>
-                                    <segment title="Package"/>
+                                    <segment title="Reservasi"/>
+                                    <segment title="Paket"/>
                                 </segments>
                                 <color key="tintColor" red="0.24313725489999999" green="0.67450980390000004" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -227,7 +227,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Add Package"/>
+                                <state key="normal" title="Tambah Paket"/>
                                 <connections>
                                     <action selector="addPackage:" destination="KZz-OY-abS" eventType="touchUpInside" id="4m5-0b-K8Z"/>
                                 </connections>

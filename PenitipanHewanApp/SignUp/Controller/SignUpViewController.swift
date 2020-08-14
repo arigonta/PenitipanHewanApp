@@ -133,5 +133,4 @@ extension SignUpViewController: SignUpViewProtocol {
     func update() {
         
     }
-    
 }
