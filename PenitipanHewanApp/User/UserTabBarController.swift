@@ -27,7 +27,7 @@ class UserTabBarController: UITabBarController {
         
         let homeNC = UIStoryboard(name: "UserHomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserHomeNav") as! UINavigationController
         let profileNC = UIStoryboard(name: "UserProfileStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserProfileNav") as! UINavigationController
-        let chatNC = UINavigationController(rootViewController: UserChatViewController())
+        let chatNC = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserChatNav") as! UINavigationController
         let petNC = UIStoryboard(name: "UserPetStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserPetNav") as! UINavigationController
         
         let view1 = homeNC.viewControllers.first as? UserHomeViewController

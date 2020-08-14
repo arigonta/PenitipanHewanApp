@@ -15,4 +15,5 @@ class CommonHelper {
     let BASE_URL = "http://api.rynetta.web.id/public/"
     let LOGIN_PATH = "user/login"
     let REGISTER_PATH = "user/register"
+    static let dummyPetshopId = "TESTCHAT_PETSHOP"
 }
