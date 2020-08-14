@@ -26,7 +26,7 @@ class NetworkHelper: NSObject {
         HTTPMethod = nil
     }
     
-    func connect<T:Decodable>( url: String, params: [String:Any]?, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func connect<T: Decodable>( url: String, params: [String: Any]?, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         guard let _url = URL(string: url) else {
             fatalError("invalid url: " + url)
         }
@@ -46,7 +46,7 @@ class NetworkHelper: NSObject {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: param, options:[])
             } catch let e {
-//                print(e.localizedDescription)
+                print(e.localizedDescription)
                 completion(.failure(e))
             }
         }
@@ -55,13 +55,15 @@ class NetworkHelper: NSObject {
             DispatchQueue.main.async {
                 if let error = error {
                     completion(.failure(error))
+                    print(error.localizedDescription)
                     return
                 }
                 if let responses = response as? HTTPURLResponse {
                     if responses.statusCode < 200 || responses.statusCode >= 300 {
                         let errorCode = NSError(domain: "Status Code", code: responses.statusCode, userInfo: nil)
                         completion(.failure(errorCode))
-//                        return
+                        print(errorCode.localizedDescription)
+                        return
                     }
                 }
                 if let datas = data, let stringResponse = String(data: datas, encoding: .utf8) {

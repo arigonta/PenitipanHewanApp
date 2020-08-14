@@ -80,6 +80,7 @@
 		849B4C3424D43B2A00E3560E /* UserProfileAddSaldoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B4C3224D43B2A00E3560E /* UserProfileAddSaldoViewController.xib */; };
 		849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B4C3524D44F2300E3560E /* UserProfilePasswordViewController.swift */; };
 		849B4C3824D44F2300E3560E /* UserProfilePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B4C3624D44F2300E3560E /* UserProfilePasswordViewController.xib */; };
+		84AA818924E6A93A00A38961 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA818824E6A93A00A38961 /* LoginPresenter.swift */; };
 		84D4043324D426BB00EF5682 /* UserProfileEditDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4043124D426BB00EF5682 /* UserProfileEditDataCell.swift */; };
 		84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4043224D426BB00EF5682 /* UserProfileEditDataCell.xib */; };
 		84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4043524D42C2900EF5682 /* UserProfileSaldoCell.swift */; };
@@ -188,6 +189,7 @@
 		849B4C3224D43B2A00E3560E /* UserProfileAddSaldoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileAddSaldoViewController.xib; sourceTree = "<group>"; };
 		849B4C3524D44F2300E3560E /* UserProfilePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePasswordViewController.swift; sourceTree = "<group>"; };
 		849B4C3624D44F2300E3560E /* UserProfilePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfilePasswordViewController.xib; sourceTree = "<group>"; };
+		84AA818824E6A93A00A38961 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		84D4043124D426BB00EF5682 /* UserProfileEditDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEditDataCell.swift; sourceTree = "<group>"; };
 		84D4043224D426BB00EF5682 /* UserProfileEditDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileEditDataCell.xib; sourceTree = "<group>"; };
 		84D4043524D42C2900EF5682 /* UserProfileSaldoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSaldoCell.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF6AA4424D00BD70008AD79 /* LoginViewController.swift */,
+				84AA818824E6A93A00A38961 /* LoginPresenter.swift */,
 				845DCD4124D333F700214768 /* FirstStateViewController.swift */,
 			);
 			path = Controller;
@@ -1019,6 +1022,7 @@
 				842B22A824E089190016BBFA /* SignUpModel.swift in Sources */,
 				842B22A624E085AD0016BBFA /* SignUpPresenter.swift in Sources */,
 				3F8358E824D49E9400DFEDD6 /* ReservationViewController.swift in Sources */,
+				84AA818924E6A93A00A38961 /* LoginPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
