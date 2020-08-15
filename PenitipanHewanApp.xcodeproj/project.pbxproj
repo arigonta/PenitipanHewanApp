@@ -39,6 +39,9 @@
 		4E91D30C189F5FA10C4E9751 /* Pods_PenitipanHewanAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */; };
 		8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */; };
 		841129EC24D531D5008D151B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841129EB24D531D5008D151B /* GoogleService-Info.plist */; };
+		841CD45424E77D6C0039FC5D /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CD45324E77D6C0039FC5D /* ChatDetailViewController.swift */; };
+		841CD45624E77DAB0039FC5D /* ChatDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CD45524E77DAB0039FC5D /* ChatDetailPresenter.swift */; };
+		841CD45824E77EFC0039FC5D /* ChatDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CD45724E77EFC0039FC5D /* ChatDetailModel.swift */; };
 		842B22A624E085AD0016BBFA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B22A524E085AD0016BBFA /* SignUpPresenter.swift */; };
 		842B22A824E089190016BBFA /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B22A724E089190016BBFA /* SignUpModel.swift */; };
 		843043AC24D1B30D00DCC642 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 843043AB24D1B30D00DCC642 /* SnapKit */; };
@@ -97,6 +100,7 @@
 		84D4044324D434AB00EF5682 /* UserEditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */; };
 		84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89F4924D1C164006FE47F /* UserPetshopCell.swift */; };
 		84D89F4C24D1C164006FE47F /* UserPetshopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */; };
+		84DFE2E624E865C4001A4837 /* ChatListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2E524E865C4001A4837 /* ChatListCellTableViewCell.swift */; };
 		84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41424D110FD00A87111 /* ColorHelper.swift */; };
 		84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41924D1131400A87111 /* UserProfileViewController.swift */; };
 		84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41C24D1154900A87111 /* UserChatViewController.swift */; };
@@ -155,6 +159,9 @@
 		6ED2B8B5BF8E05730523FD38 /* Pods-PenitipanHewanAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		841129EB24D531D5008D151B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		841CD45324E77D6C0039FC5D /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
+		841CD45524E77DAB0039FC5D /* ChatDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailPresenter.swift; sourceTree = "<group>"; };
+		841CD45724E77EFC0039FC5D /* ChatDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailModel.swift; sourceTree = "<group>"; };
 		842B22A524E085AD0016BBFA /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		842B22A724E089190016BBFA /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpModel.swift; path = PenitipanHewanApp/SignUp/Controller/SignUpModel.swift; sourceTree = SOURCE_ROOT; };
 		843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +219,7 @@
 		84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserEditProfileViewController.xib; sourceTree = "<group>"; };
 		84D89F4924D1C164006FE47F /* UserPetshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopCell.swift; sourceTree = "<group>"; };
 		84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopCell.xib; sourceTree = "<group>"; };
+		84DFE2E524E865C4001A4837 /* ChatListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCellTableViewCell.swift; sourceTree = "<group>"; };
 		84EBC41424D110FD00A87111 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		84EBC41924D1131400A87111 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		84EBC41C24D1154900A87111 /* UserChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatViewController.swift; sourceTree = "<group>"; };
@@ -578,6 +586,28 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		841CD45124E77D2B0039FC5D /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				847A942724E6E56800E97815 /* model */,
+				84EBC41C24D1154900A87111 /* UserChatViewController.swift */,
+				847A942324E6DC2D00E97815 /* UserChatPresenter.swift */,
+				847A942524E6DE7D00E97815 /* ChatStoryboard.storyboard */,
+				84DFE2E524E865C4001A4837 /* ChatListCellTableViewCell.swift */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		841CD45224E77D490039FC5D /* ChatDetail */ = {
+			isa = PBXGroup;
+			children = (
+				841CD45324E77D6C0039FC5D /* ChatDetailViewController.swift */,
+				841CD45524E77DAB0039FC5D /* ChatDetailPresenter.swift */,
+				841CD45724E77EFC0039FC5D /* ChatDetailModel.swift */,
+			);
+			path = ChatDetail;
+			sourceTree = "<group>";
+		};
 		843043AD24D1B94100DCC642 /* PetshopList */ = {
 			isa = PBXGroup;
 			children = (
@@ -860,10 +890,8 @@
 		84EBC41B24D1151800A87111 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				847A942724E6E56800E97815 /* model */,
-				84EBC41C24D1154900A87111 /* UserChatViewController.swift */,
-				847A942324E6DC2D00E97815 /* UserChatPresenter.swift */,
-				847A942524E6DE7D00E97815 /* ChatStoryboard.storyboard */,
+				841CD45124E77D2B0039FC5D /* ChatList */,
+				841CD45224E77D490039FC5D /* ChatDetail */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1083,9 +1111,12 @@
 				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
 				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
 				8467239124DFB7CE00DA97A7 /* UIColor+Extension.swift in Sources */,
+				841CD45824E77EFC0039FC5D /* ChatDetailModel.swift in Sources */,
 				84D4044224D434AB00EF5682 /* UserEditProfileViewController.swift in Sources */,
+				841CD45624E77DAB0039FC5D /* ChatDetailPresenter.swift in Sources */,
 				3FDD0CFE24E064CF00DC67F1 /* LoginService.swift in Sources */,
 				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
+				84DFE2E624E865C4001A4837 /* ChatListCellTableViewCell.swift in Sources */,
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
 				849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */,
 				84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */,
@@ -1123,6 +1154,7 @@
 				845952DC24D5CB9300840146 /* UserProfilePresenter.swift in Sources */,
 				845952DA24D5B1F800840146 /* PickerHelper.swift in Sources */,
 				847A942924E6E57D00E97815 /* ChannelsModel.swift in Sources */,
+				841CD45424E77D6C0039FC5D /* ChatDetailViewController.swift in Sources */,
 				3FF69E3324D412740037395A /* CommonHelper.swift in Sources */,
 				845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */,
 				3FF6AA7E24D079670008AD79 /* customTabbar.swift in Sources */,
