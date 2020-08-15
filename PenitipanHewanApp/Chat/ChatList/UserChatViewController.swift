@@ -52,9 +52,7 @@ class UserChatViewController: UIViewController {
         } else {
             presenter?.channelListen(self, CommonHelper.dummyPetshopId)
         }
-        
     }
-
 }
 
 // MARK: - table
@@ -69,8 +67,7 @@ extension UserChatViewController {
 extension UserChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = channels[indexPath.row]
-        let text = currentUsername == data.customerId ? data.petshopId : data.customerId
-        presenter?.directToChatDetail(self, text)
+        presenter?.directToChatDetail(self, data)
     }
 }
 
@@ -80,14 +77,21 @@ extension UserChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListCellTableViewCell", for: indexPath) as? ChatListCellTableViewCell
+        else {
+            tableView.separatorStyle = .none
+            return UITableViewCell()
+        }
         let data = channels[indexPath.row]
         let text = currentUsername == data.customerId ? data.petshopId : data.customerId
-        cell.textLabel?.text = text
-        cell.accessoryType = .disclosureIndicator
+        cell.nameLbl.text = text
+        cell.lastMessageLbl.text = data.lastMessage.isEmpty ? " " : data.lastMessage
+        cell.lastMessageCreatedLbl.text = data.lastMessage.isEmpty ? "" : CommonHelper.shared.dateToString(from: data.lastMessageCreated)
+        cell.selectionStyle = .none
+        tableView.separatorStyle = .singleLine
         return cell
     }
-    
 }
 
 

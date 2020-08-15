@@ -16,6 +16,8 @@ struct ChannelModel {
     let id: String?
     let customerId: String
     let petshopId: String
+    var lastMessage: String = ""
+    var lastMessageCreated: Date
     let documentChange: DocumentChange?
     
     init(customerId: String, petshopId: String) {
@@ -23,6 +25,7 @@ struct ChannelModel {
         self.customerId = customerId
         self.petshopId = petshopId
         documentChange = nil
+        lastMessageCreated = Date()
     }
     
     init?(documentChange: DocumentChange) {
@@ -35,17 +38,27 @@ struct ChannelModel {
             return nil
         }
         
+        if let lastMessage = data["lastMessage"] as? String, let sentDate = data["lastMessageCreated"] as? Timestamp {
+            self.lastMessage = lastMessage
+            self.lastMessageCreated = sentDate.dateValue()
+        } else {
+            self.lastMessageCreated = Date()
+        }
+        
         id = documentChange.document.documentID
         self.customerId = customerId
         self.petshopId = petshopId
         self.documentChange = documentChange
+        
     }
 }
 
 extension ChannelModel: DatabaseRepresentation {
     var representation: [String: Any] {
-        var rep = ["customerId": customerId,
-                   "petshopId": petshopId]
+        var rep: [String: Any] = ["customerId": customerId,
+                                  "petshopId": petshopId,
+                                  "lastMessageCreated": Date(),
+                                  "lastMessage": lastMessage]
         
         if let id = id {
             rep["id"] = id
