@@ -128,49 +128,11 @@ extension DetailPackageViewController: PickerHelperDelegate {
 extension DetailPackageViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        registerForKeyboardNotifications()
+        registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
     }
 
     override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         deregisterFromKeyboardNotifications()
-    }
-
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-    func deregisterFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-
-    @objc func keyboardWasShown(notification: NSNotification) {
-        let info = notification.userInfo!
-        let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
-        let keyboardHeight = keyboardSize?.height ?? 0
-        if let scrollView = self.scrollView {
-            let contentInsets = UIEdgeInsets.init(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
-
-            scrollView.contentInset = contentInsets
-            scrollView.scrollIndicatorInsets = contentInsets
-
-            var aRect: CGRect = self.view.frame
-            aRect.size.height -= keyboardHeight
-            if let activeComponent = self.activeComponent {
-                if !aRect.contains(activeComponent.frame.origin) {
-                    scrollView.scrollRectToVisible((activeComponent.frame), animated: true)
-                }
-            }
-        }
-    }
-
-    @objc func keyboardWillBeHidden(notification: NSNotification) {
-        if let scrollView = self.scrollView {
-            let contentInsets = UIEdgeInsets.zero
-            scrollView.contentInset = contentInsets
-            scrollView.scrollIndicatorInsets = contentInsets
-        }
     }
 }

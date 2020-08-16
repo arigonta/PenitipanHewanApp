@@ -189,3 +189,64 @@ extension UIViewController {
         })
     }
 }
+
+// MARK: - keyboard will increase the view position
+/*
+ 
+    HOW TO USE:
+ 
+     override public func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
+     }
+
+     override public func viewDidDisappear(_ animated: Bool) {
+         super.viewDidDisappear(animated)
+         deregisterFromKeyboardNotifications()
+     }
+    
+ */
+
+extension UIViewController {
+    func registerForKeyboardNotifications(scrollView: UIScrollView, activeComponent: UIView?) {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
+            self.keyboardWasShown(notification: notification, scrollView: scrollView, activeComponent: activeComponent)
+        }
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { (notification) in
+            self.keyboardWillBeHidden(notification: notification, scrollView: scrollView)
+        }
+    }
+
+    func deregisterFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWasShown(notification: Notification, scrollView: UIScrollView?, activeComponent: UIView? ) {
+        let info = notification.userInfo!
+        let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
+        let keyboardHeight = keyboardSize?.height ?? 0
+        if let scrollView = scrollView {
+            let contentInsets = UIEdgeInsets.init(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
+
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+
+            var aRect: CGRect = self.view.frame
+            aRect.size.height -= keyboardHeight
+            if let activeComponent = activeComponent {
+                if !aRect.contains(activeComponent.frame.origin) {
+                    scrollView.scrollRectToVisible((activeComponent.frame), animated: true)
+                }
+            }
+        }
+    }
+
+    @objc func keyboardWillBeHidden(notification: Notification, scrollView: UIScrollView?) {
+        if let scrollView = scrollView {
+            let contentInsets = UIEdgeInsets.zero
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+}

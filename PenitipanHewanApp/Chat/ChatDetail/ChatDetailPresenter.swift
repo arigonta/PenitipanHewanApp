@@ -65,6 +65,7 @@ class ChatDetailPresenter: ChatDetailPresenterProtocol {
                 screen.showToast(message: "gagal mengirim pesan")
                 return
             } else {
+                // every save new chat, will update channel with last message
                 self.updateChannel(channelId, message)
             }
         }
@@ -99,7 +100,8 @@ extension ChatDetailPresenter {
     }
     
     private func updateChannel(_ channelId: String ,_ message: Message) {
-        let param: [String: Any] = ["lastMessage": message.content, "lastMessageCreated": message.sentDate]
+        let param: [String: Any] = ["lastMessage": message.content,
+                                    "lastMessageCreated": message.sentDate]
         firestore.collection("channels").document(channelId).updateData(param) { error in
             if error != nil {
                 print("error update last message to channel")
