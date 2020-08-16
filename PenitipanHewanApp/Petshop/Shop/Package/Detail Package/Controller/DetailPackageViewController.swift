@@ -9,7 +9,7 @@
 
 import UIKit
 
-class DetailPackageViewController: UIViewController, UITextFieldDelegate {
+class DetailPackageViewController: UIViewController {
     
     @IBOutlet weak var animalTypeTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -26,6 +26,7 @@ class DetailPackageViewController: UIViewController, UITextFieldDelegate {
     var activeComponent: UIView?
     var pickerDeadline: PickerHelper?
     var pickerAnimal: PickerHelper?
+    
     var deadlinePackage = ["7 Hari", "2 Minggu", "1 Bulan"]
     var pet = ["Kucing", "Anjing", "Burung", "Reptil"]
     
@@ -33,17 +34,19 @@ class DetailPackageViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "Tambah Paket"
         
+        descriptionTextArea.returnKeyType = UIReturnKeyType.done
+        priceTextField.keyboardType = .asciiCapableNumberPad
+        submitButton.setButtonMainStyle()
+        delegate()
+        createPickerView()
+    }
+    
+    private func delegate() {
         priceTextField.delegate = self
         deadlineTextField.delegate = self
         animalTypeTextField.delegate = self
+        descriptionTextArea.delegate = self
         nameTextField.delegate = self
-        
-        descriptionTextArea.returnKeyType = UIReturnKeyType.done
-        
-        priceTextField.keyboardType = .asciiCapableNumberPad
-        submitButton.setButtonMainStyle()
-        
-        createPickerView()
     }
     
     @IBAction func submitButton(_ sender: Any) {
@@ -88,7 +91,18 @@ class DetailPackageViewController: UIViewController, UITextFieldDelegate {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
-    
+}
+
+extension DetailPackageViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+extension DetailPackageViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextField {
             let text = (textField.text ?? "") as NSString
