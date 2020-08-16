@@ -27,6 +27,7 @@ class ReservationTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageUser.roundedImage()
     }
     
     @IBAction func buttonAccept(_ sender: Any) {

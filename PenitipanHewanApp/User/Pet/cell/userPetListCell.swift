@@ -14,4 +14,8 @@ class userPetListCell: UITableViewCell {
     @IBOutlet weak var petName: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
     
+    override func awakeFromNib() {
+        imagePet.roundedImage()
+    }
+    
 }
