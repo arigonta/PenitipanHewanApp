@@ -16,7 +16,7 @@ protocol UserChatPresenterProtocol: class {
     var channelModels: [ChannelModel]? { get set}
     func removeListener()
     func createChannels(_ screen: UserChatViewController, _ petshopId: String)
-    func channelListen(_ screen: UserChatViewController, _ currentId: String)
+    func channelListen(_ screen: UserChatViewController)
     func handleDocumetnChange(_ change: ChannelModel)
     
     func directToChatDetail(_ screen: UserChatViewController, _ channelModel: ChannelModel?)
@@ -42,7 +42,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
         checkChannels(screen, petshopId)
     }
     
-    func channelListen(_ screen: UserChatViewController, _ currentId: String) {
+    func channelListen(_ screen: UserChatViewController) {
         screen.showSpinner { [weak self] (spinner) in
             guard let self = self else { return }
             
@@ -113,11 +113,14 @@ extension UserChatPresenter {
                     // filter dataChannel with petShopId
                     self.channelModels = dataChannel.filter { $0.petshopId == petshopId }
                     
-                    if self.channelModels == nil {
+                    guard
+                        let newChannellModel = self.channelModels,
+                        !newChannellModel.isEmpty
+                    else {
                         self.doCreateChannels(screen, petshopId)
-                    } else {
-                        self.directToChatDetail(screen, self.channelModels?.first)
+                        return
                     }
+                    self.directToChatDetail(screen, newChannellModel.first)
                 }
             }
         }
