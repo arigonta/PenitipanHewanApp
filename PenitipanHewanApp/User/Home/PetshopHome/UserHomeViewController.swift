@@ -8,16 +8,25 @@
 
 import UIKit
 
+protocol UserHomeViewProtocol: class {
+    func update()
+}
+
 class UserHomeViewController: UIViewController {
     
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var imageView4: UIImageView!
+    
+    var presenter: UserHomePresenterProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        presenter = UserHomePresenter(self)
         setViewFirst()
+        presenter?.getReferenceAnimalType(self)
     }
     
     private func setViewFirst() {
@@ -38,23 +47,22 @@ class UserHomeViewController: UIViewController {
     }
     
     @objc private func image1Tapped() {
-        directToPetShoplist("Kucing")
+        presenter?.checkData(self, "Kucing")
     }
     @objc private func image2Tapped() {
-        directToPetShoplist("Anjing")
+        presenter?.checkData(self, "Anjing")
     }
     @objc private func image3Tapped() {
-        directToPetShoplist("Burung")
+        presenter?.checkData(self, "Burung")
     }
     @objc private func image4Tapped() {
-        directToPetShoplist("Reptile")
-    }
-    
-    private func directToPetShoplist(_ petType: String) {
-        let nextVC = UserPetshopViewController(nibName: "UserPetshopViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        nextVC.petType = petType
-        navigationController?.pushViewController(nextVC, animated: true)
+        presenter?.checkData(self, "Reptil")
     }
 
+}
+
+extension UserHomeViewController: UserHomeViewProtocol {
+    func update() {
+        
+    }
 }

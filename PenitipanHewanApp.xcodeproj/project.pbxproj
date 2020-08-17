@@ -105,6 +105,10 @@
 		84D89F4C24D1C164006FE47F /* UserPetshopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */; };
 		84DFE2E624E865C4001A4837 /* ChatListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2E524E865C4001A4837 /* ChatListCellTableViewCell.swift */; };
 		84DFE2E924E91AF1001A4837 /* emptyChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2E824E91AF1001A4837 /* emptyChatCell.swift */; };
+		84DFE2EB24EA971C001A4837 /* UserHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2EA24EA971C001A4837 /* UserHomePresenter.swift */; };
+		84DFE2ED24EA985F001A4837 /* ReferenceAnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2EC24EA985F001A4837 /* ReferenceAnimalModel.swift */; };
+		84DFE2EF24EAA1CA001A4837 /* PetShopListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2EE24EAA1CA001A4837 /* PetShopListModel.swift */; };
+		84DFE2F124EAA35F001A4837 /* UserPetshopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE2F024EAA35F001A4837 /* UserPetshopPresenter.swift */; };
 		84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41424D110FD00A87111 /* ColorHelper.swift */; };
 		84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41924D1131400A87111 /* UserProfileViewController.swift */; };
 		84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41C24D1154900A87111 /* UserChatViewController.swift */; };
@@ -228,6 +232,10 @@
 		84D89F4A24D1C164006FE47F /* UserPetshopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPetshopCell.xib; sourceTree = "<group>"; };
 		84DFE2E524E865C4001A4837 /* ChatListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCellTableViewCell.swift; sourceTree = "<group>"; };
 		84DFE2E824E91AF1001A4837 /* emptyChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyChatCell.swift; sourceTree = "<group>"; };
+		84DFE2EA24EA971C001A4837 /* UserHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomePresenter.swift; sourceTree = "<group>"; };
+		84DFE2EC24EA985F001A4837 /* ReferenceAnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceAnimalModel.swift; sourceTree = "<group>"; };
+		84DFE2EE24EAA1CA001A4837 /* PetShopListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopListModel.swift; sourceTree = "<group>"; };
+		84DFE2F024EAA35F001A4837 /* UserPetshopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetshopPresenter.swift; sourceTree = "<group>"; };
 		84EBC41424D110FD00A87111 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		84EBC41924D1131400A87111 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		84EBC41C24D1154900A87111 /* UserChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatViewController.swift; sourceTree = "<group>"; };
@@ -622,8 +630,10 @@
 			isa = PBXGroup;
 			children = (
 				843043B824D1BF6700DCC642 /* PetshopListCell */,
-				843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */,
 				843043B124D1BA8100DCC642 /* UserPetshopViewController.xib */,
+				843043B024D1BA8100DCC642 /* UserPetshopViewController.swift */,
+				84DFE2F024EAA35F001A4837 /* UserPetshopPresenter.swift */,
+				84DFE2EE24EAA1CA001A4837 /* PetShopListModel.swift */,
 			);
 			path = PetshopList;
 			sourceTree = "<group>";
@@ -716,6 +726,8 @@
 			children = (
 				84EBC42424D1190800A87111 /* UserHomeStoryboard.storyboard */,
 				8410A87B24D1098D0010EA19 /* UserHomeViewController.swift */,
+				84DFE2EA24EA971C001A4837 /* UserHomePresenter.swift */,
+				84DFE2EC24EA985F001A4837 /* ReferenceAnimalModel.swift */,
 			);
 			path = PetshopHome;
 			sourceTree = "<group>";
@@ -1140,6 +1152,7 @@
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
 				849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */,
 				84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */,
+				84DFE2EB24EA971C001A4837 /* UserHomePresenter.swift in Sources */,
 				845DCD4424D339D100214768 /* ThreadHelper.swift in Sources */,
 				84D89F4B24D1C164006FE47F /* UserPetshopCell.swift in Sources */,
 				3F8358ED24D4A01E00DFEDD6 /* ExtReservation+TableView.swift in Sources */,
@@ -1149,6 +1162,7 @@
 				8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */,
 				844D524C24D491D8003B91B4 /* CommonModel.swift in Sources */,
 				847A942D24E6FE5700E97815 /* UserDefaultUtils.swift in Sources */,
+				84DFE2F124EAA35F001A4837 /* UserPetshopPresenter.swift in Sources */,
 				844D524724D47920003B91B4 /* PetshopEditPasswordProfileCell.swift in Sources */,
 				3F8358F124D5D15500DFEDD6 /* PackageViewController.swift in Sources */,
 				849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */,
@@ -1165,11 +1179,13 @@
 				3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */,
 				3F794F3C24E999D50060B173 /* PetShopMonitoringTableViewCell.swift in Sources */,
 				843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */,
+				84DFE2ED24EA985F001A4837 /* ReferenceAnimalModel.swift in Sources */,
 				8467238F24DFB2D500DA97A7 /* UIView+Extension.swift in Sources */,
 				3F794F3E24E99A5A0060B173 /* ExtPetShopMonitoring+TableView.swift in Sources */,
 				8467237C24DE210000DA97A7 /* UserPetshopDetailViewController.swift in Sources */,
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
 				847037D924D1EBDF0012269E /* PetshopProfileViewController.swift in Sources */,
+				84DFE2EF24EAA1CA001A4837 /* PetShopListModel.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
 				84DFE2E924E91AF1001A4837 /* emptyChatCell.swift in Sources */,
 				3F2A056B24E6DC4600E99C38 /* DetailPackageViewController.swift in Sources */,

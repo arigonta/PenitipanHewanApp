@@ -38,6 +38,4 @@ open class AlertActionModel {
 class MainResponse: Codable {
     var code: Int?
     var status: String?
-    
-    
 }
