@@ -36,7 +36,7 @@ class UserHomePresenter: UserHomePresenterProtocol {
         
         // filter and get first index
         let newModel = dataList.filter {
-            ($0.animal_name ?? "").contains(animal)
+            ($0.animal_name ?? "").elementsEqual(animal)
         }.first
         
         // check if data not nil

@@ -47,10 +47,10 @@ class UserHomeViewController: UIViewController {
     }
     
     @objc private func image1Tapped() {
-        presenter?.checkData(self, "kucing")
+        presenter?.checkData(self, "Kucing")
     }
     @objc private func image2Tapped() {
-        presenter?.checkData(self, "anjing")
+        presenter?.checkData(self, "Anjing")
     }
     @objc private func image3Tapped() {
         presenter?.checkData(self, "Burung")
