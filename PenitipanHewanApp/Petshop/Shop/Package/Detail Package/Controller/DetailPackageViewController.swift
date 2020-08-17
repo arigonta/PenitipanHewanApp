@@ -130,6 +130,8 @@ extension DetailPackageViewController {
 }
 
 extension DetailPackageViewController: PickerHelperDelegate {
+    func pickerAfterResult(value: String) { }
+    
     func pickerResult(textField: UITextField, value: String) {
         if textField == deadlineTextField {
             textField.text = value

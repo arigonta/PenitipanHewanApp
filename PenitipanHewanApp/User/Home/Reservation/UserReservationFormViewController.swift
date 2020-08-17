@@ -109,6 +109,9 @@ extension UserReservationFormViewController {
 }
 
 extension UserReservationFormViewController: PickerHelperDelegate {
+    
+    func pickerAfterResult(value: String) { }
+    
     func pickerResult(textField: UITextField, value: String) {
         if textField == petVaksinTft {
             textField.text = value

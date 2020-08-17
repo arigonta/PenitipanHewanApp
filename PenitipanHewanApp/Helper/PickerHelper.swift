@@ -11,6 +11,7 @@ import UIKit
 
 protocol PickerHelperDelegate: class {
     func pickerResult(textField: UITextField, value: String)
+    func pickerAfterResult(value: String)
 }
 
 class PickerHelper: NSObject {
@@ -48,6 +49,7 @@ class PickerHelper: NSObject {
     @objc func dismissPicker() {
         guard let screen = screen else { return }
         screen.view.endEditing(true)
+        delegate?.pickerAfterResult(value: textfield?.text ?? "")
     }
     
 }

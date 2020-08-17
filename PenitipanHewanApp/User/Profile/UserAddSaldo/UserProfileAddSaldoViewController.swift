@@ -61,6 +61,8 @@ extension UserProfileAddSaldoViewController {
 }
 
 extension UserProfileAddSaldoViewController: PickerHelperDelegate {
+    func pickerAfterResult(value: String) { }
+    
     func pickerResult(textField: UITextField, value: String) {
         if textField == saldoTF {
             textField.text = value

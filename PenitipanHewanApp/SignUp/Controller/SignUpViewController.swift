@@ -27,6 +27,10 @@ class SignUpViewController: UIViewController  {
     @IBOutlet weak var buttonSignUp: UIButton!
     @IBOutlet weak var selectRole: UITextField!
     @IBOutlet weak var containerButton: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var addressTft: UITextField!
+    @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var addressHeightCons: NSLayoutConstraint!
     
     var loginModel: LoginModel?
     var isEmailValidate = false
@@ -38,6 +42,7 @@ class SignUpViewController: UIViewController  {
     var isPhoneValidate = false
     
     var presenter: SignUpPresenterProtocol?
+    var activeComponent: UIView?
     
     var selectedCountry: String?
     var role = ["customer", "petshop"]
@@ -62,21 +67,29 @@ class SignUpViewController: UIViewController  {
         password.placeholder = "Password"
         confirmPassword.placeholder = "Confirm Password"
         selectRole.placeholder = "Select Role"
+        addressTft.placeholder = "Alamat Petshop"
         self.title = "Sign Up"
         
         // MARK: Style
         buttonSignUp.setButtonMainStyle()
-        email.setMainUnderLine()
-        username.setMainUnderLine()
-        fullnameTft.setMainUnderLine()
-        phoneTft.setMainUnderLine()
-        password.setMainUnderLine()
-        confirmPassword.setMainUnderLine()
-        selectRole.setMainUnderLine()
+        
+        textFields.forEach { (textField) in
+            textField.setMainUnderLine()
+        }
         
         containerButton.addDropShadow(to: .top)
         
         createPickerView()
+    }
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
+    }
+
+    override public func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        deregisterFromKeyboardNotifications()
     }
     
 //    func saveToCoreData(_ login: LoginModel? = nil) {
@@ -122,6 +135,14 @@ extension SignUpViewController {
 }
 
 extension SignUpViewController: PickerHelperDelegate {
+    func pickerAfterResult(value: String) {
+        if value.contains("petshop") {
+            addressHeightCons.constant = 40
+        } else {
+            addressHeightCons.constant = 0
+        }
+    }
+    
     func pickerResult(textField: UITextField, value: String) {
         if textField == selectRole {
             textField.text = value
