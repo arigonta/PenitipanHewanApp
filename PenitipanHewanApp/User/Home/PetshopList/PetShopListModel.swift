@@ -23,6 +23,7 @@ struct PetShopListModel: Codable {
     var price               : Int?
     var duration            : Int?
     var status              : Int?
+    var address             : String?
     
     init(petshop_package_id: Int? = nil,
          photo: String? = nil,
@@ -33,7 +34,8 @@ struct PetShopListModel: Codable {
          deskripsi: String? = nil,
          price: Int? = nil,
          duration: Int? = nil,
-         status: Int? = nil) {
+         status: Int? = nil,
+         address: String? = nil) {
         
         self.petshop_package_id = petshop_package_id
         self.photo = photo
@@ -44,5 +46,6 @@ struct PetShopListModel: Codable {
         self.price = price
         self.duration = duration
         self.status = status
+        self.address = address
     }
 }
