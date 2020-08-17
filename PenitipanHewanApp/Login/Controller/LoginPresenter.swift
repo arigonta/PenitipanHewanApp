@@ -23,7 +23,6 @@ class LoginPresenter: LoginPresenterProtocol {
     var window: UIWindow?
     
     // MARK: Injection
-    var userDefault = UserDefaults.standard
     var userDefaultUtil = UserDefaultsUtils.shared
     
     init(_ view: LoginViewProtocol, _ window: UIWindow?) {
@@ -105,10 +104,10 @@ extension LoginPresenter {
     }
     
     func handleSuccessLogin(_ screen: LoginViewController, _ data: LoginModel) {
-        userDefault.set(true, forKey: CommonHelper.shared.isLogin)
-        userDefault.set(data.role, forKey: CommonHelper.shared.lastRole)
+        userDefaultUtil.setIsLogin(value: true)
         userDefaultUtil.setUsername(value: data.username ?? "")
         userDefaultUtil.setRole(value: data.role ?? "")
+        userDefaultUtil.setCurrentId(value: data.id ?? -1)
 
         if data.role?.elementsEqual("petshop") ?? false {
             self.directToPetshopTabbar(screen)

@@ -37,8 +37,7 @@ class UserProfileViewController: UIViewController {
 
     @IBAction func logoutAction(_ sender: Any) {
 //        deleteAllData()
-        UserDefaults.standard.removeObject(forKey: CommonHelper.shared.isLogin)
-        UserDefaults.standard.removeObject(forKey: CommonHelper.shared.lastRole)
+        UserDefaultsUtils.shared.removeAllUserDefault()
         guard let window = window else { return }
         self.goToLogin(window: window)
     }

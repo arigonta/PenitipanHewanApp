@@ -134,17 +134,17 @@ class SignUpPresenter: SignUpPresenterProtocol  {
 // MARK: - Alert
 extension SignUpPresenter {
     private func openAlertSuccess(_ screen: SignUpViewController) {
+        
+        let action1: ((UIAlertAction) -> Void) = { _ in
+            guard let window = self.window else { return }
+            screen.goToLogin(window: window)
+        }
         screen.openAlert(title: "",
                          message: "Register berhasil!",
                          alertStyle: .alert,
                          actionTitles: ["Ok"],
                          actionStyles: [.default],
-                         actions: [
-                            {_ in
-                                guard let window = self.window else { return }
-                                screen.goToLogin(window: window)
-                            }
-        ])
+                         actions: [action1])
     }
     
     private func openAlertFail(_ screen: SignUpViewController) {
