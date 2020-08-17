@@ -19,13 +19,15 @@ struct ChannelModel {
     var lastMessage: String = ""
     var lastMessageCreated: Date
     let documentChange: DocumentChange?
+    var petshopName: String?
+    var customerName: String?
     
     init(customerId: Int, petshopId: Int) {
-        id = nil
+        self.id = nil
+        self.documentChange = nil
         self.customerId = customerId
         self.petshopId = petshopId
-        documentChange = nil
-        lastMessageCreated = Date()
+        self.lastMessageCreated = Date()
     }
     
     init?(documentChange: DocumentChange) {

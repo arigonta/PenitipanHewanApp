@@ -42,7 +42,6 @@ class MainResponse: Codable {
 
 
 // MARK: - user model
-import Foundation
 
 struct UserAPIModel: Codable {
     let data: UserModel
@@ -81,5 +80,15 @@ struct UserModel: Codable {
         self.saldo = saldo
         self.photo = photo
         self.phone = phone
+    }
+}
+
+extension UserModel: DatabaseRepresentation {
+    var representation: [String: Any] {
+        let rep: [String: Any] = ["name": name ?? "",
+                                  "phone": phone ?? "",
+                                  "address": address ?? "",
+                                  "photo": photo ?? ""]
+        return rep
     }
 }

@@ -63,7 +63,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
                     // looping and update data to view
                     channelModels.forEach { [weak self] channel in
                         guard let self = self else { return }
-                        self.handleDocumetnChange(channel)
+                        self.willGetUserDocument(channel)
                     }
                 }
             }
@@ -164,5 +164,32 @@ extension UserChatPresenter {
                 completion?(modelFilter, nil)
             }
         })
+    }
+    
+    private func willGetUserDocument(_ channel: ChannelModel) {
+        var newChannel = channel
+        let targetId = newChannel.customerId == currentId ? newChannel.petshopId : newChannel.customerId
+    
+        let docRef = firestore.collection("user").document("\(targetId)")
+        docRef.getDocument { (documentSnapshot, error) in
+            
+            guard
+                let data = documentSnapshot?.data(),
+                let targetName = data["name"] as? String
+            else {
+                return
+            }
+            
+            newChannel.customerName = ""
+            newChannel.petshopName = ""
+            
+            if targetId == channel.customerId {
+                newChannel.customerName = targetName
+            } else {
+                newChannel.petshopName = targetName
+            }
+            
+            self.handleDocumetnChange(newChannel)
+        }
     }
 }

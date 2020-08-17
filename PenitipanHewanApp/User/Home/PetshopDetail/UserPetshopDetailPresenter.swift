@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol UserPetshopDetailPresenterProtocol {
     var view: UserPetshopDetailViewProtocol? { get set }
@@ -74,18 +75,40 @@ extension UserPetshopDetailPresenter {
             
             self.sendRequest(userId: currentId) { [weak self] (userModel, error) in
                 guard let self = self else { return }
-                screen.removeSpinner(spinner)
+                
                 
                 if error != nil {
+                    screen.removeSpinner(spinner)
                     screen.showToast(message: "gagal Mendapatkan Data")
                 } else {
                     
                     guard let userModel = userModel else {
+                        screen.removeSpinner(spinner)
                         screen.showToast(message: "gagal Mendapatkan Data")
                         return
                     }
                     self.currentUserModel = userModel
-                    self.directToChatScreen(screen, petshopId)
+                    self.createUserCustomerAndPetshop(screen, spinner, petshopId)
+                }
+            }
+        }
+    }
+    
+    private func createUserCustomerAndPetshop(_ screen: UserPetshopDetailViewController, _ spinner: UIView, _ petshopId: Int) {
+        createUserFirestore(userModel: petshopModel) { (successCreatePetshop) in
+            if !successCreatePetshop {
+                screen.removeSpinner(spinner)
+                screen.showToast(message: "gagal memproses data")
+                
+            } else {
+                self.createUserFirestore(userModel: self.currentUserModel) { (successCreateCustomer) in
+                    screen.removeSpinner(spinner)
+                    
+                    if !successCreateCustomer {
+                        screen.showToast(message: "gagal memproses data")
+                    } else {
+                       self.directToChatScreen(screen, petshopId)
+                    }
                 }
             }
         }
@@ -111,6 +134,19 @@ extension UserPetshopDetailPresenter {
             case .success(let value):
                 completion?(value.data, nil)
             }
+        }
+    }
+    
+    private func createUserFirestore(userModel: UserModel?, completion: ((Bool) -> Void)? = nil) {
+        guard let userId = userModel?.id, let dataForFirestore = userModel?.representation else { return }
+        let firestore = Firestore.firestore()
+        let userCollection = firestore.collection("user").document("\(userId)")
+        userCollection.setData(dataForFirestore) { error in
+            var isSuccess = false
+            if error == nil {
+                isSuccess = true
+            }
+            completion?(isSuccess)
         }
     }
 }

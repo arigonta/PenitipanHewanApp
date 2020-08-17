@@ -49,8 +49,8 @@ class ChatDetailViewController: MessagesViewController {
     func setView() {
         self.navigationController?.navigationBar.tintColor = .white
         self.title = "Chat"
-        if let petshopId = channelModel?.petshopId, let customerId = channelModel?.customerId {
-            self.title = role.elementsEqual("customer") ? "\(petshopId)" : "\(customerId)"
+        if let petshopName = channelModel?.petshopName, let customerName = channelModel?.customerName {
+            self.title = role.elementsEqual("customer") ? "\(petshopName)" : "\(customerName)"
         }
         
         
