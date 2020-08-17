@@ -14,26 +14,28 @@ protocol DatabaseRepresentation {
 
 struct ChannelModel {
     let id: String?
-    let customerId: String
-    let petshopId: String
+    let customerId: Int
+    let petshopId: Int
     var lastMessage: String = ""
     var lastMessageCreated: Date
     let documentChange: DocumentChange?
+    var petshopName: String?
+    var customerName: String?
     
-    init(customerId: String, petshopId: String) {
-        id = nil
+    init(customerId: Int, petshopId: Int) {
+        self.id = nil
+        self.documentChange = nil
         self.customerId = customerId
         self.petshopId = petshopId
-        documentChange = nil
-        lastMessageCreated = Date()
+        self.lastMessageCreated = Date()
     }
     
     init?(documentChange: DocumentChange) {
         let data = documentChange.document.data()
         
         guard
-            let customerId = data["customerId"] as? String,
-            let petshopId = data["petshopId"] as? String
+            let customerId = data["customerId"] as? Int,
+            let petshopId = data["petshopId"] as? Int
         else {
             return nil
         }
