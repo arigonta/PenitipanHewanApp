@@ -8,16 +8,24 @@
 
 import UIKit
 
+protocol UserPetshopViewProtocol {
+    func updateScreen(_ data: [PetShopListModel]?)
+}
+
 class UserPetshopViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    public var petType: String = ""
+    public var animalType: ReferenceAnimalModel?
+    public var listPetshop: [PetShopListModel]?
+    var presenter: UserPetshopPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = petType
+        
+        self.title = self.animalType?.animal_name ?? "Hewan"
+        presenter = UserPetshopPresenter(self, animalType)
         setTableView()
+        presenter?.getListData(self)
     }
     
     private func setTableView() {
@@ -54,17 +62,22 @@ extension UserPetshopViewController: UITableViewDelegate {
 }
 
 extension UserPetshopViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return listPetshop?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserPetshopCell
         else { return UITableViewCell() }
-        
+        let data = listPetshop?[indexPath.row]
+        cell.setCell(data: data)
         return cell
     }
-    
-    
+}
+
+extension UserPetshopViewController: UserPetshopViewProtocol {
+    func updateScreen(_ data: [PetShopListModel]?) {
+        self.listPetshop = data
+        tableView.reloadData()
+    }
 }
