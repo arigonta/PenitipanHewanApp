@@ -11,12 +11,12 @@ import UIKit
 class UserPetshopViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    public var petType: String = ""
+    public var animalType: ReferenceAnimalModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = petType
+        self.title = self.animalType?.animal_name ?? "Hewan"
         setTableView()
     }
     
