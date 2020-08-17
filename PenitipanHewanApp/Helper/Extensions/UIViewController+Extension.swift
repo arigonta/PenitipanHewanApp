@@ -57,8 +57,22 @@ extension UIViewController {
         window.rootViewController = view
         window.makeKeyAndVisible()
     }
-    
-    
+}
+
+// MARK: - HIDE KEYBOARD
+/*
+ 
+        HOW TO USE:
+ 
+        1. call initializeHidKeyboard(), in viewdidload
+ 
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            initializeHidKeyboard()
+        }
+ */
+
+extension UIViewController {
     func initializeHidKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -70,6 +84,28 @@ extension UIViewController {
 }
 
 // MARK: - ALERT
+/*
+ 
+        HOW TO USE:
+ 
+        1. create var closure  ((UIAlertAction) -> Void)
+        2. call openAlert func
+ 
+ 
+        let action1: ((UIAlertAction) -> Void) = { _ in
+            guard let window = self.window else { return }
+            screen.goToLogin(window: window)
+        }
+ 
+        openAlert(title: "",
+                  message: "Register berhasil!",
+                  alertStyle: .alert,
+                  actionTitles: ["Ok"],
+                  actionStyles: [.default],
+                  actions: [action1])
+ 
+ */
+
 extension UIViewController {
     func openAlert(title: String,
                           message: String,
@@ -101,6 +137,28 @@ extension UIViewController {
 }
 
 // MARK: - loading & toast
+/*
+ 
+        HOW TO USE:
+ 
+        1. SPINNER (LOADING SCREEN)
+        -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ 
+        showSpinner { spinner in
+            
+            // do something
+            // after end process remove spinner
+ 
+            removeSpinner(spinner)
+        }
+ 
+ 
+        2. SHOW TOAST (POPUP MESSAGE)
+        -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ 
+        showtoast(message: "maaf terjadi kesalahan pada server kami")
+        
+ */
 extension UIViewController {
     
     public func showSpinner(completion: ((UIView) -> Void)? = nil) {
@@ -193,17 +251,21 @@ extension UIViewController {
 // MARK: - keyboard will increase the view position
 /*
  
-    HOW TO USE:
+        HOW TO USE:
  
-     override public func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
-         registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
-     }
+        1. create IBOutlet UIScrollView
+        2. create var activeComponent: UIView? on global variable
+        3. then call func as follows:
+     
+         override public func viewWillAppear(_ animated: Bool) {
+             super.viewWillAppear(animated)
+             registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
+         }
 
-     override public func viewDidDisappear(_ animated: Bool) {
-         super.viewDidDisappear(animated)
-         deregisterFromKeyboardNotifications()
-     }
+         override public func viewDidDisappear(_ animated: Bool) {
+             super.viewDidDisappear(animated)
+             deregisterFromKeyboardNotifications()
+         }
     
  */
 
