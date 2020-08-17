@@ -10,11 +10,16 @@ import UIKit
 
 extension PackageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return packageList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let packageCell = tableView.dequeueReusableCell(withIdentifier: "PackageTableViewCell", for: indexPath) as? PackageTableViewCell {
+            packageCell.titlePackageLabel.text = packageList[indexPath.row].package_name
+            packageCell.deadlineLabel.text = "Deadline Paket: \(packageList[indexPath.row].duration ?? 0) Hari"
+            packageCell.packagePriceLabel.text = "Harga Paket: Rp.\(packageList[indexPath.row].price ?? 0)"
+            packageCell.typeAnimalLabel.text = "Tipe Hewan: \(packageList[indexPath.row].animal_name ?? "")"
+            packageCell.descLabel.text = packageList[indexPath.row].deskripsi
             return packageCell
         } else {
             return UITableViewCell.init()
@@ -22,6 +27,6 @@ extension PackageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return UITableView.automaticDimension
     }
 }

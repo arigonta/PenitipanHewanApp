@@ -9,16 +9,11 @@
 import UIKit
 
 class PackageTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    @IBOutlet weak var titlePackageLabel: UILabel!
+    @IBOutlet weak var deadlineLabel: UILabel!
+    @IBOutlet weak var packagePriceLabel: UILabel!
+    @IBOutlet weak var typeAnimalLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
+    
 }
