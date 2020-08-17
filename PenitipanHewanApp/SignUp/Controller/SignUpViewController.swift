@@ -75,6 +75,7 @@ class SignUpViewController: UIViewController  {
         
         textFields.forEach { (textField) in
             textField.setMainUnderLine()
+            textField.delegate = self
         }
         
         containerButton.addDropShadow(to: .top)
@@ -122,6 +123,11 @@ extension SignUpViewController: UITextFieldDelegate {
         } else {
             return true
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

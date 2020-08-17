@@ -42,6 +42,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
         let selectRole = screen.selectRole!
         let phoneTft = screen.phoneTft!
         let fullnameTft = screen.fullnameTft!
+        let addressTft = screen.addressTft!
         
         if email.text == "" || email.text?.isValidEmail == false {
             email.setRedUnderLine()
@@ -101,6 +102,10 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             isFullNameValidate = true
         }
         
+        if addressTft.text == "" {
+            addressTft.setRedUnderLine()
+        }
+        
         if password.text != confirmPassword.text || password.text == "" || confirmPassword.text == "" {
             password.setRedUnderLine()
             confirmPassword.setRedUnderLine()
@@ -124,7 +129,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             && isPassEqual
             && isPhoneValidate
             && isFullNameValidate {
-            let model = SignUpModel(username.text, password.text, selectRole.text, email.text, fullnameTft.text, phoneTft.text, nil)
+            let model = SignUpModel(username.text, password.text, selectRole.text, email.text, fullnameTft.text, phoneTft.text, addressTft.text)
             sendDataRegister(screen, model)
             
         }
@@ -189,6 +194,7 @@ extension SignUpPresenter {
                      "role": data.role ?? "",
                      "name": data.name ?? "",
                      "phone": data.phone ?? "",
+                     "address": data.address ?? "",
                      "email": data.email ?? ""]
         
         NetworkHelper.shared.connect(url: url, params: param, model: SignUpAPIModel.self) { (result) in

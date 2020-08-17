@@ -19,15 +19,15 @@ struct SignUpModel: Codable {
     var role        : String?
     var email       : String?
     var phone       : String?
-    var id          : Int?
+    var address     : String?
     
-    init(_ username: String?, _ password: String?, _ role: String?, _ email: String?, _ name: String?, _ phone: String?, _ id: Int?) {
+    init(_ username: String?, _ password: String?, _ role: String?, _ email: String?, _ name: String?, _ phone: String?, _ address: String?) {
         self.username = username
         self.password = password
         self.role = role
         self.email = email
         self.name = name
         self.phone = phone
-        self.id = id
+        self.address = address
     }
 }

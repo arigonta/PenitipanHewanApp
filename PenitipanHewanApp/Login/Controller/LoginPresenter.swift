@@ -56,6 +56,7 @@ class LoginPresenter: LoginPresenterProtocol {
             $0.goToUserTabbar(window: window)
         }
     }
+    
     func directToSignUpScreen(_ screen: LoginViewController) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
         if let detailMovieVC = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {

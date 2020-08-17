@@ -42,6 +42,9 @@ class LoginViewController: UIViewController {
         usernameTextField.placeholder = "Username"
         passwordTextField.placeholder = "Password"
         
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         // MARK: Style
         loginButton.setButtonMainStyle()
         signUpButton.setButtonMainStyle()
@@ -84,6 +87,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func passwordTextField(_ sender: Any) {
         
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
