@@ -86,6 +86,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addressLbl" destination="r9m-oI-C7h" id="LVw-MR-k56"/>
+                <outlet property="paketLbl" destination="q9o-9R-J4h" id="mge-vj-zAo"/>
+                <outlet property="petshopImgView" destination="uMx-pn-Ost" id="MGY-dZ-qbW"/>
+                <outlet property="pricePackageLbl" destination="utN-GS-Stg" id="4x4-AY-ICB"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="209.93303571428569"/>
         </tableViewCell>
     </objects>

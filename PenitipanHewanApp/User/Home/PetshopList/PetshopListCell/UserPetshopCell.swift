@@ -13,11 +13,14 @@ class UserPetshopCell: UITableViewCell {
     @IBOutlet weak var petshopImgView: UIImageView!
     @IBOutlet weak var paketLbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
+    @IBOutlet weak var pricePackageLbl: UILabel!
     
-    func setCell() {
+    func setCell(data: PetShopListModel?) {
+        guard let data = data else { return }
         petshopImgView.image = #imageLiteral(resourceName: "Kucing")
-        paketLbl.text = "ini nama paket"
-        addressLbl.text = "alamat jalanin aja dulu yang penting ketemu kan, gapapa g"
+        paketLbl.text = "\(data.petshop_name ?? "") - \(data.duration ?? 0) hari"
+        addressLbl.text = "masih dummy alamatnya"
+        pricePackageLbl.text = "\(data.price ?? 0)".currencyInputFormatting()
     }
     
 }
