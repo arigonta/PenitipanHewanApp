@@ -14,13 +14,13 @@ protocol DatabaseRepresentation {
 
 struct ChannelModel {
     let id: String?
-    let customerId: String
-    let petshopId: String
+    let customerId: Int
+    let petshopId: Int
     var lastMessage: String = ""
     var lastMessageCreated: Date
     let documentChange: DocumentChange?
     
-    init(customerId: String, petshopId: String) {
+    init(customerId: Int, petshopId: Int) {
         id = nil
         self.customerId = customerId
         self.petshopId = petshopId
@@ -32,8 +32,8 @@ struct ChannelModel {
         let data = documentChange.document.data()
         
         guard
-            let customerId = data["customerId"] as? String,
-            let petshopId = data["petshopId"] as? String
+            let customerId = data["customerId"] as? Int,
+            let petshopId = data["petshopId"] as? Int
         else {
             return nil
         }

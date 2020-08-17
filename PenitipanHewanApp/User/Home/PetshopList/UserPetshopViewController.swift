@@ -38,15 +38,6 @@ class UserPetshopViewController: UIViewController {
 
 }
 
-// MARK: - Direction
-extension UserPetshopViewController {
-    private func directToDetail() {
-        let nextVC = UserPetshopDetailViewController(nibName: "UserPetshopDetailViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-}
-
 // MARK: - table
 extension UserPetshopViewController: UITableViewDelegate {
     
@@ -56,7 +47,8 @@ extension UserPetshopViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        directToDetail()
+        let data = listPetshop?[indexPath.row]
+        presenter?.directToDetail(self, data)
     }
     
 }

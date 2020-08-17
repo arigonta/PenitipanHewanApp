@@ -15,7 +15,7 @@ protocol UserChatPresenterProtocol: class {
     var channelListener: ListenerRegistration? { get set }
     var channelModels: [ChannelModel]? { get set}
     func removeListener()
-    func createChannels(_ screen: UserChatViewController, _ petshopId: String)
+    func createChannels(_ screen: UserChatViewController, _ petshopId: Int)
     func channelListen(_ screen: UserChatViewController)
     func handleDocumetnChange(_ change: ChannelModel)
     
@@ -28,7 +28,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
     var channelModels: [ChannelModel]?
     
     // MARK: Injections
-    private var currentId = UserDefaultsUtils.shared.getUsername()
+    private var currentId = UserDefaultsUtils.shared.getCurrentId()
     private let firestore = Firestore.firestore()
     private var channelRef: CollectionReference {
         return firestore.collection("channels")
@@ -38,7 +38,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
         self.view = view
     }
     
-    func createChannels(_ screen: UserChatViewController, _ petshopId: String) {
+    func createChannels(_ screen: UserChatViewController, _ petshopId: Int) {
         checkChannels(screen, petshopId)
     }
     
@@ -97,7 +97,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
 }
 
 extension UserChatPresenter {
-    private func checkChannels(_ screen: UserChatViewController, _ petshopId: String) {
+    private func checkChannels(_ screen: UserChatViewController, _ petshopId: Int) {
         screen.showSpinner { [weak self] (spinner) in
             guard let self = self else { return }
             
@@ -126,7 +126,7 @@ extension UserChatPresenter {
         }
     }
     
-    private func doCreateChannels(_ screen: UserChatViewController, _ petshopId: String) {
+    private func doCreateChannels(_ screen: UserChatViewController, _ petshopId: Int) {
         let channel = ChannelModel(customerId: self.currentId, petshopId: petshopId)
         self.channelRef.addDocument(data: channel.representation) { error in
             if let error = error {

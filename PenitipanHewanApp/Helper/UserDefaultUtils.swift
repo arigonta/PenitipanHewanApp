@@ -51,12 +51,15 @@ class UserDefaultsUtils {
     }
     
     // MARK: - petshopID
-    func setPetshopId(value: String) {
+    func setPetshopId(value: Int) {
         userDefault.set(value, forKey: UserDefaultsUtils.keyPetshopId)
     }
     
-    func getPetshopId() -> String {
-        let data =  userDefault.string(forKey: UserDefaultsUtils.keyPetshopId) ?? ""
+    func getPetshopId() -> Int {
+        let data =  userDefault.integer(forKey: UserDefaultsUtils.keyPetshopId)
+        if data == 0 {
+            return -1
+        }
         return data
     }
     

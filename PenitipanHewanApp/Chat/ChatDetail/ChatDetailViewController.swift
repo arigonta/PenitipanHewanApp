@@ -48,7 +48,11 @@ class ChatDetailViewController: MessagesViewController {
     
     func setView() {
         self.navigationController?.navigationBar.tintColor = .white
-        self.title = role.elementsEqual("customer") ? channelModel?.petshopId ?? "" : channelModel?.customerId ?? ""
+        self.title = "Chat"
+        if let petshopId = channelModel?.petshopId, let customerId = channelModel?.customerId {
+            self.title = role.elementsEqual("customer") ? "\(petshopId)" : "\(customerId)"
+        }
+        
         
         // set input bar
         maintainPositionOnKeyboardFrameChanged = true
