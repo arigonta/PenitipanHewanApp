@@ -13,6 +13,7 @@ protocol UserPetshopPresenterProtocol: class {
     var dataList: [PetShopListModel]? { get set }
     var currentAnimal: ReferenceAnimalModel? { get set }
     func getListData(_ screen: UserPetshopViewController)
+    func directToDetail(_ screen: UserPetshopViewController, _ data: PetShopListModel?)
 }
 
 class UserPetshopPresenter: UserPetshopPresenterProtocol {
@@ -27,6 +28,13 @@ class UserPetshopPresenter: UserPetshopPresenterProtocol {
     
     func getListData(_ screen: UserPetshopViewController) {
         getData(screen)
+    }
+    
+    func directToDetail(_ screen: UserPetshopViewController, _ data: PetShopListModel?) {
+        let nextVC = UserPetshopDetailViewController(nibName: "UserPetshopDetailViewController", bundle: nil)
+        nextVC.dataDetail = data
+        nextVC.hidesBottomBarWhenPushed = true
+        screen.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

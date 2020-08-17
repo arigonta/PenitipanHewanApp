@@ -17,10 +17,10 @@ class UserChatViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var petshopId: String = UserDefaultsUtils.shared.getPetshopId()
+    var petshopId: Int = UserDefaultsUtils.shared.getPetshopId()
     private var channels = [ChannelModel]()
     private var role: String = UserDefaultsUtils.shared.getRole()
-    private var currentUsername: String = UserDefaultsUtils.shared.getUsername()
+    private var currentId: Int = UserDefaultsUtils.shared.getCurrentId()
     
     var presenter: UserChatPresenterProtocol?
     
@@ -44,7 +44,7 @@ class UserChatViewController: UIViewController {
     func createChannelOrFetch() {
         petshopId = UserDefaultsUtils.shared.getPetshopId()
         if role.elementsEqual("customer") {
-            if !petshopId.isEmpty {
+            if petshopId != -1 {
                 presenter?.createChannels(self, petshopId)
             } else {
                 presenter?.channelListen(self)
@@ -66,8 +66,10 @@ extension UserChatViewController {
 
 extension UserChatViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = channels[indexPath.row]
-        presenter?.directToChatDetail(self, data)
+        if !channels.isEmpty {
+            let data = channels[indexPath.row]
+            presenter?.directToChatDetail(self, data)
+        }
     }
 }
 
@@ -91,8 +93,8 @@ extension UserChatViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             let data = channels[indexPath.row]
-            let text = currentUsername == data.customerId ? data.petshopId : data.customerId
-            cell.nameLbl.text = text
+            let text = currentId == data.customerId ? data.petshopName : data.customerName
+            cell.nameLbl.text = text ?? "emptyName"
             cell.lastMessageLbl.text = data.lastMessage.isEmpty ? " " : data.lastMessage
             cell.lastMessageCreatedLbl.text = data.lastMessage.isEmpty ? "" : CommonHelper.shared.dateToString(from: data.lastMessageCreated)
             cell.selectionStyle = .none

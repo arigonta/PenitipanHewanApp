@@ -15,7 +15,7 @@ protocol UserChatPresenterProtocol: class {
     var channelListener: ListenerRegistration? { get set }
     var channelModels: [ChannelModel]? { get set}
     func removeListener()
-    func createChannels(_ screen: UserChatViewController, _ petshopId: String)
+    func createChannels(_ screen: UserChatViewController, _ petshopId: Int)
     func channelListen(_ screen: UserChatViewController)
     func handleDocumetnChange(_ change: ChannelModel)
     
@@ -28,7 +28,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
     var channelModels: [ChannelModel]?
     
     // MARK: Injections
-    private var currentId = UserDefaultsUtils.shared.getUsername()
+    private var currentId = UserDefaultsUtils.shared.getCurrentId()
     private let firestore = Firestore.firestore()
     private var channelRef: CollectionReference {
         return firestore.collection("channels")
@@ -38,7 +38,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
         self.view = view
     }
     
-    func createChannels(_ screen: UserChatViewController, _ petshopId: String) {
+    func createChannels(_ screen: UserChatViewController, _ petshopId: Int) {
         checkChannels(screen, petshopId)
     }
     
@@ -63,7 +63,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
                     // looping and update data to view
                     channelModels.forEach { [weak self] channel in
                         guard let self = self else { return }
-                        self.handleDocumetnChange(channel)
+                        self.willGetUserDocument(channel)
                     }
                 }
             }
@@ -97,7 +97,7 @@ class UserChatPresenter: UserChatPresenterProtocol {
 }
 
 extension UserChatPresenter {
-    private func checkChannels(_ screen: UserChatViewController, _ petshopId: String) {
+    private func checkChannels(_ screen: UserChatViewController, _ petshopId: Int) {
         screen.showSpinner { [weak self] (spinner) in
             guard let self = self else { return }
             
@@ -126,7 +126,7 @@ extension UserChatPresenter {
         }
     }
     
-    private func doCreateChannels(_ screen: UserChatViewController, _ petshopId: String) {
+    private func doCreateChannels(_ screen: UserChatViewController, _ petshopId: Int) {
         let channel = ChannelModel(customerId: self.currentId, petshopId: petshopId)
         self.channelRef.addDocument(data: channel.representation) { error in
             if let error = error {
@@ -164,5 +164,32 @@ extension UserChatPresenter {
                 completion?(modelFilter, nil)
             }
         })
+    }
+    
+    private func willGetUserDocument(_ channel: ChannelModel) {
+        var newChannel = channel
+        let targetId = newChannel.customerId == currentId ? newChannel.petshopId : newChannel.customerId
+    
+        let docRef = firestore.collection("user").document("\(targetId)")
+        docRef.getDocument { (documentSnapshot, error) in
+            
+            guard
+                let data = documentSnapshot?.data(),
+                let targetName = data["name"] as? String
+            else {
+                return
+            }
+            
+            newChannel.customerName = ""
+            newChannel.petshopName = ""
+            
+            if targetId == channel.customerId {
+                newChannel.customerName = targetName
+            } else {
+                newChannel.petshopName = targetName
+            }
+            
+            self.handleDocumetnChange(newChannel)
+        }
     }
 }

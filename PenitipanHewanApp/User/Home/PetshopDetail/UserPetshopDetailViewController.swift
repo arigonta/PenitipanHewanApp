@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol UserPetshopDetailViewProtocol: class {
+    func updateScreen(petshopData: UserModel?)
+}
+
 class UserPetshopDetailViewController: UIViewController {
     
     @IBOutlet weak var imagePetshop: UIImageView!
     @IBOutlet weak var petshopName: UILabel!
     @IBOutlet weak var packagePetshop: UILabel!
     @IBOutlet weak var pricePackage: UILabel!
+    @IBOutlet weak var phonePetshopLbl: UILabel!
+    @IBOutlet weak var addressPetshop: UILabel!
     @IBOutlet weak var petshopDesc: UILabel!
     @IBOutlet weak var btnHiddenDesc: UIButton!
     @IBOutlet weak var containerDesc: UIView!
@@ -21,13 +27,20 @@ class UserPetshopDetailViewController: UIViewController {
     @IBOutlet weak var reservationBtn: UIButton!
     @IBOutlet weak var chatBtn: UIButton!
     
+    var dataDetail: PetShopListModel?
+    var presenter: UserPetshopDetailPresenterProtocol?
+    
     var isHiddenDesc: Bool = true
     var image = UIImage(named: "arrowDown")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setView()
+        
+        presenter = UserPetshopDetailPresenter(view: self)
+        if let petshopId = dataDetail?.petshop_id {
+            presenter?.getDetailPetshop(self, petshopId)
+        }
     }
 
 }
@@ -39,6 +52,7 @@ extension UserPetshopDetailViewController {
         setDescTitle()
         setReservationBtn()
         setChatBtn()
+        setData()
     }
     
     func setDescTitle() {
@@ -62,20 +76,27 @@ extension UserPetshopDetailViewController {
         chatBtn.setCornerWithBorder(radius: 8, borderColor: ColorHelper.instance.mainGreen, titleColor: ColorHelper.instance.mainGreen, backgroundColor: .white)
         chatBtn.addTarget(self, action: #selector(chatTap), for: .touchUpInside)
     }
+    
+    func setData() {
+        imagePetshop.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
+        petshopName.text = dataDetail?.petshop_name ?? "Petshop Name"
+        packagePetshop.text = "\(dataDetail?.duration ?? 0) Hari"
+        pricePackage.text = "\(dataDetail?.price ?? 0)".currencyInputFormatting()
+        petshopDesc.text = dataDetail?.deskripsi ?? "-Tidak ada Deskripsi paket"
+        phonePetshopLbl.text = "_"
+        addressPetshop.text = "_"
+    }
 }
 
 // MARK: - objc func
 extension UserPetshopDetailViewController {
     @objc private func reservationTap() {
-        goToReservationForm()
+        presenter?.directToReservationForm(self)
     }
     
     @objc private func chatTap() {
         // select tabbar
-        UserDefaultsUtils.shared.setPetshopId(value: "petshop1")
-        navigationController?.tabBarController?.selectedIndex = 2
-        self.navigationController?.popToRootViewController(animated: true)
-        
+        presenter?.directToChat(self)
     }
     
     @objc private func btnHiddenTap() {
@@ -86,11 +107,9 @@ extension UserPetshopDetailViewController {
     }
 }
 
-// MARK: - direction
-extension UserPetshopDetailViewController {
-    func goToReservationForm() {
-        let nextVC = UserReservationFormViewController(nibName: "UserReservationFormViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(nextVC, animated: true)
+extension UserPetshopDetailViewController: UserPetshopDetailViewProtocol {
+    func updateScreen(petshopData: UserModel?) {
+        phonePetshopLbl.text = petshopData?.phone ?? ""
+        addressPetshop.text = petshopData?.address ?? ""
     }
 }
