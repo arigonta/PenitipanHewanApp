@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
-    var userDefault = UserDefaults.standard
     var presenter: LoginPresenterProtocol?
     
     @IBOutlet weak var loginButton: UIButton!

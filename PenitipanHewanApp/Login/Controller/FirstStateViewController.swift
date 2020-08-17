@@ -9,8 +9,7 @@
 import UIKit
 
 class FirstStateViewController: UIViewController {
-    
-    var userDefault = UserDefaults.standard
+
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var isLoggedIn = false
@@ -18,8 +17,8 @@ class FirstStateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isLoggedIn = userDefault.bool(forKey: CommonHelper.shared.isLogin)
-        lastRole = userDefault.string(forKey: CommonHelper.shared.lastRole) ?? ""
+        isLoggedIn = UserDefaultsUtils.shared.getIsLogin()
+        lastRole = UserDefaultsUtils.shared.getRole()
         window = appDelegate.window
         isLogin()
     }

@@ -15,6 +15,7 @@ class UserDefaultsUtils {
     static var keyIsLogin = "key_isLogin"
     static var keyRole = "key_role"
     static var keyPetshopId = "key_petshopId"
+    static var keyCurrentId = "key_CurrentId"
     
     let userDefault = UserDefaults.standard
     
@@ -61,5 +62,24 @@ class UserDefaultsUtils {
     
     func removePetshopId() {
         userDefault.removeObject(forKey: UserDefaultsUtils.keyPetshopId)
+    }
+    
+    // MARK: - CURRENT ID
+    func setCurrentId(value: Int) {
+        userDefault.set(value, forKey: UserDefaultsUtils.keyCurrentId)
+    }
+    
+    func getCurrentId() -> Int {
+        let data =  userDefault.integer(forKey: UserDefaultsUtils.keyCurrentId)
+        return data
+    }
+    
+    // MARK: - remove all
+    func removeAllUserDefault() {
+        userDefault.removeObject(forKey: UserDefaultsUtils.keyPetshopId)
+        userDefault.removeObject(forKey: UserDefaultsUtils.keyRole)
+        userDefault.removeObject(forKey: UserDefaultsUtils.keyUsername)
+        userDefault.removeObject(forKey: UserDefaultsUtils.keyIsLogin)
+        userDefault.removeObject(forKey: UserDefaultsUtils.keyCurrentId)
     }
 }
