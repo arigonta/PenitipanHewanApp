@@ -19,6 +19,7 @@ class DetailPackageViewController: UIViewController {
     @IBOutlet weak var deadlineTextField: UITextField!
     @IBOutlet weak var deadlineLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var descriptionTextArea: UITextView!
@@ -33,20 +34,26 @@ class DetailPackageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Tambah Paket"
-        
-        descriptionTextArea.returnKeyType = UIReturnKeyType.done
-        priceTextField.keyboardType = .asciiCapableNumberPad
-        submitButton.setButtonMainStyle()
-        delegate()
+        configure()
         createPickerView()
     }
     
-    private func delegate() {
-        priceTextField.delegate = self
-        deadlineTextField.delegate = self
-        animalTypeTextField.delegate = self
+    private func configure() {
+        //MARK: To Stylze
+        textFields.forEach { (textField) in
+            textField.delegate = self
+            textField.layer.borderColor = #colorLiteral(red: 0.3516459167, green: 0.7204310298, blue: 0.4399796724, alpha: 1)
+            textField.layer.borderWidth = 1
+            textField.layer.cornerRadius = 6
+        }
+        descriptionTextArea.returnKeyType = UIReturnKeyType.done
+        descriptionTextArea.layer.borderWidth = 1
+        descriptionTextArea.layer.cornerRadius = 6
+        descriptionTextArea.layer.borderColor = #colorLiteral(red: 0.3516459167, green: 0.7204310298, blue: 0.4399796724, alpha: 1)
         descriptionTextArea.delegate = self
-        nameTextField.delegate = self
+        
+        submitButton.setButtonMainStyle()
+        priceTextField.keyboardType = .asciiCapableNumberPad
     }
     
     @IBAction func submitButton(_ sender: Any) {
