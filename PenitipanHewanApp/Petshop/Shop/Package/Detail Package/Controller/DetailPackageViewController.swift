@@ -27,14 +27,16 @@ class DetailPackageViewController: UIViewController {
     var activeComponent: UIView?
     var pickerDeadline: PickerHelper?
     var pickerAnimal: PickerHelper?
+    var animalType: [ReferenceAnimalModel]?
+    var animalId: Int?
     
     var deadlinePackage = ["7 Hari", "2 Minggu", "1 Bulan"]
-    var pet = ["Kucing", "Anjing", "Burung", "Reptil"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Tambah Paket"
         configure()
+        getData()
         createPickerView()
     }
     
@@ -62,40 +64,45 @@ class DetailPackageViewController: UIViewController {
         let harga = priceTextField.text ?? ""
         let animalType = animalTypeTextField.text ?? ""
         let desc = descriptionTextArea.text ?? ""
-        var checkName = false, checkDeadline = false, checkHarga = false, checkAnimal = false , checkDesc = false
+        var checkName = false, checkDeadline = false, checkHarga = false, checkAnimal = false
         
         if nama.isEmpty {
             nameTextField.setRedUnderLine()
         } else {
+            nameTextField.setMainUnderLine()
             checkName = true
         }
         
         if deadline.isEmpty {
             deadlineTextField.setRedUnderLine()
         } else {
+            deadlineTextField.setMainUnderLine()
             checkDeadline = true
         }
         
         if harga.isEmpty {
             priceTextField.setRedUnderLine()
         } else {
+            priceTextField.setMainUnderLine()
             checkHarga = true
         }
         
         if animalType.isEmpty {
             animalTypeTextField.setRedUnderLine()
         } else {
+            animalTypeTextField.setMainUnderLine()
             checkAnimal = true
         }
         
         if desc.isEmpty {
             
         } else {
-            checkDesc = true
+
         }
         
-        if checkName && checkDesc && checkHarga && checkAnimal && checkDeadline {
-            self.navigationController?.popToRootViewController(animated: true)
+        if checkName && checkHarga && checkAnimal && checkDeadline {
+            let model = AddReservationModel(petshop_id: UserDefaultsUtils.shared.getCurrentId(), package_name: nama, deskripsi: desc, animal_id: animalId, duration: CommonHelper.shared.convertDateToDuration(input: deadline), price: CommonHelper.shared.convertCurrencyToNumerics(input: harga))
+            postData(dataPost: model)
         }
     }
 }
@@ -129,8 +136,7 @@ extension DetailPackageViewController: UITextFieldDelegate {
 extension DetailPackageViewController {
     func createPickerView() {
         pickerAnimal = PickerHelper(self, self)
-        pickerAnimal?.setPicker(textField: animalTypeTextField, data: pet)
-        
+            
         pickerDeadline = PickerHelper(self, self)
         pickerDeadline?.setPicker(textField: deadlineTextField, data: deadlinePackage)
     }
@@ -144,6 +150,8 @@ extension DetailPackageViewController: PickerHelperDelegate {
             textField.text = value
         } else if textField == animalTypeTextField {
             textField.text = value
+            guard let tempAnimalId = animalType?.filter({ $0.animal_name == value}).first?.animal_id else { return }
+            animalId = tempAnimalId
         }
     }
 }
@@ -157,5 +165,89 @@ extension DetailPackageViewController {
     override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         deregisterFromKeyboardNotifications()
+    }
+}
+
+// MARK: - API
+extension DetailPackageViewController {
+    private func getData() {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            
+            self.getRequest() { [weak self] (dataList, error) in
+                guard let self = self else { return }
+                
+                self.removeSpinner(spinner)
+                if error != nil {
+                    self.showToast(message: "gagal mendapatkan data")
+                } else {
+                    self.handleSuccessGetData(dataList)
+                }
+            }
+        }
+    }
+    
+    private func postData(dataPost: AddReservationModel) {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            
+            self.sendRequest(dataPost) { [weak self] (dataSuccess, error) in
+                guard let self = self else { return }
+                
+                self.removeSpinner(spinner)
+                if let newError = error as? ErrorResponse {
+                    let message = newError.messages
+                    self.showToast(message: message)
+                } else {
+                    self.showToast(message: "Success submit data")
+                    delay(deadline: .now() + 0.55) {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: POST Request Add Package
+    private func sendRequest(_ dataPost: AddReservationModel, completion: ((AddReservationModel?, Error?) -> Void)? = nil) {
+        
+        let url = "\(CommonHelper.shared.BASE_URL)petshop/package/register"
+        NetworkHelper.shared.connect(url: url, params: dataPost.representation, model: AddReservationAPIModel.self) { (result) in
+            switch result {
+            case .failure(let err):
+                completion?(nil, err)
+                break
+            case .success(let value):
+                completion?(value.data, nil)
+            }
+        }
+    }
+    
+    //MARK: GET Request Animal List
+    private func getRequest(completion: (([ReferenceAnimalModel]?, Error?) -> Void)? = nil) {
+        let url = "\(CommonHelper.shared.BASE_URL)animal/list"
+        
+        NetworkHelper.shared.connect(url: url, params: nil, model: ReferenceAnimalAPIModel.self) { (result) in
+            switch result {
+            case .failure(let err):
+                completion?(nil, err)
+                break
+            case .success(let value):
+                completion?(value.data, nil)
+            }
+        }
+    }
+    
+    private func handleSuccessGetData(_ data: [ReferenceAnimalModel]?) {
+        guard let dataList = data else {
+            self.showToast(message: "gagal mendapatkan data")
+            return
+        }
+        self.animalType = dataList
+        
+        pickerAnimal = PickerHelper(self, self)
+    
+        guard let animalTypeName = animalType?.compactMap({ $0.animal_name }) else { return }
+        pickerAnimal?.setPicker(textField: animalTypeTextField, data: animalTypeName)
     }
 }

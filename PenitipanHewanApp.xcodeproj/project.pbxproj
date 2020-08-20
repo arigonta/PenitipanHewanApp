@@ -25,6 +25,7 @@
 		3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */; };
 		3F8358F924D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */; };
 		3F8358FB24D5D51400DFEDD6 /* PetshopChat+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */; };
+		3F96E04424EEEBE500D0DF4F /* AddReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */; };
 		3FDD0CF924E05F0900DC67F1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */; };
 		3FDD0CFE24E064CF00DC67F1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */; };
 		3FF69E3324D412740037395A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF69E3224D412740037395A /* CommonHelper.swift */; };
@@ -153,6 +154,7 @@
 		3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package+TableView.swift"; sourceTree = "<group>"; };
 		3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopChatTableViewCell.swift; sourceTree = "<group>"; };
 		3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetshopChat+TableView.swift"; sourceTree = "<group>"; };
+		3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReservationModel.swift; sourceTree = "<group>"; };
 		3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3FF69E3224D412740037395A /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		3F2A056524E6DC0B00E99C38 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1199,6 +1202,7 @@
 				84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */,
 				3FF6AA8224D080850008AD79 /* UserTabBarController.swift in Sources */,
 				3F794F3C24E999D50060B173 /* PetShopMonitoringTableViewCell.swift in Sources */,
+				3F96E04424EEEBE500D0DF4F /* AddReservationModel.swift in Sources */,
 				843043B224D1BA8100DCC642 /* UserPetshopViewController.swift in Sources */,
 				84DFE2ED24EA985F001A4837 /* ReferenceAnimalModel.swift in Sources */,
 				8467238F24DFB2D500DA97A7 /* UIView+Extension.swift in Sources */,
