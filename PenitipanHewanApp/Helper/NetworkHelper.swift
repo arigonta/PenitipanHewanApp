@@ -26,6 +26,18 @@ class NetworkHelper: NSObject {
         HTTPMethod = nil
     }
     
+    /*
+     
+        1. HOT TO GET MESSAGE ERROR:
+     
+            switch result {
+            case .failure(let err):
+         
+                guardlet newError = err as? ErrorResponse else { return }
+                let message = newError.messages
+            }
+     
+     */
     func connect<T: Decodable>( url: String, params: [String: Any]?, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         guard let _url = URL(string: url) else {
             fatalError("invalid url: " + url)
@@ -58,22 +70,30 @@ class NetworkHelper: NSObject {
                     print(error.localizedDescription)
                     return
                 }
-                if let responses = response as? HTTPURLResponse {
-                    if responses.statusCode < 200 || responses.statusCode >= 300 {
-                        let errorCode = NSError(domain: "Status Code", code: responses.statusCode, userInfo: nil)
-                        completion(.failure(errorCode))
-                        print(errorCode.localizedDescription)
-                        return
-                    }
-                }
+                
                 if let datas = data, let stringResponse = String(data: datas, encoding: .utf8) {
                     print(stringResponse)
                     
-                    do {
-                        let responseModel = try JSONDecoder().decode(T.self, from: datas)
-                        completion(.success(responseModel))
-                    } catch let jsonError {
-                        completion(.failure(jsonError))
+                    guard let responses = response as? HTTPURLResponse else {
+                        completion(.failure(error!))
+                        return
+                    }
+                    
+                    if responses.statusCode < 200 || responses.statusCode >= 300 {
+                        do {
+                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: datas)
+                            completion(.failure(errorResponse))
+                        } catch let jsonError {
+                            completion(.failure(jsonError))
+                            
+                        }
+                    } else {
+                        do {
+                            let responseModel = try JSONDecoder().decode(T.self, from: datas)
+                            completion(.success(responseModel))
+                        } catch let jsonError {
+                            completion(.failure(jsonError))
+                        }
                     }
                 }
             }

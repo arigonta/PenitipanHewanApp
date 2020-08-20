@@ -92,3 +92,9 @@ extension UserModel: DatabaseRepresentation {
         return rep
     }
 }
+
+class ErrorResponse: Codable, Error {
+    let code: Int
+    let status: String
+    let messages: String
+}
