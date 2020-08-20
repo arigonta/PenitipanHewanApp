@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import UIKit
 
 protocol UserEditProfilePresenterProtocol: class {
     var view: UserEditProfileViewProtocol? { get set }
@@ -84,7 +86,6 @@ extension UserEditProfilePresenter {
             guard let self = self else { return }
             
             self.sendRequest(dataPost) { (dataSuccess, error) in
-                screen.removeSpinner(spinner)
                 
                 if let newError = error as? ErrorResponse {
                     let message = newError.messages
@@ -93,10 +94,7 @@ extension UserEditProfilePresenter {
                     
                     guard let newDataSuccess = dataSuccess else { return }
                     let message = newDataSuccess.messages.first ?? "Success Update data"
-                    screen.showToast(message: message)
-                    delay(deadline: .now() + 0.55) {
-                        screen.navigationController?.popViewController(animated: true)
-                    }
+                    self.createUserFirestore(screen: screen, spinner: spinner, userModel: dataPost, messageSuccess: message)
                 }
             }
         }
@@ -112,6 +110,33 @@ extension UserEditProfilePresenter {
                 break
             case .success(let value):
                 completion?(value, nil)
+            }
+        }
+    }
+    
+    
+}
+
+// MARK: - FIREBASE
+extension UserEditProfilePresenter {
+    private func createUserFirestore(screen: UserEditProfileViewController, spinner: UIView, userModel: UserModel?, messageSuccess: String) {
+        guard let userId = userModel?.id, let dataForFirestore = userModel?.representation else { return }
+        let firestore = Firestore.firestore()
+        let userCollection = firestore.collection("user").document("\(userId)")
+        userCollection.setData(dataForFirestore) { error in
+            var isSuccess = false
+            if error == nil {
+                isSuccess = true
+            }
+            
+            screen.removeSpinner(spinner)
+            if !isSuccess {
+                screen.showToast(message: "Terjadi kesalahan sistem, mohon coba kembali")
+            } else {
+                screen.showToast(message: messageSuccess)
+                delay(deadline: .now() + 0.55) {
+                    screen.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
