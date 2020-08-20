@@ -7,6 +7,10 @@
 //
 
 import UIKit
+protocol UserReservationFormViewProtocol: class {
+    func setImage(image: UIImage)
+    func setRedTextfield(textfield: UITextField)
+}
 
 class UserReservationFormViewController: UIViewController {
 
@@ -16,25 +20,40 @@ class UserReservationFormViewController: UIViewController {
     @IBOutlet weak var petRasTft: UITextField!
     @IBOutlet weak var petAgeTft: UITextField!
     @IBOutlet weak var petColorTft: UITextField!
-    @IBOutlet weak var petVaksinTft: UITextField!
-    @IBOutlet weak var petSickCheckTft: UITextField!
+    @IBOutlet weak var petVaksinTft: DesignableUITextField!
+    @IBOutlet weak var petSickCheckTft: DesignableUITextField!
     @IBOutlet weak var noteTft: UITextField!
     @IBOutlet weak var containerButton: UIView!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var noteStackView: UIStackView!
     
+    var presenter: UserReservatinFormPresenterProtocol?
     var pickerHelper: PickerHelper?
     var pickerHelperSick: PickerHelper?
     var cameraHelper: CameraLibraryHelper?
+    var petshopDetailModel: PetShopListModel?
+    var activeComponent: UIView?
     
     let vaksin = ["Sudah", "Belum"]
-    let lastSickness = ["Lebih dari 1 tahun", "1 tahun lalu", "Tahun ini", "Bulan ini", "Masih sakit"]
+    let lastSickness = ["Belum pernah sakit", "Lebih dari 1 tahun", "1 tahun lalu", "Tahun ini", "Bulan ini", "Masih sakit"]
     let hiddenSickness = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHidKeyboard()
+        presenter = UserReservatinFormPresenter(view: self, petshopDetailModel: petshopDetailModel)
         setView()
+    }
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
+    }
 
-        // Do any additional setup after loading the view.
+    override public func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        deregisterFromKeyboardNotifications()
     }
     
     private func setView() {
@@ -42,6 +61,7 @@ class UserReservationFormViewController: UIViewController {
         setImage()
         setTextfield()
         setSubmitBtn()
+        navigationController?.navigationBar.topItem?.title = " "
     }
     
     private func setImage() {
@@ -56,26 +76,21 @@ class UserReservationFormViewController: UIViewController {
     
     @objc func imageTapped() {
         // open image
-        openAlert()
+        presenter?.openAlertForImage(self)
     }
     
     private func setSubmitBtn() {
-        submitBtn.layer.cornerRadius = 16
+        submitBtn.layer.cornerRadius = 8
         submitBtn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
     }
     @objc func btnTapped() {
         // open image
-        self.dismissView(weakVar: self)
+        setGreenTextfield()
+        presenter?.validateForm(self)
     }
     
     private func setTextfield() {
-        petNameTft.setMainUnderLine()
-        petRasTft.setMainUnderLine()
-        petAgeTft.setMainUnderLine()
-        petColorTft.setMainUnderLine()
-        petVaksinTft.setMainPickerUnderLine()
-        petSickCheckTft.setMainPickerUnderLine()
-        noteTft.setMainUnderLine()
+        setGreenTextfield()
         
         petNameTft.placeholder = "Nama hewan"
         petRasTft.placeholder = "Ras hewan"
@@ -85,12 +100,22 @@ class UserReservationFormViewController: UIViewController {
         petVaksinTft.placeholder = "Vaksin"
         petSickCheckTft.placeholder = "Terakhir terkena penyakit"
         
-        noteTft.isHidden = true
+        noteStackView.isHidden = true
         
         setVaksinPicker()
         setSicknessPicker()
         
         containerButton.addDropShadow(to: .top)
+    }
+    
+    private func setGreenTextfield() {
+        petNameTft.setMainUnderLine()
+        petRasTft.setMainUnderLine()
+        petAgeTft.setMainUnderLine()
+        petColorTft.setMainUnderLine()
+        petVaksinTft.setMainUnderLine()
+        petSickCheckTft.setMainUnderLine()
+        noteTft.setMainUnderLine()
     }
 
 }
@@ -118,45 +143,19 @@ extension UserReservationFormViewController: PickerHelperDelegate {
         } else if textField == petSickCheckTft {
             textField.text = value
             let text = textField.text ?? ""
-            noteTft.isHidden = !text.isEmpty ? false : true
+            noteStackView.isHidden = !(text == "Belum pernah sakit") ? false : true
         }
     }
 }
 
-// MARK: - camera
-extension UserReservationFormViewController {
-    func openAlert() {
-        var actions = [AlertActionModel]()
-        let newAction1 = AlertActionModel("Ambil dari kamera", .default) { (action) in
-            self.openCamera()
-        }
-        let newAction2 = AlertActionModel("Ambil dari Galeri Foto", .default) { (action) in
-            self.openGaleri()
-        }
-        let newAction3 = AlertActionModel("Cancel", .cancel) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        actions.append(newAction1)
-        actions.append(newAction2)
-        actions.append(newAction3)
-        let newAlertModel = AlertModel("", "Tetapkan Foto Profil", .actionSheet, actions)
-        self.setAlert(data: newAlertModel)
-    }
-    
-    func openCamera() {
-        cameraHelper = CameraLibraryHelper(self, self)
-        cameraHelper?.checkAndOpenCamera()
-    }
-    
-    func openGaleri() {
-        cameraHelper = CameraLibraryHelper(self, self)
-        cameraHelper?.checkAndOpenlibrary()
-    }
-}
-
-extension UserReservationFormViewController: CameraLibraryHelperDelegate {
-    func resultCamera(image: UIImage, base64: String) {
-        bgPetImageView.backgroundColor = .white
+extension UserReservationFormViewController: UserReservationFormViewProtocol {
+    func setImage(image: UIImage) {
         petImageView.image = image
+        petImageView.backgroundColor = .white
     }
+    
+    func setRedTextfield(textfield: UITextField) {
+        textfield.setRedUnderLine()
+    }
+    
 }

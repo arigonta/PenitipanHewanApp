@@ -16,7 +16,7 @@ protocol UserPetshopDetailPresenterProtocol {
     var petshopModel: UserModel? { get set }
     func getDetailPetshop(_ screen: UserPetshopDetailViewController, _ petshopId: Int)
     func directToChat(_ screen: UserPetshopDetailViewController)
-    func directToReservationForm(_ screen: UserPetshopDetailViewController)
+    func directToReservationForm(_ screen: UserPetshopDetailViewController, petshopDetailModel: PetShopListModel?)
 }
 
 class UserPetshopDetailPresenter: UserPetshopDetailPresenterProtocol {
@@ -59,8 +59,9 @@ class UserPetshopDetailPresenter: UserPetshopDetailPresenterProtocol {
         getCurrentUserModel(screen, petshopId)
     }
     
-    func directToReservationForm(_ screen: UserPetshopDetailViewController) {
+    func directToReservationForm(_ screen: UserPetshopDetailViewController, petshopDetailModel: PetShopListModel?) {
         let nextVC = UserReservationFormViewController(nibName: "UserReservationFormViewController", bundle: nil)
+        nextVC.petshopDetailModel = petshopDetailModel
         nextVC.hidesBottomBarWhenPushed = true
         screen.navigationController?.pushViewController(nextVC, animated: true)
     }

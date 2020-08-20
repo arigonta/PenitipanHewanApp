@@ -9,6 +9,7 @@
 import Foundation
 
 struct PetShopListAPIModel: Codable {
+    let messages: [String]
     let data: [PetShopListModel]
 }
 

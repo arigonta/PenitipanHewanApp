@@ -9,6 +9,7 @@
 import Foundation
 
 struct loginAPIModel: Codable {
+    let messages: String
     let data: LoginModel
 }
 
