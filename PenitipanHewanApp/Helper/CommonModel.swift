@@ -43,21 +43,25 @@ class MainResponse: Codable {
 
 // MARK: - user model
 
+protocol UserModelPostUpdateProtocol {
+    var postForUpdate: [String: Any] { get }
+}
+
 struct UserAPIModel: Codable {
     let data: UserModel
 }
 
 struct UserModel: Codable {
-    let id          : Int?
+    var id          : Int?
     let username    : String?
     let password    : String?
     let role        : String?
-    let email       : String?
-    let name        : String?
-    let saldo       : Int?
-    let photo       : String?
-    let address     : String?
-    let phone       : String?
+    var email       : String?
+    var name        : String?
+    var saldo       : Int?
+    var photo       : String?
+    var address     : String?
+    var phone       : String?
     
     init(username: String? = nil,
          password: String? = nil,
@@ -93,6 +97,31 @@ extension UserModel: DatabaseRepresentation {
     }
 }
 
+extension UserModel: UserModelPostUpdateProtocol {
+    var postForUpdate: [String : Any] {
+        
+        guard
+            let name = name,
+            let phone = phone,
+            let id = id,
+            let username = username,
+            let email = email,
+            let role = role
+        else { return [String : Any]() }
+        
+        let rep: [String: Any] = ["name": name,
+                                  "phone": phone,
+                                  "address": address ?? "",
+                                  "photo": photo ?? "",
+                                  "id": id,
+                                  "username": username,
+                                  "email": email,
+                                  "role": role]
+        return rep
+    }
+}
+
+// MARK: - error response
 class ErrorResponse: Codable, Error {
     let code: Int
     let status: String
@@ -103,4 +132,10 @@ class ErrorResponse: Codable, Error {
         self.status = status ?? "failed get info"
         self.messages = message ?? "Terjadi kesalahan sistem, mohon coba kembali"
     }
+}
+
+// MARK: - user model
+class SuccessPostAPIModel: Codable, Error {
+    let data: Bool
+    let messages: [String]
 }
