@@ -16,23 +16,26 @@ protocol UserProfilePresenterProtocol {
     func directToEditData(_ screen: UserProfileViewController)
     func directToChangePassword(_ screen: UserProfileViewController)
     func openAlert(_ screen: UserProfileViewController)
-    func openCamera(_ screen: UserProfileViewController)
-    func openGaleri(_ screen: UserProfileViewController)
+    func getProfileData(_ screen: UserProfileViewController)
 }
 
 class UserProfilePresenter: UserProfilePresenterProtocol {
     
     var view: UserProfileViewProtocol?
     var cameraHelper: CameraLibraryHelper?
+    var currentID = UserDefaultsUtils.shared.getCurrentId()
+    var currentRole = UserDefaultsUtils.shared.getRole()
     
     init(_ view: UserProfileViewProtocol) {
         self.view = view
     }
     
     func directToTopUp(_ screen: UserProfileViewController) {
-        let nextVC = UserProfileAddSaldoViewController(nibName: "UserProfileAddSaldoViewController", bundle: nil)
-        nextVC.hidesBottomBarWhenPushed = true
-        screen.navigationController?.pushViewController(nextVC, animated: true)
+        if !currentRole.elementsEqual("petshop") {
+            let nextVC = UserProfileAddSaldoViewController(nibName: "UserProfileAddSaldoViewController", bundle: nil)
+            nextVC.hidesBottomBarWhenPushed = true
+            screen.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
     
     func directToEditData(_ screen: UserProfileViewController) {
@@ -65,6 +68,12 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         screen.setAlert(data: newAlertModel)
     }
     
+    func getProfileData(_ screen: UserProfileViewController) {
+        getData(screen)
+    }
+}
+
+extension UserProfilePresenter {
     func openCamera(_ screen: UserProfileViewController) {
         cameraHelper = CameraLibraryHelper(screen, self)
         cameraHelper?.checkAndOpenCamera()
@@ -74,7 +83,6 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         cameraHelper = CameraLibraryHelper(screen, self)
         cameraHelper?.checkAndOpenlibrary()
     }
-    
 }
 
 extension UserProfilePresenter: CameraLibraryHelperDelegate {
@@ -82,5 +90,49 @@ extension UserProfilePresenter: CameraLibraryHelperDelegate {
         print(image.size)
         print(base64.count)
         view?.updateImage(image: image)
+    }
+}
+
+// MARK: - API
+extension UserProfilePresenter {
+    private func getData(_ screen: UserProfileViewController) {
+        
+        screen.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            
+            self.sendRequest() { [weak self] (dataList, error) in
+                guard let self = self else { return }
+                
+                screen.removeSpinner(spinner)
+                if let newError = error as? ErrorResponse {
+                    let messages = newError.messages
+                    screen.showToast(message: messages)
+                } else {
+                    self.handleSuccessGetData(screen, dataList)
+                }
+            }
+        }
+    }
+    private func sendRequest(completion: ((UserModel?, Error?) -> Void)? = nil) {
+        
+        let url = "\(CommonHelper.shared.BASE_URL)user/\(currentID)"
+        NetworkHelper.shared.connect(url: url, params: nil, model: UserAPIModel.self) { (result) in
+            switch result {
+            case .failure(let err):
+                completion?(nil, err)
+                break
+            case .success(let value):
+                completion?(value.data, nil)
+            }
+        }
+    }
+    
+    private func handleSuccessGetData(_ screen: UserProfileViewController, _ data: UserModel?) {
+        guard let userDetailModel = data else {
+            screen.showToast(message: "gagal mendapatkan data")
+            return
+        }
+        
+        view?.updateScreen(data: userDetailModel)
     }
 }

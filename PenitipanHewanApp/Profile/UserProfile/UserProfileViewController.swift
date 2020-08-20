@@ -12,6 +12,7 @@ import CoreData
 protocol UserProfileViewProtocol: class {
     func reloadData()
     func updateImage(image: UIImage)
+    func updateScreen(data: UserModel?)
 }
 
 class UserProfileViewController: UIViewController {
@@ -24,6 +25,8 @@ class UserProfileViewController: UIViewController {
     var window: UIWindow?
     var presenter: UserProfilePresenterProtocol?
     var imgProfile: UIImage?
+    var userModel: UserModel?
+    var refreshControl: UIRefreshControl = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,8 @@ class UserProfileViewController: UIViewController {
         window = appDelegate.window
         
         presenter = UserProfilePresenter(self)
-        
         setTable()
+        presenter?.getProfileData(self)
     }
 
     @IBAction func logoutAction(_ sender: Any) {
@@ -41,18 +44,6 @@ class UserProfileViewController: UIViewController {
         guard let window = window else { return }
         self.goToLogin(window: window)
     }
-    
-    private func deleteAllData() {
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
-        // Create Batch Delete Request
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        do {
-            try context.execute(batchDeleteRequest)
-        } catch {
-            // Error Handling
-        }
-    }
 }
 
 // MARK: - view
@@ -60,6 +51,8 @@ extension UserProfileViewController {
     func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         
         let headerNib = UINib(nibName: "UserProfileHeaderCell", bundle: nil)
         tableView.register(headerNib, forCellReuseIdentifier: "UserProfileHeaderCell")
@@ -72,6 +65,11 @@ extension UserProfileViewController {
         
         let passNib = UINib(nibName: "UserProfilePasswordCell", bundle: nil)
         tableView.register(passNib, forCellReuseIdentifier: "UserProfilePasswordCell")
+    }
+    
+    @objc func pullToRefresh() {
+        presenter?.getProfileData(self)
+        refreshControl.endRefreshing()
     }
 }
 
@@ -130,8 +128,10 @@ extension UserProfileViewController: UITableViewDataSource {
         case 0:
             guard
                 let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileHeaderCell", for: indexPath) as? UserProfileHeaderCell
+                
             else { return UITableViewCell() }
-            cell.setCell()
+            
+            cell.setCell(user: userModel)
             if imgProfile != nil {
                 cell.imageProfile.image = imgProfile
             }
@@ -146,6 +146,8 @@ extension UserProfileViewController: UITableViewDataSource {
             guard
                 let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileSaldoCell", for: indexPath) as? UserProfileSaldoCell
             else { return UITableViewCell() }
+            
+            cell.setCell(user: userModel)
             
             return cell
             
@@ -182,5 +184,9 @@ extension UserProfileViewController: UserProfileViewProtocol {
         tableView.reloadData()
     }
     
+    func updateScreen(data: UserModel?) {
+        self.userModel = data
+        tableView.reloadData()
+    }
     
 }

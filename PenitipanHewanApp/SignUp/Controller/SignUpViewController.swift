@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController  {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var addressTft: UITextField!
     @IBOutlet var textFields: [UITextField]!
-    @IBOutlet weak var addressHeightCons: NSLayoutConstraint!
+    @IBOutlet weak var addressStackView: UIStackView!
     
     var loginModel: LoginModel?
     var isEmailValidate = false
@@ -77,6 +77,8 @@ class SignUpViewController: UIViewController  {
             textField.setMainUnderLine()
             textField.delegate = self
         }
+        
+        addressStackView.isHidden = true
         
         containerButton.addDropShadow(to: .top)
         
@@ -142,11 +144,7 @@ extension SignUpViewController {
 
 extension SignUpViewController: PickerHelperDelegate {
     func pickerAfterResult(value: String) {
-        if value.contains("petshop") {
-            addressHeightCons.constant = 40
-        } else {
-            addressHeightCons.constant = 0
-        }
+        addressStackView.isHidden = value.contains("petshop") ? false : true
     }
     
     func pickerResult(textField: UITextField, value: String) {
