@@ -97,4 +97,10 @@ class ErrorResponse: Codable, Error {
     let code: Int
     let status: String
     let messages: String
+    
+    init(code: Int?, status: String?, message: String) {
+        self.code = code ?? -1
+        self.status = status ?? "failed get info"
+        self.messages = message ?? "Terjadi kesalahan sistem, mohon coba kembali"
+    }
 }
