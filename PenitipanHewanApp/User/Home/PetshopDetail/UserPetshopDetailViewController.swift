@@ -49,6 +49,7 @@ class UserPetshopDetailViewController: UIViewController {
 extension UserPetshopDetailViewController {
     func setView() {
         self.title = "Detail Petshop"
+        navigationController?.navigationBar.topItem?.title = " "
         setDescTitle()
         setReservationBtn()
         setChatBtn()
@@ -91,7 +92,8 @@ extension UserPetshopDetailViewController {
 // MARK: - objc func
 extension UserPetshopDetailViewController {
     @objc private func reservationTap() {
-        presenter?.directToReservationForm(self)
+        guard let model = dataDetail else { return }
+        presenter?.directToReservationForm(self, petshopDetailModel: model)
     }
     
     @objc private func chatTap() {
