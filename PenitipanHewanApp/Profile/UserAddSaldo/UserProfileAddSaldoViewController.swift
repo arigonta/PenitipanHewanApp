@@ -14,7 +14,10 @@ class UserProfileAddSaldoViewController: UIViewController {
     @IBOutlet weak var saldoTF: UITextField!
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var saldoLbl: UILabel!
+    @IBOutlet weak var viewbtn: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    var activeComponent: UIView?
     // MARK: - helper
     var pickerHelper: PickerHelper?
     // MARK: - var
@@ -24,13 +27,23 @@ class UserProfileAddSaldoViewController: UIViewController {
                                         "100.000": 100000,
                                         "150.000": 150000,
                                         "200.000": 200000]
-    var saldoPrefilled: Double = 100000
+    var saldoPrefilled: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setFirstView()
     }
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
+    }
+
+    override public func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        deregisterFromKeyboardNotifications()
+    }
+    
     @IBAction func submitButton(_ sender: Any) {
         let topUpSaldoTextField = saldoTF.text ?? ""
         let model = AddSaldo(id: UserDefaultsUtils.shared.getCurrentId(), top_up_saldo: CommonHelper.shared.convertCurrencyToNumerics(input: topUpSaldoTextField))
@@ -43,13 +56,13 @@ class UserProfileAddSaldoViewController: UIViewController {
         
         self.title = "Tambah Saldo"
         submitBtn.setTitle("Top Up Sekarang", for: .normal)
-        saldoLbl.text = "Rp\(saldoPrefilled)"
+        saldoLbl.text = "\(saldoPrefilled ?? 0)".currencyInputFormatting()
         
         saldoTF.delegate = self
         saldoTF.text = "Pilih Nominal"
         saldoTF.setMainUnderLine()
         submitBtn.setButtonMainStyle()
-        
+        viewbtn.addDropShadow(to: .top)
         createPickerView()
     }
 }

@@ -12,7 +12,7 @@ import UIKit
 protocol UserProfilePresenterProtocol {
     var view: UserProfileViewProtocol? { get set }
     var cameraHelper: CameraLibraryHelper? { get set }
-    func directToTopUp(_ screen: UserProfileViewController)
+    func directToTopUp(_ screen: UserProfileViewController, saldo: Int)
     func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?)
     func directToChangePassword(_ screen: UserProfileViewController)
     func openAlert(_ screen: UserProfileViewController)
@@ -30,9 +30,10 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         self.view = view
     }
     
-    func directToTopUp(_ screen: UserProfileViewController) {
+    func directToTopUp(_ screen: UserProfileViewController, saldo: Int) {
         if !currentRole.elementsEqual("petshop") {
             let nextVC = UserProfileAddSaldoViewController(nibName: "UserProfileAddSaldoViewController", bundle: nil)
+            nextVC.saldoPrefilled = saldo
             nextVC.hidesBottomBarWhenPushed = true
             screen.navigationController?.pushViewController(nextVC, animated: true)
         }

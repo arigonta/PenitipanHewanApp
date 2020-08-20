@@ -85,7 +85,7 @@ extension UserProfileViewController: UITableViewDelegate {
         
         switch section {
         case 1:
-            presenter?.directToTopUp(self)
+            presenter?.directToTopUp(self, saldo: userModel?.saldo ?? 0)
         case 2:
             presenter?.directToEditData(self, userModel: userModel)
         case 3:
