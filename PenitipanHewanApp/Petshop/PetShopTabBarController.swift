@@ -27,12 +27,12 @@ class PetShopTabBarController: UITabBarController {
         let shopNC = UIStoryboard(name: "ShopStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ShopNav") as! UINavigationController
         let monitoringNC = UIStoryboard(name: "PetshopMonitoringStoryboard", bundle: nil).instantiateViewController(withIdentifier: "PetshopMonitoringNav") as! UINavigationController
         let chatNC = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserChatNav") as! UINavigationController
-        let profileNC = UIStoryboard(name: "PetshopProfileStoryboard", bundle: nil).instantiateViewController(withIdentifier: "PetshopProfileNav") as! UINavigationController
+        let profileNC = UIStoryboard(name: "UserProfileStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserProfileNav") as! UINavigationController
         
         let view1 = shopNC.viewControllers.first as? ShopViewController
         let view2 = monitoringNC.viewControllers.first as? PetshopMonitoringViewController
         let view3 = chatNC.viewControllers.first as? UserChatViewController
-        let view4 = profileNC.viewControllers.first as? PetshopProfileViewController
+        let view4 = profileNC.viewControllers.first as? UserProfileViewController
         
         let icon1 = UITabBarItem(title: "Shop", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
         let icon2 = UITabBarItem(title: "Monitoring", image: UIImage(named: "pet"), selectedImage: UIImage(named: "pet"))

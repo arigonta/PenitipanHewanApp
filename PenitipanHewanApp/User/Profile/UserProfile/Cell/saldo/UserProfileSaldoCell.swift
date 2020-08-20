@@ -10,15 +10,16 @@ import UIKit
 
 class UserProfileSaldoCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var saldoTft: UILabel!
+    @IBOutlet weak var isiSaldoLbl: UILabel!
+    
+    var currentRole = UserDefaultsUtils.shared.getRole()
+    
+    func setCell(user: UserModel?) {
+        saldoTft.text = "\(user?.saldo ?? 0)".currencyInputFormatting()
+        isiSaldoLbl.isHidden = currentRole.elementsEqual("petshop") ? true : false
+        self.accessoryType = currentRole.elementsEqual("petshop") ? .none : .disclosureIndicator
+        self.selectionStyle = .none
     }
     
 }
