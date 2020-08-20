@@ -35,6 +35,11 @@ class UserProfileViewController: UIViewController {
         
         presenter = UserProfilePresenter(self)
         setTable()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         presenter?.getProfileData(self)
     }
 
@@ -82,7 +87,7 @@ extension UserProfileViewController: UITableViewDelegate {
         case 1:
             presenter?.directToTopUp(self)
         case 2:
-            presenter?.directToEditData(self)
+            presenter?.directToEditData(self, userModel: userModel)
         case 3:
             presenter?.directToChangePassword(self)
         default:

@@ -78,6 +78,7 @@
 		847A942D24E6FE5700E97815 /* UserDefaultUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A942C24E6FE5700E97815 /* UserDefaultUtils.swift */; };
 		848B035124DFCFBE002AEC20 /* userPetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B034F24DFCFBE002AEC20 /* userPetListCell.swift */; };
 		848B035224DFCFBE002AEC20 /* userPetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848B035024DFCFBE002AEC20 /* userPetListCell.xib */; };
+		8491980E24EF05CC0023EAF1 /* UserEditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491980D24EF05CC0023EAF1 /* UserEditProfilePresenter.swift */; };
 		8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */; };
 		8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */; };
 		849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */; };
@@ -200,6 +201,7 @@
 		847A942C24E6FE5700E97815 /* UserDefaultUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultUtils.swift; sourceTree = "<group>"; };
 		848B034F24DFCFBE002AEC20 /* userPetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPetListCell.swift; sourceTree = "<group>"; };
 		848B035024DFCFBE002AEC20 /* userPetListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = userPetListCell.xib; sourceTree = "<group>"; };
+		8491980D24EF05CC0023EAF1 /* UserEditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditProfilePresenter.swift; sourceTree = "<group>"; };
 		8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderCell.swift; sourceTree = "<group>"; };
 		8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderCell.xib; sourceTree = "<group>"; };
 		849B4C3124D43B2A00E3560E /* UserProfileAddSaldoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAddSaldoViewController.swift; sourceTree = "<group>"; };
@@ -830,6 +832,7 @@
 			isa = PBXGroup;
 			children = (
 				84D4044024D434AB00EF5682 /* UserEditProfileViewController.swift */,
+				8491980D24EF05CC0023EAF1 /* UserEditProfilePresenter.swift */,
 				84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */,
 			);
 			path = UserEditProfile;
@@ -1095,6 +1098,7 @@
 				8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */,
 				844D524C24D491D8003B91B4 /* CommonModel.swift in Sources */,
 				847A942D24E6FE5700E97815 /* UserDefaultUtils.swift in Sources */,
+				8491980E24EF05CC0023EAF1 /* UserEditProfilePresenter.swift in Sources */,
 				84DFE2F124EAA35F001A4837 /* UserPetshopPresenter.swift in Sources */,
 				3F8358F124D5D15500DFEDD6 /* PackageViewController.swift in Sources */,
 				849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */,

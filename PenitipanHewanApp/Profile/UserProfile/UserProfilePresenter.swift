@@ -13,7 +13,7 @@ protocol UserProfilePresenterProtocol {
     var view: UserProfileViewProtocol? { get set }
     var cameraHelper: CameraLibraryHelper? { get set }
     func directToTopUp(_ screen: UserProfileViewController)
-    func directToEditData(_ screen: UserProfileViewController)
+    func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?)
     func directToChangePassword(_ screen: UserProfileViewController)
     func openAlert(_ screen: UserProfileViewController)
     func getProfileData(_ screen: UserProfileViewController)
@@ -38,8 +38,9 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         }
     }
     
-    func directToEditData(_ screen: UserProfileViewController) {
+    func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?) {
         let nextVC = UserEditProfileViewController(nibName: "UserEditProfileViewController", bundle: nil)
+        nextVC.userModel = userModel
         nextVC.hidesBottomBarWhenPushed = true
         screen.navigationController?.pushViewController(nextVC, animated: true)
     }
