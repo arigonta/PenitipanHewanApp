@@ -16,11 +16,14 @@ class PackageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
-        
         //MARK: To Style
         addPackage.setButtonMainStyle()
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getData()
     }
     
     @IBAction func addPackage(_ sender: Any) {

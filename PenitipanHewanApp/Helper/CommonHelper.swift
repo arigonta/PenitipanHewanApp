@@ -45,4 +45,18 @@ class CommonHelper {
             formatter.dateFormat = "MMM d, yyyy, h:mm a"
         }
     }
+    
+    func convertDateToDuration(input: String) -> Int {
+        if input.contains("7") {
+            return 7
+        } else if input.contains("2") {
+            return 14
+        } else {
+            return 30
+        }
+    }
+    
+    func convertCurrencyToNumerics(input: String) -> Int {
+        return Int(input.filter("0123456789.".contains).replacingOccurrences(of: ".", with: "", options: .literal, range: nil)) ?? 0
+    }
 }

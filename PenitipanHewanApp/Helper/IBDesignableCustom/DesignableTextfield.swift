@@ -45,7 +45,7 @@ class DesignableUITextField: UITextField {
 
         if let image = leadingImage {
             let button = UIButton(type: .custom)
-            button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            button.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
 
             let tintedImage = image.withRenderingMode(.alwaysTemplate)
             button.setImage(tintedImage, for: .normal)
