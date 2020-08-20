@@ -55,6 +55,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="isiSaldoLbl" destination="3hy-B6-cmZ" id="FUd-sj-9by"/>
+                <outlet property="saldoTft" destination="PLT-dJ-Kwj" id="CcK-0q-mp4"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="164.73214285714286"/>
         </tableViewCell>
     </objects>

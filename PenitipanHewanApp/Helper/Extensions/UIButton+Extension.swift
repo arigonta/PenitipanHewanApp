@@ -11,7 +11,7 @@ import UIKit
 
 extension UIButton {
     func setButtonMainStyle() {
-        self.layer.cornerRadius = self.layer.frame.height / 2
+        self.layer.cornerRadius = 8
         self.clipsToBounds = true
         self.backgroundColor = ColorHelper.instance.mainGreen
         self.setTitleColor(.white, for: .normal)
