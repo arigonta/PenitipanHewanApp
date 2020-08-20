@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         
         window = appDelegate.window
         presenter = LoginPresenter(self, window)
+        self.navigationController?.isNavigationBarHidden = true
         
         //MARK: For Checking User
         //        loginModel.forEach { (i) in
