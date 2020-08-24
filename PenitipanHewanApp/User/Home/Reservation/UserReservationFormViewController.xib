@@ -21,8 +21,10 @@
                 <outlet property="petRasTft" destination="UeU-K1-diu" id="uO2-w0-VW0"/>
                 <outlet property="petSickCheckTft" destination="2m2-eD-38d" id="XFF-Ru-dU1"/>
                 <outlet property="petVaksinTft" destination="YZE-EK-GxM" id="VTn-k1-5xe"/>
+                <outlet property="pricePackage" destination="L14-bp-Ir6" id="TgJ-rf-vJr"/>
                 <outlet property="scrollView" destination="jVO-cS-wki" id="b1t-Cv-m58"/>
                 <outlet property="submitBtn" destination="vfj-XD-vFw" id="O8r-cX-VZ6"/>
+                <outlet property="titleDuration" destination="GPo-pE-P2V" id="eA0-DB-CHi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,7 +37,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="458.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wda-Zu-ej7">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="823.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="837"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M69-uh-5jU" userLabel="container Image">
                                     <rect key="frame" x="16" y="16" width="288" height="295.5"/>
@@ -87,7 +89,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-ub-HVy">
-                                    <rect key="frame" x="16" y="327.5" width="288" height="488"/>
+                                    <rect key="frame" x="16" y="327.5" width="288" height="501.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mLm-5S-TuT">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="56"/>
@@ -228,7 +230,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lkB-t9-lok">
-                                            <rect key="frame" x="0.0" y="432" width="288" height="56"/>
+                                            <rect key="frame" x="0.0" y="432" width="288" height="69.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bagaimana kondisi peliharaanmu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6R-rD-Lvn">
                                                     <rect key="frame" x="0.0" y="0.0" width="288" height="16"/>
@@ -244,6 +246,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contoh: Sakit cacingan, tetapi sudah sembuh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-U1-Br2">
+                                                    <rect key="frame" x="0.0" y="56" width="288" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>

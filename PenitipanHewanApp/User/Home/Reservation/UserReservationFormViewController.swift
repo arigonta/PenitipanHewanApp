@@ -27,6 +27,8 @@ class UserReservationFormViewController: UIViewController {
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteStackView: UIStackView!
+    @IBOutlet weak var titleDuration: UILabel!
+    @IBOutlet weak var pricePackage: UILabel!
     
     var presenter: UserReservatinFormPresenterProtocol?
     var pickerHelper: PickerHelper?
@@ -81,6 +83,8 @@ class UserReservationFormViewController: UIViewController {
     }
     
     private func setSubmitBtn() {
+        titleDuration.text = "Harga penitipan hewan - \(petshopDetailModel?.duration ?? 0) hari"
+        pricePackage.text = "\(petshopDetailModel?.price ?? 0)".currencyInputFormatting()
         submitBtn.layer.cornerRadius = 8
         submitBtn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
     }
@@ -97,7 +101,6 @@ class UserReservationFormViewController: UIViewController {
         petRasTft.placeholder = "Ras hewan"
         petAgeTft.placeholder = "Umur hewan"
         petColorTft.placeholder = "warna Hewan"
-        noteTft.placeholder = "jenis penyakit"
         petVaksinTft.placeholder = "Vaksin"
         petSickCheckTft.placeholder = "Terakhir terkena penyakit"
         

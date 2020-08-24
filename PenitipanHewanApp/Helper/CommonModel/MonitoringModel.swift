@@ -13,18 +13,22 @@ struct MonitoringAPIModel: Codable {
     let data: [MonitoringModel]
 }
 
+// MARK: - MonitoringAPIModel
+struct ReservationActionAPIModel: Codable {
+    let data: MonitoringModel
+}
+
 // MARK: - MonitoringModel
 struct MonitoringModel: Codable {
     let reservationPackageID: Int?
     let animalName: String?
     let animalPhoto: URL?
     let animalRacial: String?
-    let age: Int?
+    let age: String?
     let color: String?
     let isVaccine: Int?
     let lastTimeGotSick: String?
     let note: String?
-    let status: Int?
     let petshopPackageID: Int?
     let userID: Int?
     let history: [History]?
@@ -38,10 +42,10 @@ struct MonitoringModel: Codable {
         case lastTimeGotSick = "last_time_got_sick"
         case petshopPackageID = "petshop_package_id"
         case userID = "user_id"
-        case age, color, note, status, history
+        case age, color, note, history
     }
     
-    init(reservationPackageID: Int?, animalName: String?, animalPhoto: URL?, animalRacial: String?, age: Int?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, status: Int?, petshopPackageID: Int?, userID: Int?, history: [History]?) {
+    init(reservationPackageID: Int?, animalName: String?, animalPhoto: URL?, animalRacial: String?, age: String?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, history: [History]?) {
         self.reservationPackageID = reservationPackageID
         self.animalName = animalName
         self.animalPhoto = animalPhoto
@@ -51,7 +55,6 @@ struct MonitoringModel: Codable {
         self.isVaccine = isVaccine
         self.lastTimeGotSick = lastTimeGotSick
         self.note = note
-        self.status = status
         self.petshopPackageID = petshopPackageID
         self.userID = userID
         self.history = history

@@ -17,17 +17,18 @@ class ReservationTableViewCell: UITableViewCell {
     
     var delegate: ReservationVCtoCellProtocol?
     
-    @IBOutlet weak var imageUser: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelEmail: UILabel!
+    @IBOutlet weak var imagePet: UIImageView!
+    @IBOutlet weak var namePet: UILabel!
+    @IBOutlet weak var labelLastTimeGotSick: UILabel!
     @IBOutlet weak var labelDesc: UILabel!
+    @IBOutlet weak var labelVaccine: UILabel!
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
     var indexPath: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageUser.roundedImage()
+        imagePet.roundedImage()
     }
     
     @IBAction func buttonAccept(_ sender: Any) {
