@@ -10,21 +10,37 @@ import UIKit
 
 extension ReservationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData.count
+        return (dataReservation?.count ?? 0) == 0 ? 1 : dataReservation?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let reservationCell = tableView.dequeueReusableCell(withIdentifier: "ReservationTableViewCell", for: indexPath) as? ReservationTableViewCell {
+        let dataCount = dataReservation?.count ?? 0
+        
+        if dataCount == 0 {
+            tableView.separatorStyle = .none
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationListEmptyCell", for: indexPath) as? ReservationListEmptyCell else {
+                return UITableViewCell()
+            }
+            return cell
+        } else {
+            tableView.separatorStyle = .singleLine
+            guard let reservationCell = tableView.dequeueReusableCell(withIdentifier: "ReservationTableViewCell", for: indexPath) as? ReservationTableViewCell, let data = dataReservation?[indexPath.row] else {
+                return UITableViewCell()
+            }
+            
             reservationCell.delegate = self
             reservationCell.indexPath = indexPath
+            reservationCell.namePet.text = data.animalName
+            reservationCell.labelLastTimeGotSick.text = data.lastTimeGotSick
+            reservationCell.labelDesc.text = (data.note ?? "").isEmpty ? "Tidak Pernah Sakit" : data.note
+            reservationCell.labelVaccine.text = (data.isVaccine ?? 0) == 0 ? "Belum": "Sudah"
+            
             return reservationCell
-        } else {
-            return UITableViewCell.init()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return UITableView.automaticDimension
     }
 }
 
@@ -40,9 +56,10 @@ extension ReservationViewController: ReservationVCtoCellProtocol {
                             print("cancel click")
                         },
                         {_ in
-                            self.dummyData.remove(at: indexPath.row)
-                            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                            self.tableView.reloadData()
+                            guard let data = self.dataReservation?[indexPath.row], let resPackageId = data.reservationPackageID else { return }
+                            let param: [String: Any] = ["action": "approved",
+                                                        "reservation_package_id": resPackageId]
+                            self.postActionReservation(param: param)
                             print("accept click")
                         }
         ])
@@ -56,9 +73,10 @@ extension ReservationViewController: ReservationVCtoCellProtocol {
                        actionStyles: [.destructive, .default],
                        actions: [
                         {_ in
-                            self.dummyData.remove(at: indexPath.row)
-                            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                            self.tableView.reloadData()
+                            guard let data = self.dataReservation?[indexPath.row], let resPackageId = data.reservationPackageID else { return }
+                            let param: [String: Any] = ["action": "declined",
+                                                        "reservation_package_id": resPackageId]
+                            self.postActionReservation(param: param)
                             print("Ok click")
                         },
                         {_ in
