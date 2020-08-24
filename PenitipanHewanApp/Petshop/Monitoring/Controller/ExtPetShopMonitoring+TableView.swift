@@ -25,4 +25,12 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
+        if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
+            detailMonitoring.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailMonitoring, animated: true)
+        }
+    }
 }

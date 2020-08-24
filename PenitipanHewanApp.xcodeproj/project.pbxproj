@@ -28,6 +28,11 @@
 		3F96E04424EEEBE500D0DF4F /* AddReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */; };
 		3F96E04724EF047D00D0DF4F /* AddSaldo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04624EF047D00D0DF4F /* AddSaldo.swift */; };
 		3F96E04A24F4020F00D0DF4F /* MonitoringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04924F4020F00D0DF4F /* MonitoringModel.swift */; };
+		3F96E05024F4167900D0DF4F /* DetailMonitoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04F24F4167900D0DF4F /* DetailMonitoringViewController.swift */; };
+		3F96E05224F4168700D0DF4F /* DetailMonitoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F96E05124F4168700D0DF4F /* DetailMonitoring.storyboard */; };
+		3F96E05424F4313E00D0DF4F /* HeaderDetailMonitoringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E05324F4313E00D0DF4F /* HeaderDetailMonitoringCell.swift */; };
+		3F96E05624F4314E00D0DF4F /* DetailMonitoringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E05524F4314E00D0DF4F /* DetailMonitoringCell.swift */; };
+		3F96E05824F434DE00D0DF4F /* ExtDetailMonitoring+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E05724F434DE00D0DF4F /* ExtDetailMonitoring+TableView.swift */; };
 		3FDD0CF924E05F0900DC67F1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */; };
 		3FDD0CFE24E064CF00DC67F1 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */; };
 		3FF69E3324D412740037395A /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF69E3224D412740037395A /* CommonHelper.swift */; };
@@ -150,6 +155,11 @@
 		3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReservationModel.swift; sourceTree = "<group>"; };
 		3F96E04624EF047D00D0DF4F /* AddSaldo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSaldo.swift; sourceTree = "<group>"; };
 		3F96E04924F4020F00D0DF4F /* MonitoringModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringModel.swift; sourceTree = "<group>"; };
+		3F96E04F24F4167900D0DF4F /* DetailMonitoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonitoringViewController.swift; sourceTree = "<group>"; };
+		3F96E05124F4168700D0DF4F /* DetailMonitoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailMonitoring.storyboard; sourceTree = "<group>"; };
+		3F96E05324F4313E00D0DF4F /* HeaderDetailMonitoringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDetailMonitoringCell.swift; sourceTree = "<group>"; };
+		3F96E05524F4314E00D0DF4F /* DetailMonitoringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonitoringCell.swift; sourceTree = "<group>"; };
+		3F96E05724F434DE00D0DF4F /* ExtDetailMonitoring+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtDetailMonitoring+TableView.swift"; sourceTree = "<group>"; };
 		3FDD0CF824E05F0900DC67F1 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3FDD0CFD24E064CF00DC67F1 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3FF69E3224D412740037395A /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
@@ -465,6 +475,34 @@
 			path = CommonModel;
 			sourceTree = "<group>";
 		};
+		3F96E04B24F4162B00D0DF4F /* Detail Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				3F96E04E24F4164500D0DF4F /* Controller */,
+				3F96E04D24F4164200D0DF4F /* View */,
+			);
+			path = "Detail Monitoring";
+			sourceTree = "<group>";
+		};
+		3F96E04D24F4164200D0DF4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F96E05124F4168700D0DF4F /* DetailMonitoring.storyboard */,
+				3F96E05324F4313E00D0DF4F /* HeaderDetailMonitoringCell.swift */,
+				3F96E05524F4314E00D0DF4F /* DetailMonitoringCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F96E04E24F4164500D0DF4F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F96E04F24F4167900D0DF4F /* DetailMonitoringViewController.swift */,
+				3F96E05724F434DE00D0DF4F /* ExtDetailMonitoring+TableView.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		3FDD0CFC24E0641400DC67F1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,6 +768,7 @@
 		847037C924D1EA670012269E /* Monitoring */ = {
 			isa = PBXGroup;
 			children = (
+				3F96E04B24F4162B00D0DF4F /* Detail Monitoring */,
 				3F2A055C24E6DA6A00E99C38 /* Controller */,
 				3F2A055B24E6DA6400E99C38 /* View */,
 				3F2A055A24E6DA5E00E99C38 /* Model */,
@@ -999,6 +1038,7 @@
 				84D4043824D42C2900EF5682 /* UserProfileSaldoCell.xib in Resources */,
 				84D4043D24D42E6900EF5682 /* UserProfilePasswordCell.xib in Resources */,
 				3F32793F24D3A36200399D3B /* SignUp.storyboard in Resources */,
+				3F96E05224F4168700D0DF4F /* DetailMonitoring.storyboard in Resources */,
 				8467237D24DE210000DA97A7 /* UserPetshopDetailViewController.xib in Resources */,
 				3F2A056924E6DC3A00E99C38 /* DetailPackage.storyboard in Resources */,
 				84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */,
@@ -1100,6 +1140,7 @@
 				847037C624D1E9ED0012269E /* ShopViewController.swift in Sources */,
 				84DFE2E624E865C4001A4837 /* ChatListCellTableViewCell.swift in Sources */,
 				84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */,
+				3F96E05624F4314E00D0DF4F /* DetailMonitoringCell.swift in Sources */,
 				849B4C3724D44F2300E3560E /* UserProfilePasswordViewController.swift in Sources */,
 				84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */,
 				84DFE2EB24EA971C001A4837 /* UserHomePresenter.swift in Sources */,
@@ -1113,12 +1154,14 @@
 				844D524C24D491D8003B91B4 /* CommonModel.swift in Sources */,
 				847A942D24E6FE5700E97815 /* UserDefaultUtils.swift in Sources */,
 				8491980E24EF05CC0023EAF1 /* UserEditProfilePresenter.swift in Sources */,
+				3F96E05424F4313E00D0DF4F /* HeaderDetailMonitoringCell.swift in Sources */,
 				84DFE2F124EAA35F001A4837 /* UserPetshopPresenter.swift in Sources */,
 				3F8358F124D5D15500DFEDD6 /* PackageViewController.swift in Sources */,
 				849B4C3324D43B2A00E3560E /* UserProfileAddSaldoViewController.swift in Sources */,
 				3F8358F424D5D17100DFEDD6 /* PackageTableViewCell.swift in Sources */,
 				3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */,
 				847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */,
+				3F96E05024F4167900D0DF4F /* DetailMonitoringViewController.swift in Sources */,
 				3F8358FB24D5D51400DFEDD6 /* PetshopChat+TableView.swift in Sources */,
 				3FF6AA4B24D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld in Sources */,
 				84CB0F9F24ECA70100FC4309 /* ReservationModel.swift in Sources */,
@@ -1136,6 +1179,7 @@
 				8467237C24DE210000DA97A7 /* UserPetshopDetailViewController.swift in Sources */,
 				3FF6AA6B24D011670008AD79 /* Login.swift in Sources */,
 				84DFE2EF24EAA1CA001A4837 /* PetShopListModel.swift in Sources */,
+				3F96E05824F434DE00D0DF4F /* ExtDetailMonitoring+TableView.swift in Sources */,
 				8410A87C24D1098D0010EA19 /* UserHomeViewController.swift in Sources */,
 				84DFE2E924E91AF1001A4837 /* emptyChatCell.swift in Sources */,
 				3F2A056B24E6DC4600E99C38 /* DetailPackageViewController.swift in Sources */,

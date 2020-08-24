@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Monitoring View Controller-->
+        <scene sceneID="Gf1-Gi-LsK">
+            <objects>
+                <viewController storyboardIdentifier="DetailMonitoring" id="CxV-Kf-Dit" customClass="DetailMonitoringViewController" customModule="PenitipanHewanApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="idW-ht-sHc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ci0-fc-tCw">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderDetailMonitoringCell" rowHeight="400" id="sfR-7y-uig" customClass="HeaderDetailMonitoringCell" customModule="PenitipanHewanApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sfR-7y-uig" id="85R-Yr-NwJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oks-yv-ObC">
+                                                    <rect key="frame" x="15" y="11" width="345" height="378"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Burung" translatesAutoresizingMaskIntoConstraints="NO" id="cSR-h0-ET4">
+                                                            <rect key="frame" x="86.333333333333329" y="0.0" width="172.33333333333337" height="172.66666666666666"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="cSR-h0-ET4" secondAttribute="height" multiplier="1:1" id="A9G-hC-0eD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CUk-7Z-Slu">
+                                                            <rect key="frame" x="5" y="177.66666666666663" width="335" height="195.33333333333337"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Hewan: Si PaoPao " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88k-v5-ftX">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="26.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ras Hewan : Persia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVt-bI-qjd">
+                                                                    <rect key="frame" x="0.0" y="31.333333333333343" width="335" height="26.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Umur Hewan : 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSL-CO-46c">
+                                                                    <rect key="frame" x="0.0" y="62.666666666666679" width="335" height="26.666666666666664"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warna Hewan : Merah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2in-YR-uZN">
+                                                                    <rect key="frame" x="0.0" y="94.333333333333343" width="335" height="26.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apakah Pernah Sakit ? Tidak Pernah Sakit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOp-cG-TeW">
+                                                                    <rect key="frame" x="0.0" y="125.66666666666664" width="335" height="26.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Kucing ini sangat sehat sekali" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEl-Xa-EdT">
+                                                                    <rect key="frame" x="0.0" y="157.00000000000003" width="335" height="38.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="CUk-7Z-Slu" secondAttribute="trailing" constant="5" id="57m-Rx-riS"/>
+                                                        <constraint firstItem="cSR-h0-ET4" firstAttribute="centerX" secondItem="oks-yv-ObC" secondAttribute="centerX" id="LA5-7c-pxA"/>
+                                                        <constraint firstItem="CUk-7Z-Slu" firstAttribute="top" secondItem="cSR-h0-ET4" secondAttribute="bottom" constant="5" id="aEl-7T-3Ef"/>
+                                                        <constraint firstItem="CUk-7Z-Slu" firstAttribute="leading" secondItem="oks-yv-ObC" secondAttribute="leading" constant="5" id="die-wy-KVg"/>
+                                                        <constraint firstItem="cSR-h0-ET4" firstAttribute="top" secondItem="oks-yv-ObC" secondAttribute="top" id="g5a-1i-2aD"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CUk-7Z-Slu" secondAttribute="bottom" constant="5" id="k6J-az-0o0"/>
+                                                        <constraint firstItem="cSR-h0-ET4" firstAttribute="width" secondItem="oks-yv-ObC" secondAttribute="width" multiplier="0.5" id="r3M-8Z-sD0"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oks-yv-ObC" secondAttribute="trailing" id="H5y-4a-6US"/>
+                                                <constraint firstItem="oks-yv-ObC" firstAttribute="leading" secondItem="85R-Yr-NwJ" secondAttribute="leadingMargin" id="SqC-wc-btS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="oks-yv-ObC" secondAttribute="bottom" id="g3G-Ou-aS1"/>
+                                                <constraint firstItem="oks-yv-ObC" firstAttribute="top" secondItem="85R-Yr-NwJ" secondAttribute="topMargin" id="tbv-27-7tt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ageLabel" destination="RSL-CO-46c" id="8N8-TM-lIh"/>
+                                            <outlet property="animalImage" destination="cSR-h0-ET4" id="gjg-Eq-7lQ"/>
+                                            <outlet property="bgView" destination="oks-yv-ObC" id="qQS-1e-88M"/>
+                                            <outlet property="colorLabel" destination="2in-YR-uZN" id="l53-qh-ZPm"/>
+                                            <outlet property="lastSickLabel" destination="QOp-cG-TeW" id="se8-Kd-tyj"/>
+                                            <outlet property="nameAnimalLabel" destination="88k-v5-ftX" id="dA1-VL-Z2x"/>
+                                            <outlet property="noteLabel" destination="LEl-Xa-EdT" id="4NC-UO-Ntl"/>
+                                            <outlet property="rasLabel" destination="CVt-bI-qjd" id="J1J-aF-9Uo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailMonitoringCell" rowHeight="40" id="4Ok-4T-x3O" customClass="DetailMonitoringCell" customModule="PenitipanHewanApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="428" width="375" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ok-4T-x3O" id="eEH-m0-kYu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4e0-8n-P15">
+                                                    <rect key="frame" x="15" y="11" width="345" height="18"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-08-23" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neJ-rS-LAd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKW-lV-Ebo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="xJX-90-bub"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Edit"/>
+                                                            <connections>
+                                                                <action selector="editButton:" destination="4Ok-4T-x3O" eventType="touchUpInside" id="Qf9-D3-blB"/>
+                                                            </connections>
+                                                        </button>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f95-Pc-sh0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                            <subviews>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFZ-Yb-lWL">
+                                                                    <rect key="frame" x="296" y="-15" width="51" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="Mdd-ye-zgO"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <action selector="breakfastButton:" destination="4Ok-4T-x3O" eventType="valueChanged" id="gax-Zy-0l5"/>
+                                                                    </connections>
+                                                                </switch>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Makan Pagi ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eq-4S-hb8">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="qFZ-Yb-lWL" firstAttribute="centerY" secondItem="6Eq-4S-hb8" secondAttribute="centerY" id="Fcd-oM-uYl"/>
+                                                                <constraint firstItem="6Eq-4S-hb8" firstAttribute="top" secondItem="f95-Pc-sh0" secondAttribute="top" id="R94-vA-gwr"/>
+                                                                <constraint firstAttribute="trailing" secondItem="qFZ-Yb-lWL" secondAttribute="trailing" id="hHd-kr-qMB"/>
+                                                                <constraint firstItem="6Eq-4S-hb8" firstAttribute="leading" secondItem="f95-Pc-sh0" secondAttribute="leading" id="q8W-wa-KMv"/>
+                                                                <constraint firstItem="qFZ-Yb-lWL" firstAttribute="leading" secondItem="6Eq-4S-hb8" secondAttribute="trailing" constant="50" id="qcM-s5-Tiq"/>
+                                                                <constraint firstAttribute="bottom" secondItem="6Eq-4S-hb8" secondAttribute="bottom" id="saA-5F-hkc"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-a9-TDc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                            <subviews>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFV-2D-47B">
+                                                                    <rect key="frame" x="296" y="-15" width="51" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="1z8-Ls-ZpW"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <action selector="lunchButton:" destination="4Ok-4T-x3O" eventType="valueChanged" id="gcX-gS-e2n"/>
+                                                                    </connections>
+                                                                </switch>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Makan Siang ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVZ-I6-d2K">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="OFV-2D-47B" firstAttribute="centerY" secondItem="zVZ-I6-d2K" secondAttribute="centerY" id="2av-w4-TZt"/>
+                                                                <constraint firstAttribute="trailing" secondItem="OFV-2D-47B" secondAttribute="trailing" id="I7h-6a-WCV"/>
+                                                                <constraint firstItem="OFV-2D-47B" firstAttribute="leading" secondItem="zVZ-I6-d2K" secondAttribute="trailing" constant="50" id="Mfj-pF-xGO"/>
+                                                                <constraint firstAttribute="bottom" secondItem="zVZ-I6-d2K" secondAttribute="bottom" id="TT5-Kb-4B3"/>
+                                                                <constraint firstItem="zVZ-I6-d2K" firstAttribute="leading" secondItem="9TU-a9-TDc" secondAttribute="leading" id="idR-qL-Wun"/>
+                                                                <constraint firstItem="zVZ-I6-d2K" firstAttribute="top" secondItem="9TU-a9-TDc" secondAttribute="top" id="kby-qD-BiD"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDM-LT-hvC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                            <subviews>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljw-tb-Hke">
+                                                                    <rect key="frame" x="296" y="-15" width="51" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="WFD-Zf-9Wk"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <action selector="dinnerButton:" destination="4Ok-4T-x3O" eventType="valueChanged" id="ZgQ-33-4cH"/>
+                                                                    </connections>
+                                                                </switch>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Makan Malam ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVm-MS-QgB">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="NVm-MS-QgB" secondAttribute="bottom" id="BRl-R7-1Zg"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Ljw-tb-Hke" secondAttribute="trailing" id="EK4-6A-KIo"/>
+                                                                <constraint firstItem="Ljw-tb-Hke" firstAttribute="leading" secondItem="NVm-MS-QgB" secondAttribute="trailing" constant="50" id="KNW-wI-ldF"/>
+                                                                <constraint firstItem="NVm-MS-QgB" firstAttribute="top" secondItem="ZDM-LT-hvC" secondAttribute="top" id="dm2-fF-8Gp"/>
+                                                                <constraint firstItem="Ljw-tb-Hke" firstAttribute="centerY" secondItem="NVm-MS-QgB" secondAttribute="centerY" id="eZX-bD-lGX"/>
+                                                                <constraint firstItem="NVm-MS-QgB" firstAttribute="leading" secondItem="ZDM-LT-hvC" secondAttribute="leading" id="rtE-we-Csz"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-Ul-NuT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                            <subviews>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-cS-NzA">
+                                                                    <rect key="frame" x="296" y="-15" width="51" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="6Sk-Eq-OkV"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <action selector="vitaminButton:" destination="4Ok-4T-x3O" eventType="valueChanged" id="oUT-wG-b2o"/>
+                                                                    </connections>
+                                                                </switch>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Di Beri Vitamin ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iif-d1-A1B">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="Iif-d1-A1B" firstAttribute="top" secondItem="8HA-Ul-NuT" secondAttribute="top" id="D7t-B4-Lsa"/>
+                                                                <constraint firstItem="Iif-d1-A1B" firstAttribute="leading" secondItem="8HA-Ul-NuT" secondAttribute="leading" id="DjG-Rg-MQd"/>
+                                                                <constraint firstItem="0dy-cS-NzA" firstAttribute="centerY" secondItem="Iif-d1-A1B" secondAttribute="centerY" id="Wl3-Rv-diE"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Iif-d1-A1B" secondAttribute="bottom" id="g8b-BJ-t8y"/>
+                                                                <constraint firstAttribute="trailing" secondItem="0dy-cS-NzA" secondAttribute="trailing" id="nhK-M1-3eE"/>
+                                                                <constraint firstItem="0dy-cS-NzA" firstAttribute="leading" secondItem="Iif-d1-A1B" secondAttribute="trailing" constant="50" id="v1p-kK-rFO"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjM-MS-ZKj">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                            <subviews>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5w-3b-GHt">
+                                                                    <rect key="frame" x="296" y="-15" width="51" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="Ngr-0h-OF5"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <action selector="showerButton:" destination="4Ok-4T-x3O" eventType="valueChanged" id="TDx-2y-3Up"/>
+                                                                    </connections>
+                                                                </switch>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Mandi ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l25-hZ-gNl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="X5w-3b-GHt" firstAttribute="centerY" secondItem="l25-hZ-gNl" secondAttribute="centerY" id="4Ih-Ev-azt"/>
+                                                                <constraint firstAttribute="bottom" secondItem="l25-hZ-gNl" secondAttribute="bottom" id="4UI-KS-WSS"/>
+                                                                <constraint firstItem="X5w-3b-GHt" firstAttribute="leading" secondItem="l25-hZ-gNl" secondAttribute="trailing" constant="50" id="I93-3b-Oze"/>
+                                                                <constraint firstItem="l25-hZ-gNl" firstAttribute="top" secondItem="IjM-MS-ZKj" secondAttribute="top" id="Mjb-ix-xm0"/>
+                                                                <constraint firstItem="l25-hZ-gNl" firstAttribute="leading" secondItem="IjM-MS-ZKj" secondAttribute="leading" id="VpP-zc-Ybc"/>
+                                                                <constraint firstAttribute="trailing" secondItem="X5w-3b-GHt" secondAttribute="trailing" id="ijh-dT-gPg"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukan Note Tambahan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T0v-vZ-KyV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="bA5-JF-n1l"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvj-xh-b84" userLabel="Submit">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
+                                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="JXO-vZ-gwQ"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Submit">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="submitButton:" destination="4Ok-4T-x3O" eventType="touchUpInside" id="98Z-Wc-pZc"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4e0-8n-P15" secondAttribute="bottom" id="a2U-xk-qMo"/>
+                                                <constraint firstItem="4e0-8n-P15" firstAttribute="leading" secondItem="eEH-m0-kYu" secondAttribute="leadingMargin" id="bAh-zw-PWH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4e0-8n-P15" secondAttribute="trailing" id="ouq-5H-ldX"/>
+                                                <constraint firstItem="4e0-8n-P15" firstAttribute="top" secondItem="eEH-m0-kYu" secondAttribute="topMargin" id="yHt-C3-1BS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="breakfastButton" destination="qFZ-Yb-lWL" id="RHs-b9-veJ"/>
+                                            <outlet property="breakfastLabel" destination="6Eq-4S-hb8" id="Krk-kj-Dib"/>
+                                            <outlet property="dateLabel" destination="neJ-rS-LAd" id="Nwm-g4-a2z"/>
+                                            <outlet property="dinnerButton" destination="Ljw-tb-Hke" id="xXD-2s-3E5"/>
+                                            <outlet property="dinnerLabel" destination="NVm-MS-QgB" id="dho-nK-ymW"/>
+                                            <outlet property="editButton" destination="jKW-lV-Ebo" id="Z6U-M3-deo"/>
+                                            <outlet property="lunchButton" destination="OFV-2D-47B" id="xTK-Xf-1wb"/>
+                                            <outlet property="lunchLabel" destination="zVZ-I6-d2K" id="VKf-LZ-HBQ"/>
+                                            <outlet property="noteTextField" destination="T0v-vZ-KyV" id="Nwv-ob-tOJ"/>
+                                            <outlet property="showerButton" destination="X5w-3b-GHt" id="Spf-2l-bvC"/>
+                                            <outlet property="showerLabel" destination="l25-hZ-gNl" id="w8n-g9-s8f"/>
+                                            <outlet property="submitButton" destination="jvj-xh-b84" id="dqC-BD-XCe"/>
+                                            <outlet property="vitaminButton" destination="0dy-cS-NzA" id="Obx-Jn-iug"/>
+                                            <outlet property="vitaminLabel" destination="Iif-d1-A1B" id="Jo5-ia-qKF"/>
+                                            <outletCollection property="viewSwitchButton" destination="f95-Pc-sh0" collectionClass="NSMutableArray" id="pm1-nK-5CH"/>
+                                            <outletCollection property="viewSwitchButton" destination="9TU-a9-TDc" collectionClass="NSMutableArray" id="cYD-Ia-F9a"/>
+                                            <outletCollection property="viewSwitchButton" destination="ZDM-LT-hvC" collectionClass="NSMutableArray" id="R7C-06-VYD"/>
+                                            <outletCollection property="viewSwitchButton" destination="8HA-Ul-NuT" collectionClass="NSMutableArray" id="jXX-f1-6ec"/>
+                                            <outletCollection property="viewSwitchButton" destination="IjM-MS-ZKj" collectionClass="NSMutableArray" id="Nnp-qg-c9X"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CxV-Kf-Dit" id="snL-JG-bpQ"/>
+                                    <outlet property="delegate" destination="CxV-Kf-Dit" id="Kpk-wu-GMx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="m1z-aI-jOo" firstAttribute="trailing" secondItem="ci0-fc-tCw" secondAttribute="trailing" id="CuG-48-8bJ"/>
+                            <constraint firstItem="ci0-fc-tCw" firstAttribute="top" secondItem="m1z-aI-jOo" secondAttribute="top" id="UTM-Os-E9R"/>
+                            <constraint firstItem="m1z-aI-jOo" firstAttribute="bottom" secondItem="ci0-fc-tCw" secondAttribute="bottom" id="gOG-V0-c2P"/>
+                            <constraint firstItem="ci0-fc-tCw" firstAttribute="leading" secondItem="m1z-aI-jOo" secondAttribute="leading" id="qh0-6n-Zed"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m1z-aI-jOo"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ci0-fc-tCw" id="8e3-bl-t2c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xx4-TU-q9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Burung" width="85.333335876464844" height="85.333335876464844"/>
+    </resources>
+</document>
