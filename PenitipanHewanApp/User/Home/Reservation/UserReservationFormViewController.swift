@@ -44,6 +44,7 @@ class UserReservationFormViewController: UIViewController {
         initializeHidKeyboard()
         presenter = UserReservatinFormPresenter(view: self, petshopDetailModel: petshopDetailModel)
         setView()
+        presenter?.getUserDetail(self)
     }
     
     override public func viewWillAppear(_ animated: Bool) {

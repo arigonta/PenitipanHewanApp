@@ -14,7 +14,9 @@ protocol UserReservatinFormPresenterProtocol: class {
     var modelPost: ReservationModel? { get set }
     var cameraHelper: CameraLibraryHelper? { get set }
     var petshopDetailModel: PetShopListModel? { get set }
+    var userModel: UserModel? { get set }
     
+    func getUserDetail(_ screen: UserReservationFormViewController)
     func openAlertForImage(_ screen: UserReservationFormViewController)
     func validateForm(_ screen: UserReservationFormViewController)
 }
@@ -24,12 +26,17 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
     var modelPost: ReservationModel?
     var cameraHelper: CameraLibraryHelper?
     var petshopDetailModel: PetShopListModel?
+    var userModel: UserModel?
     
     var currentId = UserDefaultsUtils.shared.getCurrentId()
     
     init(view: UserReservationFormViewProtocol, petshopDetailModel: PetShopListModel?) {
         self.view = view
         self.petshopDetailModel = petshopDetailModel
+    }
+    
+    func getUserDetail(_ screen: UserReservationFormViewController) {
+        getData(screen)
     }
     
     func openAlertForImage(_ screen: UserReservationFormViewController) {
@@ -171,18 +178,62 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
                                      last_time_got_sick: sicknessCheck.text,
                                      note: note.text)
         
-        postData(screen, dataPost: model)
+        checkSaldo(screen, modelPost: model)
 
     }
 }
 
 // MARK: - API
 extension UserReservatinFormPresenter {
+    func checkSaldo(_ screen: UserReservationFormViewController, modelPost: ReservationModel) {
+        let userSaldo = userModel?.saldo ?? 0
+        let saldo = petshopDetailModel?.price ?? 0
+        
+        if userSaldo < saldo {
+            showAlertSaldo(screen)
+        } else {
+           postData(screen, dataPost: modelPost)
+        }
+    }
+    
+    func showAlertSaldo(_ screen: UserReservationFormViewController) {
+        let closureActioin: ((UIAlertAction) -> Void) = { _ in }
+        screen.openAlert(title: "Saldo Anda Kurang", message: "Mohon mengisi saldo di menu Profile - isi saldo", alertStyle: .alert, actionTitles: ["Mengerti"], actionStyles: [.default], actions: [closureActioin])
+    }
+}
+
+// MARK: - API
+extension UserReservatinFormPresenter {
+    
+    private func getData(_ screen: UserReservationFormViewController) {
+        screen.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            
+            let url = "\(CommonHelper.shared.BASE_URL)user/\(self.currentId)"
+            
+            self.sendRequest(url, nil, UserAPIModel.self) { (dataSuccess, error) in
+                screen.removeSpinner(spinner)
+                
+                if let newError = error as? ErrorResponse {
+                    let message = newError.messages
+                    screen.showToast(message: message)
+                    
+                } else {
+                    guard let model = dataSuccess?.data else { return }
+                    self.userModel = model
+                }
+            }
+        }
+    }
+    
     private func postData(_ screen: UserReservationFormViewController, dataPost: ReservationModel) {
         screen.showSpinner { [weak self] (spinner) in
             guard let self = self else { return }
             
-            self.sendRequest(dataPost) { (dataSuccess, error) in
+            let params = dataPost.representation
+            let url = "\(CommonHelper.shared.BASE_URL)petshop/package/reservation"
+            
+            self.sendRequest(url, params, ReservationAPIModel.self) { (dataSuccess, error) in
                 screen.removeSpinner(spinner)
                 
                 if let newError = error as? ErrorResponse {
@@ -201,16 +252,18 @@ extension UserReservatinFormPresenter {
         }
         
     }
-    private func sendRequest(_ dataPost: ReservationModel, completion: ((ReservationModel?, Error?) -> Void)? = nil) {
+    private func sendRequest<T:Decodable>(_ url: String,
+                                          _ params: [String: Any]?,
+                                          _ model: T.Type,
+                                          completion: ((T?, Error?) -> Void)? = nil) {
         
-        let url = "\(CommonHelper.shared.BASE_URL)petshop/package/reservation"
-        NetworkHelper.shared.connect(url: url, params: dataPost.representation, model: ReservationAPIModel.self) { (result) in
+        NetworkHelper.shared.connect(url: url, params: params, model: model.self) { (result) in
             switch result {
             case .failure(let err):
                 completion?(nil, err)
                 break
             case .success(let value):
-                completion?(value.data, nil)
+                completion?(value, nil)
             }
         }
     }
