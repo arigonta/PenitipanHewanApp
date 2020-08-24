@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - MonitoringAPIModel
 struct MonitoringAPIModel: Codable {
-    let data: MonitoringModel
+    let data: [MonitoringModel]
 }
 
 // MARK: - MonitoringModel
