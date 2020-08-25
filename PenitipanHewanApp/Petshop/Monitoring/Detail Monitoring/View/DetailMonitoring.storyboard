@@ -143,37 +143,33 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ageLabel" destination="RSL-CO-46c" id="8N8-TM-lIh"/>
+                                            <outlet property="ageLabel" destination="TZO-Oa-CKp" id="vXQ-0V-bUz"/>
                                             <outlet property="animalImage" destination="cSR-h0-ET4" id="gjg-Eq-7lQ"/>
-                                            <outlet property="bgView" destination="oks-yv-ObC" id="qQS-1e-88M"/>
-                                            <outlet property="colorLabel" destination="2in-YR-uZN" id="l53-qh-ZPm"/>
-                                            <outlet property="lastSickLabel" destination="QOp-cG-TeW" id="se8-Kd-tyj"/>
-                                            <outlet property="nameAnimalLabel" destination="88k-v5-ftX" id="dA1-VL-Z2x"/>
-                                            <outlet property="noteLabel" destination="LEl-Xa-EdT" id="4NC-UO-Ntl"/>
-                                            <outlet property="rasLabel" destination="CVt-bI-qjd" id="J1J-aF-9Uo"/>
+                                            <outlet property="colorLabel" destination="PUe-ha-hpN" id="EzG-IL-0YE"/>
+                                            <outlet property="lastSickLabel" destination="wiA-V5-U9d" id="ajk-3j-Nhm"/>
+                                            <outlet property="nameLabel" destination="RGn-Zc-duE" id="Fxv-ch-32G"/>
+                                            <outlet property="noteLabel" destination="b2F-El-HN6" id="d43-Eg-BAc"/>
+                                            <outlet property="rasLabel" destination="xat-De-L6W" id="lx9-JN-Ijv"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailMonitoringCell" rowHeight="40" id="4Ok-4T-x3O" customClass="DetailMonitoringCell" customModule="PenitipanHewanApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="40"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailMonitoringCell" rowHeight="340" id="4Ok-4T-x3O" customClass="DetailMonitoringCell" customModule="PenitipanHewanApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="428" width="375" height="340"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ok-4T-x3O" id="eEH-m0-kYu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4e0-8n-P15">
-                                                    <rect key="frame" x="15" y="11" width="345" height="18"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4e0-8n-P15">
+                                                    <rect key="frame" x="15" y="11" width="345" height="318"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-08-23" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neJ-rS-LAd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="18"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="318"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKW-lV-Ebo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="20"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="xJX-90-bub"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
                                                             <state key="normal" title="Edit"/>
                                                             <connections>
                                                                 <action selector="editButton:" destination="4Ok-4T-x3O" eventType="touchUpInside" id="Qf9-D3-blB"/>
@@ -324,6 +320,32 @@
                                                                 <constraint firstAttribute="trailing" secondItem="X5w-3b-GHt" secondAttribute="trailing" id="ijh-dT-gPg"/>
                                                             </constraints>
                                                         </view>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyi-Uh-I8w">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                            <subviews>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-ad-Qx5">
+                                                                    <rect key="frame" x="296" y="-15" width="51" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="GU0-S0-QB7"/>
+                                                                    </constraints>
+                                                                </switch>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Vaksin ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG8-fG-dCh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="246" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="TwU-ad-Qx5" secondAttribute="trailing" id="0gr-zH-daT"/>
+                                                                <constraint firstItem="TwU-ad-Qx5" firstAttribute="leading" secondItem="WG8-fG-dCh" secondAttribute="trailing" constant="50" id="9l2-tM-RjT"/>
+                                                                <constraint firstItem="TwU-ad-Qx5" firstAttribute="centerY" secondItem="WG8-fG-dCh" secondAttribute="centerY" id="Ivg-JQ-PpN"/>
+                                                                <constraint firstItem="WG8-fG-dCh" firstAttribute="top" secondItem="Fyi-Uh-I8w" secondAttribute="top" id="eyE-Nn-by1"/>
+                                                                <constraint firstItem="WG8-fG-dCh" firstAttribute="leading" secondItem="Fyi-Uh-I8w" secondAttribute="leading" id="nnh-zo-Wd3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WG8-fG-dCh" secondAttribute="bottom" id="x7d-lc-Icu"/>
+                                                            </constraints>
+                                                        </view>
                                                         <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Masukan Note Tambahan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T0v-vZ-KyV">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
                                                             <constraints>
@@ -368,6 +390,7 @@
                                             <outlet property="showerButton" destination="X5w-3b-GHt" id="Spf-2l-bvC"/>
                                             <outlet property="showerLabel" destination="l25-hZ-gNl" id="w8n-g9-s8f"/>
                                             <outlet property="submitButton" destination="jvj-xh-b84" id="dqC-BD-XCe"/>
+                                            <outlet property="vaccineButton" destination="TwU-ad-Qx5" id="7Qh-47-lsK"/>
                                             <outlet property="vitaminButton" destination="0dy-cS-NzA" id="Obx-Jn-iug"/>
                                             <outlet property="vitaminLabel" destination="Iif-d1-A1B" id="Jo5-ia-qKF"/>
                                             <outletCollection property="viewSwitchButton" destination="f95-Pc-sh0" collectionClass="NSMutableArray" id="pm1-nK-5CH"/>
@@ -375,6 +398,13 @@
                                             <outletCollection property="viewSwitchButton" destination="ZDM-LT-hvC" collectionClass="NSMutableArray" id="R7C-06-VYD"/>
                                             <outletCollection property="viewSwitchButton" destination="8HA-Ul-NuT" collectionClass="NSMutableArray" id="jXX-f1-6ec"/>
                                             <outletCollection property="viewSwitchButton" destination="IjM-MS-ZKj" collectionClass="NSMutableArray" id="Nnp-qg-c9X"/>
+                                            <outletCollection property="switchsButton" destination="qFZ-Yb-lWL" collectionClass="NSMutableArray" id="KWI-Cc-Wcy"/>
+                                            <outletCollection property="switchsButton" destination="OFV-2D-47B" collectionClass="NSMutableArray" id="hfu-JF-w59"/>
+                                            <outletCollection property="switchsButton" destination="Ljw-tb-Hke" collectionClass="NSMutableArray" id="Klv-g3-QTm"/>
+                                            <outletCollection property="switchsButton" destination="0dy-cS-NzA" collectionClass="NSMutableArray" id="UCK-FN-p6E"/>
+                                            <outletCollection property="switchsButton" destination="X5w-3b-GHt" collectionClass="NSMutableArray" id="AJa-J1-oZy"/>
+                                            <outletCollection property="viewSwitchButton" destination="Fyi-Uh-I8w" collectionClass="NSMutableArray" id="CvG-dR-suD"/>
+                                            <outletCollection property="switchsButton" destination="TwU-ad-Qx5" collectionClass="NSMutableArray" id="na6-0N-eo4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

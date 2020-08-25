@@ -59,4 +59,20 @@ class CommonHelper {
     func convertCurrencyToNumerics(input: String) -> Int {
         return Int(input.filter("0123456789.".contains).replacingOccurrences(of: ".", with: "", options: .literal, range: nil)) ?? 0
     }
+    
+    func convertIntToBool(input: Int) -> Bool {
+        if input == 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func convertBoolToInt(input: Bool) -> Int {
+        if input == false {
+            return 0
+        } else {
+            return 1
+        }
+    }
 }

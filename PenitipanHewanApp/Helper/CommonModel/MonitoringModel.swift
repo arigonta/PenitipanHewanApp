@@ -63,16 +63,16 @@ struct MonitoringModel: Codable {
 
 // MARK: - History Monitoring
 struct History: Codable {
-    let reservationPackageHistoryID,
-        reservationPackageID,
-        isHasBreakfast,
-        isHasLunch,
-        isHasDinner,
-        isHasVitamin,
-        isHasVaccine,
-        isHasShower: Int?
-    let note,
-        date: String?
+    let reservationPackageHistoryID: Int?
+    let reservationPackageID: Int?
+    let date: String?
+    let isHasBreakfast: Int?
+    let isHasLunch: Int?
+    let isHasDinner: Int?
+    let isHasVitamin: Int?
+    let isHasVaccine: Int?
+    let isHasShower: Int?
+    let note: String?
 
     enum CodingKeys: String, CodingKey {
         case reservationPackageHistoryID = "reservation_package_history_id"
@@ -98,5 +98,19 @@ struct History: Codable {
         self.isHasShower = isHasShower
         self.note = note
         self.date = date
+    }
+}
+
+extension History: DatabaseRepresentation {
+    var representation: [String: Any] {
+        let rep: [String: Any] = ["reservation_package_history_id": reservationPackageHistoryID ?? 0,
+                                  "is_has_breakfast": isHasBreakfast ?? 0,
+                                  "is_has_dinner": isHasDinner ?? 0,
+                                  "is_has_lunch": isHasLunch ?? 0,
+                                  "is_has_vitamin": isHasVitamin ?? 0,
+                                  "is_has_vaccine": isHasVaccine ?? 0,
+                                  "is_has_shower": isHasShower ?? 0,
+                                  "note": note ?? "" ]
+        return rep
     }
 }

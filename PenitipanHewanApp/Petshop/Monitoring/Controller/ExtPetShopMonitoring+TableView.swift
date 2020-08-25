@@ -50,7 +50,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
         tableView.deselectRow(at: indexPath, animated: true)
         let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
         if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
-            detailMonitoring.tempreservationPackageID = monitoringList[indexPath.row].reservationPackageID
+            detailMonitoring.tempMonitoringModel = monitoringList[indexPath.row]
             detailMonitoring.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(detailMonitoring, animated: true)
         }
