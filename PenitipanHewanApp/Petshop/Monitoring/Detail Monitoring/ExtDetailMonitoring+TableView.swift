@@ -68,7 +68,7 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
         let monitoringSectionType = MonitoringSectionType.init(index: indexPath.section)
         switch monitoringSectionType {
         case .HeadMonitoring:
-            return UITableView.automaticDimension
+            return 400
         case .DetailMonitoring:
             if indexPath.row == selectedRow {
                 if isHidden {

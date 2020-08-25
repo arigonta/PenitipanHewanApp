@@ -20,6 +20,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             PetShopMonitoringTableViewCell.labelName.text = monitoringList[indexPath.row].animalName
             PetShopMonitoringTableViewCell.labelRas.text = monitoringList[indexPath.row].animalRacial
             PetShopMonitoringTableViewCell.labelColor.text = monitoringList[indexPath.row].color
+            PetShopMonitoringTableViewCell.selectionStyle = .none
             return PetShopMonitoringTableViewCell
         } else {
             return UITableViewCell.init()
@@ -33,7 +34,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
         if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
-            print(monitoringList[indexPath.row].reservationPackageID)
+            detailMonitoring.tempreservationPackageID = monitoringList[indexPath.row].reservationPackageID
             detailMonitoring.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(detailMonitoring, animated: true)
         }

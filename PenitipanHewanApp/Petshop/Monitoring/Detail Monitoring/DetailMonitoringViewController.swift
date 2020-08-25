@@ -30,6 +30,7 @@ class DetailMonitoringViewController: UIViewController {
     var selectedRow = 0
     var tempDates = ["2020-08-24","2020-08-25", "2020-08-26", "2020-08-27", "2020-08-28", "2020-08-29"]
     var tempDate = ""
+    var tempreservationPackageID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
