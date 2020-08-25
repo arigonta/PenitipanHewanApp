@@ -21,6 +21,7 @@ class HeaderDetailMonitoringCell: UITableViewCell {
     
     override func awakeFromNib() {
         animalImage.roundedImage()
+        self.selectionStyle = .none
     }
     
 }

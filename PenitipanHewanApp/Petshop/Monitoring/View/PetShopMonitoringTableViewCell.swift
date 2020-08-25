@@ -9,7 +9,9 @@
 import UIKit
 
 class PetShopMonitoringTableViewCell: UITableViewCell {
+    @IBOutlet weak var labelColor: UILabel!
+    @IBOutlet weak var labelAge: UILabel!
+    @IBOutlet weak var labelRas: UILabel!
+    @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
-    @IBOutlet weak var titleName: UILabel!
-    @IBOutlet weak var desc: UILabel!
 }

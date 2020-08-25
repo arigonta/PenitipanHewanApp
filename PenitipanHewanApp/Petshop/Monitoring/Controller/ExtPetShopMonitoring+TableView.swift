@@ -11,11 +11,15 @@ import UIKit
 
 extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return monitoringList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let PetShopMonitoringTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PetShopMonitoringTableViewCell", for: indexPath) as? PetShopMonitoringTableViewCell {
+            PetShopMonitoringTableViewCell.labelAge.text = monitoringList[indexPath.row].age
+            PetShopMonitoringTableViewCell.labelName.text = monitoringList[indexPath.row].animalName
+            PetShopMonitoringTableViewCell.labelRas.text = monitoringList[indexPath.row].animalRacial
+            PetShopMonitoringTableViewCell.labelColor.text = monitoringList[indexPath.row].color
             return PetShopMonitoringTableViewCell
         } else {
             return UITableViewCell.init()
@@ -23,12 +27,13 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
         if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
+            print(monitoringList[indexPath.row].reservationPackageID)
             detailMonitoring.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(detailMonitoring, animated: true)
         }
