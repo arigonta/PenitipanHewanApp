@@ -39,23 +39,24 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
         case .DetailMonitoring:
             let detailMonitoringCell = tableView.dequeueReusableCell(withIdentifier: "DetailMonitoringCell", for: indexPath) as! DetailMonitoringCell
             
+            let isRole = UserDefaultsUtils.shared.getRole()
+        
             //MARK: Did Select Hide Row
             if indexPath.row == selectedRow {
                 detailMonitoringCell.viewSwitchButton.forEach { (view) in
                     view.isHidden = isHidden
                 }
                 detailMonitoringCell.editButton.isHidden = isHidden
+                detailMonitoringCell.noteTextField.isHidden = isHidden
                 
                 //MARK: Edit
                 if isEditing {
                     detailMonitoringCell.submitButton.isHidden = false
-                    detailMonitoringCell.noteTextField.isHidden = false
                     detailMonitoringCell.switchsButton.forEach { (switchButton) in
                         switchButton.isEnabled = true
                     }
                 } else {
                     detailMonitoringCell.submitButton.isHidden = true
-                    detailMonitoringCell.noteTextField.isHidden = true
                     detailMonitoringCell.switchsButton.forEach { (switchButton) in
                         switchButton.isEnabled = false
                     }
@@ -88,6 +89,11 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             detailMonitoringCell.noteTextField.text = historyModel[indexPath.row].note
             detailMonitoringCell.tempReservationPackageHistory = reservationPackageID
             detailMonitoringCell.delegate = self
+            
+            if isRole == "customer" {
+                detailMonitoringCell.editButton.isHidden = true
+                detailMonitoringCell.noteTextField.isUserInteractionEnabled = false
+            }
             
             return detailMonitoringCell
         }
