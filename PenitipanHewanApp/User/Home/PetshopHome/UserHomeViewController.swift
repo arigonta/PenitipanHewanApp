@@ -18,8 +18,12 @@ class UserHomeViewController: UIViewController {
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var imageView4: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    // MARK: Var
+    lazy var refreshController: UIRefreshControl = .init()
     var presenter: UserHomePresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -44,6 +48,9 @@ class UserHomeViewController: UIViewController {
         imageView2.addGestureRecognizer(tapImage2)
         imageView3.addGestureRecognizer(tapImage3)
         imageView4.addGestureRecognizer(tapImage4)
+        
+        scrollView.refreshControl = refreshController
+        refreshController.addTarget(self, action: #selector(refreshView), for: .valueChanged)
     }
     
     @objc private func image1Tapped() {
@@ -57,6 +64,10 @@ class UserHomeViewController: UIViewController {
     }
     @objc private func image4Tapped() {
         presenter?.checkData(self, "Reptil")
+    }
+    @objc private func refreshView() {
+        presenter?.getReferenceAnimalType(self)
+        refreshController.endRefreshing()
     }
 
 }

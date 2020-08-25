@@ -19,7 +19,7 @@ class UserPetshopCell: UITableViewCell {
         guard let data = data else { return }
         petshopImgView.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
         paketLbl.text = "\(data.petshop_name ?? "") - \(data.duration ?? 0) hari"
-        addressLbl.text = "masih dummy alamatnya"
+        addressLbl.text = data.petshop_address ?? "alamat kosong"
         pricePackageLbl.text = "\(data.price ?? 0)".currencyInputFormatting()
     }
     
