@@ -26,10 +26,12 @@ class UserPetshopDetailViewController: UIViewController {
     @IBOutlet weak var containerDescTitle: UIView!
     @IBOutlet weak var reservationBtn: UIButton!
     @IBOutlet weak var chatBtn: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    // MARK: Var
+    lazy var refreshController: UIRefreshControl = .init()
     var dataDetail: PetShopListModel?
     var presenter: UserPetshopDetailPresenterProtocol?
-    
     var isHiddenDesc: Bool = true
     var image = UIImage(named: "arrowDown")
     
@@ -54,6 +56,16 @@ extension UserPetshopDetailViewController {
         setReservationBtn()
         setChatBtn()
         setData()
+        
+        scrollView.refreshControl = refreshController
+        refreshController.addTarget(self, action: #selector(refreshView), for: .valueChanged)
+    }
+    
+    @objc func refreshView() {
+        if let petshopId = dataDetail?.petshop_id {
+            presenter?.getDetailPetshop(self, petshopId)
+        }
+        refreshController.endRefreshing()
     }
     
     func setDescTitle() {

@@ -15,6 +15,8 @@ protocol UserPetshopViewProtocol {
 class UserPetshopViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Var
+    lazy var refreshController: UIRefreshControl = .init()
     public var animalType: ReferenceAnimalModel?
     public var listPetshop: [PetShopListModel]?
     var presenter: UserPetshopPresenterProtocol?
@@ -32,8 +34,20 @@ class UserPetshopViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        // register xib cell to table view
         let cellXib = UINib(nibName: "UserPetshopCell", bundle: nil)
         tableView.register(cellXib, forCellReuseIdentifier: "cell")
+        
+        let emptyCellXib = UINib(nibName: "generalEmptyCell", bundle: nil)
+        tableView.register(emptyCellXib, forCellReuseIdentifier: "generalEmptyCell")
+        
+        tableView.refreshControl = refreshController
+        refreshController.addTarget(self, action: #selector(refreshView), for: .valueChanged)
+    }
+    
+    @objc func refreshView() {
+        presenter?.getListData(self)
+        refreshController.endRefreshing()
     }
 
 }
@@ -55,15 +69,31 @@ extension UserPetshopViewController: UITableViewDelegate {
 
 extension UserPetshopViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listPetshop?.count ?? 0
+        let dataCount = listPetshop?.count ?? 0
+        return dataCount == 0 ? 1 : dataCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserPetshopCell
-        else { return UITableViewCell() }
-        let data = listPetshop?[indexPath.row]
-        cell.setCell(data: data)
-        return cell
+        let dataCount = listPetshop?.count ?? 0
+        
+        if dataCount == 0 {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "generalEmptyCell", for: indexPath) as? generalEmptyCell else { return UITableViewCell() }
+            tableView.allowsSelection = false
+            tableView.separatorStyle = .none
+            return cell
+        } else {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserPetshopCell else {
+                return UITableViewCell()
+            }
+            tableView.allowsSelection = true
+            tableView.separatorStyle = .singleLine
+            let data = listPetshop?[indexPath.row]
+            cell.setCell(data: data)
+            return cell
+        }
+        
     }
 }
 

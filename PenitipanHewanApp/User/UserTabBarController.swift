@@ -28,11 +28,11 @@ class UserTabBarController: UITabBarController {
         let homeNC = UIStoryboard(name: "UserHomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserHomeNav") as! UINavigationController
         let profileNC = UIStoryboard(name: "UserProfileStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserProfileNav") as! UINavigationController
         let chatNC = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserChatNav") as! UINavigationController
-        let petNC = UIStoryboard(name: "UserPetStoryboard", bundle: nil).instantiateViewController(withIdentifier: "UserPetNav") as! UINavigationController
+        let petNC = UIStoryboard(name: "PetshopMonitoringStoryboard", bundle: nil).instantiateViewController(withIdentifier: "PetshopMonitoringNav") as! UINavigationController
         
         let view1 = homeNC.viewControllers.first as? UserHomeViewController
         let view4 = profileNC.viewControllers.first as? UserProfileViewController
-        let view2 = petNC.viewControllers.first as? UserPetViewController
+        let view2 = petNC.viewControllers.first as? PetshopMonitoringViewController
         let view3 = chatNC.viewControllers.first as? UserChatViewController
         
         let icon1 = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))

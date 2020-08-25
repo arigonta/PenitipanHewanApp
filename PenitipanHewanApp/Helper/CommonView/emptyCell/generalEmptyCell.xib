@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="generalEmptyCell" rowHeight="345" id="KGk-i7-Jjw" customClass="generalEmptyCell" customModule="PenitipanHewanApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="345"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="345"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyData" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-GH-k8y">
+                        <rect key="frame" x="49" y="27" width="222" height="197.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="fnT-GH-k8y" secondAttribute="height" multiplier="1060:941" id="FsG-gS-yO5"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tidak ada data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si7-0s-BHJ">
+                        <rect key="frame" x="32" y="240.5" width="256" height="85.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="si7-0s-BHJ" secondAttribute="bottom" constant="8" id="7Ec-Cv-eJR"/>
+                    <constraint firstItem="si7-0s-BHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="CPo-7S-T7A"/>
+                    <constraint firstItem="si7-0s-BHJ" firstAttribute="top" secondItem="fnT-GH-k8y" secondAttribute="bottom" constant="16" id="DWq-Ay-BWN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="si7-0s-BHJ" secondAttribute="trailing" constant="16" id="KFR-gU-xtW"/>
+                    <constraint firstItem="fnT-GH-k8y" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="VA9-NF-LHd"/>
+                    <constraint firstItem="fnT-GH-k8y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="u9c-Di-wQ5"/>
+                    <constraint firstItem="fnT-GH-k8y" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.69444" id="zgh-Jm-NTh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="137.68115942028987" y="223.32589285714283"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="emptyData" width="353.33334350585938" height="313.66665649414062"/>
+    </resources>
+</document>
