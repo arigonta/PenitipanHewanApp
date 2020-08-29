@@ -13,6 +13,8 @@ class ColorHelper {
     public static var instance = ColorHelper()
     
     public static let black = UIColor(string: "1a1a1a")
+    public static let red = UIColor(string: "#e11931")
+    public static let yellow = UIColor(string: "#CBA116")
     
     let mainGreen: UIColor = .init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
 }

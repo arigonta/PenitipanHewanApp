@@ -31,15 +31,20 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             let headMonitoringCell = tableView.dequeueReusableCell(withIdentifier: "HeaderDetailMonitoringCell", for: indexPath) as! HeaderDetailMonitoringCell
             headMonitoringCell.nameLabel.text = tempMonitoringModel?.animalName
             headMonitoringCell.rasLabel.text = tempMonitoringModel?.animalRacial
-            headMonitoringCell.ageLabel.text = tempMonitoringModel?.age
+            headMonitoringCell.ageLabel.text = "\(tempMonitoringModel?.age ?? "0") Tahun"
             headMonitoringCell.colorLabel.text = tempMonitoringModel?.color
             headMonitoringCell.lastSickLabel.text = tempMonitoringModel?.lastTimeGotSick
-            headMonitoringCell.noteLabel.text = tempMonitoringModel?.note
+            headMonitoringCell.noteLabel.text = tempMonitoringModel?.note ?? "-"
             return headMonitoringCell
+            
         case .DetailMonitoring:
             let detailMonitoringCell = tableView.dequeueReusableCell(withIdentifier: "DetailMonitoringCell", for: indexPath) as! DetailMonitoringCell
             
             let isRole = UserDefaultsUtils.shared.getRole()
+            let data = historyModel[indexPath.row]
+            let commonHelper = CommonHelper.shared
+            
+            detailMonitoringCell.consTopSeparatorBottom.constant =  0
         
             //MARK: Did Select Hide Row
             if indexPath.row == selectedRow {
@@ -47,16 +52,17 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
                     view.isHidden = isHidden
                 }
                 detailMonitoringCell.editButton.isHidden = isHidden
-                detailMonitoringCell.noteTextField.isHidden = isHidden
+                detailMonitoringCell.containerTextField.isHidden = isHidden
+                detailMonitoringCell.consTopSeparatorBottom.constant = isHidden ? 0 : 8
                 
                 //MARK: Edit
                 if isEditing {
-                    detailMonitoringCell.submitButton.isHidden = false
+                    detailMonitoringCell.containerBtn.isHidden = false
                     detailMonitoringCell.switchsButton.forEach { (switchButton) in
                         switchButton.isEnabled = true
                     }
                 } else {
-                    detailMonitoringCell.submitButton.isHidden = true
+                    detailMonitoringCell.containerBtn.isHidden = true
                     detailMonitoringCell.switchsButton.forEach { (switchButton) in
                         switchButton.isEnabled = false
                     }
@@ -67,26 +73,30 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
                     view.isHidden = true
                 }
                 detailMonitoringCell.editButton.isHidden = true
-                detailMonitoringCell.submitButton.isHidden = true
-                detailMonitoringCell.noteTextField.isHidden = true
+                detailMonitoringCell.containerBtn.isHidden = true
+                detailMonitoringCell.containerTextField.isHidden = true
             }
+            
+            let newDate = commonHelper.getNewDateFormat(date: data.date ?? "", fromFormat: commonHelper.dateFormatYear, toFormat: commonHelper.dateFormatStringComplete)
+            detailMonitoringCell.dateLabel.text = newDate
+            detailMonitoringCell.headerView.backgroundColor = .white
+            detailMonitoringCell.dateLabel.textColor = ColorHelper.instance.mainGreen
             
             //MARK: Check Current Date
             if currentDate == historyModel[indexPath.row].date {
-                detailMonitoringCell.dateLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-            } else {
-                detailMonitoringCell.dateLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                detailMonitoringCell.dateLabel.textColor = .white
+                detailMonitoringCell.headerView.backgroundColor = ColorHelper.instance.mainGreen
+                detailMonitoringCell.dateLabel.text = "Hari ini"
             }
             
-            detailMonitoringCell.dateLabel.text = historyModel[indexPath.row].date
-            detailMonitoringCell.breakfastButton.isOn = CommonHelper.shared.convertIntToBool(input: historyModel[indexPath.row].isHasBreakfast ?? 0)
-            detailMonitoringCell.lunchButton.isOn = CommonHelper.shared.convertIntToBool(input: historyModel[indexPath.row].isHasLunch ?? 0)
-            detailMonitoringCell.dinnerButton.isOn = CommonHelper.shared.convertIntToBool(input: historyModel[indexPath.row].isHasDinner ?? 0)
-            detailMonitoringCell.vitaminButton.isOn = CommonHelper.shared.convertIntToBool(input: historyModel[indexPath.row].isHasVitamin ?? 0)
-            detailMonitoringCell.showerButton.isOn = CommonHelper.shared.convertIntToBool(input: historyModel[indexPath.row].isHasShower ?? 0)
-            detailMonitoringCell.vaccineButton.isOn = CommonHelper.shared.convertIntToBool(input: historyModel[indexPath.row].isHasVaccine ?? 0)
+            detailMonitoringCell.breakfastButton.isOn = commonHelper.convertIntToBool(input: data.isHasBreakfast ?? 0)
+            detailMonitoringCell.lunchButton.isOn = commonHelper.convertIntToBool(input: data.isHasLunch ?? 0)
+            detailMonitoringCell.dinnerButton.isOn = commonHelper.convertIntToBool(input: data.isHasDinner ?? 0)
+            detailMonitoringCell.vitaminButton.isOn = commonHelper.convertIntToBool(input: data.isHasVitamin ?? 0)
+            detailMonitoringCell.showerButton.isOn = commonHelper.convertIntToBool(input: data.isHasShower ?? 0)
+            detailMonitoringCell.vaccineButton.isOn = commonHelper.convertIntToBool(input: data.isHasVaccine ?? 0)
             
-            detailMonitoringCell.noteTextField.text = historyModel[indexPath.row].note
+            detailMonitoringCell.noteTextField.text = data.note
             detailMonitoringCell.tempReservationPackageHistory = reservationPackageID
             detailMonitoringCell.delegate = self
             
@@ -100,25 +110,7 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let monitoringSectionType = MonitoringSectionType.init(index: indexPath.section)
-        switch monitoringSectionType {
-        case .HeadMonitoring:
-            return 400
-        case .DetailMonitoring:
-            if indexPath.row == selectedRow {
-                if isHidden {
-                    return 40
-                } else {
-                    if isEditing {
-                        return 400
-                    } else {
-                        return 300
-                    }
-                }
-            } else {
-                return 40
-            }
-        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -133,10 +125,15 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
                 isEditing = false
             }
             reservationPackageID = historyModel[indexPath.row].reservationPackageHistoryID
+            self.indexPathFoccus = indexPath
             tableView.reloadData()
         case .HeadMonitoring:
             break
         }
+    }
+    
+    func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath? {
+        return indexPathFoccus
     }
 }
 

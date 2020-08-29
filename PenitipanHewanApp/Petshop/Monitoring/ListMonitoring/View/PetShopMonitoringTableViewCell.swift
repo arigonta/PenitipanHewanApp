@@ -14,4 +14,5 @@ class PetShopMonitoringTableViewCell: UITableViewCell {
     @IBOutlet weak var labelRas: UILabel!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
+    @IBOutlet weak var labelStatus: UILabel!
 }

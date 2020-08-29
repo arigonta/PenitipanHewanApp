@@ -33,6 +33,8 @@ class DetailMonitoringViewController: UIViewController {
     var tempMonitoringModel: MonitoringModel?
     var historyModel = [History]()
     var reservationPackageID: Int?
+    var indexPathFoccus: IndexPath?
+    lazy var refreshController: UIRefreshControl = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,8 @@ class DetailMonitoringViewController: UIViewController {
         getCurrentDate()
         getData()
         tableView.tableFooterView = UIView()
+        tableView.refreshControl = refreshController
+        refreshController.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,6 +59,10 @@ class DetailMonitoringViewController: UIViewController {
         currentDate = formattedDate
     }
     
+    @objc func pullToRefresh() {
+        getData()
+        refreshController.endRefreshing()
+    }
 }
 
 // MARK: - API

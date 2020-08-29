@@ -30,10 +30,13 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PetShopMonitoringTableViewCell", for: indexPath) as? PetShopMonitoringTableViewCell else { return UITableViewCell.init() }
             tableView.separatorStyle = .singleLine
             tableView.allowsSelection = true
-            cell.labelAge.text = monitoringList[indexPath.row].age
-            cell.labelName.text = monitoringList[indexPath.row].animalName
-            cell.labelRas.text = monitoringList[indexPath.row].animalRacial
-            cell.labelColor.text = monitoringList[indexPath.row].color
+            let data = monitoringList[indexPath.row]
+            cell.labelAge.text = "\(data.age ?? "0") Tahun"
+            cell.labelName.text = data.animalName
+            cell.labelRas.text = data.animalRacial
+            cell.labelColor.text = data.color
+            cell.labelStatus.text = setStatus(data.status ?? -2)
+            cell.labelStatus.textColor = setColorStatus(data.status ?? -2)
             cell.selectionStyle = .none
             return cell
         }
@@ -48,11 +51,46 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
-        if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
-            detailMonitoring.tempMonitoringModel = monitoringList[indexPath.row]
-            detailMonitoring.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(detailMonitoring, animated: true)
+        if status != 2 && status != 0 {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
+            if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
+                detailMonitoring.tempMonitoringModel = monitoringList[indexPath.row]
+                detailMonitoring.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(detailMonitoring, animated: true)
+            }
+        }
+        
+    }
+}
+
+extension PetshopMonitoringViewController {
+    private func setStatus(_ status: Int) -> String {
+        switch status {
+        case 2:
+            return "Menunggu Persetujuan"
+        case 10:
+            return "Aktif"
+        case 0:
+            return "Di Tolak"
+        case -1:
+            return "selesai"
+        default:
+            return ""
+        }
+    }
+    
+    private func setColorStatus(_ status: Int) -> UIColor {
+        switch status {
+        case 2:
+            return ColorHelper.yellow
+        case 10:
+            return ColorHelper.instance.mainGreen
+        case 0:
+            return ColorHelper.red
+        case -1:
+            return ColorHelper.instance.mainGreen
+        default:
+            return .black
         }
     }
 }
