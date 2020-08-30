@@ -56,7 +56,8 @@ extension ReservationModel: DatabaseRepresentation {
             let animalName = animal_name,
             let animalRacial = animal_racial,
             let age = age,
-            let color = color
+            let color = color,
+            let photo = animal_photo
         else {
             return [String: Any]()
         }
@@ -69,7 +70,7 @@ extension ReservationModel: DatabaseRepresentation {
                                   "color": color,
                                   "is_vaccine": is_vaccine ?? false,
                                   "last_time_got_sick": last_time_got_sick ?? "Belum pernah sakit",
-                                  "note": note ?? ""]
+                                  "note": note ?? "", "animal_photo": photo]
         return rep
     }
 }

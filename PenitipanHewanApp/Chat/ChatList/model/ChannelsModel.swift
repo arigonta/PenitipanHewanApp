@@ -21,6 +21,8 @@ struct ChannelModel {
     let documentChange: DocumentChange?
     var petshopName: String?
     var customerName: String?
+    var petshopPhoto: String?
+    var customerPhoto: String?
     
     init(customerId: Int, petshopId: Int) {
         self.id = nil

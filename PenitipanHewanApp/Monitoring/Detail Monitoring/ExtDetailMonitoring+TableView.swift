@@ -31,7 +31,7 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             let headMonitoringCell = tableView.dequeueReusableCell(withIdentifier: "HeaderDetailMonitoringCell", for: indexPath) as! HeaderDetailMonitoringCell
             headMonitoringCell.nameLabel.text = tempMonitoringModel?.animalName
             headMonitoringCell.rasLabel.text = tempMonitoringModel?.animalRacial
-            headMonitoringCell.ageLabel.text = "\(tempMonitoringModel?.age ?? "0") Tahun"
+            headMonitoringCell.ageLabel.text = "\(tempMonitoringModel?.age ?? 0) Tahun"
             headMonitoringCell.colorLabel.text = tempMonitoringModel?.color
             headMonitoringCell.lastSickLabel.text = tempMonitoringModel?.lastTimeGotSick
             headMonitoringCell.noteLabel.text = tempMonitoringModel?.note ?? "-"
@@ -40,6 +40,12 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             headMonitoringCell.ownerNameLbl.text = dataOwner?.name ?? "-"
             headMonitoringCell.ownerPhoneLbl.text = dataOwner?.phone ?? "-"
             headMonitoringCell.ownerAddressLbl.text = dataOwner?.address ?? "-"
+            
+            if let photo = tempMonitoringModel?.animalPhoto, !photo.isEmpty {
+                let url = URL(string: photo)
+                headMonitoringCell.animalImage.kf.setImage(with: url)
+                headMonitoringCell.animalImage.roundedImage()
+            }
             
             return headMonitoringCell
             

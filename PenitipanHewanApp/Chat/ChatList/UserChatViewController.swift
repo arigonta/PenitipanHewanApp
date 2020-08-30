@@ -97,6 +97,14 @@ extension UserChatViewController: UITableViewDataSource {
             cell.nameLbl.text = text ?? "emptyName"
             cell.lastMessageLbl.text = data.lastMessage.isEmpty ? " " : data.lastMessage
             cell.lastMessageCreatedLbl.text = data.lastMessage.isEmpty ? "" : CommonHelper.shared.dateToString(from: data.lastMessageCreated)
+            cell.userImageView.roundedImage()
+            
+            let photo = currentId == data.customerId ? data.petshopPhoto ?? "" : data.customerPhoto ?? ""
+            if !photo.isEmpty {
+                let url = URL(string: photo)
+                cell.userImageView.kf.setImage(with: url)
+            }
+            
             cell.selectionStyle = .none
             tableView.separatorStyle = .singleLine
             return cell

@@ -183,10 +183,17 @@ extension UserChatPresenter {
             newChannel.customerName = ""
             newChannel.petshopName = ""
             
+            newChannel.petshopPhoto = ""
+            newChannel.customerPhoto = ""
+            
+            let photoGet = data["photo"] as? String ?? ""
+            
             if targetId == channel.customerId {
                 newChannel.customerName = targetName
+                newChannel.customerPhoto = photoGet
             } else {
                 newChannel.petshopName = targetName
+                newChannel.petshopPhoto = photoGet
             }
             
             self.handleDocumetnChange(newChannel)

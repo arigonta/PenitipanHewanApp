@@ -13,5 +13,6 @@ class ChatListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var lastMessageLbl: UILabel!
     @IBOutlet weak var lastMessageCreatedLbl: UILabel!
-
+    @IBOutlet weak var userImageView: UIImageView!
+    
 }
