@@ -16,6 +16,8 @@ class CommonHelper {
     let LOGIN_PATH = "user/login"
     let REGISTER_PATH = "user/register"
     static let dummyPetshopId = "TESTCHAT_PETSHOP"
+    public let dateFormatYear = "yyyy-MM-dd"
+    public let dateFormatStringComplete = "dd MMMM yyyy"
     
     private let formatter = DateFormatter()
 
@@ -73,6 +75,26 @@ class CommonHelper {
             return 0
         } else {
             return 1
+        }
+    }
+    
+    
+    /// for change format dateString to new format
+    /// - Parameters:
+    ///   - date: **String** date
+    ///   - fromFormat: **String** format for StringDate
+    ///   - toFormat: **String** format for new Format Date
+    /// - Returns: will return Date with new format
+    public func getNewDateFormat(date: String, fromFormat: String, toFormat: String) -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = fromFormat
+        
+        if let newDate = formatter.date(from: date) {
+            formatter.dateFormat = toFormat
+            return formatter.string(from: newDate)
+        } else {
+            return date
         }
     }
 }

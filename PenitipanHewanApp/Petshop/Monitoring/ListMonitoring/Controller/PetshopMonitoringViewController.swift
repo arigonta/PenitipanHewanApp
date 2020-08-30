@@ -11,11 +11,20 @@ import UIKit
 class PetshopMonitoringViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activeBtn: UIButton!
+    @IBOutlet weak var TolakBtn: UIButton!
+    @IBOutlet weak var SelesaiBtn: UIButton!
+    @IBOutlet weak var menungguBtn: UIButton!
     
     // MARK: Var
     lazy var refreshController: UIRefreshControl = .init()
     var monitoringList = [MonitoringModel]()
     var role = UserDefaultsUtils.shared.getRole()
+    
+    // status 0 = tolak
+    // status 2 = waiting approval
+    // status 10 = aktif
+    var status: Int = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +39,7 @@ class PetshopMonitoringViewController: UIViewController {
         // for add refresh on table view
         tableView.refreshControl = refreshController
         refreshController.addTarget(self, action: #selector(refreshView), for: .valueChanged)
-        
+        setBtnSorting()
         getData()
     }
     
@@ -64,7 +73,7 @@ extension PetshopMonitoringViewController {
         let currentId = UserDefaultsUtils.shared.getCurrentId()
         var url = ""
         if role.elementsEqual("petshop") {
-            url = "\(CommonHelper.shared.BASE_URL)petshop/package/reservation/list?petshop_id=\(currentId)&status=10"
+            url = "\(CommonHelper.shared.BASE_URL)petshop/package/reservation/list?petshop_id=\(currentId)&status=\(status)"
         } else {
             url = "\(CommonHelper.shared.BASE_URL)petshop/package/user/reservation/list?user_id=\(currentId)"
         }
@@ -85,7 +94,75 @@ extension PetshopMonitoringViewController {
             self.showToast(message: "gagal mendapatkan data")
             return
         }
-        self.monitoringList = dataList
+        let filter = dataList.filter { $0.status == status }
+        self.monitoringList = filter
         tableView.reloadData()
+    }
+}
+
+// MARK: - sorting
+extension PetshopMonitoringViewController {
+    func setBtnSorting() {
+        activeBtn.setButtonMainStyle()
+        menungguBtn.setSecondaryButtonStyle()
+        TolakBtn.setSecondaryButtonStyle()
+        SelesaiBtn.setSecondaryButtonStyle()
+        
+        menungguBtn.isHidden = role.contains("petshop") ? true : false
+        
+        activeBtn.addTarget(self, action: #selector(activeBtnTapped), for: .touchUpInside)
+        menungguBtn.addTarget(self, action: #selector(menungguBtnTapped), for: .touchUpInside)
+        TolakBtn.addTarget(self, action: #selector(tolakBtnTapped), for: .touchUpInside)
+        SelesaiBtn.addTarget(self, action: #selector(selesaiBtnTapped), for: .touchUpInside)
+    }
+    
+    @objc func activeBtnTapped() {
+        let active = 10
+        activeBtn.setButtonMainStyle()
+        menungguBtn.setSecondaryButtonStyle()
+        TolakBtn.setSecondaryButtonStyle()
+        SelesaiBtn.setSecondaryButtonStyle()
+        if status != active {
+            status = active
+            getData()
+        }
+    }
+    
+    @objc func menungguBtnTapped() {
+        let menunggu = 2
+        activeBtn.setSecondaryButtonStyle()
+        menungguBtn.setButtonMainStyle()
+        TolakBtn.setSecondaryButtonStyle()
+        SelesaiBtn.setSecondaryButtonStyle()
+        if status != menunggu {
+            status = menunggu
+          getData()
+        }
+        
+    }
+    
+    @objc func tolakBtnTapped() {
+        let tolak = 0
+        activeBtn.setSecondaryButtonStyle()
+        menungguBtn.setSecondaryButtonStyle()
+        TolakBtn.setButtonMainStyle()
+        SelesaiBtn.setSecondaryButtonStyle()
+        if status != tolak {
+            status = tolak
+          getData()
+        }
+        
+    }
+    
+    @objc func selesaiBtnTapped() {
+        let selesai = -1
+        activeBtn.setSecondaryButtonStyle()
+        menungguBtn.setSecondaryButtonStyle()
+        TolakBtn.setSecondaryButtonStyle()
+        SelesaiBtn.setButtonMainStyle()
+        if status != selesai {
+            status = selesai
+            getData()
+        }
     }
 }

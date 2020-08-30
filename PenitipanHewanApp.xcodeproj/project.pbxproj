@@ -344,7 +344,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			name = Model;
+			path = ../Model;
 			sourceTree = "<group>";
 		};
 		3F2A055B24E6DA6400E99C38 /* View */ = {
@@ -773,10 +774,8 @@
 		847037C924D1EA670012269E /* Monitoring */ = {
 			isa = PBXGroup;
 			children = (
+				84D83BBA24FA721100FC1CD1 /* ListMonitoring */,
 				3F96E04B24F4162B00D0DF4F /* Detail Monitoring */,
-				3F2A055C24E6DA6A00E99C38 /* Controller */,
-				3F2A055B24E6DA6400E99C38 /* View */,
-				3F2A055A24E6DA5E00E99C38 /* Model */,
 			);
 			path = Monitoring;
 			sourceTree = "<group>";
@@ -894,6 +893,16 @@
 				84D4044124D434AB00EF5682 /* UserEditProfileViewController.xib */,
 			);
 			path = UserEditProfile;
+			sourceTree = "<group>";
+		};
+		84D83BBA24FA721100FC1CD1 /* ListMonitoring */ = {
+			isa = PBXGroup;
+			children = (
+				3F2A055C24E6DA6A00E99C38 /* Controller */,
+				3F2A055B24E6DA6400E99C38 /* View */,
+				3F2A055A24E6DA5E00E99C38 /* Model */,
+			);
+			path = ListMonitoring;
 			sourceTree = "<group>";
 		};
 		84DFE2E724E91AD1001A4837 /* cell */ = {

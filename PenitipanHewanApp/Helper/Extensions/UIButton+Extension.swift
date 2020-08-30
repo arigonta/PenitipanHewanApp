@@ -16,6 +16,14 @@ extension UIButton {
         self.backgroundColor = ColorHelper.instance.mainGreen
         self.setTitleColor(.white, for: .normal)
     }
+    func setSecondaryButtonStyle() {
+        self.layer.cornerRadius = 8
+        self.layer.borderWidth = 1
+        self.layer.borderColor = ColorHelper.instance.mainGreen.cgColor
+        self.clipsToBounds = true
+        self.backgroundColor = .white
+        self.setTitleColor(ColorHelper.instance.mainGreen, for: .normal)
+    }
     
     func setCorner(radius: CGFloat) {
         self.layer.cornerRadius = radius

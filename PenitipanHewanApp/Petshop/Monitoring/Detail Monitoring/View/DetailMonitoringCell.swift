@@ -15,6 +15,7 @@ import UIKit
 
 class DetailMonitoringCell: UITableViewCell {
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var breakfastLabel: UILabel!
@@ -30,6 +31,9 @@ class DetailMonitoringCell: UITableViewCell {
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var breakfastButton: UISwitch!
     @IBOutlet weak var vaccineButton: UISwitch!
+    @IBOutlet weak var containerTextField: UIView!
+    @IBOutlet weak var containerBtn: UIView!
+    @IBOutlet weak var consTopSeparatorBottom: NSLayoutConstraint!
     
     @IBOutlet var switchsButton: [UISwitch]!
     @IBOutlet var viewSwitchButton: [UIView]!
@@ -37,10 +41,12 @@ class DetailMonitoringCell: UITableViewCell {
     var delegate: detailMonitoringCellProtocol?
     var tempHistory: History?
     var tempReservationPackageHistory: Int?
+    var headerClicked: (() -> Void)?
     
     override func awakeFromNib() {
         submitButton.setButtonMainStyle()
         self.selectionStyle = .none
+        
     }
     
     @IBAction func editButton(_ sender: Any) {
