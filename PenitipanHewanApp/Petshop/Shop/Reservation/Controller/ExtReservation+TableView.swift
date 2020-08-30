@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension ReservationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +35,11 @@ extension ReservationViewController: UITableViewDelegate, UITableViewDataSource 
             reservationCell.labelLastTimeGotSick.text = data.lastTimeGotSick
             reservationCell.labelDesc.text = (data.note ?? "").isEmpty ? "Tidak Pernah Sakit" : data.note
             reservationCell.labelVaccine.text = (data.isVaccine ?? 0) == 0 ? "Belum": "Sudah"
+            
+            if let photo = data.animalPhoto, !photo.isEmpty {
+                let url = URL(string: photo)
+                reservationCell.imagePet.kf.setImage(with: url)
+            }
             
             return reservationCell
         }

@@ -38,8 +38,11 @@ class UserProfileHeaderCell: UITableViewCell {
         imageProfile.addGestureRecognizer(tap)
         imageProfile.layer.cornerRadius = imageProfile.frame.width / 2
         
-        let url = URL(string: user?.photo ?? "")
-        imageProfile.kf.setImage(with: url)
+        if let photo = user?.photo, !photo.isEmpty {
+            let url = URL(string: photo)
+            imageProfile.kf.setImage(with: url)
+        }
+        
     }
     
     @objc private func imgTapped() {

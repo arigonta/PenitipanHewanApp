@@ -22,9 +22,9 @@ struct ReservationActionAPIModel: Codable {
 struct MonitoringModel: Codable {
     let reservationPackageID: Int?
     let animalName: String?
-    let animalPhoto: URL?
+    let animalPhoto: String?
     let animalRacial: String?
-    let age: String?
+    let age: Int?
     let color: String?
     let isVaccine: Int?
     let lastTimeGotSick: String?
@@ -47,7 +47,7 @@ struct MonitoringModel: Codable {
         case age, color, note, history
     }
     
-    init(reservationPackageID: Int?, animalName: String?, animalPhoto: URL?, animalRacial: String?, age: String?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, status: Int?, status2: String?, history: [History]?) {
+    init(reservationPackageID: Int?, animalName: String?, animalPhoto: String?, animalRacial: String?, age: Int?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, status: Int?, status2: String?, history: [History]?) {
         self.reservationPackageID = reservationPackageID
         self.animalName = animalName
         self.animalPhoto = animalPhoto
