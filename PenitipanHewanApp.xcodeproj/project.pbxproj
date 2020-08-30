@@ -14,6 +14,8 @@
 		3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794424D3A92200399D3B /* UIButton+Extension.swift */; };
 		3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794624D3AB0900399D3B /* UITextField+Extension.swift */; };
 		3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32794C24D3C1FB00399D3B /* String+Extension.swift */; };
+		3F4F280F24FC14C500070AE9 /* ResetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4F280E24FC14C500070AE9 /* ResetPassword.storyboard */; };
+		3F4F281124FC152700070AE9 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F281024FC152700070AE9 /* ResetPasswordViewController.swift */; };
 		3F794F3A24E994980060B173 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F794F3924E994980060B173 /* File.swift */; };
 		3F794F3C24E999D50060B173 /* PetShopMonitoringTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F794F3B24E999D50060B173 /* PetShopMonitoringTableViewCell.swift */; };
 		3F794F3E24E99A5A0060B173 /* ExtPetShopMonitoring+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F794F3D24E99A5A0060B173 /* ExtPetShopMonitoring+TableView.swift */; };
@@ -153,6 +155,8 @@
 		3F32794424D3A92200399D3B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		3F32794624D3AB0900399D3B /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		3F32794C24D3C1FB00399D3B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		3F4F280E24FC14C500070AE9 /* ResetPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPassword.storyboard; sourceTree = "<group>"; };
+		3F4F281024FC152700070AE9 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		3F794F3924E994980060B173 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3F794F3B24E999D50060B173 /* PetShopMonitoringTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopMonitoringTableViewCell.swift; sourceTree = "<group>"; };
 		3F794F3D24E99A5A0060B173 /* ExtPetShopMonitoring+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtPetShopMonitoring+TableView.swift"; sourceTree = "<group>"; };
@@ -440,6 +444,39 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		3F4F280A24FC146800070AE9 /* Reset Password */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F280D24FC148000070AE9 /* Model */,
+				3F4F280C24FC147A00070AE9 /* Controller */,
+				3F4F280B24FC147500070AE9 /* View */,
+			);
+			path = "Reset Password";
+			sourceTree = "<group>";
+		};
+		3F4F280B24FC147500070AE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F280E24FC14C500070AE9 /* ResetPassword.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F4F280C24FC147A00070AE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F281024FC152700070AE9 /* ResetPasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F4F280D24FC148000070AE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3F8358E624D49E7200DFEDD6 /* Reservation */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +573,7 @@
 		3FF6AA3F24D00BD70008AD79 /* PenitipanHewanApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F4F280A24FC146800070AE9 /* Reset Password */,
 				3F32793A24D3A33000399D3B /* SignUp */,
 				3FF6AA6524D00CF20008AD79 /* Login */,
 				3FF6AA6D24D072C90008AD79 /* User */,
@@ -1031,6 +1069,7 @@
 				3FF6AA4D24D00BD80008AD79 /* Assets.xcassets in Resources */,
 				84D4044324D434AB00EF5682 /* UserEditProfileViewController.xib in Resources */,
 				847A942624E6DE7D00E97815 /* ChatStoryboard.storyboard in Resources */,
+				3F4F280F24FC14C500070AE9 /* ResetPassword.storyboard in Resources */,
 				847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */,
 				849B4C3824D44F2300E3560E /* UserProfilePasswordViewController.xib in Resources */,
 				84F0A75624F582FD00151DDE /* generalEmptyCell.xib in Resources */,
@@ -1194,6 +1233,7 @@
 				3F8358EB24D49FA400DFEDD6 /* ReservationTableViewCell.swift in Sources */,
 				847A942424E6DC2D00E97815 /* UserChatPresenter.swift in Sources */,
 				3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */,
+				3F4F281124FC152700070AE9 /* ResetPasswordViewController.swift in Sources */,
 				84CB0FA124ECA91900FC4309 /* UserReservatinFormPresenter.swift in Sources */,
 				84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */,
 				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,

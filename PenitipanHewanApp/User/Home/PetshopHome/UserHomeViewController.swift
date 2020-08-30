@@ -27,6 +27,7 @@ class UserHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.title = "Home"
         
         presenter = UserHomePresenter(self)
         setViewFirst()

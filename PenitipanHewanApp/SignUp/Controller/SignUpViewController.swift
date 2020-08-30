@@ -57,6 +57,8 @@ class SignUpViewController: UIViewController  {
         presenter = SignUpPresenter(self, window)
         initializeHidKeyboard()
         
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
         selectRole.delegate = self
         
         // MARK: Configure
@@ -77,8 +79,6 @@ class SignUpViewController: UIViewController  {
             textField.setMainUnderLine()
             textField.delegate = self
         }
-        
-        addressStackView.isHidden = true
         
         containerButton.addDropShadow(to: .top)
         
@@ -143,9 +143,6 @@ extension SignUpViewController {
 }
 
 extension SignUpViewController: PickerHelperDelegate {
-    func pickerAfterResult(value: String) {
-        addressStackView.isHidden = value.contains("petshop") ? false : true
-    }
     
     func pickerResult(textField: UITextField, value: String) {
         if textField == selectRole {

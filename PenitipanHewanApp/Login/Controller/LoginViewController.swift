@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
         
         window = appDelegate.window
         presenter = LoginPresenter(self, window)
-        self.navigationController?.isNavigationBarHidden = true
         
         //MARK: For Checking User
         //        loginModel.forEach { (i) in
@@ -89,6 +88,14 @@ class LoginViewController: UIViewController {
     @IBAction func passwordTextField(_ sender: Any) {
         
     }
+    
+    @IBAction func forgotPassword(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "ResetPassword", bundle: nil)
+        if let resetPassVC = storyBoard.instantiateViewController(withIdentifier: "ResetPasswordViewController") as? ResetPasswordViewController {
+            self.navigationController?.pushViewController(resetPassVC, animated: true)
+        }
+    }
+    
 }
 
 extension LoginViewController: UITextFieldDelegate {
