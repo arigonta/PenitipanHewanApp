@@ -36,6 +36,7 @@ class DetailMonitoringViewController: UIViewController {
     var reservationPackageID: Int?
     var indexPathFoccus: IndexPath?
     var spinner: UIView?
+    var currentRow: Int = 0
     var role = UserDefaultsUtils.shared.getRole()
     lazy var refreshController: UIRefreshControl = .init()
     

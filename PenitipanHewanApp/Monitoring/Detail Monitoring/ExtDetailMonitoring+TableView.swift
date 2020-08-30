@@ -129,6 +129,7 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
         let monitoringSectionType = MonitoringSectionType.init(index: indexPath.section)
         switch monitoringSectionType {
         case .DetailMonitoring:
+            currentRow = indexPath.row
             selectedRow = indexPath.row
             if isHidden {
                 isHidden = false
@@ -138,10 +139,24 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             }
             reservationPackageID = historyModel[indexPath.row].reservationPackageHistoryID
             self.indexPathFoccus = indexPath
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+                    tableView.reloadData()
+                    self.scrollToRow()
+                }, completion: nil)
+            }
         case .HeadMonitoring:
             break
         }
+    }
+    
+    private func scrollToRow() {
+        let topRow = IndexPath(row: currentRow,
+                               section: 1)
+                               
+        self.tableView.scrollToRow(at: topRow,
+                                   at: .middle,
+                                   animated: true)
     }
     
     func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath? {
@@ -159,6 +174,7 @@ extension DetailMonitoringViewController: detailMonitoringCellProtocol {
     func editButton() {
         if isEditing == false {
             isEditing = true
+            self.scrollToRow()
             tableView.reloadData()
         }
     }
