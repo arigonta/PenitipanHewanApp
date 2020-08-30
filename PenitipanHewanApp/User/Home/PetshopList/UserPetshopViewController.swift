@@ -23,11 +23,19 @@ class UserPetshopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = self.animalType?.animal_name ?? "Hewan"
         presenter = UserPetshopPresenter(self, animalType)
         setTableView()
         presenter?.getListData(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+        if self.animalType?.animal_name?.isEmpty ?? false {
+            self.title = "Hewan"
+        } else {
+            self.title = self.animalType?.animal_name
+        }
     }
     
     private func setTableView() {

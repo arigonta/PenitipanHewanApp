@@ -64,7 +64,6 @@ class UserReservationFormViewController: UIViewController {
         setImage()
         setTextfield()
         setSubmitBtn()
-        navigationController?.navigationBar.topItem?.title = " "
     }
     
     private func setImage() {

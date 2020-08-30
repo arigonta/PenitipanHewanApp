@@ -312,3 +312,9 @@ extension UIViewController {
         }
     }
 }
+
+extension UIViewController {
+    open override func awakeFromNib() {
+        navigationItem.backBarButtonItem?.title = ""
+    }
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol UserPetshopDetailViewProtocol: class {
     func updateScreen(petshopData: UserModel?)
@@ -38,7 +39,7 @@ class UserPetshopDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         presenter = UserPetshopDetailPresenter(view: self)
         if let petshopId = dataDetail?.petshop_id {
             presenter?.getDetailPetshop(self, petshopId)
@@ -51,7 +52,7 @@ class UserPetshopDetailViewController: UIViewController {
 extension UserPetshopDetailViewController {
     func setView() {
         self.title = "Detail Petshop"
-        navigationController?.navigationBar.topItem?.title = " "
+        
         setDescTitle()
         setReservationBtn()
         setChatBtn()
@@ -91,7 +92,12 @@ extension UserPetshopDetailViewController {
     }
     
     func setData() {
-        imagePetshop.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
+        if let photo = dataDetail?.photo, !photo.isEmpty {
+            let url = URL(string: photo)
+            self.imagePetshop.kf.setImage(with: url)
+        } else {
+            self.imagePetshop.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
+        }
         petshopName.text = dataDetail?.petshop_name ?? "Petshop Name"
         packagePetshop.text = "\(dataDetail?.duration ?? 0) Hari"
         pricePackage.text = "\(dataDetail?.price ?? 0)".currencyInputFormatting()
