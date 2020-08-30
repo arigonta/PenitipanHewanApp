@@ -30,7 +30,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oks-yv-ObC">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="714"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Burung" translatesAutoresizingMaskIntoConstraints="NO" id="cSR-h0-ET4">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultEmptyPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="cSR-h0-ET4">
                                                             <rect key="frame" x="93.666666666666671" y="8" width="187.66666666666663" height="187.66666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="cSR-h0-ET4" secondAttribute="height" multiplier="1:1" id="A9G-hC-0eD"/>
@@ -665,6 +665,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Burung" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="defaultEmptyPhoto" width="85.333335876464844" height="85.333335876464844"/>
     </resources>
 </document>
