@@ -13,6 +13,9 @@ protocol UserProfileViewProtocol: class {
     func reloadData()
     func updateImage(image: UIImage)
     func updateScreen(data: UserModel?)
+    func showLoading()
+    func removeLoading()
+    func errorResponse(_ error: Error)
 }
 
 class UserProfileViewController: UIViewController {
@@ -27,6 +30,7 @@ class UserProfileViewController: UIViewController {
     var imgProfile: UIImage?
     var userModel: UserModel?
     var refreshControl: UIRefreshControl = .init()
+    var spinner: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +39,6 @@ class UserProfileViewController: UIViewController {
         
         presenter = UserProfilePresenter(self)
         setTable()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         presenter?.getProfileData(self)
     }
 
@@ -137,9 +136,6 @@ extension UserProfileViewController: UITableViewDataSource {
             else { return UITableViewCell() }
             
             cell.setCell(user: userModel)
-            if imgProfile != nil {
-                cell.imageProfile.image = imgProfile
-            }
             cell.onclickImage = { [weak self] in
                 guard let self = self else { return }
                 self.presenter?.openAlert(self)
@@ -194,4 +190,19 @@ extension UserProfileViewController: UserProfileViewProtocol {
         tableView.reloadData()
     }
     
+    func showLoading() {
+        self.showSpinner { [weak self] spinner in
+            guard let self = self else { return }
+            self.spinner = spinner
+        }
+    }
+    func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
+    }
+    func errorResponse(_ error: Error) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
+        }
+    }
 }

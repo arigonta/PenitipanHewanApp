@@ -12,6 +12,7 @@ import UIKit
 protocol UserProfilePresenterProtocol {
     var view: UserProfileViewProtocol? { get set }
     var cameraHelper: CameraLibraryHelper? { get set }
+    var userModel: UserModel? { get set }
     func directToTopUp(_ screen: UserProfileViewController, saldo: Int)
     func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?)
     func directToChangePassword(_ screen: UserProfileViewController)
@@ -25,6 +26,7 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
     var cameraHelper: CameraLibraryHelper?
     var currentID = UserDefaultsUtils.shared.getCurrentId()
     var currentRole = UserDefaultsUtils.shared.getRole()
+    var userModel: UserModel?
     
     init(_ view: UserProfileViewProtocol) {
         self.view = view
@@ -71,7 +73,7 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
     }
     
     func getProfileData(_ screen: UserProfileViewController) {
-        getData(screen)
+        getData()
     }
 }
 
@@ -89,52 +91,49 @@ extension UserProfilePresenter {
 
 extension UserProfilePresenter: CameraLibraryHelperDelegate {
     func resultCamera(image: UIImage, base64: String) {
-        print(image.size)
-        print(base64.count)
-        view?.updateImage(image: image)
+        self.userModel?.photo = "data:image/jpeg;base64,\(base64)"
+        self.uploadPhotoProfile()
     }
 }
 
 // MARK: - API
 extension UserProfilePresenter {
-    private func getData(_ screen: UserProfileViewController) {
-        
-        screen.showSpinner { [weak self] (spinner) in
-            guard let self = self else { return }
-            
-            self.sendRequest() { [weak self] (dataList, error) in
-                guard let self = self else { return }
-                
-                screen.removeSpinner(spinner)
-                if let newError = error as? ErrorResponse {
-                    let messages = newError.messages
-                    screen.showToast(message: messages)
-                } else {
-                    self.handleSuccessGetData(screen, dataList)
-                }
-            }
-        }
-    }
-    private func sendRequest(completion: ((UserModel?, Error?) -> Void)? = nil) {
-        
+    
+    /// Method for get data profile
+    private func getData() {
         let url = "\(CommonHelper.shared.BASE_URL)user/\(currentID)"
-        NetworkHelper.shared.connect(url: url, params: nil, model: UserAPIModel.self) { (result) in
+        view?.showLoading()
+        NetworkHelper.shared.connect(url: url, params: nil, model: UserAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            self.view?.removeLoading()
+            
             switch result {
             case .failure(let err):
-                completion?(nil, err)
-                break
+                self.view?.errorResponse(err)
+                
             case .success(let value):
-                completion?(value.data, nil)
+                self.userModel = value.data
+                self.view?.updateScreen(data: value.data)
             }
         }
     }
     
-    private func handleSuccessGetData(_ screen: UserProfileViewController, _ data: UserModel?) {
-        guard let userDetailModel = data else {
-            screen.showToast(message: "gagal mendapatkan data")
-            return
+    
+    /// Method for Upload Image
+    private func uploadPhotoProfile() {
+        let url = "\(CommonHelper.shared.BASE_URL)user/update"
+        view?.showLoading()
+        NetworkHelper.shared.connect(url: url, params: userModel?.postForUpdate, model: SuccessPostAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            self.view?.removeLoading()
+            
+            switch result {
+            case .failure(let err):
+                self.view?.errorResponse(err)
+                
+            case .success(_ ):
+                self.getData()
+            }
         }
-        
-        view?.updateScreen(data: userDetailModel)
     }
 }

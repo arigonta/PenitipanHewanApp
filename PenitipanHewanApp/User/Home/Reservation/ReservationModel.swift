@@ -23,6 +23,7 @@ struct ReservationModel: Codable {
     var is_vaccine          : Bool?
     var last_time_got_sick  : String?
     var note                : String?
+    var animal_photo        : String?
     
     init(petshop_package_id: Int?,
          user_id: Int?,
@@ -32,7 +33,7 @@ struct ReservationModel: Codable {
          color: String?,
          is_vaccine: Bool?,
          last_time_got_sick: String?,
-         note: String?) {
+         note: String?, photo: String?) {
         
         self.petshop_package_id = petshop_package_id
         self.user_id = user_id
@@ -43,6 +44,7 @@ struct ReservationModel: Codable {
         self.is_vaccine = is_vaccine
         self.last_time_got_sick = last_time_got_sick
         self.note = note
+        self.animal_photo = photo
     }
 }
 
