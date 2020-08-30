@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserProfileHeaderCell: UITableViewCell {
 
@@ -21,10 +22,7 @@ class UserProfileHeaderCell: UITableViewCell {
     var currentRole = UserDefaultsUtils.shared.getRole()
     
     func setCell(user: UserModel?) {
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped))
-        imageProfile.isUserInteractionEnabled = true
-        imageProfile.addGestureRecognizer(tap)
+        setImage(user: user)
         
         userNameLbl.text = user?.name ?? "User Fullname"
         userPhoneLbl.text = user?.phone ?? "+628xxxxxxx"
@@ -32,6 +30,16 @@ class UserProfileHeaderCell: UITableViewCell {
         userAddressLbl.text = user?.address ?? "alamat petshop"
         
         userAddressLbl.isHidden = currentRole.elementsEqual("petshop") ? false : true
+    }
+    
+    private func setImage(user: UserModel?) {
+       let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped))
+        imageProfile.isUserInteractionEnabled = true
+        imageProfile.addGestureRecognizer(tap)
+        imageProfile.layer.cornerRadius = imageProfile.frame.width / 2
+        
+        let url = URL(string: user?.photo ?? "")
+        imageProfile.kf.setImage(with: url)
     }
     
     @objc private func imgTapped() {

@@ -61,6 +61,10 @@
 		844D525024D49571003B91B4 /* CameraLibraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D524F24D49571003B91B4 /* CameraLibraryHelper.swift */; };
 		845952DA24D5B1F800840146 /* PickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845952D924D5B1F800840146 /* PickerHelper.swift */; };
 		845952DC24D5CB9300840146 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845952DB24D5CB9300840146 /* UserProfilePresenter.swift */; };
+		845A0AD424FBFC5700285773 /* KingfisherDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 845A0AD324FBFC5700285773 /* KingfisherDynamic */; };
+		845A0AD524FBFC5700285773 /* KingfisherDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 845A0AD324FBFC5700285773 /* KingfisherDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		845A0AD724FBFC5700285773 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 845A0AD624FBFC5700285773 /* Kingfisher */; };
+		845A0AD924FBFC5700285773 /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 845A0AD824FBFC5700285773 /* KingfisherStatic */; };
 		845DCD4224D333F700214768 /* FirstStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4124D333F700214768 /* FirstStateViewController.swift */; };
 		845DCD4424D339D100214768 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4324D339D100214768 /* ThreadHelper.swift */; };
 		845DCD4824D3423000214768 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DCD4724D3423000214768 /* UIViewController+Extension.swift */; };
@@ -125,6 +129,20 @@
 			remoteInfo = PenitipanHewanApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		845A0ADA24FBFC5700285773 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				845A0AD524FBFC5700285773 /* KingfisherDynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E4F22F8592693A5CEA12A6D /* Pods-PenitipanHewanAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenitipanHewanAppTests.release.xcconfig"; path = "Target Support Files/Pods-PenitipanHewanAppTests/Pods-PenitipanHewanAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,8 +266,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845A0AD724FBFC5700285773 /* Kingfisher in Frameworks */,
 				872651A1A79AB18F75B91FA4 /* Pods_PenitipanHewanApp.framework in Frameworks */,
+				845A0AD424FBFC5700285773 /* KingfisherDynamic in Frameworks */,
 				843043AC24D1B30D00DCC642 /* SnapKit in Frameworks */,
+				845A0AD924FBFC5700285773 /* KingfisherStatic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,6 +939,7 @@
 				3FF6AA3A24D00BD70008AD79 /* Frameworks */,
 				3FF6AA3B24D00BD70008AD79 /* Resources */,
 				19C3A90719E2EA9EFD7D2651 /* [CP] Embed Pods Frameworks */,
+				845A0ADA24FBFC5700285773 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -926,6 +948,9 @@
 			name = PenitipanHewanApp;
 			packageProductDependencies = (
 				843043AB24D1B30D00DCC642 /* SnapKit */,
+				845A0AD324FBFC5700285773 /* KingfisherDynamic */,
+				845A0AD624FBFC5700285773 /* Kingfisher */,
+				845A0AD824FBFC5700285773 /* KingfisherStatic */,
 			);
 			productName = PenitipanHewanApp;
 			productReference = 3FF6AA3D24D00BD70008AD79 /* PenitipanHewanApp.app */;
@@ -980,6 +1005,7 @@
 			mainGroup = 3FF6AA3424D00BD70008AD79;
 			packageReferences = (
 				843043AA24D1B30D00DCC642 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				845A0AD224FBFC5700285773 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 3FF6AA3E24D00BD70008AD79 /* Products */;
 			projectDirPath = "";
@@ -1466,6 +1492,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		845A0AD224FBFC5700285773 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1473,6 +1507,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 843043AA24D1B30D00DCC642 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		845A0AD324FBFC5700285773 /* KingfisherDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 845A0AD224FBFC5700285773 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherDynamic;
+		};
+		845A0AD624FBFC5700285773 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 845A0AD224FBFC5700285773 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		845A0AD824FBFC5700285773 /* KingfisherStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 845A0AD224FBFC5700285773 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherStatic;
 		};
 /* End XCSwiftPackageProductDependency section */
 

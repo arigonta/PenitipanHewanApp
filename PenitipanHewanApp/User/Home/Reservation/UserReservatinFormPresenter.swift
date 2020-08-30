@@ -15,6 +15,7 @@ protocol UserReservatinFormPresenterProtocol: class {
     var cameraHelper: CameraLibraryHelper? { get set }
     var petshopDetailModel: PetShopListModel? { get set }
     var userModel: UserModel? { get set }
+    var base64: String? { get set }
     
     func getUserDetail(_ screen: UserReservationFormViewController)
     func openAlertForImage(_ screen: UserReservationFormViewController)
@@ -27,6 +28,7 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
     var cameraHelper: CameraLibraryHelper?
     var petshopDetailModel: PetShopListModel?
     var userModel: UserModel?
+    var base64: String?
     
     var currentId = UserDefaultsUtils.shared.getCurrentId()
     
@@ -65,6 +67,7 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
         var isVaksinValidate = false
         var isSicknessCheckValidate = false
         var isNoteValidate = false
+        var isTakeImage = false
         
         let name = screen.petNameTft!
         let racial = screen.petRasTft!
@@ -73,6 +76,7 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
         let vaksin = screen.petVaksinTft!
         let sicknessCheck = screen.petSickCheckTft!
         let note = screen.noteTft!
+        let imagePet = screen.petImageView
         
         var isWithNote: Bool = false
         var isWasVaccine: Bool = false
@@ -137,6 +141,13 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
             }
         }
         
+        if imagePet?.image == UIImage(named: "photoTemp") {
+            isTakeImage = false
+        } else {
+            isTakeImage = true
+        }
+        
+        
         if sicknessCheck.text != "Belum pernah sakit" {
             if isNameValidate
                 && isRacialValidate
@@ -144,7 +155,8 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
                 && isColorValidate
                 && isVaksinValidate
                 && isSicknessCheckValidate
-                && isNoteValidate {
+                && isNoteValidate
+                && isTakeImage {
                 
                 isWithNote = true
                 
@@ -158,7 +170,8 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
                 && isAgeValidate
                 && isColorValidate
                 && isVaksinValidate
-                && isSicknessCheckValidate {
+                && isSicknessCheckValidate
+                && isTakeImage {
                 
                 isWithNote = false
             } else {
@@ -176,7 +189,7 @@ class UserReservatinFormPresenter: UserReservatinFormPresenterProtocol {
                                      color: color.text,
                                      is_vaccine: isWasVaccine,
                                      last_time_got_sick: sicknessCheck.text,
-                                     note: note.text)
+                                     note: note.text, photo: base64)
         
         checkSaldo(screen, modelPost: model)
 
@@ -284,6 +297,7 @@ extension UserReservatinFormPresenter {
 
 extension UserReservatinFormPresenter: CameraLibraryHelperDelegate {
     func resultCamera(image: UIImage, base64: String) {
+        self.base64 = "data:image/jpeg;base64,\(base64)"
         view?.setImage(image: image)
     }
 }
