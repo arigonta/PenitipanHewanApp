@@ -23,8 +23,6 @@
 		3F8358F124D5D15500DFEDD6 /* PackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */; };
 		3F8358F424D5D17100DFEDD6 /* PackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */; };
 		3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */; };
-		3F8358F924D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */; };
-		3F8358FB24D5D51400DFEDD6 /* PetshopChat+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */; };
 		3F96E04424EEEBE500D0DF4F /* AddReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */; };
 		3F96E04724EF047D00D0DF4F /* AddSaldo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04624EF047D00D0DF4F /* AddSaldo.swift */; };
 		3F96E04A24F4020F00D0DF4F /* MonitoringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F96E04924F4020F00D0DF4F /* MonitoringModel.swift */; };
@@ -76,15 +74,11 @@
 		847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */; };
 		847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */; };
 		847037CF24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */; };
-		847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847037D124D1EB260012269E /* PetshopChatStoryboard.storyboard */; };
-		847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847037D324D1EB330012269E /* PetshopChatViewController.swift */; };
 		847A942424E6DC2D00E97815 /* UserChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A942324E6DC2D00E97815 /* UserChatPresenter.swift */; };
 		847A942624E6DE7D00E97815 /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847A942524E6DE7D00E97815 /* ChatStoryboard.storyboard */; };
 		847A942924E6E57D00E97815 /* ChannelsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A942824E6E57D00E97815 /* ChannelsModel.swift */; };
 		847A942D24E6FE5700E97815 /* UserDefaultUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A942C24E6FE5700E97815 /* UserDefaultUtils.swift */; };
 		847B29BC24F42C14005E16C0 /* ReservationListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B29BB24F42C14005E16C0 /* ReservationListEmptyCell.swift */; };
-		848B035124DFCFBE002AEC20 /* userPetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B034F24DFCFBE002AEC20 /* userPetListCell.swift */; };
-		848B035224DFCFBE002AEC20 /* userPetListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848B035024DFCFBE002AEC20 /* userPetListCell.xib */; };
 		8491980E24EF05CC0023EAF1 /* UserEditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491980D24EF05CC0023EAF1 /* UserEditProfilePresenter.swift */; };
 		8496112624D41FBD00AAD56A /* UserProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */; };
 		8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */; };
@@ -115,10 +109,8 @@
 		84EBC41524D110FD00A87111 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41424D110FD00A87111 /* ColorHelper.swift */; };
 		84EBC41A24D1131400A87111 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41924D1131400A87111 /* UserProfileViewController.swift */; };
 		84EBC41D24D1154900A87111 /* UserChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41C24D1154900A87111 /* UserChatViewController.swift */; };
-		84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBC41F24D1159600A87111 /* UserPetViewController.swift */; };
 		84EBC42524D1190800A87111 /* UserHomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EBC42424D1190800A87111 /* UserHomeStoryboard.storyboard */; };
 		84EBC42724D11A3300A87111 /* UserProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EBC42624D11A3300A87111 /* UserProfileStoryboard.storyboard */; };
-		84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EBC42824D11B1500A87111 /* UserPetStoryboard.storyboard */; };
 		84F0A75524F582FD00151DDE /* generalEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0A75324F582FD00151DDE /* generalEmptyCell.swift */; };
 		84F0A75624F582FD00151DDE /* generalEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F0A75424F582FD00151DDE /* generalEmptyCell.xib */; };
 		872651A1A79AB18F75B91FA4 /* Pods_PenitipanHewanApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E36106D1EF9621DEB34EDF /* Pods_PenitipanHewanApp.framework */; };
@@ -152,8 +144,6 @@
 		3F8358F024D5D15500DFEDD6 /* PackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageViewController.swift; sourceTree = "<group>"; };
 		3F8358F324D5D17100DFEDD6 /* PackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
 		3F8358F524D5D1ED00DFEDD6 /* Package+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package+TableView.swift"; sourceTree = "<group>"; };
-		3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopChatTableViewCell.swift; sourceTree = "<group>"; };
-		3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetshopChat+TableView.swift"; sourceTree = "<group>"; };
 		3F96E04324EEEBE500D0DF4F /* AddReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReservationModel.swift; sourceTree = "<group>"; };
 		3F96E04624EF047D00D0DF4F /* AddSaldo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSaldo.swift; sourceTree = "<group>"; };
 		3F96E04924F4020F00D0DF4F /* MonitoringModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringModel.swift; sourceTree = "<group>"; };
@@ -208,15 +198,11 @@
 		847037C724D1E9FE0012269E /* ShopStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopStoryboard.storyboard; sourceTree = "<group>"; };
 		847037CA24D1EA8B0012269E /* PetshopMonitoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopMonitoringViewController.swift; sourceTree = "<group>"; };
 		847037CE24D1EACD0012269E /* PetshopMonitoringStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopMonitoringStoryboard.storyboard; sourceTree = "<group>"; };
-		847037D124D1EB260012269E /* PetshopChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PetshopChatStoryboard.storyboard; sourceTree = "<group>"; };
-		847037D324D1EB330012269E /* PetshopChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetshopChatViewController.swift; sourceTree = "<group>"; };
 		847A942324E6DC2D00E97815 /* UserChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatPresenter.swift; sourceTree = "<group>"; };
 		847A942524E6DE7D00E97815 /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
 		847A942824E6E57D00E97815 /* ChannelsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsModel.swift; sourceTree = "<group>"; };
 		847A942C24E6FE5700E97815 /* UserDefaultUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultUtils.swift; sourceTree = "<group>"; };
 		847B29BB24F42C14005E16C0 /* ReservationListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListEmptyCell.swift; sourceTree = "<group>"; };
-		848B034F24DFCFBE002AEC20 /* userPetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPetListCell.swift; sourceTree = "<group>"; };
-		848B035024DFCFBE002AEC20 /* userPetListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = userPetListCell.xib; sourceTree = "<group>"; };
 		8491980D24EF05CC0023EAF1 /* UserEditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditProfilePresenter.swift; sourceTree = "<group>"; };
 		8496112424D41FBD00AAD56A /* UserProfileHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderCell.swift; sourceTree = "<group>"; };
 		8496112524D41FBD00AAD56A /* UserProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderCell.xib; sourceTree = "<group>"; };
@@ -247,10 +233,8 @@
 		84EBC41424D110FD00A87111 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		84EBC41924D1131400A87111 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		84EBC41C24D1154900A87111 /* UserChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatViewController.swift; sourceTree = "<group>"; };
-		84EBC41F24D1159600A87111 /* UserPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPetViewController.swift; sourceTree = "<group>"; };
 		84EBC42424D1190800A87111 /* UserHomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserHomeStoryboard.storyboard; sourceTree = "<group>"; };
 		84EBC42624D11A3300A87111 /* UserProfileStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfileStoryboard.storyboard; sourceTree = "<group>"; };
-		84EBC42824D11B1500A87111 /* UserPetStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserPetStoryboard.storyboard; sourceTree = "<group>"; };
 		84F0A75324F582FD00151DDE /* generalEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generalEmptyCell.swift; sourceTree = "<group>"; };
 		84F0A75424F582FD00151DDE /* generalEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = generalEmptyCell.xib; sourceTree = "<group>"; };
 		ADE763299E2D92C1BA7080C3 /* Pods_PenitipanHewanAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenitipanHewanAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,14 +440,6 @@
 			path = Package;
 			sourceTree = "<group>";
 		};
-		3F8358F724D5D4B200DFEDD6 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				3F8358F824D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		3F96E04524EF046900D0DF4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +519,7 @@
 				3FF6AA6524D00CF20008AD79 /* Login */,
 				3FF6AA6D24D072C90008AD79 /* User */,
 				3FF6AA6C24D072C20008AD79 /* Petshop */,
+				847037C924D1EA670012269E /* Monitoring */,
 				84EBC41B24D1151800A87111 /* Chat */,
 				84EBC41824D1131400A87111 /* Profile */,
 				3FF6AA6924D00F540008AD79 /* Helper */,
@@ -627,8 +604,6 @@
 			children = (
 				3FF6AA8324D080930008AD79 /* PetShopTabBarController.swift */,
 				847037C424D1E9CB0012269E /* Shop */,
-				847037C924D1EA670012269E /* Monitoring */,
-				847037D024D1EB100012269E /* Chat */,
 			);
 			path = Petshop;
 			sourceTree = "<group>";
@@ -638,7 +613,6 @@
 			children = (
 				3FF6AA8124D080850008AD79 /* UserTabBarController.swift */,
 				8410A87A24D1098D0010EA19 /* Home */,
-				84EBC41E24D1157B00A87111 /* Pet */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -780,32 +754,12 @@
 			path = Monitoring;
 			sourceTree = "<group>";
 		};
-		847037D024D1EB100012269E /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				3F8358F724D5D4B200DFEDD6 /* Cell */,
-				847037D124D1EB260012269E /* PetshopChatStoryboard.storyboard */,
-				847037D324D1EB330012269E /* PetshopChatViewController.swift */,
-				3F8358FA24D5D51400DFEDD6 /* PetshopChat+TableView.swift */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
 		847A942724E6E56800E97815 /* model */ = {
 			isa = PBXGroup;
 			children = (
 				847A942824E6E57D00E97815 /* ChannelsModel.swift */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		848B034E24DFCF3E002AEC20 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				848B034F24DFCFBE002AEC20 /* userPetListCell.swift */,
-				848B035024DFCFBE002AEC20 /* userPetListCell.xib */,
-			);
-			path = cell;
 			sourceTree = "<group>";
 		};
 		8496112324D41F6900AAD56A /* Cell */ = {
@@ -935,16 +889,6 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		84EBC41E24D1157B00A87111 /* Pet */ = {
-			isa = PBXGroup;
-			children = (
-				848B034E24DFCF3E002AEC20 /* cell */,
-				84EBC41F24D1159600A87111 /* UserPetViewController.swift */,
-				84EBC42824D11B1500A87111 /* UserPetStoryboard.storyboard */,
-			);
-			path = Pet;
-			sourceTree = "<group>";
-		};
 		84F0A75224F582D700151DDE /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,8 +1007,6 @@
 				847A942624E6DE7D00E97815 /* ChatStoryboard.storyboard in Resources */,
 				847037C824D1E9FE0012269E /* ShopStoryboard.storyboard in Resources */,
 				849B4C3824D44F2300E3560E /* UserProfilePasswordViewController.xib in Resources */,
-				84EBC42924D11B1500A87111 /* UserPetStoryboard.storyboard in Resources */,
-				848B035224DFCFBE002AEC20 /* userPetListCell.xib in Resources */,
 				84F0A75624F582FD00151DDE /* generalEmptyCell.xib in Resources */,
 				3FF6AA4824D00BD70008AD79 /* Main.storyboard in Resources */,
 				84D4043824D42C2900EF5682 /* UserProfileSaldoCell.xib in Resources */,
@@ -1076,7 +1018,6 @@
 				84D4043424D426BB00EF5682 /* UserProfileEditDataCell.xib in Resources */,
 				8496112724D41FBD00AAD56A /* UserProfileHeaderCell.xib in Resources */,
 				849B4C3424D43B2A00E3560E /* UserProfileAddSaldoViewController.xib in Resources */,
-				847037D224D1EB260012269E /* PetshopChatStoryboard.storyboard in Resources */,
 				8467238B24DF058700DA97A7 /* UserReservationFormViewController.xib in Resources */,
 				843043B324D1BA8100DCC642 /* UserPetshopViewController.xib in Resources */,
 			);
@@ -1162,7 +1103,6 @@
 			files = (
 				3F32794124D3A37A00399D3B /* SignUpViewController.swift in Sources */,
 				3FF6AA8424D080930008AD79 /* PetShopTabBarController.swift in Sources */,
-				84EBC42024D1159600A87111 /* UserPetViewController.swift in Sources */,
 				8467239124DFB7CE00DA97A7 /* UIColor+Extension.swift in Sources */,
 				841CD45824E77EFC0039FC5D /* ChatDetailModel.swift in Sources */,
 				3F96E04724EF047D00D0DF4F /* AddSaldo.swift in Sources */,
@@ -1194,7 +1134,6 @@
 				3F32794D24D3C1FB00399D3B /* String+Extension.swift in Sources */,
 				847037CB24D1EA8B0012269E /* PetshopMonitoringViewController.swift in Sources */,
 				3F96E05024F4167900D0DF4F /* DetailMonitoringViewController.swift in Sources */,
-				3F8358FB24D5D51400DFEDD6 /* PetshopChat+TableView.swift in Sources */,
 				3FF6AA4B24D00BD70008AD79 /* PenitipanHewanApp.xcdatamodeld in Sources */,
 				84CB0F9F24ECA70100FC4309 /* ReservationModel.swift in Sources */,
 				844D525024D49571003B91B4 /* CameraLibraryHelper.swift in Sources */,
@@ -1229,13 +1168,10 @@
 				3F8358EB24D49FA400DFEDD6 /* ReservationTableViewCell.swift in Sources */,
 				847A942424E6DC2D00E97815 /* UserChatPresenter.swift in Sources */,
 				3F8358F624D5D1ED00DFEDD6 /* Package+TableView.swift in Sources */,
-				3F8358F924D5D4CA00DFEDD6 /* PetShopChatTableViewCell.swift in Sources */,
 				84CB0FA124ECA91900FC4309 /* UserReservatinFormPresenter.swift in Sources */,
 				84D4043724D42C2900EF5682 /* UserProfileSaldoCell.swift in Sources */,
 				3F32794724D3AB0900399D3B /* UITextField+Extension.swift in Sources */,
 				3F32794524D3A92200399D3B /* UIButton+Extension.swift in Sources */,
-				847037D424D1EB330012269E /* PetshopChatViewController.swift in Sources */,
-				848B035124DFCFBE002AEC20 /* userPetListCell.swift in Sources */,
 				84D4043C24D42E6900EF5682 /* UserProfilePasswordCell.swift in Sources */,
 				3F96E04A24F4020F00D0DF4F /* MonitoringModel.swift in Sources */,
 				8467238A24DF058700DA97A7 /* UserReservationFormViewController.swift in Sources */,

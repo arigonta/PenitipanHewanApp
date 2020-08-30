@@ -35,6 +35,12 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             headMonitoringCell.colorLabel.text = tempMonitoringModel?.color
             headMonitoringCell.lastSickLabel.text = tempMonitoringModel?.lastTimeGotSick
             headMonitoringCell.noteLabel.text = tempMonitoringModel?.note ?? "-"
+            
+            headMonitoringCell.ownerView.isHidden = role.contains("customer") ? true : false
+            headMonitoringCell.ownerNameLbl.text = dataOwner?.name ?? "-"
+            headMonitoringCell.ownerPhoneLbl.text = dataOwner?.phone ?? "-"
+            headMonitoringCell.ownerAddressLbl.text = dataOwner?.address ?? "-"
+            
             return headMonitoringCell
             
         case .DetailMonitoring:

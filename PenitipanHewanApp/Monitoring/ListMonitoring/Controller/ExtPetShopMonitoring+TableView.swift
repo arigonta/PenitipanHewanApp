@@ -71,9 +71,9 @@ extension PetshopMonitoringViewController {
         case 10:
             return "Aktif"
         case 0:
-            return "Di Tolak"
+            return role.contains("petshop") ? "Anda Tolak" : "Ditolak"
         case -1:
-            return "selesai"
+            return "Selesai"
         default:
             return ""
         }

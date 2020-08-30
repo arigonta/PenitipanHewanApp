@@ -18,6 +18,11 @@ class HeaderDetailMonitoringCell: UITableViewCell {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var lastSickLabel: UILabel!
     
+    @IBOutlet weak var ownerView: UIView!
+    @IBOutlet weak var ownerNameLbl: UILabel!
+    @IBOutlet weak var ownerPhoneLbl: UILabel!
+    @IBOutlet weak var ownerAddressLbl: UILabel!
+    
     override func awakeFromNib() {
         animalImage.roundedImage()
         self.selectionStyle = .none
