@@ -31,12 +31,19 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             tableView.separatorStyle = .singleLine
             tableView.allowsSelection = true
             let data = monitoringList[indexPath.row]
-            cell.labelAge.text = "\(data.age ?? "0") Tahun"
+            cell.labelAge.text = "\(data.age ?? 0) Tahun"
             cell.labelName.text = data.animalName
             cell.labelRas.text = data.animalRacial
             cell.labelColor.text = data.color
             cell.labelStatus.text = setStatus(data.status ?? -2)
             cell.labelStatus.textColor = setColorStatus(data.status ?? -2)
+            
+            if let photo = data.animalPhoto, !photo.isEmpty {
+                let url = URL(string: photo)
+                cell.imageUser.kf.setImage(with: url)
+                cell.imageUser.roundedImage()
+            }
+            
             cell.selectionStyle = .none
             return cell
         }

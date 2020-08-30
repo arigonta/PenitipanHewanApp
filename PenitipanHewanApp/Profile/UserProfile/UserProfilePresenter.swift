@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 protocol UserProfilePresenterProtocol {
     var view: UserProfileViewProtocol? { get set }
@@ -73,7 +74,7 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
     }
     
     func getProfileData(_ screen: UserProfileViewController) {
-        getData()
+        getData(willSendFirebase: false)
     }
 }
 
@@ -100,7 +101,7 @@ extension UserProfilePresenter: CameraLibraryHelperDelegate {
 extension UserProfilePresenter {
     
     /// Method for get data profile
-    private func getData() {
+    private func getData(willSendFirebase: Bool) {
         let url = "\(CommonHelper.shared.BASE_URL)user/\(currentID)"
         view?.showLoading()
         NetworkHelper.shared.connect(url: url, params: nil, model: UserAPIModel.self) { [weak self] (result) in
@@ -113,7 +114,13 @@ extension UserProfilePresenter {
                 
             case .success(let value):
                 self.userModel = value.data
-                self.view?.updateScreen(data: value.data)
+                
+                if willSendFirebase {
+                    self.createUserFirestore(userModel: value.data)
+                } else {
+                    self.view?.updateScreen(data: value.data)
+                }
+                
             }
         }
     }
@@ -132,8 +139,27 @@ extension UserProfilePresenter {
                 self.view?.errorResponse(err)
                 
             case .success(_ ):
-                self.getData()
+                self.getData(willSendFirebase: true)
             }
+        }
+    }
+    
+    // MARK: - FIREBASE
+    private func createUserFirestore(userModel: UserModel?) {
+        guard let userId = userModel?.id, let dataForFirestore = userModel?.representation else { return }
+        let firestore = Firestore.firestore()
+        let userCollection = firestore.collection("user").document("\(userId)")
+        view?.showLoading()
+        userCollection.setData(dataForFirestore) { [weak self] error in
+            guard let self = self else { return }
+            self.view?.removeLoading()
+            
+            var isSuccess = false
+            if error == nil {
+                isSuccess = true
+            }
+            
+            self.view?.updateScreen(data: userModel)
         }
     }
 }

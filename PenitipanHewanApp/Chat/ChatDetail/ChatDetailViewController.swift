@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MessageKit
 import InputBarAccessoryView
+import Kingfisher
 
 protocol ChatDetailViewProtocol {
     func insertMessage(_ message: Message)
