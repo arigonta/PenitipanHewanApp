@@ -11,6 +11,9 @@ import CoreData
 
 protocol LoginViewProtocol: class {
     func handleValidationForm()
+    func errorResponse(error: Error?)
+    func showLoading()
+    func removeLoading()
 }
 
 class LoginViewController: UIViewController {
@@ -18,6 +21,7 @@ class LoginViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var window: UIWindow?
     var presenter: LoginPresenterProtocol?
+    var spinner: UIView?
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
@@ -106,6 +110,27 @@ extension LoginViewController: UITextFieldDelegate {
 }
 
 extension LoginViewController: LoginViewProtocol {
+    
+    func errorResponse(error: Error?) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
+        }
+    }
+    
+    /// Show loading
+    func showLoading() {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            self.spinner = spinner
+        }
+    }
+    
+    /// remove loading
+    func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
+    }
+    
     func handleValidationForm() {
         usernameTextField.setRedUnderLine()
         passwordTextField.setRedUnderLine()

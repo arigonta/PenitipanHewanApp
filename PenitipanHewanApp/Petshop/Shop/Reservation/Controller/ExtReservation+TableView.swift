@@ -39,6 +39,8 @@ extension ReservationViewController: UITableViewDelegate, UITableViewDataSource 
             if let photo = data.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)
                 reservationCell.imagePet.kf.setImage(with: url)
+            } else {
+                reservationCell.imagePet.image = UIImage(named: "defaultEmptyPhoto")
             }
             
             return reservationCell

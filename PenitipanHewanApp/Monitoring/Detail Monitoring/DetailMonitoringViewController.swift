@@ -43,6 +43,7 @@ class DetailMonitoringViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Detail Hewan"
+//        addCallBtnNavbar()
         getCurrentDate()
         getDataMonitoring()
         tableView.tableFooterView = UIView()
@@ -69,6 +70,18 @@ class DetailMonitoringViewController: UIViewController {
         getDataMonitoring()
         refreshController.endRefreshing()
     }
+    
+//    private func addCallBtnNavbar() {
+//        let callBtn = UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(callTapped))
+//
+//        navigationItem.rightBarButtonItems = [callBtn]
+//    }
+//
+//    @objc func callTapped() {
+//        guard let number = URL(string: "tel://087808427607") else { return }
+//        UIApplication.shared.canOpenURL(number)
+//    }
+    
 }
 
 // MARK: - loading
@@ -123,30 +136,19 @@ extension DetailMonitoringViewController {
         showLoading()
         NetworkHelper.shared.connect(url: url, params: nil, model: ReservationActionAPIModel.self) { [weak self] (result) in
             guard let self = self else { return }
-            
-            if self.role.contains("customer") {
-                self.removeLoading()
-            }
+            self.removeLoading()
             
             switch result {
             case .failure(let err):
-                self.removeLoading()
                 self.errorResponse(error: err)
                 
             case .success(let value):
-                guard let userIdOwner = value.data.userID, let dataList = value.data.history else {
+                guard let dataList = value.data.history else {
                     self.showToast(message: "gagal mendapatkan data")
                     return
                 }
                 self.historyModel = dataList
-                
-                if self.role.contains("customer") {
-                    self.tableView.reloadData()
-                    
-                } else {
-                    self.getDataOwner(userIdOwner: userIdOwner)
-                    self.tableView.reloadData()
-                }
+                self.tableView.reloadData()
                 
             }
         }

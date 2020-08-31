@@ -169,25 +169,11 @@ extension SignUpPresenter {
 // MARK: - API
 extension SignUpPresenter {
     
+    /// Method for Post data Register to server
+    /// - Parameters:
+    ///   - screen: class View Controller
+    ///   - data: model data for post register
     private func sendDataRegister(_ screen: SignUpViewController, _ data: SignUpModel) {
-        screen.showSpinner { [weak self] spinner in
-            guard let self = self else { return }
-            
-            self.sendRequest(data: data) { [weak self] (data, error) in
-                guard let self = self else { return }
-                
-                screen.removeSpinner(spinner)
-                if error != nil {
-                    screen.showToast(message: "Mohon cek kembali data yang anda masukkan!")
-                } else {
-                    self.openAlertSuccess(screen)
-                }
-            }
-        }
-        
-    }
-    
-    private func sendRequest(data: SignUpModel, completion: ((SignUpModel?, Error?) -> Void)? = nil) {
         let url = "\(CommonHelper.shared.BASE_URL)\(CommonHelper.shared.REGISTER_PATH)"
         let param = ["username": data.username ?? "",
                      "password": data.password ?? "",
@@ -197,13 +183,17 @@ extension SignUpPresenter {
                      "address": data.address ?? "",
                      "email": data.email ?? ""]
         
-        NetworkHelper.shared.connect(url: url, params: param, model: SignUpAPIModel.self) { (result) in
+        view?.showLoading()
+        NetworkHelper.shared.connect(url: url, params: param, model: SignUpAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            self.view?.removeLoading()
+            
             switch result {
             case .failure(let err):
-                completion?(nil, err)
-                break
-            case .success(let value):
-                completion?(value.data, nil)
+                self.view?.errorResponse(error: err)
+                
+            case .success( _):
+                self.openAlertSuccess(screen)
             }
         }
     }

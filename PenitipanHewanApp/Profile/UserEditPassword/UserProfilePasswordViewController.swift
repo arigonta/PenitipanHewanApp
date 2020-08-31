@@ -71,9 +71,11 @@ extension UserProfilePasswordViewController {
 }
 
 extension UserProfilePasswordViewController {
-    // MARK: Post Action Petshop
-    /// Method for post Action Changed perDay
-    /// - Parameter dataPost: Model Action perDay
+    
+    /// Method for post data change password
+    /// - Parameters:
+    ///   - id: **Int** id from current user
+    ///   - pass: **String** new password
     func postData(id: Int, pass: String) {
         let url = "\(CommonHelper.shared.BASE_URL)user/password/change"
         let param: [String: Any] = ["id": id, "password": pass]

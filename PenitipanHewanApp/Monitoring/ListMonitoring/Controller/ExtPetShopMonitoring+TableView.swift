@@ -37,11 +37,13 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             cell.labelColor.text = data.color
             cell.labelStatus.text = setStatus(data.status ?? -2)
             cell.labelStatus.textColor = setColorStatus(data.status ?? -2)
-            
+            cell.imageUser.roundedImage()
             if let photo = data.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)
                 cell.imageUser.kf.setImage(with: url)
-                cell.imageUser.roundedImage()
+                
+            } else {
+                cell.imageUser.image = UIImage(named: "defaultEmptyPhoto")
             }
             
             cell.selectionStyle = .none

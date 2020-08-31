@@ -37,9 +37,9 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             headMonitoringCell.noteLabel.text = tempMonitoringModel?.note ?? "-"
             
             headMonitoringCell.ownerView.isHidden = role.contains("customer") ? true : false
-            headMonitoringCell.ownerNameLbl.text = dataOwner?.name ?? "-"
-            headMonitoringCell.ownerPhoneLbl.text = dataOwner?.phone ?? "-"
-            headMonitoringCell.ownerAddressLbl.text = dataOwner?.address ?? "-"
+            headMonitoringCell.ownerNameLbl.text = tempMonitoringModel?.ownerName ?? "-"
+            headMonitoringCell.ownerPhoneLbl.text = tempMonitoringModel?.ownerPhone ?? "-"
+            headMonitoringCell.ownerAddressLbl.text = tempMonitoringModel?.ownerAddress ?? "-"
             
             if let photo = tempMonitoringModel?.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)
