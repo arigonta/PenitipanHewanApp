@@ -36,6 +36,7 @@ struct MonitoringModel: Codable {
     let ownerName: String?
     let ownerPhone: String?
     let ownerAddress: String?
+    let duration: Int?
 
     enum CodingKeys: String, CodingKey {
         case reservationPackageID = "reservation_package_id"
@@ -50,10 +51,10 @@ struct MonitoringModel: Codable {
         case ownerPhone = "user_phone"
         case ownerAddress = "user_address"
         case status
-        case age, color, note, history
+        case age, color, note, history, duration
     }
     
-    init(reservationPackageID: Int?, animalName: String?, animalPhoto: String?, animalRacial: String?, age: Int?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, status: Int?, status2: String?, ownerName: String?, ownerPhone: String?, ownerAddress: String?, history: [History]?) {
+    init(reservationPackageID: Int?, animalName: String?, animalPhoto: String?, animalRacial: String?, age: Int?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, status: Int?, status2: String?, ownerName: String?, ownerPhone: String?, ownerAddress: String?, duration: Int?, history: [History]?) {
         self.reservationPackageID = reservationPackageID
         self.animalName = animalName
         self.animalPhoto = animalPhoto
@@ -70,6 +71,7 @@ struct MonitoringModel: Codable {
         self.ownerName = ownerName
         self.ownerAddress = ownerAddress
         self.ownerPhone = ownerPhone
+        self.duration = duration
     }
 }
 
