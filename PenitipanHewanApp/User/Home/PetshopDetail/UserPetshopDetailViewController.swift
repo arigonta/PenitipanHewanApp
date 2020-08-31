@@ -92,12 +92,17 @@ extension UserPetshopDetailViewController {
     }
     
     func setData() {
-        if let photo = dataDetail?.photo, !photo.isEmpty {
+        self.imagePetshop.layer.cornerRadius = 10
+        if let photo = dataDetail?.petshop_photo, !photo.isEmpty {
             let url = URL(string: photo)
             self.imagePetshop.kf.setImage(with: url)
         } else {
             self.imagePetshop.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
         }
+        petshopName.backgroundColor = ColorHelper.instance.mainGreen
+        petshopName.layer.cornerRadius = 10
+        petshopName.layer.masksToBounds = true
+        petshopName.textColor = .white
         petshopName.text = dataDetail?.petshop_name ?? "Petshop Name"
         packagePetshop.text = "\(dataDetail?.duration ?? 0) Hari"
         pricePackage.text = "\(dataDetail?.price ?? 0)".currencyInputFormatting()

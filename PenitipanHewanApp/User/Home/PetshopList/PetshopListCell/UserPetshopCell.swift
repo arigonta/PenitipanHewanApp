@@ -18,12 +18,13 @@ class UserPetshopCell: UITableViewCell {
     
     func setCell(data: PetShopListModel?) {
         guard let data = data else { return }
-        if let photo = data.photo, !photo.isEmpty {
+        if let photo = data.petshop_photo, !photo.isEmpty {
             let url = URL(string: photo)
             self.petshopImgView.kf.setImage(with: url)
         } else {
             self.petshopImgView.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
         }
+        petshopImgView.layer.cornerRadius = 10
         paketLbl.text = "\(data.petshop_name ?? "") - \(data.duration ?? 0) hari"
         addressLbl.text = data.petshop_address ?? "alamat kosong"
         pricePackageLbl.text = "\(data.price ?? 0)".currencyInputFormatting()

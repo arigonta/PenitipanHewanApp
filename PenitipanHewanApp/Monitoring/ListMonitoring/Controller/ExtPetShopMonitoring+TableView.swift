@@ -35,8 +35,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             cell.labelName.text = data.animalName
             cell.labelRas.text = data.animalRacial
             cell.labelColor.text = data.color
-            cell.labelStatus.text = setStatus(data.status ?? -2)
-            cell.labelStatus.textColor = setColorStatus(data.status ?? -2)
+            cell.labelDuration.text = "\(data.duration ?? 0) Hari"
             cell.imageUser.roundedImage()
             if let photo = data.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)
@@ -55,7 +54,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let dataCount = monitoringList.count
-        return dataCount != 0 ? 120 : UITableView.automaticDimension
+        return dataCount != 0 ? 127 : UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -69,37 +68,5 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             }
         }
         
-    }
-}
-
-extension PetshopMonitoringViewController {
-    private func setStatus(_ status: Int) -> String {
-        switch status {
-        case 2:
-            return "Menunggu Persetujuan"
-        case 10:
-            return "Aktif"
-        case 0:
-            return role.contains("petshop") ? "Anda Tolak" : "Ditolak"
-        case -1:
-            return "Selesai"
-        default:
-            return ""
-        }
-    }
-    
-    private func setColorStatus(_ status: Int) -> UIColor {
-        switch status {
-        case 2:
-            return ColorHelper.yellow
-        case 10:
-            return ColorHelper.instance.mainGreen
-        case 0:
-            return ColorHelper.red
-        case -1:
-            return ColorHelper.instance.mainGreen
-        default:
-            return .black
-        }
     }
 }
