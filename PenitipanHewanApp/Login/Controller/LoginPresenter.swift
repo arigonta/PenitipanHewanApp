@@ -69,51 +69,38 @@ class LoginPresenter: LoginPresenterProtocol {
 // MARK: - API
 extension LoginPresenter {
     
+    /// Method for Send Data login
+    /// - Parameters:
+    ///   - screen: class View controller
+    ///   - data: model data for login
     private func sendDataLogin(_ screen: LoginViewController, _ data: LoginModel) {
-        screen.showSpinner { [weak self] spinner in
-            guard let self = self else { return }
-            
-            self.sendRequest(data: data) { [weak self] (dataAPI, error) in
-                guard let self = self else { return }
-                
-                screen.removeSpinner(spinner)
-                if error != nil {
-                    screen.showToast(message: "Mohon cek kembali data yang anda masukkan!")
-                } else {
-                    guard let dataAPI = dataAPI else { return }
-                    self.handleSuccessLogin(screen, dataAPI)
-                }
-            }
-        }
-        
-    }
-    
-    private func sendRequest(data: LoginModel, completion: ((LoginModel?, Error?) -> Void)? = nil) {
         let url = "\(CommonHelper.shared.BASE_URL)\(CommonHelper.shared.LOGIN_PATH)"
         let param = ["username": data.username ?? "",
                      "password": data.password ?? ""]
         
-        NetworkHelper.shared.connect(url: url, params: param, model: loginAPIModel.self) { (result) in
+        view?.showLoading()
+        NetworkHelper.shared.connect(url: url, params: param, model: loginAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            self.view?.removeLoading()
+            
+            
             switch result {
             case .failure(let err):
-                completion?(nil, err)
-                break
+                self.view?.errorResponse(error: err)
+                
             case .success(let value):
-                completion?(value.data, nil)
-            }
-        }
-    }
-    
-    func handleSuccessLogin(_ screen: LoginViewController, _ data: LoginModel) {
-        userDefaultUtil.setIsLogin(value: true)
-        userDefaultUtil.setUsername(value: data.username ?? "")
-        userDefaultUtil.setRole(value: data.role ?? "")
-        userDefaultUtil.setCurrentId(value: data.id ?? -1)
+                let data = value.data
+                self.userDefaultUtil.setIsLogin(value: true)
+                self.userDefaultUtil.setUsername(value: data.username ?? "")
+                self.userDefaultUtil.setRole(value: data.role ?? "")
+                self.userDefaultUtil.setCurrentId(value: data.id ?? -1)
 
-        if data.role?.elementsEqual("petshop") ?? false {
-            self.directToPetshopTabbar(screen)
-        } else {
-            self.directToCustomerTabbar(screen)
+                if data.role?.elementsEqual("petshop") ?? false {
+                    self.directToPetshopTabbar(screen)
+                } else {
+                    self.directToCustomerTabbar(screen)
+                }
+            }
         }
     }
 }

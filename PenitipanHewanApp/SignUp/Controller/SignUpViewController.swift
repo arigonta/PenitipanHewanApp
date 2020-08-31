@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 protocol SignUpViewProtocol: class {
-    func update()
+    func errorResponse(error: Error?)
+    func showLoading()
+    func removeLoading()
 }
 
 class SignUpViewController: UIViewController  {
@@ -43,6 +45,7 @@ class SignUpViewController: UIViewController  {
     
     var presenter: SignUpPresenterProtocol?
     var activeComponent: UIView?
+    var spinner: UIView?
     
     var selectedCountry: String?
     var role = ["customer", "petshop"]
@@ -152,7 +155,23 @@ extension SignUpViewController: PickerHelperDelegate {
 }
 
 extension SignUpViewController: SignUpViewProtocol {
-    func update() {
-        
+    func errorResponse(error: Error?) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
+        }
+    }
+    
+    /// Show loading
+    func showLoading() {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            self.spinner = spinner
+        }
+    }
+    
+    /// remove loading
+    func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
     }
 }
