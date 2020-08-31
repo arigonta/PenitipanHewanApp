@@ -22,6 +22,8 @@ class HeaderDetailMonitoringCell: UITableViewCell {
     @IBOutlet weak var ownerNameLbl: UILabel!
     @IBOutlet weak var ownerPhoneLbl: UILabel!
     @IBOutlet weak var ownerAddressLbl: UILabel!
+    @IBOutlet weak var ownerOrPetshopTitle: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
     override func awakeFromNib() {
         animalImage.roundedImage()

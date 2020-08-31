@@ -36,10 +36,13 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             headMonitoringCell.lastSickLabel.text = tempMonitoringModel?.lastTimeGotSick
             headMonitoringCell.noteLabel.text = tempMonitoringModel?.note ?? "-"
             
-            headMonitoringCell.ownerView.isHidden = role.contains("customer") ? true : false
-            headMonitoringCell.ownerNameLbl.text = tempMonitoringModel?.ownerName ?? "-"
-            headMonitoringCell.ownerPhoneLbl.text = tempMonitoringModel?.ownerPhone ?? "-"
-            headMonitoringCell.ownerAddressLbl.text = tempMonitoringModel?.ownerAddress ?? "-"
+            headMonitoringCell.ownerOrPetshopTitle.text = role.contains("customer") ? "Petshop" : "Data Pemilik"
+            headMonitoringCell.durationLabel.text = "\(self.duration) hari"
+            headMonitoringCell.ownerNameLbl.text = dataUser?.name ?? "-"
+            headMonitoringCell.ownerPhoneLbl.text = dataUser?.phone ?? "-"
+            headMonitoringCell.ownerAddressLbl.text = dataUser?.address ?? "-"
+            
+            
             
             if let photo = tempMonitoringModel?.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)
