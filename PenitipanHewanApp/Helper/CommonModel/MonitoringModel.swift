@@ -31,6 +31,7 @@ struct MonitoringModel: Codable {
     let note: String?
     let petshopPackageID: Int?
     let userID: Int?
+    let petshopID: Int?
     let history: [History]?
     let status: Int?
     let ownerName: String?
@@ -47,6 +48,7 @@ struct MonitoringModel: Codable {
         case lastTimeGotSick = "last_time_got_sick"
         case petshopPackageID = "petshop_package_id"
         case userID = "user_id"
+        case petshopID = "petshop_id"
         case ownerName = "user_name"
         case ownerPhone = "user_phone"
         case ownerAddress = "user_address"
@@ -54,7 +56,7 @@ struct MonitoringModel: Codable {
         case age, color, note, history, duration
     }
     
-    init(reservationPackageID: Int?, animalName: String?, animalPhoto: String?, animalRacial: String?, age: Int?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, status: Int?, status2: String?, ownerName: String?, ownerPhone: String?, ownerAddress: String?, duration: Int?, history: [History]?) {
+    init(reservationPackageID: Int?, animalName: String?, animalPhoto: String?, animalRacial: String?, age: Int?, color: String?, isVaccine: Int?, lastTimeGotSick: String?, note: String?, petshopPackageID: Int?, userID: Int?, petshopID: Int?, status: Int?, status2: String?, ownerName: String?, ownerPhone: String?, ownerAddress: String?, duration: Int?, history: [History]?) {
         self.reservationPackageID = reservationPackageID
         self.animalName = animalName
         self.animalPhoto = animalPhoto
@@ -66,6 +68,7 @@ struct MonitoringModel: Codable {
         self.note = note
         self.petshopPackageID = petshopPackageID
         self.userID = userID
+        self.petshopID = petshopID
         self.history = history
         self.status = status
         self.ownerName = ownerName

@@ -172,7 +172,7 @@
                                                                             <rect key="frame" x="0.0" y="16" width="375" height="42"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pemilik Hewan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bE-KD-MCk">
-                                                                                    <rect key="frame" x="4" y="4" width="367" height="34"/>
+                                                                                    <rect key="frame" x="8" y="4" width="359" height="34"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="34" id="zEz-96-XiU"/>
                                                                                     </constraints>
@@ -185,8 +185,8 @@
                                                                             <constraints>
                                                                                 <constraint firstItem="2bE-KD-MCk" firstAttribute="top" secondItem="HV9-xo-sv5" secondAttribute="top" constant="4" id="Bql-W5-aBD"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="2bE-KD-MCk" secondAttribute="bottom" constant="4" id="Cpn-w8-Ua8"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="2bE-KD-MCk" secondAttribute="trailing" constant="4" id="c92-4R-XDe"/>
-                                                                                <constraint firstItem="2bE-KD-MCk" firstAttribute="leading" secondItem="HV9-xo-sv5" secondAttribute="leading" constant="4" id="zla-Ve-nLA"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="2bE-KD-MCk" secondAttribute="trailing" constant="8" id="c92-4R-XDe"/>
+                                                                                <constraint firstItem="2bE-KD-MCk" firstAttribute="leading" secondItem="HV9-xo-sv5" secondAttribute="leading" constant="8" id="zla-Ve-nLA"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="X1f-R3-tK3">
@@ -261,22 +261,33 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOt-J4-5qy">
                                                             <rect key="frame" x="0.0" y="672" width="375" height="42"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Kegiatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ja-sP-qaq">
-                                                                    <rect key="frame" x="4" y="4" width="367" height="34"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="34" id="0Xo-5m-PTw"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SNh-eI-VsJ">
+                                                                    <rect key="frame" x="8" y="4" width="359" height="34"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Kegiatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ja-sP-qaq">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="179.66666666666666" height="34"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="34" id="0Xo-5m-PTw"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Hari" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdy-Cr-4n6">
+                                                                            <rect key="frame" x="179.66666666666663" y="0.0" width="179.33333333333337" height="34"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="0Ja-sP-qaq" firstAttribute="leading" secondItem="SOt-J4-5qy" secondAttribute="leading" constant="4" id="27v-L0-eaU"/>
-                                                                <constraint firstAttribute="trailing" secondItem="0Ja-sP-qaq" secondAttribute="trailing" constant="4" id="VBo-9I-dyG"/>
-                                                                <constraint firstAttribute="bottom" secondItem="0Ja-sP-qaq" secondAttribute="bottom" constant="4" id="VYj-Vm-hnV"/>
-                                                                <constraint firstItem="0Ja-sP-qaq" firstAttribute="top" secondItem="SOt-J4-5qy" secondAttribute="top" constant="4" id="dBp-VX-2Jh"/>
+                                                                <constraint firstItem="SNh-eI-VsJ" firstAttribute="leading" secondItem="SOt-J4-5qy" secondAttribute="leading" constant="8" id="1lF-ot-6qy"/>
+                                                                <constraint firstAttribute="trailing" secondItem="SNh-eI-VsJ" secondAttribute="trailing" constant="8" id="7FX-30-eMk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="SNh-eI-VsJ" secondAttribute="bottom" constant="4" id="MFb-H5-3gc"/>
+                                                                <constraint firstItem="SNh-eI-VsJ" firstAttribute="top" secondItem="SOt-J4-5qy" secondAttribute="top" constant="4" id="bYJ-wY-UYN"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -309,11 +320,13 @@
                                             <outlet property="ageLabel" destination="ZP0-nz-e6H" id="Bgp-cH-yH4"/>
                                             <outlet property="animalImage" destination="cSR-h0-ET4" id="gjg-Eq-7lQ"/>
                                             <outlet property="colorLabel" destination="qv6-3I-BuF" id="qFV-A6-34F"/>
+                                            <outlet property="durationLabel" destination="Zdy-Cr-4n6" id="GlZ-1h-bkc"/>
                                             <outlet property="lastSickLabel" destination="tQe-Ce-2PV" id="QDh-nc-gZp"/>
                                             <outlet property="nameLabel" destination="ynf-PJ-NVe" id="QgJ-ER-GJZ"/>
                                             <outlet property="noteLabel" destination="ZnD-Fw-5AH" id="CHA-tM-mPg"/>
                                             <outlet property="ownerAddressLbl" destination="EXt-9O-Ssg" id="LWq-SC-lW2"/>
                                             <outlet property="ownerNameLbl" destination="w6q-ub-VYc" id="E7h-HU-pLI"/>
+                                            <outlet property="ownerOrPetshopTitle" destination="2bE-KD-MCk" id="VTE-cx-5fn"/>
                                             <outlet property="ownerPhoneLbl" destination="DoH-Mq-h4B" id="7YE-vi-JrM"/>
                                             <outlet property="ownerView" destination="4Ea-Zo-m0j" id="goP-jp-bb8"/>
                                             <outlet property="rasLabel" destination="32b-9a-TMS" id="kWr-ao-v7o"/>
