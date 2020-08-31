@@ -22,6 +22,7 @@ class UserProfileAddSaldoViewController: UIViewController {
     var pickerHelper: PickerHelper?
     // MARK: - var
     var selectedPicker: String?
+    var spinner: UIView?
     var dataPicker: [String: Double] = ["Pilih Nominal": 0,
                                         "50.000": 50000,
                                         "100.000": 100000,
@@ -96,39 +97,57 @@ extension UserProfileAddSaldoViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - API
 extension UserProfileAddSaldoViewController {
-    //MARK: POST Request Add Saldo
+    
+    
+    /// Method for Post data top up saldo
+    /// - Parameter dataPost: model for top up saldo
     private func postData(dataPost: AddSaldo) {
-        self.showSpinner { [weak self] (spinner) in
+        let url = "\(CommonHelper.shared.BASE_URL)user/top-up"
+        self.showLoading()
+        NetworkHelper.shared.connect(url: url, params: dataPost.representation, model: AddSaldo.self) { [weak self] (result) in
             guard let self = self else { return }
+            self.removeLoading()
             
-            self.sendRequest(dataPost) { [weak self] (dataSuccess, error) in
-                guard let self = self else { return }
+            switch result {
+            case .failure(let err):
+                self.errorResponse(error: err)
                 
-                self.removeSpinner(spinner)
-                if let newError = error as? ErrorResponse {
-                    let message = newError.messages
-                    self.showToast(message: message)
-                } else {
-                    self.showToast(message: "Success submit data")
-                    delay(deadline: .now() + 0.55) {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
+            case .success( _):
+                self.showToast(message: "Success submit data")
+                delay(deadline: .now() + 0.55) {
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             }
         }
     }
     
-    private func sendRequest(_ dataPost: AddSaldo, completion: ((AddSaldo?, Error?) -> Void)? = nil) {
-        let url = "\(CommonHelper.shared.BASE_URL)user/top-up"
-        NetworkHelper.shared.connect(url: url, params: dataPost.representation, model: AddSaldo.self) { (result) in
-            switch result {
-            case .failure(let err):
-                completion?(nil, err)
-                break
-            case .success(let value):
-                completion?(value, nil)
-            }
+    // MARK: error handling
+    /// Method for handling error response from network threading
+    /// - Parameter error: Model Error From network threading
+    private func errorResponse(error: Error) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
         }
+    }
+}
+
+// MARK: - loading
+extension UserProfileAddSaldoViewController {
+    
+    /// Show loading
+    private func showLoading() {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            self.spinner = spinner
+        }
+    }
+    
+    
+    /// remove loading
+    private func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
     }
 }

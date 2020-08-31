@@ -20,6 +20,7 @@ class PetshopMonitoringViewController: UIViewController {
     lazy var refreshController: UIRefreshControl = .init()
     var monitoringList = [MonitoringModel]()
     var role = UserDefaultsUtils.shared.getRole()
+    var spinner: UIView?
     
     // status 0 = tolak
     // status 2 = waiting approval
@@ -50,26 +51,31 @@ class PetshopMonitoringViewController: UIViewController {
     }
 }
 
-// MARK: - API
+// MARK: - loading
 extension PetshopMonitoringViewController {
-    private func getData(completion: (() -> Void)? = nil) {
+    
+    /// Show loading
+    private func showLoading() {
         self.showSpinner { [weak self] (spinner) in
             guard let self = self else { return }
-            
-            self.sendRequest() { [weak self] (dataList, error) in
-                guard let self = self else { return }
-                
-                self.removeSpinner(spinner)
-                if error != nil {
-                    self.showToast(message: "gagal mendapatkan data")
-                } else {
-                    self.handleSuccessGetData(dataList)
-                }
-            }
+            self.spinner = spinner
         }
-        completion?()
     }
-    private func sendRequest(completion: (([MonitoringModel]?, Error?) -> Void)? = nil) {
+    
+    
+    /// remove loading
+    private func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
+    }
+}
+
+// MARK: - API
+extension PetshopMonitoringViewController {
+    
+    /// Method for get Data list reservation Pet
+    /// - Parameter completion: closure for adding void
+    private func getData(completion: (() -> Void)? = nil) {
         let currentId = UserDefaultsUtils.shared.getCurrentId()
         var url = ""
         if role.elementsEqual("petshop") {
@@ -78,25 +84,33 @@ extension PetshopMonitoringViewController {
             url = "\(CommonHelper.shared.BASE_URL)petshop/package/user/reservation/list?user_id=\(currentId)"
         }
         
-        NetworkHelper.shared.connect(url: url, params: nil, model: MonitoringAPIModel.self) { (result) in
+        showLoading()
+        NetworkHelper.shared.connect(url: url, params: nil, model: MonitoringAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            self.removeLoading()
+            
             switch result {
             case .failure(let err):
-                completion?(nil, err)
-                break
+                self.errorResponse(error: err)
+                
             case .success(let value):
-                completion?(value.data, nil)
+                let dataList = value.data
+                let filter = dataList.filter { $0.status == self.status }
+                self.monitoringList = filter
+                self.tableView.reloadData()
             }
         }
+        
+        completion?()
     }
     
-    private func handleSuccessGetData(_ data: [MonitoringModel]?) {
-        guard let dataList = data else {
-            self.showToast(message: "gagal mendapatkan data")
-            return
+    // MARK: error handling
+    /// Method for handling error response from network threading
+    /// - Parameter error: Model Error From network threading
+    private func errorResponse(error: Error) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
         }
-        let filter = dataList.filter { $0.status == status }
-        self.monitoringList = filter
-        tableView.reloadData()
     }
 }
 
@@ -155,7 +169,7 @@ extension PetshopMonitoringViewController {
     }
     
     @objc func selesaiBtnTapped() {
-        let selesai = -1
+        let selesai = 11
         activeBtn.setSecondaryButtonStyle()
         menungguBtn.setSecondaryButtonStyle()
         TolakBtn.setSecondaryButtonStyle()
