@@ -63,6 +63,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             let storyBoard: UIStoryboard = UIStoryboard(name: "DetailMonitoring", bundle: nil)
             if let detailMonitoring = storyBoard.instantiateViewController(withIdentifier: "DetailMonitoring") as? DetailMonitoringViewController {
                 detailMonitoring.tempMonitoringModel = monitoringList[indexPath.row]
+                detailMonitoring.duration = monitoringList[indexPath.row].duration ?? 0
                 detailMonitoring.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(detailMonitoring, animated: true)
             }

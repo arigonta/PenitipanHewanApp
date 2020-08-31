@@ -32,18 +32,19 @@ class DetailMonitoringViewController: UIViewController {
     var currentDate = ""
     var tempMonitoringModel: MonitoringModel?
     var historyModel = [History]()
-    var dataOwner: UserModel?
+    var dataUser: UserModel?
     var reservationPackageID: Int?
     var indexPathFoccus: IndexPath?
     var spinner: UIView?
     var currentRow: Int = 0
+    var duration: Int = 0
     var role = UserDefaultsUtils.shared.getRole()
     lazy var refreshController: UIRefreshControl = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Detail Hewan"
-//        addCallBtnNavbar()
+        addCallBtnNavbar()
         getCurrentDate()
         getDataMonitoring()
         tableView.tableFooterView = UIView()
@@ -71,16 +72,15 @@ class DetailMonitoringViewController: UIViewController {
         refreshController.endRefreshing()
     }
     
-//    private func addCallBtnNavbar() {
-//        let callBtn = UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(callTapped))
-//
-//        navigationItem.rightBarButtonItems = [callBtn]
-//    }
-//
-//    @objc func callTapped() {
-//        guard let number = URL(string: "tel://087808427607") else { return }
-//        UIApplication.shared.canOpenURL(number)
-//    }
+    private func addCallBtnNavbar() {
+        let callBtn = UIBarButtonItem(image: UIImage(named: "phone"), style: .plain, target: self, action: #selector(callTapped))
+        navigationItem.rightBarButtonItems = [callBtn]
+    }
+
+    @objc func callTapped() {
+        guard let phoneNumber = dataUser?.phone, let number = URL(string: "tel://\(phoneNumber)") else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
     
 }
 
@@ -136,29 +136,30 @@ extension DetailMonitoringViewController {
         showLoading()
         NetworkHelper.shared.connect(url: url, params: nil, model: ReservationActionAPIModel.self) { [weak self] (result) in
             guard let self = self else { return }
-            self.removeLoading()
             
             switch result {
             case .failure(let err):
+                self.removeLoading()
                 self.errorResponse(error: err)
                 
             case .success(let value):
-                guard let dataList = value.data.history else {
+                guard let dataList = value.data.history, let petshopID = value.data.petshopID, let customerID = value.data.userID else {
                     self.showToast(message: "gagal mendapatkan data")
                     return
                 }
                 self.historyModel = dataList
-                self.tableView.reloadData()
+                let id = self.role.contains("petshop") ? customerID: petshopID
+                self.getDataOwner(userId: id)
                 
             }
         }
     }
     
-    // MARK: get data Owner Pet
+    // MARK: get data Owner or Petshop
     /// Method for get data Owner Pet
     /// - Parameter userIdOwner: user ID owner Pet
-    private func getDataOwner(userIdOwner: Int) {
-        let url = "\(CommonHelper.shared.BASE_URL)user/\(userIdOwner)"
+    private func getDataOwner(userId: Int) {
+        let url = "\(CommonHelper.shared.BASE_URL)user/\(userId)"
         NetworkHelper.shared.connect(url: url, params: nil, model: UserAPIModel.self) { [weak self] (result) in
             guard let self = self else { return }
             self.removeLoading()
@@ -168,7 +169,7 @@ extension DetailMonitoringViewController {
                 self.errorResponse(error: err)
                 
             case .success(let value):
-                self.dataOwner = value.data
+                self.dataUser = value.data
                 self.tableView.reloadData()
             }
         }
