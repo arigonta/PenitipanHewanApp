@@ -35,6 +35,7 @@ extension ReservationViewController: UITableViewDelegate, UITableViewDataSource 
             reservationCell.labelLastTimeGotSick.text = data.lastTimeGotSick
             reservationCell.labelDesc.text = (data.note ?? "").isEmpty ? "Tidak Pernah Sakit" : data.note
             reservationCell.labelVaccine.text = (data.isVaccine ?? 0) == 0 ? "Belum": "Sudah"
+            reservationCell.labelDuration.text = "\(data.duration ?? 0) Hari"
             
             if let photo = data.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)

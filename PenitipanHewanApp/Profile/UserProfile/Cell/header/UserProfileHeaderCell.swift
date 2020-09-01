@@ -26,14 +26,13 @@ class UserProfileHeaderCell: UITableViewCell {
         
         userNameLbl.text = user?.name ?? "User Fullname"
         userPhoneLbl.text = user?.phone ?? "+628xxxxxxx"
-        userEmailLbl.text = user?.email ?? "xxxx@xxx.com"
-        userAddressLbl.text = user?.address ?? "alamat petshop"
-        
-        userAddressLbl.isHidden = currentRole.elementsEqual("petshop") ? false : true
+        userEmailLbl.text = user?.email ?? "-"
+        userAddressLbl.text = user?.address ?? "-"
     }
     
     private func setImage(user: UserModel?) {
        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped))
+        imageProfile.image = UIImage(named: "tempProfilePict")
         imageProfile.isUserInteractionEnabled = true
         imageProfile.addGestureRecognizer(tap)
         imageProfile.layer.cornerRadius = imageProfile.frame.width / 2

@@ -32,18 +32,30 @@ class UserPetshopDetailViewController: UIViewController {
     // MARK: Var
     lazy var refreshController: UIRefreshControl = .init()
     var dataDetail: PetShopListModel?
+    var petshopModel: UserModel?
     var presenter: UserPetshopDetailPresenterProtocol?
     var isHiddenDesc: Bool = true
     var image = UIImage(named: "arrowDown")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addCallBtnNavbar()
         setView()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         presenter = UserPetshopDetailPresenter(view: self)
         if let petshopId = dataDetail?.petshop_id {
             presenter?.getDetailPetshop(self, petshopId)
         }
+    }
+    
+    private func addCallBtnNavbar() {
+        let callBtn = UIBarButtonItem(image: UIImage(named: "phone"), style: .plain, target: self, action: #selector(callTapped))
+        navigationItem.rightBarButtonItems = [callBtn]
+    }
+
+    @objc func callTapped() {
+        guard let phoneNumber = petshopModel?.phone, let number = URL(string: "tel://\(phoneNumber)") else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
     }
 
 }
@@ -100,7 +112,7 @@ extension UserPetshopDetailViewController {
             self.imagePetshop.image = #imageLiteral(resourceName: "defaultEmptyPhoto")
         }
         petshopName.backgroundColor = ColorHelper.instance.mainGreen
-        petshopName.layer.cornerRadius = 10
+        petshopName.layer.cornerRadius = 8
         petshopName.layer.masksToBounds = true
         petshopName.textColor = .white
         petshopName.text = dataDetail?.petshop_name ?? "Petshop Name"
@@ -134,6 +146,7 @@ extension UserPetshopDetailViewController {
 
 extension UserPetshopDetailViewController: UserPetshopDetailViewProtocol {
     func updateScreen(petshopData: UserModel?) {
+        self.petshopModel = petshopData
         phonePetshopLbl.text = petshopData?.phone ?? ""
         addressPetshop.text = petshopData?.address ?? ""
     }
