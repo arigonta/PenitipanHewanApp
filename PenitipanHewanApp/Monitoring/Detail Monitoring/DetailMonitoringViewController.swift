@@ -38,13 +38,13 @@ class DetailMonitoringViewController: UIViewController {
     var spinner: UIView?
     var currentRow: Int = 0
     var duration: Int = 0
+    var activeComponent: UIView?
     var role = UserDefaultsUtils.shared.getRole()
     lazy var refreshController: UIRefreshControl = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Detail Hewan"
-        addCallBtnNavbar()
         getCurrentDate()
         getDataMonitoring()
         tableView.tableFooterView = UIView()
@@ -55,6 +55,13 @@ class DetailMonitoringViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         tempMonitoringModel = nil
+        deregisterFromKeyboardNotifications()
+    }
+    
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications(scrollView: tableView, activeComponent: activeComponent)
     }
     
     
@@ -70,11 +77,6 @@ class DetailMonitoringViewController: UIViewController {
     @objc func pullToRefresh() {
         getDataMonitoring()
         refreshController.endRefreshing()
-    }
-    
-    private func addCallBtnNavbar() {
-        let callBtn = UIBarButtonItem(image: UIImage(named: "phone"), style: .plain, target: self, action: #selector(callTapped))
-        navigationItem.rightBarButtonItems = [callBtn]
     }
 
     @objc func callTapped() {

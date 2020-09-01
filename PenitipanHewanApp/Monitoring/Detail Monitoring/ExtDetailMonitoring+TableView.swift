@@ -42,7 +42,12 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             headMonitoringCell.ownerPhoneLbl.text = dataUser?.phone ?? "-"
             headMonitoringCell.ownerAddressLbl.text = dataUser?.address ?? "-"
             
+            headMonitoringCell.phoneBtnClicked = { [weak self] in
+                guard let self = self else { return }
+                self.callTapped()
+            }
             
+            headMonitoringCell.setStatus(status: tempMonitoringModel?.status)
             
             if let photo = tempMonitoringModel?.animalPhoto, !photo.isEmpty {
                 let url = URL(string: photo)

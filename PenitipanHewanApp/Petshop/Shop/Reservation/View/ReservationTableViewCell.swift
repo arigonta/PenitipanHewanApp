@@ -22,6 +22,7 @@ class ReservationTableViewCell: UITableViewCell {
     @IBOutlet weak var labelLastTimeGotSick: UILabel!
     @IBOutlet weak var labelDesc: UILabel!
     @IBOutlet weak var labelVaccine: UILabel!
+    @IBOutlet weak var labelDuration: UILabel!
     @IBOutlet weak var buttonAccept: UIButton!
     @IBOutlet weak var buttonDecline: UIButton!
     var indexPath: IndexPath?

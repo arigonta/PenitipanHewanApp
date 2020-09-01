@@ -62,7 +62,6 @@ class UserEditProfileViewController: UIViewController {
         addressTF.text = userModel?.address ?? ""
         
         setTextFieldGreen()
-        addressStackView.isHidden = currentRole.elementsEqual("petshop") ? false : true
         
         setBtn()
         

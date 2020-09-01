@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import UIKit
+import Kingfisher
 
 protocol UserEditProfilePresenterProtocol: class {
     var view: UserEditProfileViewProtocol? { get set }
@@ -57,13 +58,11 @@ class UserEditProfilePresenter: UserEditProfilePresenterProtocol {
             isNameValidate = true
         }
         
-        if currentRole.elementsEqual("petshop") {
-            if addressTF.text == "" {
-                view?.setTexfieldRed(textfield: addressTF)
-                isAddressValidatte = false
-            } else {
-                isAddressValidatte = true
-            }
+        if addressTF.text == "" {
+            view?.setTexfieldRed(textfield: addressTF)
+            isAddressValidatte = false
+        } else {
+            isAddressValidatte = true
         }
         
         if isNameValidate && isEmailValidate && isPhoneValidate && isAddressValidatte {
@@ -72,8 +71,24 @@ class UserEditProfilePresenter: UserEditProfilePresenterProtocol {
             newUserModel.email = emailTF.text ?? ""
             newUserModel.phone = phoneTF.text ?? ""
             newUserModel.name = nameTF.text ?? ""
-            
+//            newUserModel.photo = getBase64(userModel: userModel)
             postData(screen, dataPost: newUserModel)
+        }
+        
+    }
+    
+    private func getBase64(userModel: UserModel?) -> String {
+        if let photo = userModel?.photo, !photo.isEmpty {
+            let newImageView: UIImageView = .init()
+            let url = URL(string: photo)
+            newImageView.kf.setImage(with: url)
+            
+            let data = newImageView.image?.jpegData(compressionQuality: 0.2)
+            let base64 = data?.base64EncodedString() ?? ""
+            let returnString = !base64.isEmpty ? "data:image/jpeg;base64,\(base64)" : ""
+            return returnString
+        } else {
+            return ""
         }
         
     }
