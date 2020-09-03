@@ -96,62 +96,49 @@ class UserEditProfilePresenter: UserEditProfilePresenterProtocol {
 
 // MARK: - API
 extension UserEditProfilePresenter {
+
     private func postData(_ screen: UserEditProfileViewController, dataPost: UserModel) {
-        screen.showSpinner { [weak self] (spinner) in
-            guard let self = self else { return }
-            
-            self.sendRequest(dataPost) { (dataSuccess, error) in
-                
-                if let newError = error as? ErrorResponse {
-                    let message = newError.messages
-                    screen.showToast(message: message)
-                } else {
-                    
-                    guard let newDataSuccess = dataSuccess else { return }
-                    let message = newDataSuccess.messages.first ?? "Success Update data"
-                    self.createUserFirestore(screen: screen, spinner: spinner, userModel: dataPost, messageSuccess: message)
-                }
-            }
-        }
-        
-    }
-    private func sendRequest(_ dataPost: UserModel, completion: ((SuccessPostAPIModel?, Error?) -> Void)? = nil) {
         
         let url = "\(CommonHelper.shared.BASE_URL)user/update"
-        NetworkHelper.shared.connect(url: url, params: dataPost.postForUpdate, model: SuccessPostAPIModel.self) { (result) in
+        
+        view?.showLoading()
+        NetworkHelper.shared.connect(url: url, params: dataPost.postForUpdate, model: SuccessPostAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            
             switch result {
             case .failure(let err):
-                completion?(nil, err)
-                break
+                self.view?.removeLoading()
+                self.view?.errorResponse(error: err)
+                
             case .success(let value):
-                completion?(value, nil)
+                let message = value.messages.first ?? "Success Memperbarui Data"
+                self.createUserFirestore(screen: screen, userModel: dataPost, messageSuccess: message)
             }
         }
     }
-    
     
 }
 
 // MARK: - FIREBASE
 extension UserEditProfilePresenter {
-    private func createUserFirestore(screen: UserEditProfileViewController, spinner: UIView, userModel: UserModel?, messageSuccess: String) {
+    private func createUserFirestore(screen: UserEditProfileViewController, userModel: UserModel?, messageSuccess: String) {
         guard let userId = userModel?.id, let dataForFirestore = userModel?.representation else { return }
         let firestore = Firestore.firestore()
         let userCollection = firestore.collection("user").document("\(userId)")
-        userCollection.setData(dataForFirestore) { error in
+        
+        userCollection.setData(dataForFirestore) { [weak self] error in
+            guard let self = self else { return }
+            self.view?.removeLoading()
+            
             var isSuccess = false
             if error == nil {
                 isSuccess = true
             }
             
-            screen.removeSpinner(spinner)
             if !isSuccess {
                 screen.showToast(message: "Terjadi kesalahan sistem, mohon coba kembali")
             } else {
-                screen.showToast(message: messageSuccess)
-                delay(deadline: .now() + 0.55) {
-                    screen.navigationController?.popViewController(animated: true)
-                }
+                self.view?.successEditData(message: messageSuccess)
             }
         }
     }

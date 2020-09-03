@@ -63,8 +63,10 @@ class NetworkHelper: NSObject {
                 completion(.failure(errorDefault))
             }
         }
+
         
         self.task.dataTask(with: request) { (data, response, error) in
+            
             DispatchQueue.main.async {
                 if let error = error {
                     completion(.failure(errorDefault))
