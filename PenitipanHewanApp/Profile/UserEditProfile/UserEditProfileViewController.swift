@@ -10,6 +10,10 @@ import UIKit
 
 protocol UserEditProfileViewProtocol: class {
     func setTexfieldRed(textfield: UITextField)
+    func successEditData(message: String)
+    func showLoading()
+    func removeLoading()
+    func errorResponse(error: Error)
 }
 
 class UserEditProfileViewController: UIViewController {
@@ -24,9 +28,11 @@ class UserEditProfileViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var activeComponent: UIView?
+    var spinner: UIView?
     var userModel: UserModel?
     var currentRole = UserDefaultsUtils.shared.getRole()
     var presenter: UserEditProfilePresenterProtocol?
+    weak var delegate: RefreshProfilePageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,5 +96,37 @@ extension UserEditProfileViewController: UserEditProfileViewProtocol {
         textfield.setRedUnderLine()
     }
     
+    func successEditData(message: String) {
+        self.showToast(message: message)
+        delay(weakVar: self, deadline: .now() + 1.1) { strongSelf in
+            strongSelf.delegate?.refreshPage()
+            strongSelf.navigationController?.popViewController(animated: true)
+            
+        }
+    }
+    
+    /// Show loading
+    func showLoading() {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            self.spinner = spinner
+        }
+    }
+    
+    
+    /// remove loading
+    func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
+    }
+    
+    // MARK: error handling
+    /// Method for handling error response from network threading
+    /// - Parameter error: Model Error From network threading
+    func errorResponse(error: Error) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
+        }
+    }
     
 }

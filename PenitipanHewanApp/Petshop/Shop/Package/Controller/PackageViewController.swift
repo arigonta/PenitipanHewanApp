@@ -12,18 +12,32 @@ class PackageViewController: UIViewController {
 
     @IBOutlet weak var addPackage: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    var spinner: UIView?
     var packageList = [PetShopListModel]()
+    var refreshControl: UIRefreshControl = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //MARK: To Style
         addPackage.setButtonMainStyle()
         tableView.tableFooterView = UIView()
+        
+        // register xib to table view
+        let emptyCellNib = UINib(nibName: "generalEmptyCell", bundle: nil)
+        tableView.register(emptyCellNib, forCellReuseIdentifier: "generalEmptyCell")
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         getData()
+    }
+    
+    @objc func refreshTable() {
+        getData {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @IBAction func addPackage(_ sender: Any) {
@@ -37,43 +51,54 @@ class PackageViewController: UIViewController {
 
 // MARK: - API
 extension PackageViewController {
-    private func getData() {
-        self.showSpinner { [weak self] (spinner) in
-            guard let self = self else { return }
-            
-            self.sendRequest() { [weak self] (dataList, error) in
-                guard let self = self else { return }
-                
-                self.removeSpinner(spinner)
-                if error != nil {
-                    self.showToast(message: "gagal mendapatkan data")
-                } else {
-                    self.handleSuccessGetData(dataList)
-                }
-            }
-        }
-    }
-    private func sendRequest(completion: (([PetShopListModel]?, Error?) -> Void)? = nil) {
+
+    /// Method for get data Package List
+    /// - Parameter completion: closure
+    private func getData(completion: (() -> Void)? = nil) {
         let currentId = UserDefaultsUtils.shared.getCurrentId()
         let url = "\(CommonHelper.shared.BASE_URL)petshop/package/list?animal_id&petshop_id=\(currentId)"
         
-        NetworkHelper.shared.connect(url: url, params: nil, model: PetShopListAPIModel.self) { (result) in
+        showLoading()
+        NetworkHelper.shared.connect(url: url, params: nil, model: PetShopListAPIModel.self) { [weak self] (result) in
+            guard let self = self else { return }
+            self.removeLoading()
+            
             switch result {
             case .failure(let err):
-                completion?(nil, err)
-                break
+                self.errorResponse(error: err)
+                
             case .success(let value):
-                completion?(value.data, nil)
+                self.packageList = value.data
+                self.tableView.reloadData()
             }
+        }
+        completion?()
+    }
+    
+    // MARK: error handling
+    /// Method for handling error response from network threading
+    /// - Parameter error: Model Error From network threading
+    private func errorResponse(error: Error) {
+        if let newError = error as? ErrorResponse {
+            self.showToast(message: newError.messages)
+        }
+    }
+}
+
+// MARK: - loading
+extension PackageViewController {
+    
+    /// Show loading
+    private func showLoading() {
+        self.showSpinner { [weak self] (spinner) in
+            guard let self = self else { return }
+            self.spinner = spinner
         }
     }
     
-    private func handleSuccessGetData(_ data: [PetShopListModel]?) {
-        guard let dataList = data else {
-            self.showToast(message: "gagal mendapatkan data")
-            return
-        }
-        self.packageList = dataList
-        tableView.reloadData()
+    /// remove loading
+    private func removeLoading() {
+        guard let spinner = self.spinner else { return }
+        self.removeSpinner(spinner)
     }
 }

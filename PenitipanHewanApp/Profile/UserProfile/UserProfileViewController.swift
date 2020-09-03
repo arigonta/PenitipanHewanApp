@@ -10,12 +10,15 @@ import UIKit
 import CoreData
 
 protocol UserProfileViewProtocol: class {
-    func reloadData()
     func updateImage(image: UIImage)
     func updateScreen(data: UserModel?)
     func showLoading()
     func removeLoading()
     func errorResponse(_ error: Error)
+}
+
+protocol RefreshProfilePageDelegate: class {
+    func refreshPage()
 }
 
 class UserProfileViewController: UIViewController {
@@ -86,7 +89,7 @@ extension UserProfileViewController: UITableViewDelegate {
         case 1:
             presenter?.directToTopUp(self, saldo: userModel?.saldo ?? 0)
         case 2:
-            presenter?.directToEditData(self, userModel: userModel)
+            presenter?.directToEditData(self, userModel: userModel, delegate: self)
         case 3:
             presenter?.directToChangePassword(self)
         default:
@@ -175,11 +178,8 @@ extension UserProfileViewController: UITableViewDataSource {
     
 }
 
+// MARK: view protocol
 extension UserProfileViewController: UserProfileViewProtocol {
-    func reloadData() {
-        
-    }
-    
     func updateImage(image: UIImage) {
         self.imgProfile = image
         tableView.reloadData()
@@ -204,5 +204,12 @@ extension UserProfileViewController: UserProfileViewProtocol {
         if let newError = error as? ErrorResponse {
             self.showToast(message: newError.messages)
         }
+    }
+}
+
+// MARK: - Refresh profile Delegate
+extension UserProfileViewController: RefreshProfilePageDelegate {
+    func refreshPage() {
+        presenter?.getProfileData(self)
     }
 }
