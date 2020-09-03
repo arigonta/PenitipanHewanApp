@@ -118,7 +118,6 @@ extension UserEditProfileViewController: UserEditProfileViewProtocol {
         }
     }
     
-    
     /// remove loading
     func removeLoading() {
         guard let spinner = self.spinner else { return }

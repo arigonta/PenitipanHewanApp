@@ -17,6 +17,7 @@ class UserPetshopDetailViewController: UIViewController {
     
     @IBOutlet weak var imagePetshop: UIImageView!
     @IBOutlet weak var petshopName: UILabel!
+    @IBOutlet weak var packageNameLbl: UILabel!
     @IBOutlet weak var packagePetshop: UILabel!
     @IBOutlet weak var pricePackage: UILabel!
     @IBOutlet weak var phonePetshopLbl: UILabel!
@@ -121,6 +122,7 @@ extension UserPetshopDetailViewController {
         petshopDesc.text = dataDetail?.deskripsi ?? "-Tidak ada Deskripsi paket"
         phonePetshopLbl.text = "_"
         addressPetshop.text = "_"
+        packageNameLbl.text = dataDetail?.package_name
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -48,7 +48,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="wSh-ue-oK4" secondAttribute="trailing" constant="8" id="jtT-4K-FBp"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultEmptyPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="cSR-h0-ET4">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultEmptyPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="cSR-h0-ET4">
                                                             <rect key="frame" x="93.666666666666671" y="32.333333333333329" width="187.66666666666663" height="187.33333333333337"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="cSR-h0-ET4" secondAttribute="height" multiplier="1:1" id="A9G-hC-0eD"/>
