@@ -14,7 +14,7 @@ protocol detailMonitoringCellProtocol {
 import UIKit
 
 class DetailMonitoringCell: UITableViewCell {
-
+    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
@@ -45,8 +45,8 @@ class DetailMonitoringCell: UITableViewCell {
     
     override func awakeFromNib() {
         submitButton.setButtonMainStyle()
+        self.noteTextField.delegate = self
         self.selectionStyle = .none
-        
     }
     
     @IBAction func editButton(_ sender: Any) {
@@ -54,7 +54,7 @@ class DetailMonitoringCell: UITableViewCell {
     }
     
     @IBAction func breakfastButton(_ sender: Any) {
-
+        
     }
     
     @IBAction func lunchButton(_ sender: Any) {
@@ -83,5 +83,12 @@ class DetailMonitoringCell: UITableViewCell {
         
         let value = History(reservationPackageHistoryID: tempReservationPackageHistory, reservationPackageID: nil, isHasBreakfast: isHasBreakfast, isHasLunch: isHasLunch, isHasDinner: isHasDinner, isHasVitamin: isHasVitamin, isHasVaccine: isHasVaccine, isHasShower: isHasShower, note: noteTextField.text, date: nil)
         delegate?.submitButton(history: value)
+    }
+}
+
+extension DetailMonitoringCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

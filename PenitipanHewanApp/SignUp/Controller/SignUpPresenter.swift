@@ -54,7 +54,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             isEmailValidate = true
         }
         
-        if username.text == "" {
+        if username.text == "" || username.text?.count ?? 0 <= 4 {
             username.setRedUnderLine()
             isUsernameValidate = false
         } else {
@@ -86,7 +86,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             isSelectRoleValidate = true
         }
         
-        if phoneTft.text == "" {
+        if phoneTft.text == "" || phoneTft.text?.count ?? 0 <= 8 || phoneTft.text?.count ?? 0 <= 13 {
             phoneTft.setRedUnderLine()
             isPhoneValidate = false
         } else {
@@ -94,7 +94,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             isPhoneValidate = true
         }
         
-        if fullnameTft.text == "" {
+        if fullnameTft.text == "" || fullnameTft.text?.count ?? 0 <= 2 {
             fullnameTft.setRedUnderLine()
             isFullNameValidate = false
         } else {
@@ -106,7 +106,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             addressTft.setRedUnderLine()
         }
         
-        if password.text != confirmPassword.text || password.text == "" || confirmPassword.text == "" {
+        if password.text != confirmPassword.text || password.text == "" || confirmPassword.text == "" || password.text?.count ?? 0 <= 6 || confirmPassword.text?.count ?? 0 >= 13 {
             password.setRedUnderLine()
             confirmPassword.setRedUnderLine()
             password.textColor = .red
@@ -131,7 +131,6 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             && isFullNameValidate {
             let model = SignUpModel(username.text, password.text, selectRole.text, email.text, fullnameTft.text, phoneTft.text, addressTft.text)
             sendDataRegister(screen, model)
-            
         }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -392,19 +392,19 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="929-dk-5r9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="u82-gI-CLo">
-                                                                    <rect key="frame" x="8" y="8" width="359" height="54"/>
+                                                                    <rect key="frame" x="8" y="8" width="359" height="153"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-08-23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neJ-rS-LAd">
-                                                                            <rect key="frame" x="0.0" y="17.333333333333336" width="294" height="19.333333333333336"/>
+                                                                            <rect key="frame" x="0.0" y="67" width="294" height="19.333333333333329"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKW-lV-Ebo">
-                                                                            <rect key="frame" x="299" y="12" width="60" height="30"/>
+                                                                            <rect key="frame" x="299" y="61.666666666666671" width="60" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="60" id="FSm-6y-TNx"/>
                                                                             </constraints>
@@ -424,8 +424,8 @@
                                                                 <constraint firstAttribute="bottom" secondItem="u82-gI-CLo" secondAttribute="bottom" constant="8" id="N6N-jX-aZy"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f95-Pc-sh0">
-                                                            <rect key="frame" x="0.0" y="73" width="375" height="30"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f95-Pc-sh0">
+                                                            <rect key="frame" x="0.0" y="170.66666666666666" width="375" height="30"/>
                                                             <subviews>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFZ-Yb-lWL">
                                                                     <rect key="frame" x="309" y="0.0" width="52" height="30"/>
@@ -438,7 +438,7 @@
                                                                     </connections>
                                                                 </switch>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Makan Pagi ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eq-4S-hb8">
-                                                                    <rect key="frame" x="18" y="5" width="283" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="18" y="4.6666666666666856" width="283" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -454,8 +454,8 @@
                                                                 <constraint firstItem="qFZ-Yb-lWL" firstAttribute="top" secondItem="f95-Pc-sh0" secondAttribute="top" id="tnD-yL-7NE"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-a9-TDc">
-                                                            <rect key="frame" x="0.0" y="106" width="375" height="30"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TU-a9-TDc">
+                                                            <rect key="frame" x="0.0" y="170.66666666666666" width="375" height="30"/>
                                                             <subviews>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFV-2D-47B">
                                                                     <rect key="frame" x="309" y="0.0" width="52" height="30"/>
@@ -468,7 +468,7 @@
                                                                     </connections>
                                                                 </switch>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Makan Siang ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVZ-I6-d2K">
-                                                                    <rect key="frame" x="16" y="5" width="285" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="16" y="4.6666666666666856" width="285" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -485,7 +485,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDM-LT-hvC">
-                                                            <rect key="frame" x="0.0" y="139" width="375" height="30"/>
+                                                            <rect key="frame" x="0.0" y="172" width="375" height="30"/>
                                                             <subviews>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljw-tb-Hke">
                                                                     <rect key="frame" x="309" y="0.0" width="52" height="30"/>
@@ -514,8 +514,8 @@
                                                                 <constraint firstAttribute="bottom" secondItem="Ljw-tb-Hke" secondAttribute="bottom" id="xck-yZ-bkO"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-Ul-NuT">
-                                                            <rect key="frame" x="0.0" y="172" width="375" height="30"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HA-Ul-NuT">
+                                                            <rect key="frame" x="0.0" y="203.66666666666666" width="375" height="30"/>
                                                             <subviews>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-cS-NzA">
                                                                     <rect key="frame" x="309" y="0.0" width="52" height="30"/>
@@ -528,7 +528,7 @@
                                                                     </connections>
                                                                 </switch>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudah Di Beri Vitamin ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iif-d1-A1B">
-                                                                    <rect key="frame" x="16" y="5" width="285" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="16" y="4.6666666666666856" width="285" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

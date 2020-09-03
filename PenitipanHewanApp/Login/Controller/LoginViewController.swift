@@ -35,13 +35,6 @@ class LoginViewController: UIViewController {
         window = appDelegate.window
         presenter = LoginPresenter(self, window)
         
-        //MARK: For Checking User
-        //        loginModel.forEach { (i) in
-        //            print("username: ", i.username ?? "")
-        //            print("pass: ", i.password ?? "")
-        //            print("role: ", i.role ?? "")
-        //        }
-        
         // MARK: Configure
         usernameTextField.placeholder = "Username"
         passwordTextField.placeholder = "Password"
@@ -56,23 +49,6 @@ class LoginViewController: UIViewController {
         passwordTextField.setMainUnderLine()
         titleLabel.textColor = ColorHelper.instance.mainGreen
     }
-    
-    //    func fetchCoreData() {
-    //        let context = appDelegate.persistentContainer.viewContext
-    //        let fetchLoginModel = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
-    //        do {
-    //            let results = try context.fetch(fetchLoginModel) as! [NSManagedObject]
-    //            results.forEach { (i) in
-    //                loginModel.append(LoginModel(
-    //                    username: i.value(forKey: "username") as? String,
-    //                    password: i.value(forKey: "password") as? String,
-    //                    role: i.value(forKey: "role") as? String)
-    //                )
-    //            }
-    //        } catch {
-    //            print("failed")
-    //        }
-    //    }
     
     @IBAction func loginButton(_ sender: Any) {
         view.endEditing(true)
@@ -106,6 +82,22 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == usernameTextField {
+            let text = (textField.text ?? "") as NSString
+            let usernameTxt = text.replacingCharacters(in: range, with: string)
+            usernameTextField.text = usernameTxt.trimmingCharacters(in: .whitespacesAndNewlines)
+            return false
+        } else if textField == passwordTextField {
+            let text = (textField.text ?? "") as NSString
+            let passwordTxt = text.replacingCharacters(in: range, with: string)
+            textField.text = passwordTxt.trimmingCharacters(in: .whitespacesAndNewlines)
+            return false
+        } else {
+            return true
+        }
     }
 }
 

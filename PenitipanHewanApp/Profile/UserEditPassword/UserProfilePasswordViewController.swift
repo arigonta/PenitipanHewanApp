@@ -17,8 +17,9 @@ class UserProfilePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setFirstView()
+        newPasswordTF.delegate = self
+        confirmNewPassword.delegate = self
     }
-    
     
     private func setFirstView() {
         initializeHidKeyboard()
@@ -26,14 +27,12 @@ class UserProfilePasswordViewController: UIViewController {
         newPasswordTF.placeholder = "New Password"
         confirmNewPassword.placeholder = "confirm New Password"
         submitBtn.setTitle("Ganti Password", for: .normal)
-        
         newPasswordTF.setMainUnderLine()
         confirmNewPassword.setMainUnderLine()
         submitBtn.setButtonMainStyle()
     }
     
     @IBAction func submitBtn(_ sender: Any) {
-        
         var isConfirmPassValidate = false
         
         if newPasswordTF.text == confirmNewPassword.text {
@@ -107,4 +106,27 @@ extension UserProfilePasswordViewController {
         }
     }
     
+}
+
+extension UserProfilePasswordViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == newPasswordTF {
+            let text = (textField.text ?? "") as NSString
+            let passTxt = text.replacingCharacters(in: range, with: string)
+            newPasswordTF.text = passTxt.trimmingCharacters(in: .whitespacesAndNewlines)
+            return false
+        } else if textField == confirmNewPassword {
+            let text = (textField.text ?? "") as NSString
+            let conPasswordTxt = text.replacingCharacters(in: range, with: string)
+            confirmNewPassword.text = conPasswordTxt.trimmingCharacters(in: .whitespacesAndNewlines)
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
