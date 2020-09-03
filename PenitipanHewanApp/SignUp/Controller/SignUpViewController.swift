@@ -35,13 +35,6 @@ class SignUpViewController: UIViewController  {
     @IBOutlet weak var addressStackView: UIStackView!
     
     var loginModel: LoginModel?
-    var isEmailValidate = false
-    var isUsernameValidate = false
-    var isPasswordValidate = false
-    var isConfirmPasswordValidate = false
-    var isSelectRoleValidate = false
-    var isPassEqual = false
-    var isPhoneValidate = false
     
     var presenter: SignUpPresenterProtocol?
     var activeComponent: UIView?
@@ -63,6 +56,7 @@ class SignUpViewController: UIViewController  {
         self.navigationController?.navigationBar.topItem?.title = " "
         
         selectRole.delegate = self
+        username.delegate = self
         
         // MARK: Configure
         email.placeholder = "Email"
@@ -124,6 +118,16 @@ class SignUpViewController: UIViewController  {
 extension SignUpViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == selectRole {
+            return false
+        } else if textField == username {
+            let text = (textField.text ?? "") as NSString
+            let usernameTxt = text.replacingCharacters(in: range, with: string)
+            username.text = usernameTxt.trimmingCharacters(in: .whitespacesAndNewlines)
+            return false
+        } else if textField == password {
+            let text = (textField.text ?? "") as NSString
+            let passwordTxt = text.replacingCharacters(in: range, with: string)
+            password.text = passwordTxt.trimmingCharacters(in: .whitespacesAndNewlines)
             return false
         } else {
             return true

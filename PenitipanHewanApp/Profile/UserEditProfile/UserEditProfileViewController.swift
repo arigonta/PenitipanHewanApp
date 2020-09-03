@@ -13,7 +13,7 @@ protocol UserEditProfileViewProtocol: class {
 }
 
 class UserEditProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var namaTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var handphoneTF: UITextField!
@@ -30,7 +30,12 @@ class UserEditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        namaTF.delegate = self
+        emailTF.delegate = self
+        handphoneTF.delegate = self
+        addressTF.delegate = self
+        
         initializeHidKeyboard()
         presenter = UserEditProfilePresenter(view: self)
         setFirstView()
@@ -40,12 +45,12 @@ class UserEditProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications(scrollView: scrollView, activeComponent: activeComponent)
     }
-
+    
     override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         deregisterFromKeyboardNotifications()
     }
-
+    
     private func setFirstView() {
         initializeHidKeyboard()
         self.title = "Edit Profile"
@@ -89,6 +94,11 @@ extension UserEditProfileViewController: UserEditProfileViewProtocol {
     func setTexfieldRed(textfield: UITextField) {
         textfield.setRedUnderLine()
     }
-    
-    
 }
+
+extension UserEditProfileViewController: UITextFieldDelegate {
+       func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           textField.resignFirstResponder()
+           return true
+       }
+   }

@@ -61,6 +61,15 @@ class UserReservationFormViewController: UIViewController {
     
     private func setView() {
         self.title = "Reservation"
+        
+        petNameTft.delegate = self
+        petRasTft.delegate = self
+        petAgeTft.delegate = self
+        petColorTft.delegate = self
+        petSickCheckTft.delegate = self
+        petVaksinTft.delegate = self
+        noteTft.delegate = self
+        
         setImage()
         setTextfield()
         setSubmitBtn()
@@ -161,4 +170,11 @@ extension UserReservationFormViewController: UserReservationFormViewProtocol {
         textfield.setRedUnderLine()
     }
     
+}
+
+extension UserReservationFormViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
