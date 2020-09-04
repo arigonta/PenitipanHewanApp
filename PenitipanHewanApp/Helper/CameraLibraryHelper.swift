@@ -96,20 +96,25 @@ class CameraLibraryHelper: NSObject {
     
     private func presentCamera() {
         guard let screen = self.viewController else { return }
-        let cameraVC = UIImagePickerController()
-        cameraVC.sourceType = .camera
-        cameraVC.allowsEditing = true
-        cameraVC.delegate = self
-        screen.present(cameraVC, animated: true, completion: nil)
+        dispatchMainAsync(weakVar: self) { strongSelf in
+            let cameraVC = UIImagePickerController()
+            cameraVC.sourceType = .camera
+            cameraVC.allowsEditing = true
+            cameraVC.delegate = strongSelf
+            screen.present(cameraVC, animated: true, completion: nil)
+        }
+            
     }
     
     private func presentPhotoLibrary() {
         guard let screen = self.viewController else { return }
-        let photoLibraryVC = UIImagePickerController()
-        photoLibraryVC.sourceType = .photoLibrary
-        photoLibraryVC.allowsEditing = true
-        photoLibraryVC.delegate = self
-        screen.present(photoLibraryVC, animated: true, completion: nil)
+        dispatchMainAsync(weakVar: self) { strongSelf in
+            let photoLibraryVC = UIImagePickerController()
+            photoLibraryVC.sourceType = .photoLibrary
+            photoLibraryVC.allowsEditing = true
+            photoLibraryVC.delegate = strongSelf
+            screen.present(photoLibraryVC, animated: true, completion: nil)
+        }
     }
     
     private func convertBase64(image: UIImage) -> String {
