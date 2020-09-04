@@ -54,30 +54,14 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             isEmailValidate = true
         }
         
-        if username.text == "" || username.text?.count ?? 0 <= 4 {
+        if username.text == "" || username.text?.count ?? 0 < 4 {
             username.setRedUnderLine()
             isUsernameValidate = false
         } else {
             username.setMainUnderLine()
             isUsernameValidate = true
         }
-        
-        if password.text == "" {
-            password.setRedUnderLine()
-            isPasswordValidate = false
-        } else {
-            password.setMainUnderLine()
-            isPasswordValidate = true
-        }
-        
-        if confirmPassword.text == "" {
-            confirmPassword.setRedUnderLine()
-            isConfirmPasswordValidate = false
-        } else {
-            confirmPassword.setMainUnderLine()
-            isConfirmPasswordValidate = true
-        }
-        
+            
         if selectRole.text == "" {
             selectRole.setRedUnderLine()
             isSelectRoleValidate = false
@@ -86,7 +70,7 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             isSelectRoleValidate = true
         }
         
-        if phoneTft.text == "" || phoneTft.text?.count ?? 0 <= 8 || phoneTft.text?.count ?? 0 <= 13 {
+        if phoneTft.text == "" || phoneTft.text?.count ?? 0 < 8 || phoneTft.text?.count ?? 0 > 13 {
             phoneTft.setRedUnderLine()
             isPhoneValidate = false
         } else {
@@ -106,19 +90,34 @@ class SignUpPresenter: SignUpPresenterProtocol  {
             addressTft.setRedUnderLine()
         }
         
-        if password.text != confirmPassword.text || password.text == "" || confirmPassword.text == "" || password.text?.count ?? 0 <= 6 || confirmPassword.text?.count ?? 0 >= 13 {
+        if password.text != confirmPassword.text || password.text == "" || confirmPassword.text == "" {
             password.setRedUnderLine()
             confirmPassword.setRedUnderLine()
             password.textColor = .red
             confirmPassword.textColor = .red
             isPassEqual = false
-            
         } else {
             password.setMainUnderLine()
             confirmPassword.setMainUnderLine()
             password.textColor = .black
             confirmPassword.textColor = .black
             isPassEqual = true
+        }
+        
+        if password.text == "" || password.text?.count ?? 0 < 6 {
+            password.setRedUnderLine()
+            isPasswordValidate = false
+        } else {
+            password.setMainUnderLine()
+            isPasswordValidate = true
+        }
+        
+        if confirmPassword.text == "" || confirmPassword.text?.count ?? 0 < 6 {
+            confirmPassword.setRedUnderLine()
+            isConfirmPasswordValidate = false
+        } else {
+            confirmPassword.setMainUnderLine()
+            isConfirmPasswordValidate = true
         }
         
         if isEmailValidate
