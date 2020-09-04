@@ -31,7 +31,7 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             tableView.separatorStyle = .singleLine
             tableView.allowsSelection = true
             let data = monitoringList[indexPath.row]
-            cell.labelAge.text = "\(data.age ?? 0) Tahun"
+            cell.labelAge.text = calculateAge(months: data.age ?? 0)
             cell.labelName.text = data.animalName
             cell.labelRas.text = data.animalRacial
             cell.labelColor.text = data.color
@@ -69,5 +69,15 @@ extension PetshopMonitoringViewController: UITableViewDelegate, UITableViewDataS
             }
         }
         
+    }
+}
+extension PetshopMonitoringViewController {
+    func calculateAge(months: Int) -> String {
+        let newMonths = months % 12
+        let year = months / 12
+        let bulan = newMonths == 0 ? "" : "\(newMonths) Bulan"
+        let tahun = year == 0 ? "" : "\(year) Tahun "
+        
+        return "\(tahun)\(bulan)"
     }
 }
