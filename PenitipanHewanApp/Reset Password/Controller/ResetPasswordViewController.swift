@@ -93,4 +93,13 @@ extension ResetPasswordViewController {
         guard let spinner = self.spinner else { return }
         self.removeSpinner(spinner)
     }
+    
+    
+}
+
+extension ResetPasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

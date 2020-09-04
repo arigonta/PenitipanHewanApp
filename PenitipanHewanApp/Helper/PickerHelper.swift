@@ -18,6 +18,7 @@ class PickerHelper: NSObject {
     var delegate: PickerHelperDelegate?
     var dataPicker: [String]?
     var textfield: UITextField?
+    var selectedValue: String?
     
     init(_ screen: UIViewController, _ delegate: PickerHelperDelegate?) {
         self.screen = screen
@@ -46,7 +47,9 @@ class PickerHelper: NSObject {
     }
     
     @objc func dismissPicker() {
-        guard let screen = screen else { return }
+        guard let screen = screen, let data = dataPicker, let tft = textfield else { return }
+        
+        delegate?.pickerResult(textField: tft, value: selectedValue ?? data[0] )
         screen.view.endEditing(true)
     }
     
@@ -55,6 +58,7 @@ class PickerHelper: NSObject {
 extension PickerHelper: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let data = dataPicker, let tft = textfield else { return }
+        selectedValue = data[row]
         delegate?.pickerResult(textField: tft, value: data[row])
     }
 }
