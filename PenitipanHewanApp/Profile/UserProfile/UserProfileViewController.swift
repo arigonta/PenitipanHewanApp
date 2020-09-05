@@ -17,10 +17,6 @@ protocol UserProfileViewProtocol: class {
     func errorResponse(_ error: Error)
 }
 
-protocol RefreshProfilePageDelegate: class {
-    func refreshPage()
-}
-
 class UserProfileViewController: UIViewController {
     
     // MARK: - IBOutlet
@@ -39,10 +35,20 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         window = appDelegate.window
-        
         presenter = UserProfilePresenter(self)
         setTable()
-        presenter?.getProfileData(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if !(presenter?.isOpenCamera ?? true) {
+            presenter?.getProfileData(self)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        presenter?.isOpenCamera = false
     }
 
     @IBAction func logoutAction(_ sender: Any) {
@@ -89,7 +95,7 @@ extension UserProfileViewController: UITableViewDelegate {
         case 1:
             presenter?.directToTopUp(self, saldo: userModel?.saldo ?? 0)
         case 2:
-            presenter?.directToEditData(self, userModel: userModel, delegate: self)
+            presenter?.directToEditData(self, userModel: userModel)
         case 3:
             presenter?.directToChangePassword(self)
         default:
@@ -204,12 +210,5 @@ extension UserProfileViewController: UserProfileViewProtocol {
         if let newError = error as? ErrorResponse {
             self.showToast(message: newError.messages)
         }
-    }
-}
-
-// MARK: - Refresh profile Delegate
-extension UserProfileViewController: RefreshProfilePageDelegate {
-    func refreshPage() {
-        presenter?.getProfileData(self)
     }
 }

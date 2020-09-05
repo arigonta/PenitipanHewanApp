@@ -32,7 +32,6 @@ class UserEditProfileViewController: UIViewController {
     var userModel: UserModel?
     var currentRole = UserDefaultsUtils.shared.getRole()
     var presenter: UserEditProfilePresenterProtocol?
-    weak var delegate: RefreshProfilePageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,9 +103,7 @@ extension UserEditProfileViewController: UserEditProfileViewProtocol {
     func successEditData(message: String) {
         self.showToast(message: message)
         delay(weakVar: self, deadline: .now() + 1.1) { strongSelf in
-            strongSelf.delegate?.refreshPage()
             strongSelf.navigationController?.popViewController(animated: true)
-            
         }
     }
     

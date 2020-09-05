@@ -15,14 +15,16 @@ protocol UserProfilePresenterProtocol {
     var cameraHelper: CameraLibraryHelper? { get set }
     var userModel: UserModel? { get set }
     func directToTopUp(_ screen: UserProfileViewController, saldo: Int)
-    func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?, delegate: RefreshProfilePageDelegate?)
+    func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?)
     func directToChangePassword(_ screen: UserProfileViewController)
     func openAlert(_ screen: UserProfileViewController)
     func getProfileData(_ screen: UserProfileViewController)
+    var isOpenCamera: Bool? { get set }
 }
 
 class UserProfilePresenter: UserProfilePresenterProtocol {
     
+    var isOpenCamera: Bool? = false
     var view: UserProfileViewProtocol?
     var cameraHelper: CameraLibraryHelper?
     var currentID = UserDefaultsUtils.shared.getCurrentId()
@@ -42,10 +44,9 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         }
     }
     
-    func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?, delegate: RefreshProfilePageDelegate?) {
+    func directToEditData(_ screen: UserProfileViewController, userModel: UserModel?) {
         let nextVC = UserEditProfileViewController(nibName: "UserEditProfileViewController", bundle: nil)
         nextVC.userModel = userModel
-        nextVC.delegate = delegate
         nextVC.hidesBottomBarWhenPushed = true
         screen.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -93,6 +94,7 @@ extension UserProfilePresenter {
 
 extension UserProfilePresenter: CameraLibraryHelperDelegate {
     func resultCamera(image: UIImage, base64: String) {
+        isOpenCamera = true
         self.userModel?.photo = "data:image/jpeg;base64,\(base64)"
         self.uploadPhotoProfile()
     }
