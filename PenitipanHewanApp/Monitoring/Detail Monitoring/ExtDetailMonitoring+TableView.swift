@@ -31,7 +31,7 @@ extension DetailMonitoringViewController: UITableViewDelegate, UITableViewDataSo
             let headMonitoringCell = tableView.dequeueReusableCell(withIdentifier: "HeaderDetailMonitoringCell", for: indexPath) as! HeaderDetailMonitoringCell
             headMonitoringCell.nameLabel.text = tempMonitoringModel?.animalName
             headMonitoringCell.rasLabel.text = tempMonitoringModel?.animalRacial
-            headMonitoringCell.ageLabel.text = "\(tempMonitoringModel?.age ?? 0) Tahun"
+            headMonitoringCell.ageLabel.text = calculateAge(months: tempMonitoringModel?.age ?? 0)
             headMonitoringCell.colorLabel.text = tempMonitoringModel?.color
             headMonitoringCell.lastSickLabel.text = tempMonitoringModel?.lastTimeGotSick
             headMonitoringCell.noteLabel.text = tempMonitoringModel?.note ?? "-"
@@ -185,5 +185,16 @@ extension DetailMonitoringViewController: detailMonitoringCellProtocol {
             self.scrollToRow()
             tableView.reloadData()
         }
+    }
+}
+
+extension DetailMonitoringViewController {
+    func calculateAge(months: Int) -> String {
+        let newMonths = months % 12
+        let year = months / 12
+        let bulan = newMonths == 0 ? "" : "\(newMonths) Bulan"
+        let tahun = year == 0 ? "" : "\(year) Tahun "
+        
+        return "\(tahun)\(bulan)"
     }
 }
